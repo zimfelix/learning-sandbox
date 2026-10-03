@@ -1,15 +1,2 @@
-# Virtual environment
-.venv/
-
-# Python cache and test artifacts
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.ruff_cache/
-
-# IDE settings
-.idea/
-.vscode/
-
-# macOS
 .DS_Store
+.idea/
