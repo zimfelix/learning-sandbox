@@ -1,0 +1,20 @@
+{
+  "title": "Projektordner ermitteln", "category": "Code Examples", "accent": "#fab387",
+  "lines": [
+    ["title", "Projektordner ermitteln"], ["muted", "Echter Code aus main.py"], ["gap", ""],
+    ["code", "PROJECT_DIR = Path(__file__).resolve().parent"], ["gap", ""],
+    ["rule", "Rechts auswerten → Ergebnis links an Namen binden."], ["gap", ""],
+    ["text", "PROJECT_DIR → variable name (Variablenname)"],
+    ["muted", "Großschreibung kennzeichnet eine Konstante."],
+    ["text", "= → assignment (Zuweisung)"], ["gap", ""],
+    ["text", "Path → class (Klasse)"],
+    ["text", "__file__ → Variable mit dem Pfad dieser Datei"],
+    ["text", "Path(__file__) → erzeugt ein Pfadobjekt"], ["gap", ""],
+    ["text", ".resolve() → attribute access + method call"],
+    ["muted", "Liefert einen absoluten, aufgelösten Pfad."],
+    ["text", ".parent → attribute access auf eine Property"],
+    ["muted", "Liefert den übergeordneten Ordner."], ["gap", ""],
+    ["text", "Gesamte rechte Seite → expression (Ausdruck)"],
+    ["muted", "Diese Zeile liest keinen Dateiinhalt."]
+  ]
+}

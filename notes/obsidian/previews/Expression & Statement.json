@@ -1,0 +1,75 @@
+{
+  "title": "Expression & Statement",
+  "category": "Python Basics",
+  "accent": "#f6c85f",
+  "lines": [
+    [
+      "title",
+      "Expression & Statement"
+    ],
+    [
+      "muted",
+      "Expression (Ausdruck) · Statement (Anweisung)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "Ausdruck liefert etwas; Anweisung macht einen Schritt."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "total = 2 + 3"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "2 + 3 → expression: ergibt den Wert 5."
+    ],
+    [
+      "text",
+      "Ganze Zeile → assignment statement (Zuweisung)."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "def main():"
+    ],
+    [
+      "code",
+      "    print(\"Hallo\")"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "main()"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "def → Funktion definieren."
+    ],
+    [
+      "text",
+      "main() → Funktion aufrufen."
+    ]
+  ]
+}

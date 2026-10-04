@@ -1,0 +1,79 @@
+{
+  "title": "Attribute Access & Call",
+  "category": "Python Basics",
+  "accent": "#f6c85f",
+  "lines": [
+    [
+      "title",
+      "Attribute Access & Call"
+    ],
+    [
+      "muted",
+      "Attribute access (Attributzugriff) · Call (Aufruf)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "Der Punkt greift zu; nachgestellte () rufen auf."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "from pathlib import Path"
+    ],
+    [
+      "code",
+      "path = Path(\"data/usage.json\")"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "path.parent       # Property lesen"
+    ],
+    [
+      "code",
+      "path.resolve      # Methode abrufen"
+    ],
+    [
+      "code",
+      "path.resolve()    # Methode aufrufen"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Attribute: erreichbar über den Punkt."
+    ],
+    [
+      "text",
+      "Eine Methode ist ebenfalls ein Attribut."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "print(\"Hallo\")    # function call"
+    ],
+    [
+      "code",
+      "text = \"claude\""
+    ],
+    [
+      "code",
+      "text.upper()      # method call"
+    ]
+  ]
+}

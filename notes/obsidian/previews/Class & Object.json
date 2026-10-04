@@ -1,0 +1,63 @@
+{
+  "title": "Class & Object",
+  "category": "Objects",
+  "accent": "#cba6f7",
+  "lines": [
+    [
+      "title",
+      "Class & Object"
+    ],
+    [
+      "muted",
+      "Class (Klasse) · Object (Objekt)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "Klasse = Bauplan; Objekt = konkretes Exemplar."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "from pathlib import Path"
+    ],
+    [
+      "code",
+      "path = Path(\"data/usage.json\")"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Path → class (Klasse)"
+    ],
+    [
+      "text",
+      "Path(...) → erzeugt ein object (Objekt)"
+    ],
+    [
+      "text",
+      "path → Name für dieses Objekt"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Instance (Instanz): konkretes Objekt einer Klasse."
+    ],
+    [
+      "muted",
+      "Das Bauplan-Bild ist eine Einstiegsvereinfachung."
+    ]
+  ]
+}

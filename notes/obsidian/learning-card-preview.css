@@ -1,0 +1,55 @@
+/* Only notes marked cssclasses: [learning-card].
+   Full note: image plus editable explanation. Hover: first image only. */
+.learning-card .metadata-container {
+  display: none !important;
+}
+
+.learning-card .internal-embed.image-embed img {
+  display: block;
+  width: 100%;
+  max-width: 780px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.hover-popover:has(.learning-card) {
+  width: min(720px, calc(100vw - 48px)) !important;
+  max-height: calc(100vh - 64px) !important;
+  height: auto !important;
+}
+
+.hover-popover .learning-card {
+  padding: 0 !important;
+  overflow: auto;
+  min-height: 450px;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.hover-popover .learning-card .markdown-preview-sizer {
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+/* Hide properties, title, explanation and navigation in the hover only. */
+.hover-popover .learning-card .markdown-preview-sizer > .el-p ~ div {
+  display: none !important;
+}
+
+.hover-popover .learning-card .markdown-preview-sizer > div:has(.image-embed),
+.hover-popover .learning-card .markdown-preview-sizer > div:has(.image-embed) p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hover-popover:has(.learning-card) .markdown-embed,
+.hover-popover:has(.learning-card) .markdown-embed-content {
+  padding: 0 !important;
+  border: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  max-height: calc(100vh - 64px) !important;
+}

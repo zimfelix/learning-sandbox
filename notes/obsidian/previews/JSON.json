@@ -1,0 +1,75 @@
+{
+  "title": "JSON",
+  "category": "Data & Files",
+  "accent": "#a6e3a1",
+  "lines": [
+    [
+      "title",
+      "JSON"
+    ],
+    [
+      "muted",
+      "Strukturiertes Textformat, kein Python-Datentyp."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "s steht für string."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "{} JSON object → Python dict"
+    ],
+    [
+      "text",
+      "[] JSON array → Python list"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "json.load(file)        # Datei → Python"
+    ],
+    [
+      "code",
+      "json.loads(text)       # String → Python"
+    ],
+    [
+      "code",
+      "json.dump(data, file)  # Python → Datei"
+    ],
+    [
+      "code",
+      "json.dumps(data)       # Python → String"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "JSON → Python: deserialization (Deserialisierung)"
+    ],
+    [
+      "text",
+      "Python → JSON: serialization (Serialisierung)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "muted",
+      "Einlesen → Python-Daten ändern → zurückschreiben."
+    ]
+  ]
+}

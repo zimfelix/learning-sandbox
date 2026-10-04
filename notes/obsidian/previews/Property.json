@@ -1,0 +1,75 @@
+{
+  "title": "Property",
+  "category": "Objects",
+  "accent": "#cba6f7",
+  "lines": [
+    [
+      "title",
+      "Property"
+    ],
+    [
+      "muted",
+      "Property (Eigenschaft)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "Ergebnis lesen, ohne Aufrufklammern."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "path.parent"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Sieht wie ein Wert aus; kann berechnet werden."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "muted",
+      "Definition innerhalb einer Klasse:"
+    ],
+    [
+      "code",
+      "@property"
+    ],
+    [
+      "code",
+      "def remaining_attempts(self):"
+    ],
+    [
+      "code",
+      "    return self.max_attempts - self.used_attempts"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "game.remaining_attempts  # Property lesen"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "muted",
+      "Ein Setter kann auch Zuweisungen ermöglichen."
+    ]
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "title": "With & Paths",
+  "category": "Data & Files",
+  "accent": "#a6e3a1",
+  "lines": [
+    [
+      "title",
+      "With & Paths"
+    ],
+    [
+      "muted",
+      "Context management (Kontextverwaltung)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "Geordnet benutzen und anschließend aufräumen."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "with path.open(encoding=\"utf-8\") as file:"
+    ],
+    [
+      "code",
+      "    data = json.load(file)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Datei → anschließend schließen."
+    ],
+    [
+      "text",
+      "SQLite-Verbindung → Commit oder Rollback."
+    ],
+    [
+      "muted",
+      "Die Verbindung wird dadurch nicht geschlossen."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "path.mkdir()           # Ordner erstellen"
+    ],
+    [
+      "code",
+      "path.with_suffix(\".db\")"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "with_suffix: neues Pfadobjekt mit anderer Endung."
+    ],
+    [
+      "muted",
+      "Benennt keine Datei auf der Festplatte um."
+    ]
+  ]
+}

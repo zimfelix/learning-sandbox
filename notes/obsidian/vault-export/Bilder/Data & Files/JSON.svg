@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="616" viewBox="0 0 780 616">
+<rect width="100%" height="100%" rx="18" fill="#181c23"/>
+<rect width="7" height="100%" rx="3" fill="#a6e3a1"/>
+<text x="36" y="44" fill="#a6e3a1" font-family="sans-serif" font-size="29" font-weight="700" xml:space="preserve">JSON</text>
+<text x="36" y="80" fill="#a7b4c5" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">Strukturiertes Textformat, kein Python-Datentyp.</text>
+<text x="36" y="140" fill="#ffffff" font-family="sans-serif" font-size="21" font-weight="700" xml:space="preserve">s steht für string.</text>
+<text x="36" y="200" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">{} JSON object → Python dict</text>
+<text x="36" y="236" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">[] JSON array → Python list</text>
+<text x="36" y="296" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">json.load(file)        </tspan><tspan fill="#94a3b8" xml:space="preserve"># Datei → Python</tspan><tspan fill="#89dceb" xml:space="preserve"></tspan></text>
+<text x="36" y="332" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">json.loads(text)       </tspan><tspan fill="#94a3b8" xml:space="preserve"># String → Python</tspan><tspan fill="#89dceb" xml:space="preserve"></tspan></text>
+<text x="36" y="368" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">json.dump(data, file)  </tspan><tspan fill="#94a3b8" xml:space="preserve"># Python → Datei</tspan><tspan fill="#89dceb" xml:space="preserve"></tspan></text>
+<text x="36" y="404" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">json.dumps(data)       </tspan><tspan fill="#94a3b8" xml:space="preserve"># Python → String</tspan><tspan fill="#89dceb" xml:space="preserve"></tspan></text>
+<text x="36" y="464" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">JSON → Python: deserialization (Deserialisierung)</text>
+<text x="36" y="500" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">Python → JSON: serialization (Serialisierung)</text>
+<text x="36" y="560" fill="#a7b4c5" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">Einlesen → Python-Daten ändern → zurückschreiben.</text>
+</svg>

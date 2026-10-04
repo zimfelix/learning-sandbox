@@ -1,0 +1,58 @@
+{
+  "collapse-filter": false,
+  "search": "path:\"Lernen\"",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": false,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "path:\"Lernen/Übersichten\"",
+      "color": {
+        "a": 1,
+        "rgb": 5622271
+      }
+    },
+    {
+      "query": "path:\"Lernen/Karten/Python Basics\"",
+      "color": {
+        "a": 1,
+        "rgb": 15844367
+      }
+    },
+    {
+      "query": "path:\"Lernen/Karten/Objects\"",
+      "color": {
+        "a": 1,
+        "rgb": 13346551
+      }
+    },
+    {
+      "query": "path:\"Lernen/Karten/Data & Files\"",
+      "color": {
+        "a": 1,
+        "rgb": 10937249
+      }
+    },
+    {
+      "query": "path:\"Lernen/Karten/Code Examples\"",
+      "color": {
+        "a": 1,
+        "rgb": 16429959
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.2,
+  "lineSizeMultiplier": 1.2,
+  "collapse-forces": false,
+  "centerStrength": 0.25,
+  "repelStrength": 18,
+  "linkStrength": 1,
+  "linkDistance": 340,
+  "scale": 0.6812993293676178,
+  "close": true
+}

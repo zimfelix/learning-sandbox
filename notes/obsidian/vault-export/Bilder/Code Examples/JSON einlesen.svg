@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="748" viewBox="0 0 780 748">
+<rect width="100%" height="100%" rx="18" fill="#181c23"/>
+<rect width="7" height="100%" rx="3" fill="#fab387"/>
+<text x="36" y="44" fill="#fab387" font-family="sans-serif" font-size="29" font-weight="700" xml:space="preserve">JSON einlesen</text>
+<text x="36" y="80" fill="#a7b4c5" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">Echter Code aus main(), als Ausschnitt</text>
+<text x="36" y="140" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve"></tspan><tspan fill="#cba6f7" xml:space="preserve">with</tspan><tspan fill="#89dceb" xml:space="preserve"> data_path.open(encoding=</tspan><tspan fill="#a6e3a1" xml:space="preserve">&quot;utf-8&quot;</tspan><tspan fill="#89dceb" xml:space="preserve">) </tspan><tspan fill="#cba6f7" xml:space="preserve">as</tspan><tspan fill="#89dceb" xml:space="preserve"> file:</tspan></text>
+<text x="36" y="176" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">    measurement = json.load(file)</tspan></text>
+<text x="36" y="236" fill="#ffffff" font-family="sans-serif" font-size="21" font-weight="700" xml:space="preserve">Datei öffnen → JSON einlesen → Datei schließen.</text>
+<text x="36" y="296" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">data_path → Name für ein Path-Objekt</text>
+<text x="36" y="332" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">.open(...) → method call (Methodenaufruf)</text>
+<text x="36" y="368" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">encoding=&quot;utf-8&quot; → keyword argument</text>
+<text x="36" y="404" fill="#a7b4c5" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">Benanntes Argument, keine normale Zuweisung.</text>
+<text x="36" y="464" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">with → context management (Kontextverwaltung)</text>
+<text x="36" y="500" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">as file → geöffnetes Dateiobjekt an file binden</text>
+<text x="36" y="560" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">json.load(file) → function call (Funktionsaufruf)</text>
+<text x="36" y="596" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">file → argument (Argument) dieses Aufrufs</text>
+<text x="36" y="632" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">measurement = → Ergebnis an Namen binden</text>
+<text x="36" y="692" fill="#a7b4c5" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">Unser JSON-Objekt wird zu einem Python-Dictionary.</text>
+</svg>

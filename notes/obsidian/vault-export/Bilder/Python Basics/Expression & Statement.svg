@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="604" viewBox="0 0 780 604">
+<rect width="100%" height="100%" rx="18" fill="#181c23"/>
+<rect width="7" height="100%" rx="3" fill="#f6c85f"/>
+<text x="36" y="44" fill="#f6c85f" font-family="sans-serif" font-size="29" font-weight="700" xml:space="preserve">Expression &amp; Statement</text>
+<text x="36" y="80" fill="#a7b4c5" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">Expression (Ausdruck) · Statement (Anweisung)</text>
+<text x="36" y="140" fill="#ffffff" font-family="sans-serif" font-size="21" font-weight="700" xml:space="preserve">Ausdruck liefert etwas; Anweisung macht einen Schritt.</text>
+<text x="36" y="200" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">total = 2 + 3</tspan></text>
+<text x="36" y="260" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">2 + 3 → expression: ergibt den Wert 5.</text>
+<text x="36" y="296" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">Ganze Zeile → assignment statement (Zuweisung).</text>
+<text x="36" y="356" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve"></tspan><tspan fill="#cba6f7" xml:space="preserve">def</tspan><tspan fill="#89dceb" xml:space="preserve"> main():</tspan></text>
+<text x="36" y="392" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">    print(</tspan><tspan fill="#a6e3a1" xml:space="preserve">&quot;Hallo&quot;</tspan><tspan fill="#89dceb" xml:space="preserve">)</tspan></text>
+<text x="36" y="452" fill="#89dceb" font-family="monospace" font-size="19" font-weight="400" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">main()</tspan></text>
+<text x="36" y="512" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">def → Funktion definieren.</text>
+<text x="36" y="548" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400" xml:space="preserve">main() → Funktion aufrufen.</text>
+</svg>

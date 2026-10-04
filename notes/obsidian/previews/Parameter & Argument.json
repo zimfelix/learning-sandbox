@@ -1,0 +1,79 @@
+{
+  "title": "Parameter & Argument",
+  "category": "Python Basics",
+  "accent": "#f6c85f",
+  "lines": [
+    [
+      "title",
+      "Parameter & Argument"
+    ],
+    [
+      "muted",
+      "Definition versus konkrete Übergabe"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "Parameter nimmt entgegen; Argument wird übergeben."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "def show_provider(provider):"
+    ],
+    [
+      "code",
+      "    print(provider)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "show_provider(\"claude\")"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "provider → parameter (Parameter): Platzhalter"
+    ],
+    [
+      "text",
+      "\"claude\" → argument (Argument): konkrete Übergabe"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "def show_provider(provider=\"claude\"):"
+    ],
+    [
+      "code",
+      "    print(provider)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Default value (Standardwert):"
+    ],
+    [
+      "muted",
+      "Wird verwendet, wenn das Argument fehlt."
+    ]
+  ]
+}

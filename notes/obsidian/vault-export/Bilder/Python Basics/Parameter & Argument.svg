@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="640" viewBox="0 0 780 640">
+<rect width="100%" height="100%" rx="18" fill="#181c23"/>
+<rect x="0" y="0" width="7" height="100%" rx="3" fill="#f6c85f"/>
+<text x="36" y="44" fill="#f6c85f" font-family="sans-serif" font-size="29" font-weight="700">Parameter &amp; Argument</text>
+<text x="36" y="80" fill="#a7b4c5" font-family="sans-serif" font-size="21" font-weight="400">Definition versus konkrete Übergabe</text>
+<text x="36" y="140" fill="#ffffff" font-family="sans-serif" font-size="21" font-weight="700">Parameter nimmt entgegen; Argument wird übergeben.</text>
+<text x="36" y="200" font-family="monospace" font-size="19" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve"></tspan><tspan fill="#cba6f7" xml:space="preserve">def</tspan><tspan fill="#89dceb" xml:space="preserve"> show_provider(provider):</tspan></text>
+<text x="36" y="236" font-family="monospace" font-size="19" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">    print(provider)</tspan></text>
+<text x="36" y="296" font-family="monospace" font-size="19" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">show_provider(</tspan><tspan fill="#a6e3a1" xml:space="preserve">&quot;claude&quot;</tspan><tspan fill="#89dceb" xml:space="preserve">)</tspan></text>
+<text x="36" y="356" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400">provider → parameter (Parameter): Platzhalter</text>
+<text x="36" y="392" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400">&quot;claude&quot; → argument (Argument): konkrete Übergabe</text>
+<text x="36" y="452" font-family="monospace" font-size="19" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve"></tspan><tspan fill="#cba6f7" xml:space="preserve">def</tspan><tspan fill="#89dceb" xml:space="preserve"> show_provider(provider=</tspan><tspan fill="#a6e3a1" xml:space="preserve">&quot;claude&quot;</tspan><tspan fill="#89dceb" xml:space="preserve">):</tspan></text>
+<text x="36" y="488" font-family="monospace" font-size="19" xml:space="preserve"><tspan fill="#89dceb" xml:space="preserve">    print(provider)</tspan></text>
+<text x="36" y="548" fill="#d9e1ec" font-family="sans-serif" font-size="21" font-weight="400">Default value (Standardwert):</text>
+<text x="36" y="584" fill="#a7b4c5" font-family="sans-serif" font-size="21" font-weight="400">Wird verwendet, wenn das Argument fehlt.</text>
+</svg>

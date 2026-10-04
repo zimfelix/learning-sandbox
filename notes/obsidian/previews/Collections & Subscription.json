@@ -1,0 +1,75 @@
+{
+  "title": "Collections & Subscription",
+  "category": "Data & Files",
+  "accent": "#a6e3a1",
+  "lines": [
+    [
+      "title",
+      "Collections & Subscription"
+    ],
+    [
+      "muted",
+      "Collections (Sammlungen) · Subscription (Indexzugriff)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      ". greift auf Attribute zu; [] auf Einträge."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "[\"a\", \"b\"]             # list (Liste)"
+    ],
+    [
+      "code",
+      "(\"a\", \"b\")             # tuple (Tupel)"
+    ],
+    [
+      "code",
+      "{\"provider\": \"claude\"} # dict (Dictionary)"
+    ],
+    [
+      "code",
+      "{\"a\", \"b\"}             # set (Menge)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "List: geordnet und veränderbar."
+    ],
+    [
+      "text",
+      "Tuple: geordnet; Einträge nicht ersetzbar."
+    ],
+    [
+      "text",
+      "Dict: Schlüssel führen zu Werten."
+    ],
+    [
+      "text",
+      "Set: keine Duplikate; keine feste Reihenfolge."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "measurement[\"provider\"]  # Eintrag holen"
+    ],
+    [
+      "muted",
+      "Tupel können veränderbare Objekte enthalten."
+    ]
+  ]
+}

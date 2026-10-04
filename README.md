@@ -17,9 +17,17 @@ SQLite ist ein neues Lernthema. Anbieterzugriffe, echte Daten und automatische B
 ## Aktueller Stand
 
 - `AGENTS.md`: projektbezogene Lern- und Arbeitsregeln.
-- `main.py`: liest einen künstlichen Messwert aus JSON ein und zeigt die Felder an.
+- `main.py`: enthält eine kurze `main()`-Funktion, die einen künstlichen Messwert aus JSON liest und seine Felder ausgibt. SQLite folgt erst im nächsten Lernschritt.
 - `data/sample_usage.json`: erfundene Beispieldaten, kein CodexBar-Export. `reporting_period` benennt die letzten 30 Tage relativ zum Messzeitpunkt; der Dollarwert ist nur ein Beispiel und wird nicht berechnet.
-- Noch keine Datenbank, Anbieteranbindung oder Produkttests eingerichtet. Feldprüfung und Fehlerbehandlung sind noch nicht umgesetzt.
+- Aktuell keine Datenbankspeicherung, Anbieteranbindung oder automatisierten Produkttests. Feldprüfung und Fehlerbehandlung fehlen noch.
+
+## Lernkarten in Obsidian
+
+Lernkarten sind eine optionale Nachschlagehilfe, keine automatische Mitschrift: Bei einem passenden neuen Thema kurz absprechen, dann Merkregel und Codebeispiel festhalten. Oben steht ein scharfes SVG-Vorschaubild, darunter editierbarer Text; Bilder und Notizen bleiben getrennt. Die Graph View zeigt farbige Themen und verknüpfte Karten, `⌘` + Hover die Bildvorschau ohne Properties.
+
+- [Lernkarten-Inhalte](notes/python-basics.md)
+- [Kurzer Workflow, Vorlage und Renderer](notes/obsidian/README.md)
+- [Gezielter Vault-Export](notes/obsidian/vault-export/): Lernkarten, Bilder und Darstellungseinstellungen; keine archivierten Hochschulnotizen. Kein automatischer Abgleich mit dem lokalen Vault.
 
 ## Ausführen
 
@@ -44,4 +52,4 @@ Alternativ `main.py` in PyCharm ausführen; als Projektinterpreter `.venv/bin/py
 JSON-Datei → json.load() → Python-Dictionary → Felder ausgeben
 ```
 
-Das Programm liest nur die Datei; es verändert keine Messwerte und stellt keine Anbieteranfragen.
+Das Programm liest nur die JSON-Datei; es verändert keine Daten und stellt keine Anbieteranfragen. Eine eventuell aus dem vorherigen Lernschritt vorhandene SQLite-Datei wird nicht verwendet.

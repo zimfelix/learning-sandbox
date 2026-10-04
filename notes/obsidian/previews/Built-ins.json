@@ -1,0 +1,75 @@
+{
+  "title": "Built-ins",
+  "category": "Data & Files",
+  "accent": "#a6e3a1",
+  "lines": [
+    [
+      "title",
+      "Built-ins"
+    ],
+    [
+      "muted",
+      "Functions · Types · Exceptions (eingebaute Elemente)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "try versucht; except behandelt die Ausnahme."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "isinstance(data, dict)  # Typ prüfen"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Types (Typen): dict, int, str, tuple …"
+    ],
+    [
+      "text",
+      "Exceptions (Ausnahmen): ValueError, TypeError …"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "try:"
+    ],
+    [
+      "code",
+      "    with path.open() as file:"
+    ],
+    [
+      "code",
+      "        text = file.read()"
+    ],
+    [
+      "code",
+      "except FileNotFoundError:"
+    ],
+    [
+      "code",
+      "    print(\"Datei fehlt.\")"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "muted",
+      "isinstance berücksichtigt auch Unterklassen."
+    ]
+  ]
+}

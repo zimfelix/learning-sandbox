@@ -1,0 +1,19 @@
+{
+  "title": "JSON einlesen", "category": "Code Examples", "accent": "#fab387",
+  "lines": [
+    ["title", "JSON einlesen"], ["muted", "Echter Code aus main(), als Ausschnitt"], ["gap", ""],
+    ["code", "with data_path.open(encoding=\"utf-8\") as file:"],
+    ["code", "    measurement = json.load(file)"], ["gap", ""],
+    ["rule", "Datei öffnen → JSON einlesen → Datei schließen."], ["gap", ""],
+    ["text", "data_path → Name für ein Path-Objekt"],
+    ["text", ".open(...) → method call (Methodenaufruf)"],
+    ["text", "encoding=\"utf-8\" → keyword argument"],
+    ["muted", "Benanntes Argument, keine normale Zuweisung."], ["gap", ""],
+    ["text", "with → context management (Kontextverwaltung)"],
+    ["text", "as file → geöffnetes Dateiobjekt an file binden"], ["gap", ""],
+    ["text", "json.load(file) → function call (Funktionsaufruf)"],
+    ["text", "file → argument (Argument) dieses Aufrufs"],
+    ["text", "measurement = → Ergebnis an Namen binden"], ["gap", ""],
+    ["muted", "Unser JSON-Objekt wird zu einem Python-Dictionary."]
+  ]
+}

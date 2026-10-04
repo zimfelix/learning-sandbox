@@ -1,0 +1,71 @@
+{
+  "title": "Variable & Constant",
+  "category": "Python Basics",
+  "accent": "#f6c85f",
+  "lines": [
+    [
+      "title",
+      "Variable & Constant"
+    ],
+    [
+      "muted",
+      "Variable (Variable) · Constant (Konstante)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "= bindet einen Namen an ein Ergebnis."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "provider = \"claude\""
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "provider → variable name (Variablenname)"
+    ],
+    [
+      "text",
+      "\"claude\" → value (Wert)"
+    ],
+    [
+      "text",
+      "= → assignment (Zuweisung)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "MAX_ATTEMPTS = 5"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Constant: soll nicht neu zugewiesen werden."
+    ],
+    [
+      "text",
+      "Großschreibung ist eine Konvention."
+    ],
+    [
+      "muted",
+      "Python erzwingt diese Regel nicht."
+    ]
+  ]
+}

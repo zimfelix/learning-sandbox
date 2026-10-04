@@ -1,0 +1,79 @@
+{
+  "title": "Dataclass & Inheritance",
+  "category": "Objects",
+  "accent": "#cba6f7",
+  "lines": [
+    [
+      "title",
+      "Dataclass & Inheritance"
+    ],
+    [
+      "muted",
+      "Dataclass (Datenklasse) · Inheritance (Vererbung)"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "rule",
+      "Daten zusammenhalten, Schreibarbeit sparen."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "from dataclasses import dataclass"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "@dataclass"
+    ],
+    [
+      "code",
+      "class Measurement:"
+    ],
+    [
+      "code",
+      "    provider: str"
+    ],
+    [
+      "code",
+      "    amount: float"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Erzeugt u. a. __init__, __repr__ und __eq__."
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "code",
+      "class Hangman(Game):"
+    ],
+    [
+      "code",
+      "    pass"
+    ],
+    [
+      "gap",
+      ""
+    ],
+    [
+      "text",
+      "Hangman erbt von der Basisklasse Game."
+    ]
+  ]
+}
