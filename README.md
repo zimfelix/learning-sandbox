@@ -23,13 +23,22 @@ SQLite ist ein neues Lernthema. Anbieterzugriffe, echte Daten und automatische B
 
 ## Ausführen
 
-Python 3 genügt; keine zusätzlichen Pakete nötig. Aus dem Projektroot:
+Python 3 genügt; keine zusätzlichen Pakete nötig. Einmalig im Projektroot eine virtuelle Umgebung (virtual environment) erstellen:
 
 ```bash
-python3 main.py
+python3 -m venv .venv
 ```
 
-Alternativ `main.py` in PyCharm ausführen. Die Beispieldatei wird relativ zum Speicherort von `main.py` gefunden, unabhängig vom Arbeitsverzeichnis.
+Für jede neue Terminalsitzung aktivieren und das Programm starten:
+
+```bash
+source .venv/bin/activate
+python main.py
+```
+
+Mit `deactivate` verlässt du die Umgebung. `.venv/` bleibt lokal und wird nicht in Git eingecheckt.
+
+Alternativ `main.py` in PyCharm ausführen; als Projektinterpreter `.venv/bin/python` auswählen. Die Beispieldatei wird relativ zum Speicherort von `main.py` gefunden, unabhängig vom Arbeitsverzeichnis.
 
 ```text
 JSON-Datei → json.load() → Python-Dictionary → Felder ausgeben
