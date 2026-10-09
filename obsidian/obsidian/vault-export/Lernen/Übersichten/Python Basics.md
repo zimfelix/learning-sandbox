@@ -13,7 +13,7 @@
 
 - [[Objects]] — Klassen, Objekte und Methoden.
 - [[Data & Files]] — Sammlungen, JSON und Dateien.
-- [[Code Examples]] — Bestandteile des echten Codes aus `main.py` zuordnen.
+- [[Code Examples]] — Bestandteile des echten Codes aus `../../../../../SQL_learning/main.py` zuordnen.
 
 ## Drei Merkregeln
 

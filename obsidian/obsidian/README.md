@@ -29,7 +29,7 @@ Diese Gestaltung wurde von Felix für Lernkarten gewählt. Neue Karten in learni
 3. SVG erzeugen:
 
 ```bash
-python3 notes/obsidian/render-preview.py card.json /pfad/zur/vorschau.svg
+python3 obsidian/obsidian/render-preview.py card.json /pfad/zur/vorschau.svg
 ```
 
 Der Renderer überschreibt bestehende Dateien nur mit `--overwrite`. Inhalt und Bild müssen gemeinsam aktualisiert werden; SVG ist eine Ansicht, Markdown bleibt editierbar. Lange Inhalte nicht durch winzige Schrift passend machen, sondern kürzen oder in Karten teilen.

@@ -2,9 +2,18 @@
 
 ## Zweck
 
-Dieses Repository ist Felix’ Lernprojekt für einen lokalen Claude-Code-/Codex-Abo-Tracker. Im standardmäßig aktiven Lernmodus (learning mode) ist Verständnis wichtiger als schnelle Fertigstellung. Lernschwerpunkte sind JSON, SQLite und externe Schnittstellen. Beginne mit künstlichen Daten; echte Anbieteranbindung und Auswertungen folgen schrittweise.
+Dieses Repository ist Felix’ gemeinsame Lernumgebung für unabhängige Experimente und kleine Lernprojekte. Jedes Vorhaben erhält einen eigenen Unterordner mit seinem Code, seinen Daten und seiner Dokumentation. Es ist keine einzelne Anwendung und nicht insgesamt ein Abo-Tracker. Im standardmäßig aktiven Lernmodus (learning mode) ist Verständnis wichtiger als schnelle Fertigstellung.
 
 Kommuniziere auf Deutsch. Code und technische Bezeichner bleiben idiomatisch englisch. Nutze diese Datei, `README.md` und den tatsächlich vorhandenen Code als Einstieg. Kein zusätzlicher Harness-, Init-, Spec- oder Gate-Prozess nötig.
+
+## Geltungsbereich und Orientierung
+
+- Globale Arbeitspräferenzen (Pi: `~/.pi/agent/AGENTS.md`, Claude Code: `~/.claude/CLAUDE.md`) bleiben global. Diese repositorybezogene Datei ergänzt sie um die Lernweise der Sandbox; keine Kopie oder automatische Synchronisation globaler Inhalte.
+- Vor Beginn das aktive Lernvorhaben bestimmen. Bei unklarer Zuordnung kurz nachfragen. Seine `README.md`, vorhandene lokale `AGENTS.md` und seinen Code lesen; andere Lernvorhaben nicht ungefragt einbeziehen oder ändern.
+- `SQL_learning/` enthält den bisherigen JSON-/SQLite-Lernbaustein mit künstlichen Abo-Nutzungsdaten. `obsidian/` ist ein getrenntes Vorhaben für Lernkarten und deren Darstellung, keine Pflichtabhängigkeit des SQL-Lernens.
+- Die Root-`README.md` ist die Übersicht. Lernziele, Ausführung, Datenmodell, Dependencies (Abhängigkeiten) und fachlicher Stand gehören in die README des jeweiligen Vorhabens. Eine zusätzliche lokale `AGENTS.md` nur für tatsächlich besondere Arbeitsregeln anlegen.
+- Neue Vorhaben nach Absprache als Unterordner dieses Repositorys anlegen, nicht automatisch als eigene Git-Repositories. Keine gemeinsam genutzte Anwendung, Datenablage oder Laufzeitumgebung voraussetzen.
+- Commit und Push bleiben auf ausdrücklichen Auftrag beschränkt. Die gemeinsame Git-Historie dokumentiert die Vorhaben; Aktivität ist kein Anlass für künstliche Commits.
 
 ## Arbeitsmodus (working mode)
 
@@ -37,7 +46,7 @@ Kommuniziere auf Deutsch. Code und technische Bezeichner bleiben idiomatisch eng
 - Codingbezogene Fachbegriffe Englisch zuerst mit deutscher Bedeutung in Klammern verwenden, z. B. attribute access (Attributzugriff); die übrige Erklärung bleibt deutsch. Keine Übersetzung jedes Alltagsworts.
 - Neue Konzepte zuerst durch eine kurze, fachlich brauchbare Merkregel und ein konkretes Beispiel erklären. Wichtige Grenzen kurz nennen; seltene Sonderfälle zunächst zurückstellen.
 - Wenn Felix konkrete technische Sachverhalte ungenau beschreibt, rekonstruiere zuerst die gemeinte Aussage. Korrigiere den fachlich wichtigen Begriff freundlich und knapp. Keine Korrektur jedes Tippfehlers; frage nach, wenn verschiedene Deutungen die Umsetzung wesentlich verändern.
-- SQLite ist neu; JSON und APIs wurden bereits kurz behandelt. Setze daraus keine Beherrschung voraus. Unterscheide JSON als Datenformat (data format), CLI-/HTTP-Schnittstellen (interfaces) und Datenbankspeicherung (database storage).
+- Vorwissen zum jeweiligen Lernthema anhand seiner lokalen Dokumentation und Felix’ Rückmeldungen einschätzen. Bereits besprochene Themen sind kein Nachweis von Beherrschung; keinen Lernstand eines Vorhabens ungeprüft auf andere übertragen.
 - Prüfe Annahmen und Lösungswege, statt Vorschläge automatisch zu bestätigen. Unterscheide ausdrücklich zwischen fachlich korrekten Aussagen, brauchbaren Vereinfachungen und Verständnislücken. Korrigiere relevante Ungenauigkeiten direkt mit dem passenden Fachbegriff und seiner englischen Bezeichnung; bestätige teilweise richtige Antworten nicht uneingeschränkt. Kein pauschales Lob oder Ego-Pushing: Positive Rückmeldung nur, wenn sie sachlich begründet ist. Im Liefermodus beschränke fachliche Korrekturen auf relevante Missverständnisse; starte keine ungefragten Lernexkurse.
 
 ## Umsetzung und Prüfungen
@@ -53,8 +62,7 @@ Kommuniziere auf Deutsch. Code und technische Bezeichner bleiben idiomatisch eng
 
 ## Lernnotizen
 
-- Obsidian-Lernkarten sind optional: bei einem neuen Thema nur anbieten, wenn eine kurze Karte beim Verstehen oder Nachschlagen hilft. Erst nach ausdrücklicher Absprache erstellen oder aktualisieren; keine automatische Aufzeichnung, Synchronisation oder Kartenpflicht.
-- Nach Freigabe den kurzen Workflow unter `notes/obsidian/README.md` und die Vorlage `notes/obsidian/templates/learning-card.md` nutzen: Merkregel + konkretes Beispiel, scharfes SVG oben, editierbarer Text darunter, Dateiname = Haupttitel, Bilder separat, keine Properties im Hover. Themen passend verlinken; keine leeren Übersichten. Passende Obsidian-Skills nutzen und Ziel-Vault bestätigen.
-- Nach Änderungen Bild/Text-Konsistenz, Links und Vorschau prüfen. Der gezielte Export unter `notes/obsidian/vault-export/` wird nur auf Auftrag aktualisiert; keine privaten oder fachfremden Vault-Inhalte ungefragt ins Repository übernehmen.
-
-Besprochene Themen sind kein Nachweis von Beherrschung. Lernstand nur auf ausdrücklichen Wunsch festhalten. Falls eine lokale `learning-state.md` existiert, lies sie bei der Fortsetzung eines Lernthemas; falls nicht, frage vor dem Anlegen nach dem Ablageort. Neue Arbeitspräferenzen und Lernerkenntnisse zunächst ausschließlich projektbezogen in `learning-sandbox` festhalten: Arbeitsregeln in `AGENTS.md`, Lernnotizen nach obiger Ablageregel. Noch keine Übernahme in die globalen Anweisungsdateien von Pi, Codex oder Claude Code; diese erfolgt nur auf späteren ausdrücklichen Auftrag.
+- Lernnotizen sind optional und werden nur auf ausdrücklichen Wunsch erstellt oder aktualisiert. Keine automatische Mitschrift, Synchronisation oder Kartenpflicht.
+- Bei Fortsetzung eines Lernthemas eine vorhandene lokale `learning-state.md` im betreffenden Vorhaben lesen. Falls keine vorhanden ist, vor dem Anlegen den Ablageort klären. Ungeprüfte Erkenntnisse als offen kennzeichnen.
+- Fachlicher Lernstand gehört zum jeweiligen Vorhaben, gemeinsame Sandbox-Arbeitspräferenzen in diese repositorybezogene `AGENTS.md`. Keine automatische Übernahme in globale Anweisungsdateien; dafür ist ein gesonderter ausdrücklicher Auftrag nötig.
+- Nur bei beauftragter Arbeit an Obsidian-Lernkarten die vorhabensbezogenen Regeln unter `obsidian/AGENTS.md` laden. Lernkarten zu einem anderen Vorhaben verbinden die Bereiche erst nach ausdrücklicher Absprache.
