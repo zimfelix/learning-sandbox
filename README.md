@@ -8,6 +8,7 @@ Gemeinsames Repository für unabhängige Lernprojekte und Experimente. Kleine Vo
 learning-sandbox/
 ├── AGENTS.md          gemeinsame Lern- und Arbeitsregeln
 ├── README.md          Übersicht
+├── learning-state.md  Lernstand aller Vorhaben (neu/gefestigt)
 ├── SQL_learning/      JSON, Python und später SQLite
 │   ├── README.md      Lernziel, Stand und Ausführung
 │   ├── main.py
@@ -40,6 +41,6 @@ Vor einer Aufgabe bestimmen wir das aktive Vorhaben und den nächsten überprüf
 
 - Repositorybezogen: [AGENTS.md](AGENTS.md) ergänzt die globalen Arbeitspräferenzen um gemeinsame Sandbox-Lernregeln.
 - Vorhabensbezogen: Die jeweilige README erklärt Ziel, Stand und Ausführung; zusätzliche lokale `AGENTS.md`-Dateien enthalten nur besondere Regeln.
-- Lernnotizen sind optional, nur auf Auftrag und beim jeweiligen Vorhaben abgelegt. Keine automatische globale Übernahme oder Vault-Synchronisation.
+- Lernstand: zentral in [learning-state.md](learning-state.md), Themen als neu oder gefestigt markiert; Aktualisierung nur auf Auftrag. Keine automatische globale Übernahme oder Vault-Synchronisation.
 - Gemeinsame Git-Historie, getrennte Lernvorhaben: Änderungen sind auch pro Ordner nachvollziehbar. GitHub-Profilbeiträge hängen von den GitHub-Bedingungen für Commits ab, nicht allein von Dateiänderungen.
 - Commit und Push erfolgen ausschließlich auf ausdrücklichen Auftrag. Echte Daten, Anbieterzugriffe und Hintergrunddienste benötigen eine gesonderte Freigabe.

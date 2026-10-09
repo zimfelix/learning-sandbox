@@ -63,6 +63,6 @@ Kommuniziere auf Deutsch. Code und technische Bezeichner bleiben idiomatisch eng
 ## Lernnotizen
 
 - Lernnotizen sind optional und werden nur auf ausdrücklichen Wunsch erstellt oder aktualisiert. Keine automatische Mitschrift, Synchronisation oder Kartenpflicht.
-- Bei Fortsetzung eines Lernthemas eine vorhandene lokale `learning-state.md` im betreffenden Vorhaben lesen. Falls keine vorhanden ist, vor dem Anlegen den Ablageort klären. Ungeprüfte Erkenntnisse als offen kennzeichnen.
-- Fachlicher Lernstand gehört zum jeweiligen Vorhaben, gemeinsame Sandbox-Arbeitspräferenzen in diese repositorybezogene `AGENTS.md`. Keine automatische Übernahme in globale Anweisungsdateien; dafür ist ein gesonderter ausdrücklicher Auftrag nötig.
+- Der Lernstand liegt zentral in `learning-state.md` im Repositoryroot; keine weiteren `learning-state.md` in den Vorhaben. Bei Fortsetzung eines Lernthemas diese Datei lesen. Themen sind dort als **neu** (kurz angesprochen, z. B. SQL) oder **gefestigt** (in Arbeit, z. B. Lernkarten-Themen) markiert; „gefestigt“ heißt nicht verinnerlicht, die Themen sollen weiter aufgegriffen werden.
+- Fachlicher Lernstand gehört in die Root-`learning-state.md`, Ziel, Stand und Ausführung eines Vorhabens in dessen README, gemeinsame Sandbox-Arbeitspräferenzen in diese repositorybezogene `AGENTS.md`. Keine automatische Übernahme in globale Anweisungsdateien; dafür ist ein gesonderter ausdrücklicher Auftrag nötig.
 - Nur bei beauftragter Arbeit an Obsidian-Lernkarten die vorhabensbezogenen Regeln unter `obsidian/AGENTS.md` laden. Lernkarten zu einem anderen Vorhaben verbinden die Bereiche erst nach ausdrücklicher Absprache.

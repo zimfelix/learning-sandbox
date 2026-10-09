@@ -3,8 +3,8 @@
 Übersicht über alle bisher besprochenen Themen, projektübergreifend. Stand: 2026-10-09.
 
 **Status:**
-- **neu** – einmal oder kurz behandelt, noch unsicher.
-- **gefestigt** – mehrfach behandelt und in Notizen oder Karten festgehalten. Das heißt **nicht** verinnerlicht: Alles ist noch wackelig und soll weiter aufgegriffen und wiederholt werden.
+- **neu** – kurz angesprochen oder noch nicht begonnen, z. B. SQL/SQLite und seine Besonderheiten.
+- **gefestigt** – in Arbeit: in den Lernkarten (`obsidian/python-basics.md`) erarbeitet, z. B. Python-Grundlagen und Objekte. Das heißt **nicht** verinnerlicht: Alles ist noch wackelig und soll weiter aufgegriffen und wiederholt werden.
 
 Quellen: `obsidian/python-basics.md`, `SQL_learning/README.md`, Felix’ Stickies-Notizen, global (Claude Code) `~/.claude/CLAUDE.md`.
 
@@ -15,20 +15,20 @@ Quellen: `obsidian/python-basics.md`, `SQL_learning/README.md`, Felix’ Stickie
 | Variable & Constant | `=` bindet einen Namen an ein Objekt; KONSTANTEN nicht neu zuweisen | gefestigt |
 | Attribute Access & Call | `.` greift auf ein Attribut zu, `()` ruft auf; eine Methode ist ein aufrufbares Attribut | gefestigt |
 | Parameter & Argument | Parameter = Platzhalter in `def`, Argument = konkrete Übergabe | gefestigt |
-| Expression & Statement | Expression liefert einen Wert, Statement führt eine Anweisung aus | neu |
+| Expression & Statement | Expression liefert einen Wert, Statement führt eine Anweisung aus | gefestigt |
 | Function vs. Method Call | `show_provider("claude")` vs. `text.upper()` | gefestigt |
-| Built-ins | `len()`, `isinstance()`, `type()` usw. | neu |
+| Built-ins | `len()`, `isinstance()`, `type()` usw. | gefestigt |
 
 ## Objekte und Klassen
 
 | Thema | Kern | Status |
 |---|---|---|
 | Class & Object | `game = Hangman("python")`: `game` ist ein Name für eine instance | gefestigt |
-| `__init__` & Default Parameter | `def __init__(self, word, tries=5)`; `self.word = word` macht den Wert zum Attribut | neu |
+| `__init__` & Default Parameter | `def __init__(self, word, tries=5)`; `self.word = word` macht den Wert zum Attribut | gefestigt |
 | `@property` | Zustand lesen ohne `()`, z. B. `game.remaining_attempts`, `path.parent` | gefestigt |
-| `@staticmethod` / `@classmethod` | kein `self` (Hilfslogik) / bekommt `cls` (z. B. `Hangman.from_random_word()`) | neu |
-| `@dataclass` | erzeugt `__init__`, `__repr__`, `__eq__`; für reine Datenobjekte | neu |
-| Inheritance | `class Hangman(Game)` erbt von `Game` | neu |
+| `@staticmethod` / `@classmethod` | kein `self` (Hilfslogik) / bekommt `cls` (z. B. `Hangman.from_random_word()`) | gefestigt |
+| `@dataclass` | erzeugt `__init__`, `__repr__`, `__eq__`; für reine Datenobjekte | gefestigt |
+| Inheritance | `class Hangman(Game)` erbt von `Game` | gefestigt |
 
 ## Daten und Dateien
 
@@ -36,7 +36,7 @@ Quellen: `obsidian/python-basics.md`, `SQL_learning/README.md`, Felix’ Stickie
 |---|---|---|
 | Collections | list (veränderbar), tuple (unveränderbar), dict (Schlüssel-Wert), set (ohne Duplikate) | gefestigt |
 | JSON | `load` (Datei) / `loads` (String): Text → Python; Object→`dict`, Array→`list`, Number→`int`/`float`, null→`None` | gefestigt |
-| `with` & Paths | context manager öffnet und schließt sicher; `with_suffix()` liefert einen neuen Pfad, benennt nichts um | neu |
+| `with` & Paths | context manager öffnet und schließt sicher; `with_suffix()` liefert einen neuen Pfad, benennt nichts um | gefestigt |
 | Error Handling | `try/except` für `FileNotFoundError`, `JSONDecodeError`, `PermissionError`, `OSError`, `TypeError` | neu |
 | Validation | `isinstance()`, `is None`, `dict.get()`, `len()`, `isalpha()`; fachliche Fehler selbst prüfen | neu |
 | Atomic Write | erst in eine temporäre Datei schreiben, dann `Path.replace()`: alles oder nichts | neu |
