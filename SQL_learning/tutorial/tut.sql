@@ -28,3 +28,22 @@ sum() aggregator
 FROM
 inner join x on ...
 group by x, x, x
+having x>69
+
+SELECT
+FROM
+GROUP BY
+HAVING
+ORDER BY
+...
+
+
+
+CREATE TABLE bond(
+id INT,
+title VARCHAR(50),
+released INT,
+);
+
+
+SELECT COUNT(*) FROM movies;
