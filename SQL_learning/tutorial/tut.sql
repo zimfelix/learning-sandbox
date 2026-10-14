@@ -37,13 +37,4 @@ HAVING
 ORDER BY
 ...
 
-
-
-CREATE TABLE bond(
-id INT,
-title VARCHAR(50),
-released INT,
-);
-
-
 SELECT COUNT(*) FROM movies;
