@@ -43,5 +43,4 @@ INSERT INTO movies (id, title, released, actor, director, box_office) VALUES
     (25, 'SPECTRE',                         2015, 'DANIEL CRAIG',   'Sam Mendes',          880.7),
     (26, 'NO TIME TO DIE',                  2021, 'DANIEL CRAIG',   'Cary Joji Fukunaga',  774.2);
 
--- Kontrolle: muss 26 ergeben
 SELECT COUNT(*) FROM movies;
