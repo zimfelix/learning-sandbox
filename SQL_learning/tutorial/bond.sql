@@ -41,6 +41,7 @@ INSERT INTO movies (id, title, released, actor, director, box_office) VALUES
     (23, 'QUANTUM OF SOLACE',               2008, 'DANIEL CRAIG',   'Marc Forster',        586.1),
     (24, 'SKYFALL',                         2012, 'DANIEL CRAIG',   'Sam Mendes',         1108.6),
     (25, 'SPECTRE',                         2015, 'DANIEL CRAIG',   'Sam Mendes',          880.7),
-    (26, 'NO TIME TO DIE',                  2021, 'DANIEL CRAIG',   'Cary Joji Fukunaga',  774.2);
+    (26, 'NO TIME TO DIE',                  2021, 'DANIEL CRAIG',   'Cary Joji Fukunaga',  999.2);
 
 SELECT COUNT(*) FROM movies;
+
