@@ -1,12 +1,21 @@
 # Learning State – Learning Sandbox
 
-Übersicht über alle bisher besprochenen Themen, projektübergreifend. Stand: 2026-10-09.
+Übersicht über alle bisher besprochenen Themen, projektübergreifend. Stand: 2026-10-19.
 
 **Status:**
 - **neu** – kurz angesprochen oder noch nicht begonnen, z. B. SQL/SQLite und seine Besonderheiten.
 - **gefestigt** – in Arbeit: in den Lernkarten (`obsidian/python-basics.md`) erarbeitet, z. B. Python-Grundlagen und Objekte. Das heißt **nicht** verinnerlicht: Alles ist noch wackelig und soll weiter aufgegriffen und wiederholt werden.
 
 Quellen: `obsidian/python-basics.md`, `SQL_learning/README.md`, Felix’ Stickies-Notizen, global (Claude Code) `~/.claude/CLAUDE.md`.
+
+## Lernanspruch (Stand 2026-10-19)
+
+Ziel ist **Agentic Coding auf Review-Niveau**, kein Vibe Coding: Agents schreiben den Code, Felix versteht ihn, findet Fehler und kann ihn beurteilen. Hintergrund: Büro- und Softwareautomatisierung für die eigene Firma.
+
+- **Python und SQL:** Basics sicher lesen und erklären können, einfache Abfragen bzw. Code am besten auch selbst schreiben. Profi-Niveau ohne Agents ist nicht das Ziel.
+- **Vorgehen:** Basics nicht vorab „abhaken“, sondern möglichst an realistischen Fällen lernen (z. B. Kunden, Rechnungen, offene Posten) und dabei Agentencode reviewen.
+- **Nächster Schritt – SQL-Kern:** `SELECT`/`WHERE`/`ORDER BY`, `JOIN` (was wird verbunden, was fällt weg), `GROUP BY` mit `COUNT`/`SUM`, `INSERT`/`UPDATE`/`DELETE` (fehlt das `WHERE`?), Tabellen mit Primary/Foreign Key. Dazu Orientierung: Wo liegt die Datenbank, wie öffnet man sie, Konsole vs. Datenbank-Tool.
+- Kann warten: Window Functions, Performance-Tuning, Stored Procedures, komplexe Subqueries.
 
 ## Python-Grundlagen
 

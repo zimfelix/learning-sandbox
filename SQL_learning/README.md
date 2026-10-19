@@ -4,6 +4,8 @@ Dieses Lernvorhaben nutzt einen lokalen Claude-Code-/Codex-Abo-Tracker als Übun
 
 ## Lernziel
 
+**Anspruch:** SQL-Basics auf Review-Niveau – Abfragen von Agents lesen, erklären und auf Fehler prüfen, einfache Abfragen selbst schreiben. Details und SQL-Kernthemen: `../learning-state.md`, Abschnitt „Lernanspruch“.
+
 ```text
 Künstliche JSON-Daten → Python → SQLite → Auswertung
                                       ↑
