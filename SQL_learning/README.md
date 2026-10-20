@@ -28,15 +28,15 @@ SQLite ist neu; JSON und APIs wurden bereits kurz behandelt, aber nicht als behe
 Python 3 und seine Standardbibliothek genügen; keine zusätzlichen Pakete nötig. Vom Repositoryroot aus:
 
 ```bash
-python3 SQL_learning/main.py
+python3 tutorial/main.py
 ```
 
 Optional eine eigene virtual environment (virtuelle Umgebung) für dieses Vorhaben anlegen:
 
 ```bash
-python3 -m venv SQL_learning/.venv
-source SQL_learning/.venv/bin/activate
-python SQL_learning/main.py
+python3 -m venv tutorial/.venv
+source tutorial/.venv/bin/activate
+python tutorial/main.py
 ```
 
 Mit `deactivate` verlässt du die Umgebung. `.venv/` bleibt lokal und wird nicht eingecheckt. Eine bereits vorhandene Umgebung kann weiter genutzt werden; eine gemeinsame Umgebung aller Lernvorhaben ist nicht erforderlich.
