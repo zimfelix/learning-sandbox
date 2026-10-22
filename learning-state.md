@@ -1,6 +1,6 @@
 # Learning State – Learning Sandbox
 
-Übersicht über alle bisher besprochenen Themen, projektübergreifend. Stand: 2026-10-19.
+Übersicht über alle bisher besprochenen Themen, projektübergreifend. Stand: 2026-10-22.
 
 **Status:**
 - **neu** – kurz angesprochen oder noch nicht begonnen, z. B. SQL/SQLite und seine Besonderheiten.
@@ -50,7 +50,22 @@ Ziel ist **Agentic Coding auf Review-Niveau**, kein Vibe Coding: Agents schreibe
 | Validation | `isinstance()`, `is None`, `dict.get()`, `len()`, `isalpha()`; fachliche Fehler selbst prüfen | neu |
 | Atomic Write | erst in eine temporäre Datei schreiben, dann `Path.replace()`: alles oder nichts | neu |
 | Speicheroptionen | JSON (verschachtelt) · CSV (Tabellen) · SQLite (viele Datensätze, Abfragen) · SQL = Sprache | neu |
-| SQLite | noch nicht praktisch begonnen, nächster Schritt in `SQL_learning/` | neu |
+| SQLite | praktisch begonnen, siehe Abschnitt „SQL“ | neu |
+
+## SQL (Stand 2026-10-22)
+
+Übungen in `SQL_learning/tutorial/`, Aufbau je Etappe: A vorhersagen · B selbst schreiben · C Fehler finden (Review).
+
+| Thema | Kern | Status |
+|---|---|---|
+| Werkzeug | `.sql` = Text (Skript), `.db` = binary file, nur über DB Browser/`sqlite3` öffnen; Konsole = ausprobieren, `.sql`-Datei = behalten | gefestigt |
+| Skript vs. Abfragen-Sammlung | Skript ganz ausführen; einzelne Abfragen per Cursor + ⌘↩. execute (ausführen) ≠ commit | neu |
+| `PRIMARY KEY`, `DROP`/`CREATE` | doppelte ID → constraint violation, kein Ersetzen; `DROP`+`CREATE`+`INSERT` = Reset-Skript | neu |
+| Transaction | `BEGIN`/`COMMIT` = alles oder nichts; schützt nur, wenn bei Fehler auch Rollback passiert | neu |
+| Etappe 1: `SELECT`/`WHERE`/`ORDER BY` | `etappe1_select.sql` abgeschlossen. `WHERE` streicht Zeilen, `SELECT` Spalten; `AND` prüft pro Zeile, jede condition vollständig; `NOT`/`!=`/`NOT IN` zum Ausschließen; Komma zählt auf, verbindet keine conditions | gefestigt |
+| Etappe 2: `COUNT`/`SUM`/`GROUP BY`/`HAVING` | `etappe2_aggregate.sql` **in Arbeit**: Teil A gelesen (A1, A3, A4 beantwortet), B und C offen. Kern: `GROUP BY` bildet die Gruppen, aggregate function rechnet pro Gruppe; `AS` = alias, nur Name | neu |
+| Foreign Key + `JOIN` | `bond_fk.sql` vorbereitet, noch nicht bearbeitet | neu |
+| Noch offen | `INSERT`/`UPDATE`/`DELETE` (fehlendes `WHERE`), größere Datenbank erkunden, CTE (`WITH`) | neu |
 
 ## Konzepte und Werkzeuge
 
@@ -69,3 +84,5 @@ Ziel ist **Agentic Coding auf Review-Niveau**, kein Vibe Coding: Agents schreibe
 - Ein übergebener Wert wird zum **argument**, zum Attribut erst durch `self.x = …`.
 - `type(x) is dict` prüft exakt, `isinstance(x, dict)` erlaubt Unterklassen und ist meist vorzuziehen.
 - *decomposition* (Zerlegung) statt *composition*.
+- Bei SQL: `'Text'` = Wert, `"Name"` = Spalte/Tabelle; Text-Vergleiche unterscheiden Groß-/Kleinschreibung; fehlendes Komma macht still einen alias.
+- `COUNT(*)` zählt Zeilen der aktuellen Gruppe; „pro Schauspieler“ entsteht erst durch `GROUP BY`, nicht durch `SELECT`.
