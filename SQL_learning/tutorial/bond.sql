@@ -18,3 +18,4 @@ INSERT INTO movies (id, title, released, actor, box_office) VALUES
     (4, 'CASINO ROYALE', 2006, 'DANIEL CRAIG',  594.2);
 
 COMMIT;
+
