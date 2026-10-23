@@ -123,6 +123,19 @@ Wichtig aus bisheriger Arbeit:
 - Der stärkste Fund bisher ist die Reframing-Formel aus Video `639wCGS1SA4` („Das heißt nur, wenn …, nur dann macht es Sinn …“). Ähnliche Muster in anderen Videos als wiederkehrend kennzeichnen.
 - `videos.js` (Liste aller 428 Videos) ist fest. Neu erzeugen nur bei neuen Kanal-Videos: `uvx yt-dlp --flat-playlist --extractor-args "youtube:lang=de" --print "%(id)s\t%(duration)s\t%(title)s" <Kanal-URL>/videos`.
 
+## Review und Skript-Update (Hauptchat)
+
+Nach einigen Arbeits-Chats, wenn **kein** anderer Chat in `notes.js` schreibt:
+
+1. **Stand prüfen** (im Ordner `mahnken-videos`):
+   `node -e "global.window={};require('./notes.js');require('./videos.js');const N=window.NOTES;const r=window.VIDEOS.filter(v=>v.n<=184);console.log(Object.keys(N).length,'ausgewertet;',r.filter(v=>N[v.id]).length,'von 184');const y={};for(const n of Object.values(N))for(const i of n.items)y[i.p+' '+i.y]=(y[i.p+' '+i.y]||0)+1;console.log(y)"`
+2. **Alle Learnings gruppiert exportieren** (statt notes.js roh zu lesen):
+   `node -e "global.window={};require('./notes.js');require('./videos.js');const N=window.NOTES,V=Object.fromEntries(window.VIDEOS.map(v=>[v.id,v]));const g={};for(const[id,n]of Object.entries(N))for(const i of n.items||[]){const k=i.p+' | '+i.y;(g[k]??=[]).push('['+V[id]?.n+'|'+(n.seg||'-')+'|'+id+'@'+i.t+(i.s?'|s':'')+'] '+(i.e?'«'+i.e+'» ':'')+i.x)}for(const k of Object.keys(g).sort())console.log('\n## '+k+' ('+g[k].length+')\n'+g[k].join('\n'))" > /tmp/learnings.txt`
+3. **Stichprobe Zitate** (5–6 Stück, auch neue Videos): Zitat-Ausschnitt in `transcripts/<ID>.txt` suchen (Python `str.find`, nicht `grep` – Umlaute) und mit Zeitstempel vergleichen.
+4. **Qualität prüfen:** richtige Typen (Planung/Motivation = `Organisation`, Follow-up = `Nachfassen`), `seg` gesetzt, Julians Meinung vs. besprochener Trainer getrennt, Widersprüche mit ⚠️ markiert.
+5. **`skript-zwischenstand.md` aktualisieren:** neue stärkere Formulierungen einsetzen, Lücken (Abschnitt „Nächste Schritte“) abhaken, Termin-Phase ausbauen; Kopfzeile „Stand / Basis X Videos“ anpassen.
+6. Committen und pushen nur auf Auftrag.
+
 ## Grenzen
 
 - Nur das Gesagte wird ausgewertet; eingeblendete Texte und Folien nicht.
