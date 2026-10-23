@@ -14,7 +14,7 @@ sales_learning/
     ├── uebersicht.html   Übersicht mit Suche, Filtern, Anhör-Liste und Bewertungsspalte (auch online, siehe unten)
     ├── videos.js         Videoliste (Titel, Länge, grobe Kategorie)
     ├── notes.js          Auswertung pro Video: Zielgruppe, 👀-Empfehlung, Learnings
-    ├── auswahl.js        Vorauswahl: Relevanz grün/gelb/grau, 💎 Kern-Video, 🎥 Live
+    ├── auswahl.js        Vorauswahl: Relevanz grün/gelb/grau, 💎 Kern-Video, 🎥 Live, Thema `th` (Filter in der Übersicht)
     ├── dates.js          Upload-Datum je Video
     └── transcripts/      Transkripte als .txt (lokal, nicht eingecheckt)
 ```
