@@ -15,19 +15,45 @@ sales_learning/
     └── transcripts/      Transkripte als .txt (lokal, nicht eingecheckt)
 ```
 
+## Ziel-Skript (wohin alles einzahlt)
+
+Am Ende entsteht daraus ein Skript mit festen Bausteinen; pro Baustein 1 empfohlene Formulierung + Varianten, Handwerk/KMU zuerst:
+
+```text
+KALTAKQUISE (K)                         TERMIN (T)
+1 Sekretärin                            1 Gesprächseinstieg
+2 Opener + Erlaubnis                    2 Bedarfsfrage / Bedarfsanalyse
+3 Bedarfsfrage (Interesse wecken)       3 Präsentation
+4 Reaktion des Kunden:                  4 Preis
+   ├ Interesse  → 6                     5 Einwand → Antwort
+   ├ Einwand    → 5 → 6                 6 Abschluss
+   └ Rückfrage  → kurz → 6
+5 Einwand → Antwort (Reframing)
+6 Terminvereinbarung
+```
+
+Jedes Learning sollte einem dieser Bausteine zugeordnet werden können. Was keinem Baustein dient, gehört nicht hinein.
+
 ## Was aus den Videos herausgezogen wird
 
 Gesucht sind **sofort am Telefon nutzbare Formulierungen**, keine allgemeinen Tipps.
 
-| Typ | Phase | Beispiel |
+| Typ | Phase | Skript-Baustein |
 | --- | --- | --- |
-| **Sekretärin** | Kaltakquise | Satz zum Durchstellen; Antwort auf „Worum geht es?“ |
-| **Opener** | Kaltakquise | Erste Sätze nach der Begrüßung bis zur Erlaubnis |
-| **Bedarfsfrage** | beide | „Was müsste … damit es für Sie interessant wird?“ |
-| **Einwand → Antwort** | beide | Einwand wörtlich + seine Antwort wörtlich |
-| **Terminvereinbarung** | Kaltakquise | Vorschlag, Zeitrahmen, Festnageln, Mail-Bestätigung |
-| **Verkaufsgespräch** | Termin | Gesprächsaufbau, Preis nennen, Abschlussfrage, mehrere Entscheider |
-| **Prinzip** | beide | Nur wenn es eine konkrete Regel ist, die das Gespräch verändert (z. B. „bei der Sekretärin nicht sagen, worum es geht“) |
+| **Sekretärin** | K | Durchstellen; Antwort auf „Worum geht es?“ |
+| **Opener** | K | Begrüßung bis Erlaubnis („Darf ich gleich mal sagen, warum ich anrufe?“) |
+| **Bedarfsfrage** | K, T | Interesse wecken / Bedarf ermitteln |
+| **Rückfrage** | K | Kunde fragt „Was kostet das?“, „Wie macht ihr das?“ → kurze Antwort + Überleitung zum Termin |
+| **Einwand** | K, T | Einwand wörtlich (`e`) + Antwort wörtlich |
+| **Terminvereinbarung** | K | Vorschlag, Zeitrahmen, Festnageln, Mail-Bestätigung, Absicherung gegen Absagen |
+| **Gesprächseinstieg** | T | Erste Minuten im Termin: Agenda, Rahmen, Rollen klären |
+| **Präsentation** | T | Angebot vorstellen, an Bedarf koppeln |
+| **Preis** | T | Preis nennen und begründen |
+| **Abschluss** | T | Abschlussfrage, Entscheidung herbeiführen, mehrere Entscheider |
+| **Leitfaden** | K, T, A | Kompletter Ablauf oder Struktur mehrerer Bausteine |
+| **Prinzip** | K, T, A | Nur konkrete Regel, die das Gespräch verändert |
+
+Der ältere Sammeltyp „Verkaufsgespräch“ ist durch Gesprächseinstieg/Präsentation/Preis/Abschluss ersetzt.
 
 **Drei Phasen, nie vermischen:**
 
@@ -37,12 +63,14 @@ Gesucht sind **sofort am Telefon nutzbare Formulierungen**, keine allgemeinen Ti
 | `T` | Termin / Verkaufsgespräch | Das vereinbarte Gespräch (ca. 15–60 Min.): Aufbau, Präsentation, Preis, Abschluss |
 | `A` | Andere Verkaufsform | Alles andere, z. B. Messe, E-Mail, Social Selling, Empfehlungen |
 
-**Zielgruppe pro Video** (`target`): an wen verkauft wird, z. B. „Industrie (Produktionsleiter)“, „Immobilienmakler → Privatverkäufer“. Learnings aus fremden Branchen bleiben drin, sind aber so erkennbar und lassen sich beim Zusammenführen anpassen.
+**Segment pro Video** (`seg`): `Handwerk` · `KMU` · `Großunternehmen` · `Privat` · `allgemein`. Fokus ist **Handwerk und KMU**; Großunternehmen und Privat bleiben drin, aber klar markiert.
+
+**Zielgruppe pro Video** (`target`): an wen genau verkauft wird, z. B. „Industrie (Produktionsleiter)“, „Immobilienmakler → Privatverkäufer“. Learnings aus fremden Branchen bleiben drin, sind aber so erkennbar und lassen sich beim Zusammenführen anpassen.
 
 **Format in `notes.js`** – ein Eintrag pro Video, darin eine Liste von Learnings:
 
 ```js
-"VIDEO_ID": {target: "Zielgruppe", watch: true, why: "Grund fürs Anschauen", items: [
+"VIDEO_ID": {seg: "Handwerk", target: "Zielgruppe", watch: true, why: "Grund fürs Anschauen", items: [
   {p: "K", y: "Einwand", e: "Haben wir schon", t: "3:00", x: "„Wörtliche Antwort …“"},
   {p: "K", y: "Opener", t: "2:13", s: 1, x: "… (s: 1 = sinngemäß)"}
 ]}

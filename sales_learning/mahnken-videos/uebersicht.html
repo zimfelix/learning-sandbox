@@ -29,6 +29,7 @@ h2{font-size:16px;margin:22px 0 6px}h3{font-size:13px;color:var(--mut);margin:14
   <input id=q placeholder="Suchen in Titel, Zielgruppe, Learnings …">
   <select id=c><option value="">Alle Kategorien</option><option>A Kaltakquise</option><option>B Verkaufsgespräch</option><option>C Einwand</option><option>D Sonstiges</option></select>
   <select id=f><option value="">Alle Videos</option><option value=done>✅ ausgewertet</option><option value=open>☐ offen</option><option value=watch>👀 Anschau-Empfehlungen</option><option value=nosubs>⚠️ ohne Transkript</option><option value=pick>⭐ ausgewählt</option></select>
+  <select id=sg><option value="">Alle Segmente</option><option>Handwerk</option><option>KMU</option><option>Großunternehmen</option><option>Privat</option><option>allgemein</option></select>
   <select id=ph><option value="">Alle Phasen</option><option value=K>Kaltakquise</option><option value=T>Termin / Verkaufsgespräch</option><option value=A>Andere Verkaufsform</option></select>
   <button id=cp>⭐ Auswahl kopieren</button>
  </div>
@@ -38,19 +39,20 @@ h2{font-size:16px;margin:22px 0 6px}h3{font-size:13px;color:var(--mut);margin:14
 <script>
 const D=window.VIDEOS,N=window.NOTES||{},$=id=>document.getElementById(id);
 const PH={K:'Kaltakquise',T:'Termin / Verkaufsgespräch',A:'Andere Verkaufsform'};
-const TY=['Sekretärin','Opener','Bedarfsfrage','Einwand','Terminvereinbarung','Leitfaden','Prinzip'];
+const TY0=['Sekretärin','Opener','Bedarfsfrage','Rückfrage','Einwand','Terminvereinbarung','Gesprächseinstieg','Präsentation','Preis','Abschluss','Verkaufsgespräch','Leitfaden','Prinzip'];
+const TY=[...TY0,...new Set(Object.values(N).flatMap(n=>(n.items||[]).map(i=>i.y)).filter(y=>!TY0.includes(y)))];
 let S={},view='videos';try{S=JSON.parse(localStorage.getItem('s')||'{}');view=localStorage.getItem('v')||'videos'}catch(e){}
 const save=()=>{try{localStorage.setItem('s',JSON.stringify(S));localStorage.setItem('v',view)}catch(e){}};
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const sec=t=>{const[a,b]=String(t||'0:0').split(':').map(Number);return a*60+(b||0)};
 const link=(id,t)=>`https://youtu.be/${id}${t?'?t='+sec(t):''}`;
-const items=(id,ph)=>(N[id]?.items||[]).filter(i=>!ph||i.p==ph);
+const items=(id,ph)=>{const sg=$('sg').value;if(sg&&N[id]?.seg!=sg)return[];return(N[id]?.items||[]).filter(i=>!ph||i.p==ph)};
 const li=(id,i)=>`<li><span class="chip ph ${i.p}">${i.p}</span><span class=chip>${esc(i.y)}${i.e?': '+esc(i.e):''}</span>${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''} <a href="${link(id,i.t)}" target=_blank>▶&nbsp;${esc(i.t)}</a></li>`;
 function stats(){const v=Object.values(N),L=v.reduce((a,n)=>a+(n.items||[]).length,0);
  $('stats').innerHTML=`<span><b>${D.length}</b>Videos</span><span><b>${v.length}</b>ausgewertet</span><span><b>${D.length-v.length}</b>offen</span><span><b>${v.filter(n=>n.watch).length}</b>👀 Empfehlungen</span><span><b>${L}</b>Learnings</span><span><b>${v.filter(n=>n.nosubs).length}</b>ohne Transkript</span><span id=cnt></span>`}
 function ok(d,f){const n=N[d.id];return !f||(f=='done'&&n)||(f=='open'&&!n)||(f=='watch'&&n&&n.watch)||(f=='nosubs'&&n&&n.nosubs)||(f=='pick'&&S[d.id])}
 function videos(){const q=$('q').value.toLowerCase(),c=$('c').value,f=$('f').value,ph=$('ph').value;
- const L=D.filter(d=>(!q||(d.t+' '+JSON.stringify(N[d.id]||'')).toLowerCase().includes(q))&&(!c||d.c==c)&&ok(d,f)&&(!ph||items(d.id,ph).length));
+ const L=D.filter(d=>(!q||(d.t+' '+JSON.stringify(N[d.id]||'')).toLowerCase().includes(q))&&(!c||d.c==c)&&ok(d,f)&&((!ph&&!$('sg').value)||items(d.id,ph).length));
  const rows=L.map(d=>{const n=N[d.id],I=items(d.id,ph);
   const tr=!n?'<span class=mut>–</span>':n.nosubs?'⚠️ keins':`<a href="transcripts/${d.id}.txt" target=_blank>📄 öffnen</a>`;
   const wa=n&&n.watch?`<span class=y><b>👀</b> ${esc(n.why)}</span>`:n&&n.nosubs?`<span class=y><b>⚠️</b> Kein Transkript – selbst anschauen</span>`:'';
@@ -58,14 +60,14 @@ function videos(){const q=$('q').value.toLowerCase(),c=$('c').value,f=$('f').val
   const ev=!n?'<span class=mut>noch nicht ausgewertet</span>':n.skip&&!I.length?`<span class=mut>${esc(n.skip)}</span>`:I.length?`<details><summary>${cnt}</summary><ul>${I.map(i=>li(d.id,i)).join('')}</ul></details>`:'';
   return `<tr><td><input type=checkbox data-id="${d.id}" ${S[d.id]?'checked':''}></td><td class=n>${d.n}</td>
   <td class=tit><a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div></td><td class=m>${d.m} min</td>
-  <td class=tg>${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td></tr>`}).join('');
- $('out').innerHTML=`<div class=wrap><table><thead><tr><th>⭐</th><th>Nr</th><th>Titel / Kategorie</th><th>Länge</th><th>🎯 Zielgruppe</th><th>Transkript</th><th>👀 Anschau-Empfehlung</th><th>Auswertung (Phase · Typ · Zitat)</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  <td class=tg>${n&&n.seg?`<span class=chip>${esc(n.seg)}</span><br>`:''}${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td></tr>`}).join('');
+ $('out').innerHTML=`<div class=wrap><table><thead><tr><th>⭐</th><th>Nr</th><th>Titel / Kategorie</th><th>Länge</th><th>🎯 Segment / Zielgruppe</th><th>Transkript</th><th>👀 Anschau-Empfehlung</th><th>Auswertung (Phase · Typ · Zitat)</th></tr></thead><tbody>${rows}</tbody></table></div>`;
  $('cnt').textContent=`· angezeigt: ${L.length}`}
 function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};D.forEach(d=>items(d.id,ph).forEach(i=>{if(q&&!(i.x+' '+(i.e||'')+' '+(N[d.id].target||'')).toLowerCase().includes(q))return;((T[i.p]??={})[i.y]??=[]).push({d,i})}));
  let h='',n=0;for(const p of ['K','T','A']){if(!T[p])continue;h+=`<h2 class="ph ${p}">${PH[p]}</h2>`;for(const y of TY){const L=T[p][y];if(!L)continue;n+=L.length;
   const groups=y=='Einwand'?[...new Set(L.map(o=>o.i.e||'–'))]:[null];h+=`<h3>${y} (${L.length})</h3>`;
   for(const e of groups){if(e)h+=`<div class=tag style="margin-top:8px"><b>„${esc(e)}“</b></div>`;
-   h+=L.filter(o=>!e||(o.i.e||'–')==e).map(({d,i})=>`<div class=it>${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''}<div class=src>🎯 ${esc(N[d.id].target||'–')} · <a href="${link(d.id,i.t)}" target=_blank>▶ ${esc(d.t)} (${esc(i.t)})</a></div></div>`).join('')}}}
+   h+=L.filter(o=>!e||(o.i.e||'–')==e).map(({d,i})=>`<div class=it>${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''}<div class=src>🎯 ${N[d.id].seg?esc(N[d.id].seg)+' · ':''}${esc(N[d.id].target||'–')} · <a href="${link(d.id,i.t)}" target=_blank>▶ ${esc(d.t)} (${esc(i.t)})</a></div></div>`).join('')}}}
  $('out').innerHTML=h||'<p class=tag>Keine Learnings für diese Auswahl.</p>';$('cnt').textContent=`· angezeigt: ${n} Learnings`}
 function r(){const v=view=='videos';$('v1').classList.toggle('on',v);$('v2').classList.toggle('on',!v);['c','f','cp'].forEach(i=>$(i).style.display=v?'':'none');stats();v?videos():sammlung()}
 $('v1').onclick=()=>{view='videos';save();r()};$('v2').onclick=()=>{view='sammlung';save();r()};
