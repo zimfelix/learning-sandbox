@@ -140,7 +140,14 @@ Nach einigen Arbeits-Chats, wenn **kein** anderer Chat in `notes.js` schreibt:
 5. **`skript-zwischenstand.md` aktualisieren:** neue stärkere Formulierungen einsetzen, Lücken (Abschnitt „Nächste Schritte“) abhaken, Termin-Phase ausbauen; Kopfzeile „Stand / Basis X Videos“ anpassen.
 6. Committen und pushen nur auf Auftrag.
 
-## Online-Seite (gemeinsam mit Kollegen)
+## Online-Seiten
+
+| Seite | Link | Wofür |
+| --- | --- | --- |
+| **Cloudflare Pages** | https://mahnken-videos.pages.dev | öffentlich, ohne Konto; aktualisiert sich **automatisch bei jedem Push** auf `main` (Ausgabe-Ordner `sales_learning/mahnken-videos`, kein Build). Bewertungen und Kommentare bleiben dort im jeweiligen Browser. |
+| **claude.ai** | https://claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV | gemeinsames Bewerten (Konto nötig); muss von einem Agent neu veröffentlicht werden, siehe unten. |
+
+### claude.ai-Seite (gemeinsam bewerten)
 
 **Link:** https://claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV – dieselbe Übersicht wie `uebersicht.html`, aber mit gemeinsamer Datenbank: Relevanz-Änderungen gelten für alle, „angeschaut“ und Kommentare sieht jeder (je Person gespeichert). Transkripte liegen nicht online.
 
@@ -151,7 +158,7 @@ Agent ändert notes.js / auswahl.js / uebersicht.html ──▶ Online-Seite neu
 Felix / Kollege bewerten online ──▶ Datenbank (relevanz, notizen) ──▶ Agent liest sie beim Review aus
 ```
 
-Commit und Push aktualisieren nur GitHub, **nicht** die Seite. Darum wird vor jedem Commit/Push solcher Änderungen neu veröffentlicht; ein lokaler Hook (`.git/hooks/pre-push`, nicht eingecheckt) gibt beim Push eine Erinnerung aus. Die Seite bleibt online, bis sie gelöscht wird.
+Ein Push aktualisiert GitHub und automatisch die Cloudflare-Seite, **nicht** aber diese claude.ai-Seite. Darum wird vor jedem Commit/Push solcher Änderungen neu veröffentlicht; ein lokaler Hook (`.git/hooks/pre-push`, nicht eingecheckt) gibt beim Push eine Erinnerung aus. Die Seite bleibt online, bis sie gelöscht wird.
 
 **Neu veröffentlichen** (nach jeder Änderung an diesen Dateien, im Ordner `mahnken-videos`):
 

@@ -38,6 +38,11 @@ erneuter Anruf (Postsendung, nach Monaten, alter Kontakt) → 10 Nachfassen → 
 
 ## 1 Sekretärin / Vorzimmer
 
+**⭐ Feste Fassung (Felix, Standard für jeden Anruf):**
+„Hallo, Felix Zimmermann spricht, grüß Sie.“ → *Gruß abwarten* →
+„Wenn Sie mich gleich einmal zum [Vorname Nachname] weiterstellen, dann richten Sie gerne aus, der Felix Zimmermann ist dran. Ich bleib solange in der Leitung, danke.“
+→ zusammengesetzt aus Nr. 40 @5:01 (Zentrale, „ist dran“ schnell und mit der Stimme hoch) und Nr. 427 @1:01 („Ich bleibe so lange in der Leitung“). Ohne Firmennamen, ohne Namen der Sekretärin.
+
 **Empfohlen** (Nr. 16 @7:00, neueste Fassung):
 „Einmal bitte weiter zu [Vorname Nachname], [Vorname Nachname] ist dran. Ich bleib in der Leitung. Danke schön.“
 → verbindlich und selbstverständlich, nicht bittend.
