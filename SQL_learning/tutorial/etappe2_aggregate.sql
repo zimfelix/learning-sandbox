@@ -46,14 +46,14 @@ FROM movies;             -- aus der Tabelle movies
 
 -- A2: Summe mit alias (Ersatzname)
 -- FRAGE: Wie viele Zeilen hat das Ergebnis? Ungefähr welche Zahl?
--- MEINE ANTWORT:
+-- MEINE ANTWORT: gesamt: 800 ca -- auch hier wo kommt gesamt hin in der antwort??
 
 SELECT SUM(box_office)   -- addiere alle Werte der Spalte box_office
        AS gesamt         -- nenne die Ergebnisspalte "gesamt" (nur der Name)
 FROM movies;             -- aus der Tabelle movies
 
 -- Hinweis: Kommazahlen (REAL) sind intern nicht ganz exakt,
--- deshalb erscheinen evtl. viele Nachkommastellen. ROUND rundet:
+-- deshalb erscheinen   evtl. viele Nachkommastellen. ROUND rundet:
 SELECT ROUND(SUM(box_office), 1)   -- erst summieren, dann auf 1 Nachkommastelle runden
        AS gesamt                   -- Ergebnisspalte heißt "gesamt"
 FROM movies;
@@ -61,7 +61,7 @@ FROM movies;
 
 -- A3: Mehrere Aggregatfunktionen auf einmal
 -- FRAGE: Welcher Wert ist MIN, welcher MAX?
--- MEINE ANTWORT: 59.5 / 594.2
+-- MEINE ANTWORT: 250 / 59.5 / 594.2
 
 SELECT AVG(box_office),  -- Durchschnitt (average) aller Einspielergebnisse
        MIN(box_office),  -- kleinster Wert

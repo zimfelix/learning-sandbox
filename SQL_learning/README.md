@@ -1,5 +1,7 @@
 # SQL-Lernen – JSON, Python und SQLite
 
+# FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY.
+
 Dieses Lernvorhaben nutzt einen lokalen Claude-Code-/Codex-Abo-Tracker als Übungsbeispiel. Es ist unabhängig vom Obsidian-Vorhaben und definiert nicht den Zweck der gesamten Sandbox.
 
 ## Lernziel
