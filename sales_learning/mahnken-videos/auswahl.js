@@ -6,40 +6,40 @@ window.AUSWAHL={
 "KKvUr--VrQE":{"r": "g", "live": "Telefonat", "why": "Reframing live"}, // 2 Live-Einwandbehandlung "Wir machen das intern" + Erklärung
 "kAQN4KU455Q":{"r": "g", "why": "Termin: mehrere Entscheider"}, // 3 Mehrere Entscheider? So kommst du zum Abschluss
 "uQhEkID92pI":{"r": "g", "why": "Reframing mit Beispielen"}, // 4 Einwandbehandlung für immer gelöst
-"4OLqWQKmtPI":{"r": "x", "why": "ausgewertet: kein Inhalt"}, // 5 Warum läuft Kaltakquise bei dir so schleppend (Lösung)
+"4OLqWQKmtPI":{"r": "x", "why": "ausgewertet: wenig lehrreich (ausgewertet: kein Inhalt)"}, // 5 Warum läuft Kaltakquise bei dir so schleppend (Lösung)
 "XamYlXN-yRo":{"r": "g", "why": "Top 3 Einstiege"}, // 6 Top 3 Kaltakquise Gesprächseinstiege aus 17 Jahren
 "RO3_qAB2WaY":{"r": "g", "why": "Nachfassen nach Postsendung"}, // 7 Der perfekte Gesprächseinstieg: Postsendung + Telefonakquise
 "wMeFVvX8Wc0":{"r": "y", "why": "Vorwände/Vertrauen"}, // 8 Gesprächspartner hören auf dich anzulügen (Cold Calling)
 "MA_C7LHCsaY":{"r": "g", "why": "Leitfaden-Analyse Handwerk"}, // 9 Ich nehme diesen Cold Calling Leitfaden komplett auseinander
-"jP9LIeuszbc":{"r": "x", "why": "ausgewertet: kein Inhalt"}, // 10 Täglich 150+ Nummern und trotzdem kaum Umsatz? (Die Lösung)
-"ySUKEomccBI":{"r": "x", "why": "Mindset"}, // 11 Telefonakquise Hemmungen überwinden (Die einzige Möglichkeit
+"jP9LIeuszbc":{"r": "x", "why": "ausgewertet: wenig lehrreich (ausgewertet: kein Inhalt)"}, // 10 Täglich 150+ Nummern und trotzdem kaum Umsatz? (Die Lösung)
+"ySUKEomccBI":{"r": "x", "why": "ausgewertet: wenig lehrreich (Mindset)"}, // 11 Telefonakquise Hemmungen überwinden (Die einzige Möglichkeit
 "hKE2vnfiWAg":{"r": "g", "why": "Reframing: wann es wirkt"}, // 12 Einwandbehandlung ist einfach, wenn...
-"0iUoVRRAc50":{"r": "x", "why": "Mindset"}, // 13 Kaltakquise: Die Ketten sprengen und mit Leichtigkeit telefo
+"0iUoVRRAc50":{"r": "x", "why": "ausgewertet: wenig lehrreich (Mindset)"}, // 13 Kaltakquise: Die Ketten sprengen und mit Leichtigkeit telefo
 "FLDVG9syiUc":{"r": "g", "live": "Analyse", "why": "Handwerk-Leitfaden Satz für Satz"}, // 14 Dieser Cold Calling Leitfaden hat mich geschockt
-"-3B7Rt2zDGw":{"r": "x", "why": "Marktvergleich"}, // 15 Als Energieberater ist Kaltakquise leicht
+"-3B7Rt2zDGw":{"r": "x", "why": "ausgewertet: wenig lehrreich (Marktvergleich)"}, // 15 Als Energieberater ist Kaltakquise leicht
 "pacRsnbOZ2o":{"r": "g", "why": "Sekretariat"}, // 16 Kaltakquise: Vorbei am Sekretariat - Meine Geheim-Tipps
 "Du5mYM2s4io":{"r": "g", "why": "Reframing-Varianten"}, // 17 Spontan und schlagfertig JEDEN Einwand behandeln (Anleitung)
 "p9rQHNxk-Yw":{"r": "g", "why": "Rückfrage: Was statt Wie"}, // 18 Ich wollte diesen Kaltakquise-Trick eigentlich für mich beha
 "jAQ3TLbFTck":{"r": "g", "gem": "Terminvereinbarung", "why": "Terminvereinbarung + Absicherung"}, // 19 Meinen Geheim-Tipps: Show-up Rate erhöhen (Kaltakquise)
 "9NelY2UIGy4":{"r": "y", "why": "allgemeine Prinzipien"}, // 20 NIE WIEDER verkäuferisch wirken - Sofort mehr Umsatz
-"_6-9rCIOrnM":{"r": "x", "why": "Hemmungen"}, // 21 Hemmungen überwinden & mit Leichtigkeit zum Hörer greifen (
+"_6-9rCIOrnM":{"r": "x", "why": "ausgewertet: wenig lehrreich (Hemmungen)"}, // 21 Hemmungen überwinden & mit Leichtigkeit zum Hörer greifen (
 "CEeHQqm-Hz8":{"r": "y", "why": "Opener-Fehler"}, // 22 30%+ Terminquote in der Kaltakquise - So ist es möglich
-"G3rnGgSHtEI":{"r": "x", "why": "Vlog"}, // 23 VLOG: So plane ich meinen Tag, damit der Umsatz stimmt
-"lmTt3IZDEyI":{"r": "x", "why": "Geschäftsmodell"}, // 24 Social Recruiting Agentur schnell auf mehrfach 5-Stellig bri
-"0WP0MGE_TH0":{"r": "x", "why": "Geschäftsmodell"}, // 25 Bei welchem Agentur Offer ist die Akquise am einfachsten?
+"G3rnGgSHtEI":{"r": "y", "why": "Vlog"}, // 23 VLOG: So plane ich meinen Tag, damit der Umsatz stimmt
+"lmTt3IZDEyI":{"r": "x", "why": "ausgewertet: wenig lehrreich (Geschäftsmodell)"}, // 24 Social Recruiting Agentur schnell auf mehrfach 5-Stellig bri
+"0WP0MGE_TH0":{"r": "x", "why": "ausgewertet: wenig lehrreich (Geschäftsmodell)"}, // 25 Bei welchem Agentur Offer ist die Akquise am einfachsten?
 "ZQYRS2SrCy0":{"r": "y", "why": "Webdesign + Handwerk, Wortlaut nicht gezeigt"}, // 26 25+ Termine pro Woche als Webdesigner
 "61ZlLVM0uS0":{"r": "g", "gem": "Begrüßung", "why": "Begrüßung + Erlaubnis ausführlich"}, // 27 Kaltakquise: Der perfekte Gesprächseinstieg für maximale Ter
 "J-bnKLumcqs":{"r": "g", "live": "Analyse", "why": "echtes Webdesign-Telefonat, Stammkunden-Einwand"}, // 28 Jeder macht diese Fehler im Cold Call (LIVE Analyse eines ec
 "h-38m1btw4c":{"r": "y", "why": "Webdesign + Handwerk, allgemein"}, // 29 Was Webdesigner jetzt tun sollten
-"QKqnt3MAvr0":{"r": "x", "why": "Mindset"}, // 30 Mehr Willenskraft und Disziplin hilft dir nicht - Mach statt
-"D7HDIGlf6p4":{"r": "x", "why": "Recht/Abmahnung (nur Anhang)"}, // 31 Killen Cold Calling Abmahnungen bald dein Business?
+"QKqnt3MAvr0":{"r": "x", "why": "ausgewertet: wenig lehrreich (Mindset)"}, // 30 Mehr Willenskraft und Disziplin hilft dir nicht - Mach statt
+"D7HDIGlf6p4":{"r": "x", "why": "ausgewertet: wenig lehrreich (Recht/Abmahnung (nur Anhang))"}, // 31 Killen Cold Calling Abmahnungen bald dein Business?
 "gEbx_BUaVnk":{"r": "g", "why": "Reframing-Liste komplett"}, // 32 Einwandbehandlung für Dummies (Ich haue einfach raus)
 "mC1M_WIBjQQ":{"r": "y", "why": "Wiederholung von Nr. 27"}, // 33 Der perfekte Gesprächseinstieg (Kaltakquise)
-"_dFxUto_JYs":{"r": "x", "why": "Routinen"}, // 34 Meine Routinen für Vertriebserfolg im Business VLOG
+"_dFxUto_JYs":{"r": "y", "why": "Routinen"}, // 34 Meine Routinen für Vertriebserfolg im Business VLOG
 "J_M2nwXoCOk":{"r": "y", "live": "Coaching", "why": "Status/Augenhöhe"}, // 35 So wirst du im Cold Call erst genommen
 "JziWDNtfZX0":{"r": "g", "live": "Schulung", "gem": "Termin-Einstieg", "why": "Termin: Einstieg + Präsentation"}, // 36 Kunden wirklich Überzeugen durch Verkaufspräsentation (Mitsc
-"46-cOhwD3No":{"r": "x", "why": "Eigenwerbung"}, // 37 In den nächsten 30 Tagen easy auf 5-Stellig kommen
-"9fzGw_reDYs":{"r": "x", "live": "Coaching", "why": "Mindset"}, // 38 Das Vollgas-Mindset im Vertrieb (Live-Call Ausschnitt)
+"46-cOhwD3No":{"r": "x", "why": "ausgewertet: wenig lehrreich (Eigenwerbung)"}, // 37 In den nächsten 30 Tagen easy auf 5-Stellig kommen
+"9fzGw_reDYs":{"r": "x", "live": "Coaching", "why": "ausgewertet: wenig lehrreich (Mindset)"}, // 38 Das Vollgas-Mindset im Vertrieb (Live-Call Ausschnitt)
 "4yXqZaCVaXc":{"r": "g", "live": "Coaching", "gem": "Preis", "why": "Termin: Preis, Rabatt"}, // 39 Wie du unnötige Rabatte vermeidest und den Sack zu machst
 "vlN2igIk_84":{"r": "g", "live": "Coaching", "gem": "Sekretärin", "why": "Zentrale + Vorzimmer, Betonung"}, // 40 Souverän vorbei am Sekretariat und Vorzimmer
 "HUTaZK845aM":{"r": "g", "why": "Einwandbehandlung Wort für Wort"}, // 41 Einwandbehandlung Komplett Lösung - Wort für Wort (Kaltakqu
@@ -194,7 +194,7 @@ window.AUSWAHL={
 "azos4vfj72k":{"r": "y", "why": "Gesprächseinstieg"}, // 340 Kaltakquise Gesprächseinstieg (Das musst du wissen)
 "nJiwM6PU76k":{"r": "y", "why": "Fehler"}, // 341 Telefonakquise: 3 Fehler die fast jeder macht
 "4Lu1tLEFylI":{"r": "y", "why": "Einwände vermeiden"}, // 343 Telefonakquise: Einwände vermeiden für höhere Terminquoten
-"FCeUPxi_Nvg":{"r": "-", "live": "Telefonat"}, // 344 Telefonakquise Live-Telefonat inklusive Terminvereinbarung
+"FCeUPxi_Nvg":{"r": "y", "live": "Telefonat"}, // 344 Telefonakquise Live-Telefonat inklusive Terminvereinbarung
 "c-0f3UFtYFU":{"r": "y", "why": "Einwand"}, // 347 Einwandbehandlung: das wissen nur Top-Verkäufer
 "E9XmId2QLGw":{"r": "y", "why": "erklärungsbedürftig"}, // 349 Erklärungsbedürftige Angebote verkaufen - So geht's ganz ein
 "1gQPH03F3Yc":{"r": "y", "why": "Termin: Gesprächsanteil"}, // 350 Verkaufsgespräch: Beachte DAS! (Gesprächsanteil)
@@ -206,7 +206,7 @@ window.AUSWAHL={
 "J_7z29BTztE":{"r": "y", "why": "Präsentation"}, // 376 Verkaufspräsentation: Beachte DAS! (Geheimtipp)
 "vFE9yTOEaOs":{"r": "y", "why": "Leitfaden-Analyse"}, // 378 Telefonakquise LEIITFADEN ANALYSE  (Social Recruiting)
 "BJkbh5CACWc":{"r": "y", "why": "Termin: Smalltalk"}, // 381 SMALLTALK im VERKAUFSGESPRÄCH (Unbedingt beachten)
-"tluPk9kCpkU":{"r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 384 Telefonakquise Verblüffendes Live Telefonat
+"tluPk9kCpkU":{"r": "x", "live": "Telefonat", "why": "ausgewertet: wenig lehrreich (Live-Telefonat)"}, // 384 Telefonakquise Verblüffendes Live Telefonat
 "LdSGGgKC5jA":{"r": "g", "why": "Sekretariat „Worum geht's?“ (Lücke, selbst anhören)"}, // 386 TELEFONAKQUISE vorbei am Sekretariat (Worum gehts denn?) #Sh
 "pmVzqS9YJpE":{"r": "g", "live": "Telefonat", "why": "Live-Telefonat erklärt"}, // 387 Telefonakquise: Mein erstes LIVE-TELEFONAT ERKLÄRT
 "t1y4G4gELSw":{"r": "y", "live": "Telefonat", "why": "Challenge-Vlog mit Anrufen"}, // 388 TELEFONAKQUISE Challenge VLOG #1
@@ -216,7 +216,7 @@ window.AUSWAHL={
 "anRkPyRjsp8":{"r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 396 Telefonakquise: LIVE TELEFONAT inkl. Terminvereinbarung (Mar
 "ZiquXywo9uE":{"r": "y", "why": "Follow-up"}, // 400 MEHR VERKAUFEN: Wirkungsvolle Follow-up Strategien
 "vePdGc0hxew":{"r": "g", "why": "Leitfaden Taxis/Kreuter (ausgewertet)"}, // 401 Reaktionsvideo: Dirk Kreuter Telefonakquise Tipps
-"u332FoQeK_M":{"r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 403 LIVE TELEFONAKQUISE: Gebäudereinigung inklusive Terminverein
+"u332FoQeK_M":{"r": "x", "live": "Telefonat", "why": "ausgewertet: wenig lehrreich (Live-Telefonat)"}, // 403 LIVE TELEFONAKQUISE: Gebäudereinigung inklusive Terminverein
 "IzxtuJN1mYA":{"r": "y", "why": "Entscheider finden"}, // 406 Telefonakquise: So machst du den Entscheider ausfindig!
 "00xJqgLwkFg":{"r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 407 Telefonakquise: Live Telefonat Personalberater Headhunter
 "FN-6Vp6Cqjg":{"r": "g", "live": "Verkaufsgespräch", "why": "Live: Verkaufsgespräch mit Abschluss"}, // 408 Live Mitschnitt: Verkaufsgespräch inklusive Abschluss
@@ -230,8 +230,12 @@ window.AUSWAHL={
 "g6kGerB6ers":{"r": "g", "why": "Termin: 4 Säulen"}, // 421 Die 4 Säulen im Verkaufsgespräch - So verkaufst du IMMER
 "gFC31qk4XJU":{"r": "g", "why": "Termin: Einwand im Gespräch"}, // 422 Einwandbehandlung im Verkaufsgespräch: So funktioniert es im
 "wLrZYtekimY":{"r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 423 Telefonakquise: Live Terminvereinbarung (Online Marketing)
-"DQJ0l_idr50":{"r": "y", "live": "Telefonat", "why": "Live-Telefonat Makler (Privat)"}, // 425 Telefonakquise: Echtes Live Telefonat (Immobilienmakler)
+"DQJ0l_idr50":{"r": "x", "live": "Telefonat", "why": "ausgewertet: wenig lehrreich (Live-Telefonat Makler (Privat))"}, // 425 Telefonakquise: Echtes Live Telefonat (Immobilienmakler)
 "H4jjJFVrCaY":{"r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 426 Telefonakquise: Verblüffendes Live Telefonat mit Terminverei
 "zdFAzni-M1s":{"r": "g", "live": "Telefonat", "why": "Sekretärin live"}, // 427 Telefonakquise: So kommst du immer an der Sekretärin vorbei
 "aaWn8bLoCQg":{"r": "g", "live": "Telefonat", "gem": "Kompletter Ablauf", "why": "bester kompletter Ablauf"}, // 428 Telefonakquise: Echtes Livetelefonat inklusive Terminvereinb
+"_e9NAQuvtlk":{"r": "x", "why": "ausgewertet: wenig lehrreich"}, // 383 Telefonakquise: MOTIVATION aufbringen
+"Q31kjBQP4VA":{"r": "y"}, // 392 TELEFONAKQUISE: Drei tödliche Fehler
+"vKmkzP0565I":{"r": "x", "why": "ausgewertet: wenig lehrreich"}, // 394 Telefonakquise: ANGST ganz leicht überwinden
+"EsK12QRwpU4":{"r": "y"}, // 398 Wolf of Wallstreet Leitfaden ANALYSE (Deutsch)
 };

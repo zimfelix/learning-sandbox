@@ -11,7 +11,7 @@
 ```text
 sales_learning/
 └── mahnken-videos/       YouTube-Kanal Julian Mahnken (428 Videos)
-    ├── uebersicht.html   Übersicht mit Suche, Filtern und Anschau-Empfehlungen
+    ├── uebersicht.html   Übersicht mit Suche, Filtern, Anhör-Liste und Bewertungsspalte (auch online, siehe unten)
     ├── videos.js         Videoliste (Titel, Länge, grobe Kategorie)
     ├── notes.js          Auswertung pro Video: Zielgruppe, 👀-Empfehlung, Learnings
     ├── auswahl.js        Vorauswahl: Relevanz grün/gelb/grau, 💎 Kern-Video, 🎥 Live
@@ -139,6 +139,25 @@ Nach einigen Arbeits-Chats, wenn **kein** anderer Chat in `notes.js` schreibt:
 4. **Qualität prüfen:** richtige Typen (Planung/Motivation = `Organisation`, Follow-up = `Nachfassen`), `seg` gesetzt, Julians Meinung vs. besprochener Trainer getrennt, Widersprüche mit ⚠️ markiert.
 5. **`skript-zwischenstand.md` aktualisieren:** neue stärkere Formulierungen einsetzen, Lücken (Abschnitt „Nächste Schritte“) abhaken, Termin-Phase ausbauen; Kopfzeile „Stand / Basis X Videos“ anpassen.
 6. Committen und pushen nur auf Auftrag.
+
+## Online-Seite (gemeinsam mit Kollegen)
+
+**Link:** https://claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV – dieselbe Übersicht wie `uebersicht.html`, aber mit gemeinsamer Datenbank: Relevanz-Änderungen gelten für alle, „angeschaut“ und Kommentare sieht jeder (je Person gespeichert). Transkripte liegen nicht online.
+
+Zugriff vergibt nur Felix über das Teilen-Menü der Seite. Zum Mitarbeiten braucht der Kollege ein claude.ai-Konto und die Stufe Mitwirkender oder Bearbeiter; über einen öffentlichen Link kann man nur lesen.
+
+```text
+Agent ändert notes.js / auswahl.js / uebersicht.html ──▶ Online-Seite neu veröffentlichen (unten)
+Felix / Kollege bewerten online ──▶ Datenbank (relevanz, notizen) ──▶ Agent liest sie beim Review aus
+```
+
+**Neu veröffentlichen** (nach jeder Änderung an diesen Dateien, im Ordner `mahnken-videos`):
+
+1. `tail -n +2 uebersicht.html > .online.html` (erste Zeile = Doctype, den setzt claude.ai selbst; Datei ist per `.gitignore` ausgenommen).
+2. In einem neuen Chat zuerst einmal das Artifact mit der URL oben lesen (`Artifact`, `action: "read"`), sonst wird das Veröffentlichen abgelehnt.
+3. Veröffentlichen mit `Artifact` (publish): `url` = Link oben, `file_path` = `mahnken-videos/.online.html`, `files` = `videos.js`, `notes.js`, `dates.js`, `auswahl.js` (je Pfad unter `mahnken-videos/`). Kein `capabilities`-Feld mitgeben – die Datenbank-Einstellung bleibt so erhalten; Bewertungen bleiben ebenfalls erhalten.
+
+**Online-Bewertungen auslesen** (beim Review): `ArtifactData` `list` auf die Collections `relevanz` (Dokument-ID = Video-ID, Feld `r`: g/y/x/rot/w) und `notizen` (ein Dokument je Person, `videos.<ID>.seen/.text`). Übernahmen nach `auswahl.js` nur nach Absprache.
 
 ## Grenzen
 

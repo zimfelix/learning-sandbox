@@ -18,3 +18,6 @@ Ergänzt die repositorybezogene `AGENTS.md` im Root. Abweichend vom Sandbox-Stan
 - Wörtliche Zitate nicht erfinden oder glätten; bei schlechten Untertiteln `s: 1` (sinngemäß).
 - Transkripte bleiben lokal (`.gitignore`); Commit und Push nur auf ausdrücklichen Auftrag.
 - Im Chat pro Paket kurz berichten: neue 👀-Empfehlungen, stärkste Formulierungen, Korrekturen.
+- 👀 sparsam vergeben: nur wenn Tonfall/Timing entscheidend ist oder der Wortlaut in den Untertiteln unverständlich bleibt. Ausgewertete Videos mit 👀 oder 💎 bilden die **Anhör-Liste**; Ziel: höchstens 30–50 Videos. Alles andere gilt nach der Auswertung als erledigt.
+- Erweist sich ein ausgewertetes Video als wenig lehrreich (nur Motivation/Organisation, reine Wiederholung, kein Skript-Beitrag), in `auswahl.js` auf `"r":"x"` setzen; dann erscheint es grau.
+- Nach jeder Änderung an `notes.js`, `auswahl.js` oder `uebersicht.html` die **Online-Seite neu veröffentlichen** (README, Abschnitt „Online-Seite“), damit Felix' Kollege denselben Stand sieht.

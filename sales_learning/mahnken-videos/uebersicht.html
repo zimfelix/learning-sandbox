@@ -2,9 +2,9 @@
 <title>Mahnken Videos</title><meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Arbeitstabelle: Filterleiste oben (sticky), darunter breite Tabelle mit eigener Scrollfläche */
-:root{--bg:#fff;--fg:#1d1d1f;--mut:#6e6e73;--line:#e5e5ea;--acc:#c2410c;--w:#fff4e5;--chip:#f2f2f7;--head:#fafafa;--k:#2563eb;--t:#16a34a;--a:#9333ea;--rg:#16a34a;--rgb:#effaf3;--ry:#d97706;--ryb:#fffaeb;--rr:#dc2626;--rrb:#fdeeee}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;color-scheme:dark}}
-:root[data-theme=dark]{--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;color-scheme:dark}
+:root{--bg:#fff;--fg:#1d1d1f;--mut:#6e6e73;--line:#e5e5ea;--acc:#c2410c;--w:#fff4e5;--chip:#f2f2f7;--head:#fafafa;--k:#2563eb;--t:#16a34a;--a:#9333ea;--rg:#16a34a;--rgb:#effaf3;--ry:#d97706;--ryb:#fffaeb;--rr:#dc2626;--rrb:#fdeeee;--rw:#2563eb;--rwb:#eef4ff;--rdb:#f7faf8}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;--rw:#60a5fa;--rwb:#172238;--rdb:#202422;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;--rw:#60a5fa;--rwb:#172238;--rdb:#202422;color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font:14px/1.45 -apple-system,sans-serif;margin:0 auto;padding-block:0 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1600px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
@@ -31,6 +31,7 @@ h2{font-size:16px;margin:22px 0 6px}h3{font-size:13px;color:var(--mut);margin:14
 .it{padding:6px 0;border-bottom:1px solid var(--line)}.it .src{font-size:12px;color:var(--mut)}
 tr.rg td{background:var(--rgb)}tr.rg td:first-child{box-shadow:inset 4px 0 var(--rg)}
 tr.ry td{background:var(--ryb)}tr.ry td:first-child{box-shadow:inset 4px 0 var(--ry)}
+tr.rd td{background:var(--rdb)}tr.rw td{background:var(--rwb)}tr.rw td:first-child{box-shadow:inset 4px 0 var(--rw)}
 tr.rrot td{background:var(--rrb)}tr.rrot td:first-child{box-shadow:inset 4px 0 var(--rr)}
 tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size:12px;width:1%;font-variant-numeric:tabular-nums}
 .gem{font-size:12px;font-weight:600;color:var(--acc)}.why{font-size:12px;color:var(--mut)}
@@ -47,10 +48,10 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
   <select id=sg aria-label="Segment"><option value="">Alle Segmente</option><option>Handwerk</option><option>KMU</option><option>Großunternehmen</option><option>Privat</option><option>allgemein</option></select>
   <select id=ph aria-label="Phase"><option value="">Alle Phasen</option><option value=K>Kaltakquise</option><option value=T>Termin / Verkaufsgespräch</option><option value=A>Andere Verkaufsform</option></select>
   <select id=zr aria-label="Zeitraum"><option value="">Alle Jahre</option><option value=12>Letzte 12 Monate</option><option value=24>Letzte 24 Monate</option></select>
-  <select id=rv aria-label="Relevanz"><option value="">Alle Relevanzen</option><option value=g>🟢 relevant</option><option value=gy>🟢 + 🟡</option><option value=y>🟡 vielleicht / Wiederholung</option><option value=x>⚪ nicht relevant</option><option value=rot>🔴 gesehen, unbrauchbar</option><option value=gem>💎 Kern-Videos</option><option value=live>🎥 Live-Gespräche</option></select>
+  <select id=rv aria-label="Relevanz"><option value="">Alle Relevanzen</option><option value=w>🎧 Anhör-Liste</option><option value=g>🟢 noch auswerten</option><option value=d>✓ ausgewertet, lehrreich</option><option value=gy>🟢 + 🟡</option><option value=y>🟡 vielleicht / Wiederholung</option><option value=x>⚪ nicht relevant</option><option value=rot>🔴 gesehen, unbrauchbar</option><option value=gem>💎 Kern-Videos</option><option value=live>🎥 Live-Gespräche</option></select>
   <button id=cp>⭐ Auswahl kopieren</button>
  </div>
- <div class=leg><span><i style="background:var(--rg)"></i>relevant fürs Skript</span><span><i style="background:var(--ry)"></i>vielleicht / wohl Wiederholung</span><span><i style="background:var(--line)"></i>nicht relevant (blass)</span><span><i style="background:var(--rr)"></i>gesehen, unbrauchbar</span><span>💎 Kern-Video</span><span>🎥 Live-Material</span><span class=mode id=mode>Bewertungen werden geladen …</span></div>
+ <div class=leg><span><i style="background:var(--rw)"></i>🎧 Anhör-Liste: selbst anhören</span><span><i style="background:var(--rg)"></i>relevant, noch auswerten</span><span><i style="background:var(--ry)"></i>vielleicht / wohl Wiederholung</span><span><i style="background:var(--rdb);border:1px solid var(--line)"></i>ausgewertet, lehrreich</span><span><i style="background:var(--line)"></i>nicht relevant (blass)</span><span><i style="background:var(--rr)"></i>gesehen, unbrauchbar</span><span>💎 Kern-Video</span><span>🎥 Live-Material</span><span class=mode id=mode>Bewertungen werden geladen …</span></div>
 </div>
 <div id=out></div>
 <script src="videos.js"></script><script src="notes.js"></script><script src="dates.js"></script><script src="auswahl.js"></script>
@@ -62,7 +63,7 @@ const since=m=>{const d=new Date();d.setMonth(d.getMonth()-m);return d.toISOStri
 const PH={K:'Kaltakquise',T:'Termin / Verkaufsgespräch',A:'Andere Verkaufsform'};
 const TY0=['Sekretärin','Opener','Bedarfsfrage','Rückfrage','Einwand','Terminvereinbarung','Gesprächseinstieg','Präsentation','Preis','Abschluss','Verkaufsgespräch','Nachfassen','Leitfaden','Prinzip','Organisation'];
 const TY=[...TY0,...new Set(Object.values(N).flatMap(n=>(n.items||[]).map(i=>i.y)).filter(y=>!TY0.includes(y)))];
-const RV=[['','Vorschlag übernehmen'],['g','🟢 relevant'],['y','🟡 vielleicht'],['x','⚪ nicht relevant'],['rot','🔴 gesehen, unbrauchbar']];
+const RV=[['','Vorschlag übernehmen'],['w','🎧 anhören'],['g','🟢 relevant'],['y','🟡 vielleicht'],['x','⚪ nicht relevant'],['rot','🔴 gesehen, unbrauchbar']];
 let S={},view='videos';try{S=JSON.parse(localStorage.getItem('s')||'{}');view=localStorage.getItem('v')||'videos'}catch(e){}
 const save=()=>{try{localStorage.setItem('s',JSON.stringify(S));localStorage.setItem('v',view)}catch(e){}};
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
@@ -73,7 +74,8 @@ const li=(id,i)=>`<li><span class="chip ph ${i.p}">${i.p}</span><span class=chip
 
 /* Bewertungen: ov = geteilte Relevanz je Video, mine = eigene Notizen, all = Notizen aller Personen */
 const ST={ov:{},mine:{},all:{},names:{},uid:null,db:null,user:null,online:false,inflight:0,deferred:false};
-const eff=id=>ST.ov[id]?.r||AW[id]?.r||'';
+/* Wirksame Farbe: eigene Bewertung > ausgewertet (Anhör-Liste oder erledigt) > Vorschlag aus auswahl.js */
+const eff=id=>ST.ov[id]?.r||(N[id]?(N[id].watch||AW[id]?.gem?'w':AW[id]?.r=='x'?'x':'d'):AW[id]?.r||'');
 const cmText=id=>Object.values(ST.online?ST.all:{me:ST.mine}).map(v=>v[id]?.text||'').join(' ');
 function lsLoad(){try{const o=JSON.parse(localStorage.getItem('bew')||'{}');ST.ov=o.ov||{};ST.mine=o.mine||{}}catch(e){}}
 function lsSave(){try{localStorage.setItem('bew',JSON.stringify({ov:ST.ov,mine:ST.mine}))}catch(e){}}
