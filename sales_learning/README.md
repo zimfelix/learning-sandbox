@@ -51,7 +51,9 @@ Gesucht sind **sofort am Telefon nutzbare Formulierungen**, keine allgemeinen Ti
 | **Preis** | T | Preis nennen und begründen |
 | **Abschluss** | T | Abschlussfrage, Entscheidung herbeiführen, mehrere Entscheider |
 | **Leitfaden** | K, T, A | Kompletter Ablauf oder Struktur mehrerer Bausteine |
-| **Prinzip** | K, T, A | Nur konkrete Regel, die das Gespräch verändert |
+| **Nachfassen** | K | Erneuter Anruf: nach Monaten, nach Postsendung, Reaktivierung alter Kontakte |
+| **Prinzip** | K, T, A | Nur Regel, die eine Formulierung in einem Baustein verändert (z. B. „bei der Sekretärin nicht sagen, worum es geht“) |
+| **Organisation** | K, T, A | Rund ums Telefonieren, aber nicht im Gespräch selbst: Tagesplanung, Adressen, Motivation, Quoten, Geschäftsmodell. Fließt nicht ins Skript, nur in einen Anhang |
 
 Der ältere Sammeltyp „Verkaufsgespräch“ ist durch Gesprächseinstieg/Präsentation/Preis/Abschluss ersetzt.
 

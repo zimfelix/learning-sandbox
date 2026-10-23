@@ -39,7 +39,7 @@ h2{font-size:16px;margin:22px 0 6px}h3{font-size:13px;color:var(--mut);margin:14
 <script>
 const D=window.VIDEOS,N=window.NOTES||{},$=id=>document.getElementById(id);
 const PH={K:'Kaltakquise',T:'Termin / Verkaufsgespräch',A:'Andere Verkaufsform'};
-const TY0=['Sekretärin','Opener','Bedarfsfrage','Rückfrage','Einwand','Terminvereinbarung','Gesprächseinstieg','Präsentation','Preis','Abschluss','Verkaufsgespräch','Leitfaden','Prinzip'];
+const TY0=['Sekretärin','Opener','Bedarfsfrage','Rückfrage','Einwand','Terminvereinbarung','Gesprächseinstieg','Präsentation','Preis','Abschluss','Verkaufsgespräch','Nachfassen','Leitfaden','Prinzip','Organisation'];
 const TY=[...TY0,...new Set(Object.values(N).flatMap(n=>(n.items||[]).map(i=>i.y)).filter(y=>!TY0.includes(y)))];
 let S={},view='videos';try{S=JSON.parse(localStorage.getItem('s')||'{}');view=localStorage.getItem('v')||'videos'}catch(e){}
 const save=()=>{try{localStorage.setItem('s',JSON.stringify(S));localStorage.setItem('v',view)}catch(e){}};
