@@ -42,7 +42,7 @@ window.AUSWAHL={
 "9fzGw_reDYs":{"r": "x", "live": "Coaching", "why": "ausgewertet: wenig lehrreich (Mindset)"}, // 38 Das Vollgas-Mindset im Vertrieb (Live-Call Ausschnitt)
 "4yXqZaCVaXc":{"r": "g", "live": "Coaching", "gem": "Preis", "why": "Termin: Preis, Rabatt"}, // 39 Wie du unnötige Rabatte vermeidest und den Sack zu machst
 "vlN2igIk_84":{"r": "g", "live": "Coaching", "gem": "Sekretärin", "why": "Zentrale + Vorzimmer, Betonung"}, // 40 Souverän vorbei am Sekretariat und Vorzimmer
-"HUTaZK845aM":{"r": "g", "why": "Einwandbehandlung Wort für Wort"}, // 41 Einwandbehandlung Komplett Lösung - Wort für Wort (Kaltakqu
+"HUTaZK845aM":{"r": "x", "why": "ausgewertet: wenig lehrreich (Wiederholung Reframing)"}, // 41 Einwandbehandlung Komplett Lösung - Wort für Wort (Kaltakqu
 "y2L7b_5h1rI":{"r": "y", "why": "Agentur-Umsatz, evtl. Leitfaden-Teile"}, // 42 Wenn du als Agentur noch keine 5-Stelligen Monatsumsätze mac
 "2b5tL3gs2u8":{"r": "x", "why": "allgemein"}, // 43 Mein bestes Learning aus 17 Jahren Sales
 "ZGPVO3hLE9o":{"r": "x", "why": "Hemmungen"}, // 44 So geifst du mit Leichtigkeit zum Hörer (3 Schritte)
@@ -51,9 +51,9 @@ window.AUSWAHL={
 "-7u1i9Dd3g4":{"r": "x", "why": "Vertriebler einstellen"}, // 47 Bevor du einen Vertriebler einstellst...
 "0KTjwQc-6lQ":{"r": "x", "why": "Vertriebler einstellen"}, // 48 So identifizierst du Top Verkäufer im Vorstellungsgespräch
 "IFZNmZICF4E":{"r": "y", "why": "Termin: dominante Entscheider"}, // 49 Umgang mit dominanten Entscheidern im Verkauf
-"6sDgB_QJqlk":{"r": "g", "why": "neuer Ansatz („wie 2021–2025 funktioniert nicht mehr“)"}, // 50 Hör auf wie 2021-2025 zu telefonieren - Es funktioniert nich
+"6sDgB_QJqlk":{"r": "x", "why": "ausgewertet: wenig lehrreich (Werbung, kein Wortlaut)"}, // 50 Hör auf wie 2021-2025 zu telefonieren - Es funktioniert nich
 "7jtyn_YLLnA":{"r": "g", "why": "Termin: Status im Verkaufsgespräch"}, // 51 5 Verhaltensweisen die deinen Status im Verkaufsgespräch zer
-"B20dfW00aJg":{"r": "g", "why": "Termin: Abschluss Wort für Wort"}, // 52 85% Abschlussquote im Verkaufsgespräch (Wort für Wort Leitfa
+"B20dfW00aJg":{"r": "x", "why": "ausgewertet: wenig lehrreich (Werbung für Download-Leitfaden)"}, // 52 85% Abschlussquote im Verkaufsgespräch (Wort für Wort Leitfa
 "639wCGS1SA4":{"r": "g", "live": "Schulung", "gem": "Reframing", "why": "Kern der Einwandbehandlung"}, // 53 Interne Einwandbehandlungs-Schulung (Uncut)
 "BfUpI6iCSMU":{"r": "g", "why": "Termin: Einwandbehandlung komplett"}, // 54 Einwandbehandlung Komplett Lösung (Verkauf)
 "EyK8YwKUnEM":{"r": "y", "why": "dominante Typen"}, // 55 Dominante Typen in der Kaltakquise überzeugen
@@ -133,7 +133,7 @@ window.AUSWAHL={
 "J-0zaSItBeU":{"r": "g", "why": "Einwand + Stimme, 23 min Training"}, // 181 Einwandbehandlung, Stimme, Verkäufer-Rolle einnehmen
 "HsXfiDfq6FI":{"r": "g", "live": "Schulung", "why": "interne Schulung Einwand – Schwester von Nr. 53"}, // 182 Interne Schulung zur Einwandbehandlung (Uncut)
 "b1-hhX_L8GY":{"r": "y", "live": "Schulung", "why": "Seminar-Ausschnitt"}, // 183 Seminar LEAK - Die richtigen Emotionen im Verkauf
-"Dfr0ZEzm_3Y":{"r": "g", "why": "Q&A u. a. Preise"}, // 184 Ich beantworte eure Fragen (Telefonakquise, Einwandbehandlun
+"Dfr0ZEzm_3Y":{"r": "x", "why": "ausgewertet: wenig lehrreich (Q&A, Wiederholung)"}, // 184 Ich beantworte eure Fragen (Telefonakquise, Einwandbehandlun
 "TviZxtN0VZY":{"r": "g", "live": "Coaching", "why": "Live-Coaching „Schicken Sie Unterlagen“"}, // 186 Live Coaching LEAK - Schicken Sie Unterlagen
 "GbXQEAVdGlU":{"r": "y", "why": "Preisstrategie"}, // 187 die beste Preisstrategie für Agenturen
 "8itYRwd2nOI":{"r": "g", "live": "Telefonat", "why": "eigenes Live-Telefonat analysiert"}, // 188 Ich analysiere mein Telefonakquise LIVE Telefonat
@@ -158,7 +158,7 @@ window.AUSWAHL={
 "eqYbJ-a9Tbw":{"r": "y", "why": "Show-up"}, // 236 Wie du deine Terminerscheinungs-Quote erhöhst!
 "TgOdgtN4hNU":{"r": "g", "why": "Termin: Präsentation"}, // 237 So machst du weltklasse Verkaufspräsentationen
 "4od45IyodDo":{"r": "y", "why": "Tim Taxis bewertet"}, // 239 Heiß auf Kaltakquise von Tim Taxis noch aktuell? (2024)
-"pxt1tIjmGPE":{"r": "g", "why": "Bedarf wecken"}, // 243 So weckst du Bedarf an deinem Angebot (Telefonakquise)
+"pxt1tIjmGPE":{"r": "x", "why": "ausgewertet: wenig lehrreich (Wiederholung, Werbung)"}, // 243 So weckst du Bedarf an deinem Angebot (Telefonakquise)
 "rpnwuchYl7c":{"r": "y", "why": "Social Recruiting"}, // 244 45% Terminquote als Social Recuriting Agentur!
 "RNDpgwEVJ94":{"r": "y", "why": "Vertrauen"}, // 246 Vertrauen aufbauen im Verkauf - So geht's
 "rn8TO8d_FWM":{"r": "y", "why": "qualifizierte Termine"}, // 247 Qualifizierte Termine vereinbaren (Telefonakquise)

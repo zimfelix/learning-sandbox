@@ -1,6 +1,6 @@
 # Kaltakquise-Skript Handwerk/KMU – Zwischenstand
 
-Stand: 2026-10-23 · Basis: 61 ausgewertete Videos (Julian Mahnken; davon 41 aus Nr. 1–184), 218 Learnings · Quelle: `mahnken-videos/notes.js`
+Stand: 2026-10-23 · Basis: 76 ausgewertete Videos (Julian Mahnken; davon 53 aus Nr. 1–184), 266 Learnings · Quelle: `mahnken-videos/notes.js`
 
 Legende: **Empfohlen** = Julians aktuelle Empfehlung · *Variante* = belegte Alternative · ❌ = Negativbeispiel · 🛠 = eigener Vorschlag (nicht aus den Videos, aus seinen Prinzipien abgeleitet) · (s) = sinngemäß, Untertitel schlecht · Quelle als `Nr. Video @ Zeit`
 
@@ -59,6 +59,7 @@ erneuter Anruf (Postsendung, nach Monaten, alter Kontakt) → 10 Nachfassen → 
 - ❌ Sekretärin mit ihrem Namen ansprechen, eigenen Firmennamen nennen, Singsang (Nr. 16 @5:01 – ersetzt die ältere Empfehlung aus Nr. 401).
 - Bei „Worum geht es?“: ruhig und selbstsicher bleiben, **nicht** inhaltlich erklären – sonst „Schicken Sie eine Mail an info@“ (= Papierkorb) (Nr. 16 @8:01, Nr. 401 @15:01).
 - Nicht im Haus → nur fragen, wann er wieder da ist (Nr. 427 @5:03).
+- ❌ Lügen wie „Der Herr Meier kennt mich, der weiß schon Bescheid“ – keine Geschäftsbeziehung mit einer Lüge starten (Nr. 154 @5:01).
 - ⚠️ **Lücke:** wörtliche Antwort auf „Worum geht es denn?“ fehlt noch (auch Nr. 40 zeigt für das Vorzimmer nur den Ton, keinen Wortlaut).
 
 ## 2 Begrüßung + Erlaubnis
@@ -91,6 +92,7 @@ Aufbau laut Nr. 22 @1:00: Nutzensatz + **geschlossene** Frage, bei der der Kunde
 - ❌ Handwerk-Pitch voller Vorteile („Wir unterstützen Handwerksunternehmen dabei, … attraktiver Arbeitgeber in der Region …“) (Nr. 14 @12:02); offensichtliche Probleme aufzählen, „Wir hören immer wieder …“ (Nr. 9 @11:00).
 - ❌ Falsche Erwartung wecken („Ist die Stelle als Elektriker noch offen?“, „Kann man die Küchen bei Ihnen nur online angucken oder gibt's einen Showroom?“) – „Süßigkeit hinhalten und wegziehen“ (Nr. 7 @12:00, Nr. 27 @8:00).
 - ❌ Über den Kunden stellen: „Ich war gerade mal auf Ihrer Karriereseite / Webseite … da gibt's viel Optimierungspotenzial, deswegen rufe ich Sie an“ – provoziert aktiv Ablehnung (Nr. 22 @6:00, Nr. 26 @3:00, Nr. 29 @3:01).
+- ❌ „Wir sind einer der führenden IT-Dienstleister Ihrer Branche und würden uns gerne einmal mit Ihnen austauschen, um herauszufinden, ob wir in der Zukunft ein geeigneter IT-Partner für Sie sein können“ (Nr. 154 @17:01); „Wir sind spezialisiert auf …, da haben wir so eine einzigartige Methode … würde gerne mal prüfen, ob das auch für Sie interessant sein kann“ – niemand will Einzigartigkeit, alle wollen Ergebnisse (Nr. 243 @1:00); „entspannten Business-Kaffee trinken“ (Nr. 154 @13:03).
 - ❌ Offene Frage direkt nach dem Pitch: „Wir sind spezialisiert auf …, wir machen ABCDE. Wie haben Sie das denn aktuell bei sich gelöst?“ (Nr. 22 @2:00).
 
 🛠 **Entwurf für Websites bei Handwerkern** (überarbeitet nach Nr. 26 @7:01; Struktur aus Nr. 426 @1:02: gefunden werden → aus Besuchern werden Anfragen; Prinzipien „Was statt Wie“, „nichts unterstellen“):
@@ -98,6 +100,7 @@ Aufbau laut Nr. 22 @1:00: Nutzensatz + **geschlossene** Frage, bei der der Kunde
 Vorherige Fassung („… über Google mehr passende Anfragen aus der Region bekommen …“) war nach Nr. 26 zu allgemein. „Aufträge, die zu Ihnen passen“ greift den typischen Einwand „über die Seite kommen nur Schein-Anfragen“ (Nr. 28 @6:01) vorab auf. Ungetestet.
 ⚠️ Nicht mit Mängeln der aktuellen Website einsteigen („nicht verschlüsselt“, „nicht mobil“) – das wäre genau die Unterstellung aus Nr. 14 @13:00, ausdrücklich bestätigt in Nr. 22, 26, 29. Solche Befunde gehören in den Termin.
 - Laut Nr. 26 @7:01 reicht ein bloßes „wir bringen Ihnen neue Kunden / mehr Anfragen“ nicht – der Handwerker muss seinen Nutzen *wirklich* verstehen (das Wort „Webseite“ darf bleiben).
+**Prüfkriterien für jeden Nutzensatz** (Nr. 154 @19:02): 1. macht das Angebot attraktiv (Grund für den Termin), 2. glaubhaft und greifbar – kein Marketingversprechen wie „wir besetzen Ihre Stellen“, 3. löst ein konkretes Problem. Bedarf entsteht erst, wenn das Problem bewusst ist („Ein Pflaster interessiert erst, wenn man blutet“, Nr. 243 @3:00) – am Telefon ohne Unterstellung, siehe oben.
 ⚠️ **Lücke:** Julians eigener Nutzensatz wird nicht gezeigt; er verweist auf sein Download-Skript bzw. Training (Nr. 26 @7:01).
 
 ## 4 Bedarfsfrage
@@ -150,7 +153,8 @@ Bei „Ja“ sofort in die Terminvereinbarung, die Lösung ist der Termingrund (
 - „Wie machen Sie das genau?“ → **nicht** erklären, sondern überleiten: „Ja, gute Frage, will ich Ihnen gerne im Detail erklären. Wie sieht's denn morgen am Vormittag aus oder ein bisschen später am Tag? Dann zeige ich es Ihnen.“ (Nr. 18 @5:01; Nr. 27 @13:01: die Wie-Frage ist der Punkt für die Terminvereinbarung)
 - *Variante, wenn eine Kurzantwort nötig ist* (Online-Marketing/Website, Nr. 426 @1:02 (s)) – zwei Sätze zum **Was**, kein Wie: „In der Kurzform: Das erste Ziel ist immer, die Leute, die gerade aktiv nach dem suchen, was Sie anbieten, auf Ihre Website zu bekommen. Der zweite Schritt ist, die Website so zu gestalten, dass aus diesen anonymen Besuchern Anfragen werden.“ → dann direkt zum Termin. Älteres Video; die neuere Empfehlung aus Nr. 18 ist noch knapper.
 - „Was kostet das?“ → kurz und knapp, nie die Präsentation vorwegnehmen, sofort zum Termin (Nr. 53 @2:01). Beispiel für eine Ein-Satz-Antwort zum Preismodell (Telefonakquise-Dienstleister): „Wir bekommen kein Fixum wie bei vielen Agenturen, sondern werden provisionsbasiert pro Termin bezahlt, und nur, wenn er stattfindet.“ (Nr. 344 @1:02 (s))
-- ⚠️ **Lücke (teilweise):** allgemeine wörtliche Antwort auf „Was kostet das?“ für Website-/Handwerk-Angebote fehlt noch.
+- **Keine Zahl und keine Preisspanne am Telefon** – ohne Nutzen und Angebot daneben wirkt jeder Preis teuer und „verbrennt den Deal“ (Nr. 69 @8:00). Das Preismodell in einem Satz ist okay, der Betrag kommt erst im Termin (T4).
+- ⚠️ **Lücke (teilweise):** allgemeine wörtliche Antwort auf „Was kostet das?“ für Website-/Handwerk-Angebote fehlt noch – 🛠 Richtung: „Gute Frage – das hängt davon ab, was Sie brauchen; genau das schauen wir uns morgen in 20 Minuten an, dann bekommen Sie eine klare Zahl. Wie sieht's am Vormittag aus?“ (ungetestet, aus Nr. 53 @2:01 und Nr. 69 abgeleitet).
 
 ## 8 Terminvereinbarung
 
@@ -170,7 +174,8 @@ Passt nicht → „Okay, kein Problem. Und übermorgen?“ – immer nur einen T
 Nach der Zusage (Nr. 19 @7:01–8:00):
 „Herr [Nachname], ganz kurz, bevor wir auflegen: Ich habe noch schnell zwei Fragen, dann sind wir am [Tag] direkt beim Thema und ich kann was vorbereiten.“ → 2 Bedarfsfragen → Relevanz bestätigen: „Oh, das ist ja perfekt, dann passt es noch besser. Am [Tag] zeige ich Ihnen genau, wie wir das machen.“
 
-- Viele recherchieren nach der Zusage (Website, Bewertungen) – eigener Online-Auftritt muss zum Telefonat passen (Nr. 19 @10:00).
+- Viele recherchieren nach der Zusage (Website, Bewertungen) – eigener Online-Auftritt muss zum Telefonat passen (Nr. 19 @10:00, Nr. 184 @8:01).
+- Kalendereinladung **sofort** nach dem Telefonat schicken; sparsam erinnern (eine Erinnerung ca. 24 oder 2 Std. vorher, oft auch keine) (Nr. 184 @7:00). Hohe No-Show-Rate = der Termin war nicht relevant genug (@6:00).
 - Termine, die aus einem eigentlichen Nein herausgequetscht wurden, sind meist schlecht qualifiziert (Nr. 388 @15:02).
 
 ## 10 Nachfassen (erneuter Anruf)
@@ -189,12 +194,16 @@ Nach der Zusage (Nr. 19 @7:01–8:00):
 
 ## TERMIN / VERKAUFSGESPRÄCH
 
-⚠️ **Erst angefangen** – erste Bausteine aus Nr. 3, 34, 36, 39:
+⚠️ **Im Aufbau** – Bausteine aus Nr. 3, 34, 36, 39, 51, 52, 54, 69, 82, 84, 86, 142, 213, 253:
 
 ```text
-T1 Gesprächseinstieg → T2 Bedarfsanalyse → T3 Präsentation → T4 Preis → T5 Einwand → T6 Abschluss
-   (Nr. 36)            (nur Ankündigung)    (Nr. 36)          (Nr. 39)   (Nr. 39)     (Nr. 3, 398)
+T1 Einstieg → T2 Bedarf + Qualifizierung → T3 Präsentation → T4 Preis → T5 Einwand → T6 Abschluss → T7 Nachfassen
+ (36, 84)      (52, 86, 213)                (36, 84, 213)     (51, 69)   (39, 54)     (54, 84, 142, 253)  (82)
 ```
+
+**Ein oder zwei Gespräche?** Julian trennt oft *Setting* (Erstgespräch: Bedarf, kurzer Pitch, Qualifizierung inkl. Preis) und *Closing* (Präsentation, Abschluss); beides geht auch in einem Termin (Nr. 52 @1:02, Nr. 69 @7:00). Vorteil früh qualifizieren: keine Präsentation für Kunden, bei denen der Preis nie passt (Nr. 69 @10:00). Wer zwei Gespräche führt, darf das Erstgespräch nicht als reines Ausfragen führen – sonst No-Shows im Closing (Nr. 86 @1:00): nach der Bedarfsermittlung kurz das **Was** pitchen, das **Wie** bleibt der Cliffhanger, am Ende eine Referenz: „Schauen Sie, Ihr Fall erinnert mich sehr an die Firma XY, mit denen haben wir gerade kürzlich zusammengearbeitet. Ähnliche Ausgangslage wie bei Ihnen, ähnliche Zielsetzung, da haben wir es geschafft, das und das Ergebnis zu erreichen. Und wie wir es bei denen geschafft haben und eben auch bei Ihnen schaffen, das erzähle ich Ihnen dann im nächsten Gespräch.“ (Nr. 86 @8:00)
+
+Phasen laut Julians Leitfaden-Schablone (Nr. 52 @2:01): Gesprächseinstieg → Bedarfsermittlung → Bedarfsweckung → Qualifizierung → Preis → Angebotspräsentation → Abschluss (→ ggf. Einwandbehandlung). **Qualifiziert** ist ein Kunde, wenn Bedarf da ist, Budget bereit und möglich ist, der Entscheider am Tisch sitzt und eine Dringlichkeit besteht (@3:00). Den Wortlaut gibt es nur im Download-Leitfaden, nicht im Video. Richtwert Julian: 30–50 % der Termine sind qualifiziert, davon rund 80 % Abschluss (Nr. 213 @1:01, Erfahrungswert).
 
 ### T1 Gesprächseinstieg
 
@@ -205,22 +214,76 @@ T1 Gesprächseinstieg → T2 Bedarfsanalyse → T3 Präsentation → T4 Preis �
 Überleitung zur Bedarfsanalyse (Nr. 36 @6:00):
 „Damit wir hier und heute nur über die Dinge sprechen, die auch für Sie interessant sind, habe ich zum Start ein paar kurze Fragen. Ist es okay, wenn wir die kurz durchgehen?“
 
+**Folgetermin / Closing nach einem Erstgespräch** (Nr. 84 @1:01 (s)): „Freue mich, dass es heute klappt, und wenn Sie mögen, können wir gerne direkt ins Gespräch einsteigen. Wir haben beim letzten Mal darüber gesprochen, dass …“ → „Ist es nach wie vor so oder hat sich seit unserem letzten Gespräch irgendwas verändert?“
+
 - ❌ Vorstellungsrunde mit Werdegang, Gründergeschichte, Mission; „Stellen Sie sich doch mal bitte vor“ (Nr. 36 @0:00).
 - Entscheider nicht auf ein Podest stellen (Ehrfurcht, Komplimente) – sonst geht die Augenhöhe verloren (Nr. 34 @7:00).
 
 ### T2 Bedarfsanalyse
 
-⚠️ **Lücke:** die eigentlichen Fragen fehlen noch (Nr. 36 verweist nur auf „Ist- und Soll-Situation, Ziele und Wünsche“ im Leitfaden).
+Was geklärt sein muss (Nr. 52 @3:00, Nr. 86 @8:00, Nr. 213 @1:01):
+
+| Thema | Wozu |
+| --- | --- |
+| Ist-Situation, Ziel/Wunschsituation, Problem | Grundlage der Präsentation (A → B) |
+| Was ist Ihnen an der **Zusammenarbeit** wichtig? (z. B. persönlich, Erreichbarkeit) | Präsentation genau darauf zuschneiden – fragen die wenigsten (Nr. 213 @6:01 (s)) |
+| Budget: bereit und möglich | Preisqualifizierung (T4) |
+| Entscheider, Dringlichkeit | sonst „muss ich noch mit … besprechen“ |
+
+⚠️ **Lücke:** wörtliche Bedarfsfragen fehlen weiter; Julian verweist auf Training und Download (Nr. 36, 52).
 
 ### T3 Präsentation
+
+**Aufbau** (Nr. 84 @2:01–6:01, Nr. 213 @3:00–10:00):
+
+```text
+Problembewusstsein → Lösung (das Was) → Methode A → B (das Wie, als 3–5 benannte Schritte)
+   → Zusammenarbeit (Start, Ansprechpartner, Erreichbarkeit) → Sicherstellung (Garantie, Referenzen) → Testabschluss (T6)
+```
+
+- **Problembewusstsein:** erklären, warum die bisherigen Wege nicht funktionieren können – logisch und greifbar (Nr. 84 @2:01). Erst im Termin, am Telefon gilt weiter „nichts unterstellen“.
+- **Sicherstellung** fehlt bei den meisten und ist der häufigste Grund für „eine Nacht drüber schlafen“: Wie stellen wir sicher, dass Sie [Ziel] wirklich erreichen? (Nr. 213 @8:01)
+- Referenzen, mit denen sich der Kunde identifiziert (ähnliche Größe, Branche, Ausgangslage) – im Handwerk z. B. ein vergleichbarer Betrieb aus der Region (Nr. 86 @3:00).
+- Einfach und verständlich, keine 17 überladenen Folien voller Fachbegriffe (Nr. 213 @1:01).
 
 Jeden Punkt aus Kundensicht formulieren (Nr. 36 @4:01):
 - statt „Uns ist immer besonders wichtig, dass wir erst mal analysieren“ → „Damit Sie das Ergebnis bekommen, das Sie haben wollen, analysieren wir erst mal …“
 - statt „Wir haben viel Erfahrung mit [kritischer Punkt] …“ → „Schauen Sie, [kritischer Punkt] ist ja immer heikel, und damit das bei Ihnen kein Problem wird, machen wir für Sie erstens …, zweitens …, drittens …“
+- Nach dem Hauptnutzen **eine Pause machen**, nicht sofort weiterreden – sonst kann der Nutzen nicht wirken. Überzeugt sprechen statt abspulen (Nr. 51 @8:02, @5:00).
+- Garantie oder Testphase schon in der Präsentation nennen, nicht als Joker zurückhalten; im Einwand wird sie noch einmal ausgespielt (Nr. 54 @16:01).
 
-### T4 Preis / T5 Einwand im Termin
+### T4 Preis
 
-Quelle Nr. 39: Julian im Coaching, Beispiel Haustechnik-Anlage für Hausbesitzer (Privat; Logik auf Handwerk/KMU übertragbar).
+**Empfohlen: Preis-Sandwich** (Nr. 69 @2:01, @4:01; ebenso Nr. 86 @9:00) – Nutzen, Preis, Nutzen, ohne Konjunktiv:
+„Herr [Nachname], damit wir Ihr Ziel [X] sicher erreichen, können Sie mit einer Investition in der Größenordnung [Betrag] € kalkulieren. Sind Sie grundsätzlich bereit, in der Größenordnung zu investieren, wenn wir es dafür schaffen, Ihr Ziel zu erreichen?“
+*Kurzform* (Nr. 51 @3:01): „Wir bewegen uns preislich in der Größenordnung [Betrag] Euro. Sind Sie ganz grundsätzlich bereit, in der Größenordnung zu investieren?“
+
+- Regel **NVP – Nutzen vor Preis**: nie einen Preis „out of the blue“ nennen (Nr. 69 @8:00).
+- **Konkreten Preis** nennen, keine Spanne („zwischen 9 und 12.000 €“) – wirkt unsicher, Kunde hofft auf den unteren Wert. Ausnahme mit Risiko: Spanne qualifizieren und später darunter anbieten → kann eine Rabattverhandlung auslösen (Nr. 69 @5:00–7:00).
+- ❌ „… da wären wir so bei einer Investition von 10.000 Euro, ja, wäre das grundsätzlich möglich, könnten Sie das investieren …“ – Konjunktive erzeugen unverbindliche Antworten („Ja, das wäre denkbar“). **Alles, was kein klares Ja ist, ist ein Nein.** Gilt genauso für die Abschlussfrage.
+- Laut Nr. 52/54 wird das Budget schon in der Qualifizierung abgefragt – dann ist der Preis am Ende selten der eigentliche Einwand.
+
+### T5 Einwand im Termin
+
+**Grundlage** (Nr. 54 @0:00, @4:01): Im Termin reicht ein Reframing-Satz nicht. Hinter jedem Einwand am Ende steckt **Unsicherheit** („muss ich mir überlegen“, „klappt das in meiner Branche?“) – Aufgabe ist, durch Perspektivwechsel Sicherheit aufzubauen.
+
+Ablauf nach Nr. 54 (Julian im Coaching, B2B-Dienstleister an Selbstständige, im Original in der Du-Form – hier auf Sie angepasst, 👀 Ton entscheidend):
+
+```text
+Skala-Frage (T6) → unter 9 → „Was fehlt noch …?“ → Glaskugel → Wechsel 1 → Wechsel 2 → Wechsel 3 → Abschlussfrage
+```
+
+| Schritt | Formulierung | Quelle |
+| --- | --- | --- |
+| Echten Einwand holen (Skala unter 9) | „Okay, alles klar. Was fehlt denn jetzt noch, damit eine klare Zehn draus werden kann?“ – die meisten nennen jetzt ihren echten Einwand | Nr. 54 @2:00 |
+| Glaskugel | „Okay, verstehe. Lassen Sie mich noch eine Frage stellen. Angenommen, wir hätten eine Glaskugel und könnten reinschauen: Wir starten heute – wo stehen wir in drei Monaten? Und die Glaskugel würde verraten, es hat alles wunderbar funktioniert, es war genau die richtige Entscheidung, Sie haben [Ziel] erreicht. Wenn wir diese Glaskugel hätten, gäb's doch nichts mehr, was Sie zurückhalten würde. Dann würden Sie es vermutlich machen, oder?“ – bewusst nicht „Würden Sie es dann machen?“ → danach: „Es ist einfach noch nicht klar genug, ob es hinterher wirklich funktioniert, oder?“ | Nr. 54 @6:00, @10:01 |
+| Wechsel 1: Was, wenn nicht? | „Es ist völlig legitim, wenn Sie sich dagegen entscheiden, ich werde Sie zu nichts überreden.“ → Konsequenz: nächste Monate wie die letzten, ein anderer Anbieter gibt auch keine 100-%-Garantie, nur Zeit verloren → „Wenn Sie ein anderes Ergebnis möchten, müssen Sie ja eh was anderes machen, ob bei uns oder bei jemand anderem. Einverstanden?“ | Nr. 54 @17:00, @12:00 |
+| Wechsel 2: Was, wenn es schiefgeht? | Worst Case klein machen: „Würde Sie das finanziell in den Ruin treiben? Müssten Sie Insolvenz anmelden wegen [Betrag]?“ → Garantie/Testphase noch einmal ausspielen; optional einfache Dreisatz-Rechnung (Anfragen → Abschluss → Kundenwert) | Nr. 54 @14:00, @23:00 |
+| Wechsel 3: Was, wenn es klappt? | „Nehmen wir mal an, es funktioniert nur halb so gut [wie bei den meisten]. Dann stehen Sie in drei Monaten an dem Punkt, wo Sie [Ziel] erreicht haben. … Es war eine gute Entscheidung. Wie fühlt sich das für Sie an?“ → Abschlussfrage (T6) | Nr. 54 @19:00–20:01 |
+
+⚠️ Die Sie-Fassungen sind angepasst, nicht wörtlich. Das Transkript von Nr. 54 endet bei 24:00 vor der angekündigten „Geheimzutat“ – im Video anhören.
+
+Ältere Antworten auf Preis-Einwände – Quelle Nr. 39: Julian im Coaching, Beispiel Haustechnik-Anlage für Hausbesitzer (Privat; Logik auf Handwerk/KMU übertragbar).
 
 | Situation | Antwort |
 | --- | --- |
@@ -229,17 +292,52 @@ Quelle Nr. 39: Julian im Coaching, Beispiel Haustechnik-Anlage für Hausbesitzer
 
 ### T6 Abschluss / mehrere Entscheider
 
+**Grundregel:** Der Zeitpunkt zählt mehr als die Technik. Die Abschlussfrage nur stellen, wenn sie sicher mit Ja beantwortet wird – vorher immer ein **Testabschluss** (Nr. 142 @6:00, Nr. 253 @0:00).
+
+```text
+Präsentation fertig → Kaufsignale?
+   ├ viele, starke  → harte Frage: „Okay, alles klar, das heißt, wollen wir das machen?“
+   └ wenige/unklar  → Testabschluss (weich) ─┬ 9/10 → Bestätigung + Future Pacing → Ja
+                                             └ < 9  → „Was fehlt noch …?“ → T5 → erneut testen
+```
+
+**Kaufsignale** = Fragen, die erst nach dem Abschluss relevant wären: „Wie lange dauert es dann, bis die ersten Ergebnisse da sind?“, „Bis wann brauchen Sie die Information von mir?“ (Nr. 253 @4:00). Selbst provozieren, wenn keine kommen (@9:00): „Herr Kunde, wenn wir das jetzt so miteinander starten und wir würden das Onboarding machen, sollen wir da gleich nächste Woche das Onboarding machen oder reicht Ihnen das auch, wenn wir das erst in der übernächsten Woche machen?“ – für Handwerksbetriebe z. B. Start der Website-Erstellung.
+
+**Testabschluss – Varianten:**
+- *weich* (Nr. 142 @5:01 (s)): „Okay, dann habe ich gleich noch eine letzte Info für Sie – vorher die Frage: Wie gefällt es Ihnen denn bis hierhin, und haben Sie gerade schon irgendeine Frage?“ – signalisiert noch keinen Abschluss. ❌ „Haben Sie noch Fragen?“ (kündigt den Abschluss an).
+- *Future Pacing* (Nr. 84 @8:00): „Herr Kunde, gehen wir jetzt mal gedanklich 8 Wochen in die Zukunft. Wenn wir das jetzt genauso bei Ihnen umsetzen und wir schaffen es darüber, [Wunschergebnis] zu erreichen, dann war es doch gut, dann hat sich doch gelohnt, dass wir heute drüber gesprochen haben, oder?“ – „wenn wir das tatsächlich schaffen würden …“ = erst 4–6 → nachliefern.
+- *Skala* (Nr. 54 @1:01, Nr. 253 @7:02, auf Sie angepasst): siehe unten.
+
+**⭐ Abschlussfrage – Empfohlen für Handwerk/KMU** (Nr. 142 @7:00–9:02, Original in Du-Form, auf Sie angepasst): Bestätigung + Future Pacing:
+„Ja, schön – ich denke auch, dass es in Ihrem Fall richtig gut passt. Gehen wir mal gedanklich drei Monate in die Zukunft: Wenn wir all das gemeinsam umgesetzt haben und Sie haben dann [Ziel] erreicht, dann war es ja auch eine gute Entscheidung, heute zu starten, stimmt's?“ → optional absichern: „Okay, alles klar, das heißt, dann setzen wir es um?“ – vermeidet Kaufreue.
+
+**Überleitung per Skala** (Nr. 54 @1:01, auf Sie angepasst):
+„Nachdem wir das alles besprochen haben und Sie jetzt ein Gefühl dafür haben, wie die Zusammenarbeit mit uns aussieht: Auf einer Skala von eins bis zehn – eins bedeutet, macht für Sie gar keinen Sinn, zehn bedeutet, Sie wollen es gerne machen, wir starten –, wo stehen wir da gerade?“
+- **9 oder 10** → Abschluss: „Freut mich wirklich sehr, ich habe auch das Gefühl, das ist genau das Richtige – um [Ziel] zu erreichen, sind 1, 2, 3 die richtigen Schritte.“ → weiteren Ablauf erklären (Angebot schriftlich, gemeinsam durchgehen, Bestätigung, Starttermin) (@2:00). Manche sagen grundsätzlich nie zehn.
+- **Unter 9** → T5.
+- **Abschlussfrage nach T5, lockere Variante** (@21:01, im Original Du-Form): „Wir sind bei 95 %, und die letzten 5 % Vertrauen, die müssen Sie mir einfach schenken. Ich verspreche Ihnen, wir geben alles. … Lassen Sie uns das machen. Haben Sie Lust drauf?“ – Ton ist sehr locker (Coaching für Selbstständige), für Handwerksbetriebe ggf. ruhiger formulieren.
+
 - Nicht auf das Gespräch verzichten, wenn nicht alle Entscheider kommen: Gespräch 1 voll mit dem einen führen, damit er intern überzeugt (Nr. 3 @1:01).
 - Kein „Staatsgeheimnis“ aus dem Angebot machen (Nr. 3 @3:00).
 - Am Ende: „Wie holen wir denn jetzt Ihre Kollegen ins Boot?“ → Folgetermin mit allen (Nr. 3 @7:00).
 - Nach der Abschlussfrage schweigen („Wer zuerst spricht, verliert“) (Nr. 398 @3:01 – Analyse einer Filmszene, Telefonverkauf an Privatanleger).
 
-Fehlt noch: Bedarfsfragen im Termin, Preis nennen und begründen, wörtliche Abschlussfrage, weitere Einwände im Termin.
+### T7 Nachfassen nach dem Termin (Angebot verschickt)
+
+❌ „Wir haben ja letzte Woche gesprochen … Ich hatte Ihnen das Angebot noch mal geschickt. Sagen Sie, haben Sie noch Fragen dazu oder wie ist denn der Stand der Dinge?“ – falsches Timing, Vertrösten, Kontakt schläft ein (Nr. 82 @1:02, @7:01).
+
+**Empfohlen** (Nr. 82):
+1. Noch im Termin: „Okay, Herr Kunde, ich schick's Ihnen gleich raus. Sagen Sie, wie sieht denn jetzt Ihr Entscheidungsprozess aus? Auch zeitlich?“ (@3:00)
+2. Follow-up fest vereinbaren: „Wenn Sie dann Dienstag Klarheit haben, dann lassen wir uns doch schauen für Dienstagnachmittag. Wann passt es gut rein, dass wir ein kurzes Telefonat noch mal führen? Und Sie sagen mir, wo stehen Sie dann? Daumen hoch oder Daumen runter? Wie sieht's z. B. um 15 Uhr bei Ihnen aus?“ → Kalendereinladung (@4:00). Die Deadline sorgt dafür, dass er bis dahin entscheidet.
+3. Im Follow-up direkt einsteigen (@8:02 (s)): „Hallo Herr [Nachname], hier ist [Vorname Nachname], grüß Sie. Bin sehr gespannt – wo stehen wir denn jetzt?“
+
+Fehlt noch: wörtliche Bedarfs- und Qualifizierungsfragen im Termin, Preis **begründen** (über das Sandwich hinaus), Einwände im Termin speziell aus dem Handwerk.
 
 ---
 
 ## Arbeitsorganisation (aus den Videos)
 
+- Julians Richtwert: mindestens 20–25 % Terminquote, davon mindestens 70 % stattfindende Termine (Nr. 41 @6:01, Erfahrungswert). Seine neuen Leitfäden (Sommer 2026) setzen auf längere Erstgespräche (5–10 Min.) mit mehr Beziehungsebene für höhere Show-up-Raten – Wortlaut nur im Training (Nr. 50 @1:00).
 - Lieber ca. 20 konzentrierte Wählversuche am Tag als 100; ab ca. 40 Calls lässt die Schlagfertigkeit nach (Nr. 388 @21:01).
 - Adressen kostenlos über wlw.de filtern (Mitarbeiterzahl, Umkreis) (Nr. 388 @12:01).
 - Vor dem ersten Anruf: Nummer vorwählen, 60–90 Sek. atmen (4 Sek. ein, 8 Sek. aus), dann ohne Nachdenken wählen (Nr. 394 @7:00).
@@ -254,7 +352,7 @@ Fehlt noch: Bedarfsfragen im Termin, Preis nennen und begründen, wörtliche Abs
 
 ## Nächste Schritte für das finale Skript
 
-1. **Termin-Phase weiter füllen:** `fetch.py --next 5 --cat B`. Offen in Nr. 1–184 sind 11 Videos, darunter genau die Lücken: Nr. 52 (Abschluss-Leitfaden Wort für Wort), Nr. 69 (Preise kommunizieren Wort für Wort), Nr. 84 (Closing-Gesprächsaufbau), Nr. 142 (beste Abschlussfrage), Nr. 51 (Status im Verkaufsgespräch). Danach Kategorie C (9 Einwand-Videos offen).
+1. **Termin-Phase weiter füllen:** `fetch.py --next 5 --cat B` (noch 12 grüne offen). ~~Nr. 51, 52, 69, 84, 142~~ ausgewertet – Preis, Closing-Aufbau und Abschlussfrage stehen jetzt in T3–T7. Danach Kategorie C (Einwand-Videos).
 2. Lücken schließen:
    - ~~Preis-Rückfrage am Telefon~~ → teilweise (Nr. 344); allgemeine Fassung für Website-Angebote offen.
    - ~~Nutzensatz-Entwurf nach Nr. 26 schärfen~~ → 🛠 überarbeitet; Julians eigener Nutzensatz bleibt unbekannt.
