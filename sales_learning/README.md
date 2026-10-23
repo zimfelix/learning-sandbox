@@ -151,6 +151,8 @@ Agent ändert notes.js / auswahl.js / uebersicht.html ──▶ Online-Seite neu
 Felix / Kollege bewerten online ──▶ Datenbank (relevanz, notizen) ──▶ Agent liest sie beim Review aus
 ```
 
+Commit und Push aktualisieren nur GitHub, **nicht** die Seite. Darum wird vor jedem Commit/Push solcher Änderungen neu veröffentlicht; ein lokaler Hook (`.git/hooks/pre-push`, nicht eingecheckt) gibt beim Push eine Erinnerung aus. Die Seite bleibt online, bis sie gelöscht wird.
+
 **Neu veröffentlichen** (nach jeder Änderung an diesen Dateien, im Ordner `mahnken-videos`):
 
 1. `tail -n +2 uebersicht.html > .online.html` (erste Zeile = Doctype, den setzt claude.ai selbst; Datei ist per `.gitignore` ausgenommen).
