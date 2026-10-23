@@ -2,6 +2,8 @@
 
 Ergänzt die repositorybezogene `AGENTS.md` im Root. Abweichend vom Sandbox-Standard gilt hier **Liefermodus (shipping mode)**: Ziel ist eine vollständige, saubere Auswertung, keine Lernsession. Keine Lernfragen, keine Drei-Phasen-Begleitung; Abwägungen und Korrekturen trotzdem knapp benennen.
 
+**Eigenständiges Vorhaben:** unabhängig von `SQL_learning/`, `obsidian/` und `lead-finder/`. Wer hier arbeitet, fasst diese Ordner nicht an; die Root-`learning-state.md` (SQL-/Python-Lernstand) ist für dieses Vorhaben nicht relevant.
+
 ## Vor dem Start lesen
 
 - `sales_learning/README.md` vollständig – vor allem **„Was aus den Videos herausgezogen wird“** (Typen, Phasen K/T/A, Zielgruppe, Format) und **„Einstieg für einen neuen Chat“** (Befehle, Ablauf, bisherige Fehler).
