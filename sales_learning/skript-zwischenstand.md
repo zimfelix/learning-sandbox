@@ -1,6 +1,6 @@
 # Kaltakquise-Skript Handwerk/KMU – Zwischenstand
 
-Stand: 2026-10-23 · Basis: 76 ausgewertete Videos (Julian Mahnken; davon 53 aus Nr. 1–184), 266 Learnings · Quelle: `mahnken-videos/notes.js`
+Stand: 2026-10-24 · Basis: 91 ausgewertete Videos (Julian Mahnken; davon 68 aus Nr. 1–184), 283 Learnings · Quelle: `mahnken-videos/notes.js`
 
 Legende: **Empfohlen** = Julians aktuelle Empfehlung · *Variante* = belegte Alternative · ❌ = Negativbeispiel · 🛠 = eigener Vorschlag (nicht aus den Videos, aus seinen Prinzipien abgeleitet) · (s) = sinngemäß, Untertitel schlecht · Quelle als `Nr. Video @ Zeit`
 
@@ -59,6 +59,7 @@ erneuter Anruf (Postsendung, nach Monaten, alter Kontakt) → 10 Nachfassen → 
 - ❌ Sekretärin mit ihrem Namen ansprechen, eigenen Firmennamen nennen, Singsang (Nr. 16 @5:01 – ersetzt die ältere Empfehlung aus Nr. 401).
 - Bei „Worum geht es?“: ruhig und selbstsicher bleiben, **nicht** inhaltlich erklären – sonst „Schicken Sie eine Mail an info@“ (= Papierkorb) (Nr. 16 @8:01, Nr. 401 @15:01).
 - Nicht im Haus → nur fragen, wann er wieder da ist (Nr. 427 @5:03).
+- „Er ist gerade nicht da“ ist oft eine Ausrede, weil die Sekretärin den Verkäufer an Ton und Wording erkennt – danach nicht diskutieren; der Hebel liegt vorher im Status (Nr. 42 @4:00).
 - ❌ Lügen wie „Der Herr Meier kennt mich, der weiß schon Bescheid“ – keine Geschäftsbeziehung mit einer Lüge starten (Nr. 154 @5:01).
 - ⚠️ **Lücke:** wörtliche Antwort auf „Worum geht es denn?“ fehlt noch (auch Nr. 40 zeigt für das Vorzimmer nur den Ton, keinen Wortlaut).
 
@@ -71,6 +72,7 @@ erneuter Anruf (Postsendung, nach Monaten, alter Kontakt) → 10 Nachfassen → 
 - Name des Gegenübers zuerst, „hier ist“ statt „mein Name ist“, Firmennamen weglassen, „grüß Sie“ löst Antwort aus → Dialog (Nr. 390 @6:01–8:01). Regional: Servus/Moin (Nr. 7 @5:00).
 - Ton: sympathisch-neutral, nicht überschwänglich, nicht gelangweilt (Nr. 14 @2:00). Beim Begrüßen lächeln, vor allem mit tiefer Stimme – tief-neutral klingt nach „Gefahr“ (Nr. 33 @11:01).
 - Firmennamen nur nennen, wenn ausdrücklich danach gefragt wird (Nr. 33 @9:01).
+- **Dominanter Entscheider** (meldet sich laut und knapp: „Meier, hallo!“): Energie angleichen – „Hallo, Herr Meier, hier ist [Vorname Nachname], ich grüße Sie.“ mit derselben Kraft, nicht gemütlich (Nr. 49 @1:01, 👀 nur hörbar). Tests wie „Sie haben 10 Sekunden“ / „Was willst du jetzt von mir?“: **nicht** schneller sprechen, Leitfaden **nicht** abkürzen, sich nicht erklären oder rechtfertigen – aber auch nicht überbieten. Wer souverän bleibt, mit dem spricht er danach ruhig auf Augenhöhe (Nr. 49 @2:00, Nr. 55 @2:01–3:01).
 - „Darf ich gleich sagen, warum ich anrufe?“ ist eine Abwandlung von Tim Taxis' „Darf ich gleich zum Punkt kommen?“: Weckt Neugier ohne falsche Erwartung, der Kunde entscheidet sich selbst fürs Gespräch und hört aufmerksamer zu (Nr. 27 @10:00, Nr. 33 @15:02).
 
 *Variante* „ganz offen“ (Nr. 6 @4:00): „Herr Meier, ich mach's ganz offen, ich möchte Sie gerne als Kunden gewinnen. Ist das grundsätzlich möglich oder lassen Sie sich gerade für nichts auf dieser Welt begeistern?“ → bei „Kommt drauf an“: „Okay, fair. Ich sag's Ihnen kurz in zwei Sätzen. Wenn es gar nicht relevant ist, legen wir auf, ansonsten gehen wir tiefer. Einverstanden?“
@@ -143,6 +145,7 @@ Bei „Ja“ sofort in die Terminvereinbarung, die Lösung ist der Termingrund (
 | Rufen Sie später/im April an | „Können wir gerne so machen. Weil mein Kalender schnell ausgeplant ist und wir es sonst vor uns herschieben, schicke ich Ihnen gleich zwei, drei Terminvorschläge per Mail. Wollen wir das so machen?“ | Nr. 428 @6:00 |
 | Website ist für uns nicht interessant, wir haben Stammkunden, über die Seite kommen nur Schein-Anfragen (Handwerk/KMU-typisch) | ⚠️ Keine Musterantwort im Video. ❌ Dagegen argumentieren („Und unsere Kunden, wenn die sehen, wie professionell …“) → Kunde verloren; laut Julian fehlte vorher die Relevanz. 🛠 Reframing-Vorschlag: „Okay, das heißt nur, wenn über die Website genau die Anfragen kommen, die zu Ihnen passen – und nicht solche Schein-Anfragen –, nur dann macht es Sinn, dass wir sprechen. Stimmt's?“ | Nr. 28 @6:01 (👀) |
 
+- Den **Kern** des Einwands reframen, nicht einen anderen: ❌ bei „schlechte Erfahrung“ → „… nur wenn wir Sie überzeugen können, dass wir super toll sind …“ – das hat auch der vorige Anbieter behauptet (Nr. 59 @25:00).
 - Reframing wirkt nur, wenn das Gespräch vorher entspannt war; harte Ablehnung ist meist eine Reaktion auf den eigenen Einstieg (Nr. 12 @2:00, Nr. 2 @7:00, Nr. 14 @23:01).
 - Logik: Der Einwand ist ein Problem → man schlägt eine Lösung im Sinne des Kunden vor, darum ist die logische Antwort „Ja“. Nach dem Ja **nicht weiterreden**, sondern direkt: „Okay, dann lassen Sie uns mal schauen, wann es die Tage passt, dass wir drüber sprechen.“ – Unsicherheit an dieser Stelle provoziert den nächsten Einwand („Schicken Sie mal Unterlagen“) (Nr. 32 @3:01, @6:01).
 - „Kein Interesse“, „voll besetzt“, „gerade eingestellt“, „Stelle so gut wie besetzt“ = derselbe Einwand mit anderer Begründung (Nr. 14 @19:01, Nr. 23 @12:00). Viele Einwände sind Vorwände aus fehlendem Vertrauen (Nr. 8 @0:00).
@@ -171,8 +174,13 @@ Passt nicht → „Okay, kein Problem. Und übermorgen?“ – immer nur einen T
 
 ## 9 Absicherung (damit der Termin stattfindet)
 
-Nach der Zusage (Nr. 19 @7:01–8:00):
-„Herr [Nachname], ganz kurz, bevor wir auflegen: Ich habe noch schnell zwei Fragen, dann sind wir am [Tag] direkt beim Thema und ich kann was vorbereiten.“ → 2 Bedarfsfragen → Relevanz bestätigen: „Oh, das ist ja perfekt, dann passt es noch besser. Am [Tag] zeige ich Ihnen genau, wie wir das machen.“
+**Empfohlen** nach der Zusage (Nr. 46 @1:00–3:00, neuere und ausführlichere Fassung von Nr. 19 @7:01):
+„Okay, Herr [Nachname], klasse, freue mich. Bevor wir auflegen, ich habe noch schnell zwei, drei Fragen, dann sind wir am [Tag] gleich schneller, dann kann ich schon mal was vorbereiten. Darf ich die zwei, drei Fragen kurz stellen?“ → 2–3 Fragen aus der späteren Bedarfsanalyse → **egal was er antwortet**, bestätigen und den Termin relevant machen:
+„Herr [Nachname], das klingt ja perfekt. Genau diesen Fall haben wir immer wieder, da haben wir richtig tolle Lösungen dafür. Ich werde Ihnen im nächsten Gespräch mal lückenlos zeigen, was wir mit denen genau gemacht haben – also die gesamte Strategie, dass Sie eine Idee davon bekommen, wie wir arbeiten und welche Ergebnisse möglich sind. [Tag], [Uhrzeit], ich freue mich schon sehr darauf.“
+→ nimmt die Sorge „bei uns klappt das bestimmt nicht“ und gibt ihm einen eigenen Grund zu kommen. Nur sagen, was wahr ist (vergleichbare Kunden müssen existieren).
+❌ Nur verabschieden: „Herr Meier, ich freue mich auf einen Termin mit Ihnen am Donnerstag, 13 Uhr, ich schicke Ihnen gleich die Einladung raus, ja? Und bis dahin erstmal eine gute Woche noch.“ – der letzte Eindruck bleibt am stärksten (Nr. 46 @1:00).
+
+- Wer nur durch Argumente zum Termin gebracht wurde, sagt später oft ab („irgendwie habe ich mich da nicht wohlgefühlt“) – das Gespräch muss sich angenehm anfühlen (Nr. 59 @37:01, Gast Nino Tschöpe).
 
 - Viele recherchieren nach der Zusage (Website, Bewertungen) – eigener Online-Auftritt muss zum Telefonat passen (Nr. 19 @10:00, Nr. 184 @8:01).
 - Kalendereinladung **sofort** nach dem Telefonat schicken; sparsam erinnern (eine Erinnerung ca. 24 oder 2 Std. vorher, oft auch keine) (Nr. 184 @7:00). Hohe No-Show-Rate = der Termin war nicht relevant genug (@6:00).
@@ -249,6 +257,8 @@ Problembewusstsein → Lösung (das Was) → Methode A → B (das Wie, als 3–5
 Jeden Punkt aus Kundensicht formulieren (Nr. 36 @4:01):
 - statt „Uns ist immer besonders wichtig, dass wir erst mal analysieren“ → „Damit Sie das Ergebnis bekommen, das Sie haben wollen, analysieren wir erst mal …“
 - statt „Wir haben viel Erfahrung mit [kritischer Punkt] …“ → „Schauen Sie, [kritischer Punkt] ist ja immer heikel, und damit das bei Ihnen kein Problem wird, machen wir für Sie erstens …, zweitens …, drittens …“
+- **Ohne Konjunktiv** – Beispiel Website/Google (Nr. 42 @7:01): ❌ „Wenn wir das jetzt so umstellen würden, dann wäre es halt so, dass … dann würden Sie bei Google ganz oben auftauchen …“ ✅ „Wenn wir das so für Sie umsetzen, dann sind Sie in kurzer Zeit auf Platz 1, Platz 2 oder Platz 3 bei Google. Und das bedeutet ganz konkret, Sie kriegen die meisten Webseitenbesucher, viel mehr als bisher … echte Interessenten, die nach Ihrem Angebot suchen …“ – mit klarer Sprache sieht der Kunde das Ergebnis vor sich.
+- Problem besser erklären, als der Kunde es selbst verstanden hat – dann traut er einem auch die Lösung zu (Nr. 59 @43:00). Referenzen allein reichen oft nicht („bei mir ist das anders“); besser einen kleinen echten Nutzen für seinen Fall zeigen und Referenzen als Beleg dazu (@51:01).
 - Nach dem Hauptnutzen **eine Pause machen**, nicht sofort weiterreden – sonst kann der Nutzen nicht wirken. Überzeugt sprechen statt abspulen (Nr. 51 @8:02, @5:00).
 - Garantie oder Testphase schon in der Präsentation nennen, nicht als Joker zurückhalten; im Einwand wird sie noch einmal ausgespielt (Nr. 54 @16:01).
 
@@ -282,6 +292,17 @@ Skala-Frage (T6) → unter 9 → „Was fehlt noch …?“ → Glaskugel → Wec
 | Wechsel 3: Was, wenn es klappt? | „Nehmen wir mal an, es funktioniert nur halb so gut [wie bei den meisten]. Dann stehen Sie in drei Monaten an dem Punkt, wo Sie [Ziel] erreicht haben. … Es war eine gute Entscheidung. Wie fühlt sich das für Sie an?“ → Abschlussfrage (T6) | Nr. 54 @19:00–20:01 |
 
 ⚠️ Die Sie-Fassungen sind angepasst, nicht wörtlich. Das Transkript von Nr. 54 endet bei 24:00 vor der angekündigten „Geheimzutat“ – im Video anhören.
+
+**„Ihr Mitbewerber ist günstiger“ – Empfohlen** (Nr. 57, Julian im Coaching; begründet den Preis über die eigenen Gründe des Kunden):
+
+| Schritt | Formulierung |
+| --- | --- |
+| 1. Preis gedanklich herausnehmen | „Okay, alles klar, erstmal vielen Dank für das Feedback. Sagen Sie, nur eine kurze Frage: Angenommen, wir ziehen im Preis gleich, also wir bieten zum gleichen Preis an wie unser Mitbewerber. Würden Sie sich dann trotzdem noch für den entscheiden oder hätten wir dann eine Chance, dass Sie zu uns kommen?“ (@0:01) |
+| 2. Seine Gründe sammeln | „Freut mich erstmal sehr. Was sind denn die Punkte, die Sie von uns überzeugen?“ → „Gibt's sonst noch was?“ – alle Punkte holen (@0:01–1:00) |
+| 3. Wert + Future Pacing | „Ja, Sie haben recht, das sind alles Punkte, die wir mehr bieten, und genau diese Punkte sind es, durch die wir sicherstellen, dass wir [Ergebnis] für Sie hinterher auch erreichen. Gehen wir mal gedanklich drei Monate in die Zukunft … War es dann rückblickend noch wichtig, dass Sie am Anfang ein bisschen mehr gezahlt haben und wir dafür das Ergebnis sichergestellt haben?“ (@1:00) |
+| 4. Optional mit Spielraum (s) | „Preislich können wir nicht gleichziehen. Wenn ich Ihnen aber noch ein Stück entgegenkomme und mit dem ganz spitzen Bleistift rechne – haben wir dann den Zuschlag und starten?“ → lieber eine Zugabe mit wenig Aufwand (z. B. ein Monat gratis) als großer Rabatt; vom Wettbewerber „billig“, nicht „günstig“ sagen (@3:00) |
+
+Für Handwerk übertragbar: Die Punkte des Kunden sind dort z. B. feste Ansprechpartner, Termintreue, Gewährleistung, Betreuung nach dem Start.
 
 Ältere Antworten auf Preis-Einwände – Quelle Nr. 39: Julian im Coaching, Beispiel Haustechnik-Anlage für Hausbesitzer (Privat; Logik auf Handwerk/KMU übertragbar).
 
@@ -331,7 +352,7 @@ Präsentation fertig → Kaufsignale?
 2. Follow-up fest vereinbaren: „Wenn Sie dann Dienstag Klarheit haben, dann lassen wir uns doch schauen für Dienstagnachmittag. Wann passt es gut rein, dass wir ein kurzes Telefonat noch mal führen? Und Sie sagen mir, wo stehen Sie dann? Daumen hoch oder Daumen runter? Wie sieht's z. B. um 15 Uhr bei Ihnen aus?“ → Kalendereinladung (@4:00). Die Deadline sorgt dafür, dass er bis dahin entscheidet.
 3. Im Follow-up direkt einsteigen (@8:02 (s)): „Hallo Herr [Nachname], hier ist [Vorname Nachname], grüß Sie. Bin sehr gespannt – wo stehen wir denn jetzt?“
 
-Fehlt noch: wörtliche Bedarfs- und Qualifizierungsfragen im Termin, Preis **begründen** (über das Sandwich hinaus), Einwände im Termin speziell aus dem Handwerk.
+Fehlt noch: wörtliche Bedarfs- und Qualifizierungsfragen im Termin, Einwände im Termin speziell aus dem Handwerk. ~~Preis begründen~~ → teilweise über Nr. 57 (Wert über die Gründe des Kunden, T5).
 
 ---
 
@@ -357,5 +378,8 @@ Fehlt noch: wörtliche Bedarfs- und Qualifizierungsfragen im Termin, Preis **beg
    - ~~Preis-Rückfrage am Telefon~~ → teilweise (Nr. 344); allgemeine Fassung für Website-Angebote offen.
    - ~~Nutzensatz-Entwurf nach Nr. 26 schärfen~~ → 🛠 überarbeitet; Julians eigener Nutzensatz bleibt unbekannt.
    - ~~Einwand „brauchen keine Website, haben Stammkunden“~~ → 🛠 Reframing-Vorschlag, ungetestet.
-   - Antwort auf „Worum geht es?“ (Sekretärin) und Vorzimmer-Wortlaut: weiter offen.
+   - Antwort auf „Worum geht es?“ (Sekretärin) und Vorzimmer-Wortlaut: weiter offen (Nr. 70 noch offen, wahrscheinlich passend).
+   - ~~Preis im Termin begründen / „Mitbewerber günstiger“~~ → Nr. 57 in T5.
+   - ~~Absicherung nach der Zusage schärfen~~ → Nr. 46 in Baustein 9.
+   - Bedarfsfragen im Termin (Nr. 64 Seminar „kompletter Leitfaden“ noch offen) und Handwerk-Einwände im Termin: offen.
 3. 🛠-Entwürfe an echten Anrufen testen und Formulierungen an die eigene Sprache anpassen (Julian: Authentizität vor Wortlaut, Nr. 401 @41:02).

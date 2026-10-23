@@ -4,7 +4,7 @@
 
 **Eigenständiges Vorhaben:** unabhängig von `SQL_learning/`, `obsidian/` und `lead-finder/`. Wer hier arbeitet, fasst diese Ordner nicht an; die Root-`learning-state.md` (SQL-/Python-Lernstand) ist für dieses Vorhaben nicht relevant.
 
-**Priorität:** die in `mahnken-videos/auswahl.js` **grün** markierten Videos (alle Jahre, neueste zuerst; die letzten 12 Monate = Nr. 1–77), dazu alles mit Bezug zu **Handwerk**. Gelb markierte nur, wenn eine Skript-Lücke offen bleibt.
+**Priorität:** die in `mahnken-videos/auswahl.js` **grün** markierten Videos, neueste zuerst. **Ab 1.12.2025 (Nr. 1–73) wird jedes Video per Transkript geprüft** (alle grün, unabhängig vom Titel); ältere Videos sind nur **nach Titel** grün/gelb/grau eingeteilt, dazu alles mit Bezug zu **Handwerk**. Gelb markierte nur, wenn eine Skript-Lücke offen bleibt.
 
 ## Inhalt
 
@@ -142,10 +142,12 @@ Nach einigen Arbeits-Chats, wenn **kein** anderer Chat in `notes.js` schreibt:
 
 ## Online-Seiten
 
+⚠️ **Vorerst außer Betrieb (Stand 24.10.2026): GitHub-Push und Cloudflare.** Das GitHub-Konto ist von außen ausgeblendet (404), der Cloudflare-Build schlägt fehl. Nicht pushen, Cloudflare ignorieren. Gearbeitet wird **lokal** (`uebersicht.html` in Brave) plus **claude.ai-Seite**; lokale Commits nur auf ausdrücklichen Auftrag.
+
 | Seite | Link | Wofür |
 | --- | --- | --- |
-| **Cloudflare Pages** | https://mahnken-videos.pages.dev | öffentlich, ohne Konto; aktualisiert sich **automatisch bei jedem Push** auf `main` (Ausgabe-Ordner `sales_learning/mahnken-videos`, kein Build). Bewertungen und Kommentare bleiben dort im jeweiligen Browser. |
-| **claude.ai** | https://claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV | gemeinsames Bewerten (Konto nötig); muss von einem Agent neu veröffentlicht werden, siehe unten. |
+| **claude.ai** | https://claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV | gemeinsames Bewerten (Konto nötig); muss von einem Agent neu veröffentlicht werden, siehe unten. **Einzige aktive Online-Seite.** |
+| ~~Cloudflare Pages~~ | https://mahnken-videos.pages.dev | außer Betrieb (Build schlägt fehl). War: öffentlich, aktualisiert bei jedem Push auf `main`. |
 
 ### claude.ai-Seite (gemeinsam bewerten)
 
@@ -158,13 +160,13 @@ Agent ändert notes.js / auswahl.js / uebersicht.html ──▶ Online-Seite neu
 Felix / Kollege bewerten online ──▶ Datenbank (relevanz, notizen) ──▶ Agent liest sie beim Review aus
 ```
 
-Ein Push aktualisiert GitHub und automatisch die Cloudflare-Seite, **nicht** aber diese claude.ai-Seite. Darum wird vor jedem Commit/Push solcher Änderungen neu veröffentlicht; ein lokaler Hook (`.git/hooks/pre-push`, nicht eingecheckt) gibt beim Push eine Erinnerung aus. Die Seite bleibt online, bis sie gelöscht wird.
+Diese Seite aktualisiert sich nie automatisch. Darum wird nach jeder Änderung an den Dateien unten neu veröffentlicht, spätestens vor einem lokalen Commit. (Der lokale `pre-push`-Hook erinnert daran; Push ist derzeit aber außer Betrieb, siehe oben.) Die Seite bleibt online, bis sie gelöscht wird.
 
 **Neu veröffentlichen** (nach jeder Änderung an diesen Dateien, im Ordner `mahnken-videos`):
 
 1. `tail -n +2 uebersicht.html > .online.html` (erste Zeile = Doctype, den setzt claude.ai selbst; Datei ist per `.gitignore` ausgenommen).
 2. In einem neuen Chat zuerst einmal das Artifact mit der URL oben lesen (`Artifact`, `action: "read"`), sonst wird das Veröffentlichen abgelehnt.
-3. Veröffentlichen mit `Artifact` (publish): `url` = Link oben, `file_path` = `mahnken-videos/.online.html`, `files` = `videos.js`, `notes.js`, `dates.js`, `auswahl.js` (je Pfad unter `mahnken-videos/`). Kein `capabilities`-Feld mitgeben – die Datenbank-Einstellung bleibt so erhalten; Bewertungen bleiben ebenfalls erhalten.
+3. Veröffentlichen mit `Artifact` (publish): `url` = Link oben, `file_path` = `mahnken-videos/.online.html`, `files` = `videos.js`, `notes.js`, `dates.js`, `auswahl.js` (Quellpfade **absolut** angeben, z. B. `/Users/felix/Code/python/learning-sandbox/sales_learning/mahnken-videos/notes.js`). Kein `capabilities`-Feld mitgeben – die Datenbank-Einstellung bleibt so erhalten; Bewertungen bleiben ebenfalls erhalten.
 
 **Online-Bewertungen auslesen** (beim Review): `ArtifactData` `list` auf die Collections `relevanz` (Dokument-ID = Video-ID, Feld `r`: g/y/x/rot/w) und `notizen` (ein Dokument je Person, `videos.<ID>.seen/.text`). Übernahmen nach `auswahl.js` nur nach Absprache.
 

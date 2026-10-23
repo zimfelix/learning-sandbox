@@ -104,8 +104,8 @@ function meCell(id){const o=ST.ov[id]?.r||'',m=ST.mine[id]||{};
  <label class=seen><input type=checkbox data-seen="${id}"${m.seen?' checked':''}> angeschaut</label>
  <textarea data-cm="${id}" rows=1 placeholder="Kommentar …" aria-label="Kommentar">${esc(m.text||'')}</textarea>${others(id)}</td>`}
 
-function stats(){const v=Object.values(N),L=v.reduce((a,n)=>a+(n.items||[]).length,0),seen=Object.values(ST.mine).filter(m=>m.seen).length;
- $('stats').innerHTML=`<span><b>${D.length}</b>Videos</span><span><b>${v.length}</b>ausgewertet</span><span><b>${D.length-v.length}</b>offen</span><span><b>${v.filter(n=>n.watch).length}</b>👀 Empfehlungen</span><span><b>${L}</b>Learnings</span><span><b>${seen}</b>👁 von mir angeschaut</span><span id=cnt></span>`}
+function stats(){const c=r=>D.filter(d=>eff(d.id)==r).length,w=D.filter(d=>eff(d.id)=='w'),seen=w.filter(d=>ST.mine[d.id]?.seen).length;
+ $('stats').innerHTML=`<span><b>${D.length}</b>Videos</span><span><b>${Object.keys(N).length}</b>ausgewertet</span><span><b>${c('g')}</b>🟢 noch auswerten</span><span><b>${c('y')}</b>🟡 vielleicht</span><span><b>${w.length}</b>🎧 Anhör-Liste (${seen} 👁 angeschaut)</span><span><b>${D.filter(d=>AW[d.id]?.live).length}</b>🎥 Live</span><span id=cnt></span>`}
 function ok(d,f){const n=N[d.id],m=ST.mine[d.id]||{};return !f||(f=='done'&&n)||(f=='open'&&!n)||(f=='watch'&&n&&n.watch)||(f=='nosubs'&&n&&n.nosubs)||(f=='pick'&&S[d.id])||(f=='seen'&&m.seen)||(f=='unseen'&&!m.seen)||(f=='cm'&&cmText(d.id).trim())}
 function okA(d){const a=AW[d.id]||{},z=$('zr').value,v=$('rv').value,r=eff(d.id);
  if(z&&!(DT[d.id]&&DT[d.id]>=since(+z)))return false;

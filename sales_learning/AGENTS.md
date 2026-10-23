@@ -12,12 +12,13 @@ Ergänzt die repositorybezogene `AGENTS.md` im Root. Abweichend vom Sandbox-Stan
 ## Feste Regeln
 
 - Jedes Transkript **vollständig** lesen; kein Vorfiltern per Stichwort.
-- Ziel ist ein Gesprächsskript für Handwerksbetriebe – nur Verwertbares aufnehmen. Ausgewertet werden die in `mahnken-videos/auswahl.js` grün markierten Videos, neueste zuerst (`fetch.py --next` wählt sie automatisch); Segment `seg` (Handwerk/KMU/Großunternehmen/Privat/allgemein) setzen; Fokus Handwerk und KMU. Jedes Learning muss einem Baustein aus „Ziel-Skript“ (README) dienen; Planung/Motivation/Adressen als `Organisation`, nicht als `Prinzip`.
+- Ziel ist ein Gesprächsskript für Handwerksbetriebe – nur Verwertbares aufnehmen. Ausgewertet werden die in `mahnken-videos/auswahl.js` grün markierten Videos, neueste zuerst (`fetch.py --next` wählt sie automatisch). Videos ab 1.12.2025 sind immer grün (Prüfung per Transkript); ältere nur nach Titel eingeteilt – neue Kanal-Videos daher grün eintragen; Segment `seg` (Handwerk/KMU/Großunternehmen/Privat/allgemein) setzen; Fokus Handwerk und KMU. Jedes Learning muss einem Baustein aus „Ziel-Skript“ (README) dienen; Planung/Motivation/Adressen als `Organisation`, nicht als `Prinzip`.
 - Pro Paket 5 Videos (`fetch.py --next 5`); Ergebnisse direkt in `mahnken-videos/notes.js`, danach Ladeprüfung mit `node`.
 - Julians eigene Empfehlung klar von der des besprochenen Trainers trennen.
 - Wörtliche Zitate nicht erfinden oder glätten; bei schlechten Untertiteln `s: 1` (sinngemäß).
-- Transkripte bleiben lokal (`.gitignore`); Commit und Push nur auf ausdrücklichen Auftrag.
+- Transkripte bleiben lokal (`.gitignore`); Commit nur auf ausdrücklichen Auftrag, Push derzeit gar nicht.
 - Im Chat pro Paket kurz berichten: neue 👀-Empfehlungen, stärkste Formulierungen, Korrekturen.
 - 👀 sparsam vergeben: nur wenn Tonfall/Timing entscheidend ist oder der Wortlaut in den Untertiteln unverständlich bleibt. Ausgewertete Videos mit 👀 oder 💎 bilden die **Anhör-Liste**; Ziel: höchstens 30–50 Videos. Alles andere gilt nach der Auswertung als erledigt.
 - Erweist sich ein ausgewertetes Video als wenig lehrreich (nur Motivation/Organisation, reine Wiederholung, kein Skript-Beitrag), in `auswahl.js` auf `"r":"x"` setzen; dann erscheint es grau.
-- Nach jeder Änderung an `notes.js`, `auswahl.js`, `dates.js`, `videos.js` oder `uebersicht.html` die **claude.ai-Seite neu veröffentlichen** (README, Abschnitt „Online-Seiten“), damit Felix' Kollege denselben Stand sieht – spätestens **vor jedem Commit/Push** solcher Änderungen, und im Abschlussbericht die veröffentlichte Version nennen. Ein Push aktualisiert automatisch nur die Cloudflare-Seite, nicht die claude.ai-Seite; ein lokaler `pre-push`-Hook erinnert daran.
+- Nach jeder Änderung an `notes.js`, `auswahl.js`, `dates.js`, `videos.js` oder `uebersicht.html` die **claude.ai-Seite neu veröffentlichen** (README, Abschnitt „Online-Seiten“), damit Felix' Kollege denselben Stand sieht – spätestens **vor jedem Commit** solcher Änderungen, und im Abschlussbericht die veröffentlichte Version nennen.
+- **GitHub-Push und Cloudflare sind vorerst außer Betrieb** (Konto ausgeblendet, Build schlägt fehl): nicht pushen, Cloudflare ignorieren. Gearbeitet wird lokal plus claude.ai-Seite; lokale Commits nur auf ausdrücklichen Auftrag.
