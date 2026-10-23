@@ -1,9 +1,9 @@
 """Lädt deutsche YouTube-Untertitel und speichert sie als lesbare .txt in transcripts/.
 
 Aufruf:  python3 fetch.py VIDEO_ID [VIDEO_ID ...]
-         python3 fetch.py --next 5        # die nächsten 5 offenen Videos der letzten 2 Jahre, neueste zuerst
+         python3 fetch.py --next 5        # die nächsten 5 offenen, in auswahl.js grün markierten Videos, neueste zuerst
          python3 fetch.py --next 5 --cat B  # nur Kategorie „B Verkaufsgespräch“ (A/B/C/D)
-Braucht: uv (für `uvx yt-dlp`), node (zum Lesen von notes.js/videos.js).
+Braucht: uv (für `uvx yt-dlp`), node (zum Lesen von notes.js/videos.js/auswahl.js).
 """
 import json
 import re
@@ -24,19 +24,17 @@ def load_js(name: str, var: str) -> object:
     return json.loads(result.stdout)
 
 
-# Nr. 1–184 = Uploads der letzten zwei Jahre (Nr. 184 ≈ Ende Okt. 2024, Nr. 185 = 27.09.2024).
-RECENT_MAX_NR = 184
-
-
 def next_ids(count: int, category: str | None = None) -> list[str]:
-    """Die nächsten noch nicht ausgewerteten Videos der letzten zwei Jahre, neueste zuerst.
+    """Die nächsten offenen Videos, die in auswahl.js grün markiert sind ("r": "g"), neueste zuerst.
 
     category z. B. "B Verkaufsgespräch"; None = alle Kategorien.
     """
     videos = load_js("videos.js", "VIDEOS")
     notes = load_js("notes.js", "NOTES")
-    open_videos = [v for v in videos if v["n"] <= RECENT_MAX_NR and v["id"] not in notes
+    selection = load_js("auswahl.js", "AUSWAHL")
+    open_videos = [v for v in videos if selection.get(v["id"], {}).get("r") == "g" and v["id"] not in notes
                    and (category is None or v["c"].startswith(category))]
+    open_videos.sort(key=lambda v: v["n"])  # Kanal-Nr. aufsteigend = neueste zuerst
     return [v["id"] for v in open_videos][:count]
 
 
@@ -80,6 +78,10 @@ def main(args: list[str]) -> None:
         category = args[position + 1]
         args = args[:position] + args[position + 2:]
     ids = next_ids(int(args[1]), category) if args[:1] == ["--next"] else args
+    if not ids:
+        print("Keine offenen grün markierten Videos (auswahl.js) mehr übrig." if args[:1] == ["--next"]
+              else "Keine Video-IDs angegeben.")
+        return
     OUT.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
         for video_id in ids:

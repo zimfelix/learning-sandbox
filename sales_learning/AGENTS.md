@@ -12,7 +12,7 @@ Ergänzt die repositorybezogene `AGENTS.md` im Root. Abweichend vom Sandbox-Stan
 ## Feste Regeln
 
 - Jedes Transkript **vollständig** lesen; kein Vorfiltern per Stichwort.
-- Ziel ist ein Gesprächsskript für Handwerksbetriebe – nur Verwertbares aufnehmen. Priorität: Nr. 1–184 (letzte zwei Jahre), neueste zuerst; Segment `seg` (Handwerk/KMU/Großunternehmen/Privat/allgemein) setzen; Fokus Handwerk und KMU. Jedes Learning muss einem Baustein aus „Ziel-Skript“ (README) dienen; Planung/Motivation/Adressen als `Organisation`, nicht als `Prinzip`.
+- Ziel ist ein Gesprächsskript für Handwerksbetriebe – nur Verwertbares aufnehmen. Ausgewertet werden die in `mahnken-videos/auswahl.js` grün markierten Videos, neueste zuerst (`fetch.py --next` wählt sie automatisch); Segment `seg` (Handwerk/KMU/Großunternehmen/Privat/allgemein) setzen; Fokus Handwerk und KMU. Jedes Learning muss einem Baustein aus „Ziel-Skript“ (README) dienen; Planung/Motivation/Adressen als `Organisation`, nicht als `Prinzip`.
 - Pro Paket 5 Videos (`fetch.py --next 5`); Ergebnisse direkt in `mahnken-videos/notes.js`, danach Ladeprüfung mit `node`.
 - Julians eigene Empfehlung klar von der des besprochenen Trainers trennen.
 - Wörtliche Zitate nicht erfinden oder glätten; bei schlechten Untertiteln `s: 1` (sinngemäß).

@@ -4,7 +4,7 @@
 
 **Eigenständiges Vorhaben:** unabhängig von `SQL_learning/`, `obsidian/` und `lead-finder/`. Wer hier arbeitet, fasst diese Ordner nicht an; die Root-`learning-state.md` (SQL-/Python-Lernstand) ist für dieses Vorhaben nicht relevant.
 
-**Priorität:** Videos der **letzten zwei Jahre** (Kanal-Nr. 1–184, ab Nov. 2024) und alles mit Bezug zu **Handwerk**. Ältere Videos (Nr. 185–428) nur bei Bedarf gezielt.
+**Priorität:** die in `mahnken-videos/auswahl.js` **grün** markierten Videos (alle Jahre, neueste zuerst; die letzten 12 Monate = Nr. 1–77), dazu alles mit Bezug zu **Handwerk**. Gelb markierte nur, wenn eine Skript-Lücke offen bleibt.
 
 ## Inhalt
 
@@ -14,6 +14,8 @@ sales_learning/
     ├── uebersicht.html   Übersicht mit Suche, Filtern und Anschau-Empfehlungen
     ├── videos.js         Videoliste (Titel, Länge, grobe Kategorie)
     ├── notes.js          Auswertung pro Video: Zielgruppe, 👀-Empfehlung, Learnings
+    ├── auswahl.js        Vorauswahl: Relevanz grün/gelb/grau, 💎 Kern-Video, 🎥 Live
+    ├── dates.js          Upload-Datum je Video
     └── transcripts/      Transkripte als .txt (lokal, nicht eingecheckt)
 ```
 
@@ -95,7 +97,7 @@ Wörtliche Zitate in „…“; vollständige Abläufe (z. B. Einwand → Rückf
 
 ## Ablauf
 
-1. Der Agent lädt nur die Untertitel (`uvx yt-dlp`, kein Video), 5 Videos pro Paket. `fetch.py --next 5` wählt automatisch die nächsten offenen Videos aus Nr. 1–184, **neueste zuerst, alle Kategorien**.
+1. Der Agent lädt nur die Untertitel (`uvx yt-dlp`, kein Video), 5 Videos pro Paket. `fetch.py --next 5` wählt automatisch die nächsten offenen Videos, die in `auswahl.js` **grün** markiert sind, **neueste zuerst, alle Kategorien** (dadurch kommen die letzten 12 Monate, Nr. 1–77, vor den älteren).
 2. **Jedes Transkript wird vollständig gelesen** – kein Vorfiltern per Stichwort, weil Kernmuster (z. B. die Reframing-Formel „Das heißt nur, wenn …“) sonst übersehen werden. Videos über 30 Min. werden in Abschnitten gelesen.
 3. Handwerk-Bezug (Zielgruppe, Beispiele, Branchen-Einwände) in `target` ausdrücklich nennen, damit diese Learnings beim Zusammenführen Vorrang haben.
 4. Ergebnisse landen in `notes.js`; `uebersicht.html` in Brave öffnen und mit ⌘R neu laden.
@@ -107,7 +109,7 @@ Arbeitsmodus: **Shipping** (Ergebnis zählt), Ergebnisse direkt in die Dateien, 
 
 ```bash
 cd sales_learning/mahnken-videos
-python3 fetch.py --next 5          # lädt die nächsten 5 offenen Videos (Nr. 1–184, neueste zuerst) nach transcripts/
+python3 fetch.py --next 5          # lädt die nächsten 5 offenen grün markierten Videos (auswahl.js, neueste zuerst) nach transcripts/
 python3 fetch.py --next 5 --cat B  # nur eine Kategorie (A Kaltakquise, B Verkaufsgespräch, C Einwand, D Sonstiges)
 python3 fetch.py ID1 ID2           # oder gezielt einzelne Videos
 ```
@@ -130,7 +132,7 @@ Wichtig aus bisheriger Arbeit:
 Nach einigen Arbeits-Chats, wenn **kein** anderer Chat in `notes.js` schreibt:
 
 1. **Stand prüfen** (im Ordner `mahnken-videos`):
-   `node -e "global.window={};require('./notes.js');require('./videos.js');const N=window.NOTES;const r=window.VIDEOS.filter(v=>v.n<=184);console.log(Object.keys(N).length,'ausgewertet;',r.filter(v=>N[v.id]).length,'von 184');const y={};for(const n of Object.values(N))for(const i of n.items)y[i.p+' '+i.y]=(y[i.p+' '+i.y]||0)+1;console.log(y)"`
+   `node -e "global.window={};require('./notes.js');require('./videos.js');const N=window.NOTES;require('./auswahl.js');const A=window.AUSWAHL;const r=window.VIDEOS.filter(v=>A[v.id]?.r=='g');console.log(Object.keys(N).length,'ausgewertet;',r.filter(v=>N[v.id]).length,'von',r.length,'grünen');const y={};for(const n of Object.values(N))for(const i of n.items)y[i.p+' '+i.y]=(y[i.p+' '+i.y]||0)+1;console.log(y)"`
 2. **Alle Learnings gruppiert exportieren** (statt notes.js roh zu lesen):
    `node -e "global.window={};require('./notes.js');require('./videos.js');const N=window.NOTES,V=Object.fromEntries(window.VIDEOS.map(v=>[v.id,v]));const g={};for(const[id,n]of Object.entries(N))for(const i of n.items||[]){const k=i.p+' | '+i.y;(g[k]??=[]).push('['+V[id]?.n+'|'+(n.seg||'-')+'|'+id+'@'+i.t+(i.s?'|s':'')+'] '+(i.e?'«'+i.e+'» ':'')+i.x)}for(const k of Object.keys(g).sort())console.log('\n## '+k+' ('+g[k].length+')\n'+g[k].join('\n'))" > /tmp/learnings.txt`
 3. **Stichprobe Zitate** (5–6 Stück, auch neue Videos): Zitat-Ausschnitt in `transcripts/<ID>.txt` suchen (Python `str.find`, nicht `grep` – Umlaute) und mit Zeitstempel vergleichen.

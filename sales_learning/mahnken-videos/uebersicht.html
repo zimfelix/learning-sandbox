@@ -1,19 +1,27 @@
-<!doctype html><html lang=de><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Mahnken Videos</title>
+<!doctype html><html lang=de><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mahnken Videos</title><meta name="claude:viewport-fit-sides" content="cover">
 <style>
-:root{--bg:#fff;--fg:#1d1d1f;--mut:#6e6e73;--line:#e5e5ea;--acc:#c2410c;--w:#fff4e5;--chip:#f2f2f7;--head:#fafafa;--k:#2563eb;--t:#16a34a;--a:#9333ea}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc}}
+/* Arbeitstabelle: Filterleiste oben (sticky), darunter breite Tabelle mit eigener Scrollfläche */
+:root{--bg:#fff;--fg:#1d1d1f;--mut:#6e6e73;--line:#e5e5ea;--acc:#c2410c;--w:#fff4e5;--chip:#f2f2f7;--head:#fafafa;--k:#2563eb;--t:#16a34a;--a:#9333ea;--rg:#16a34a;--rgb:#effaf3;--ry:#d97706;--ryb:#fffaeb;--rr:#dc2626;--rrb:#fdeeee}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font:14px/1.45 -apple-system,sans-serif;margin:0 auto;padding:0 16px 40px;max-width:1500px}
-.top{position:sticky;top:0;background:var(--bg);z-index:2;border-bottom:1px solid var(--line);padding:10px 0}
+body{background:var(--bg);color:var(--fg);font:14px/1.45 -apple-system,sans-serif;margin:0 auto;padding-block:0 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1600px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:2;border-bottom:1px solid var(--line);padding:10px 0}
 .stats{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:8px;font-size:13px;color:var(--mut)}.stats b{color:var(--fg);font-size:16px;margin-right:3px}
 .bar{display:flex;gap:8px;flex-wrap:wrap}
-input,select,button{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}#q{flex:1;min-width:160px}button{cursor:pointer}button.on{border-color:var(--acc);color:var(--acc)}
+input,select,button,textarea{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}#q{flex:1;min-width:160px}button{cursor:pointer}button.on{border-color:var(--acc);color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
 .wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:980px}
+table{width:100%;border-collapse:collapse;min-width:1180px}
 th{position:sticky;top:0;background:var(--head);text-align:left;font-size:12px;font-weight:600;color:var(--mut);padding:8px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
 td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
-td.n,td.m{color:var(--mut);white-space:nowrap;text-align:right;width:1%}
-td.tit{width:26%}td.tg{width:13%;font-size:13px}td.tr{width:1%;white-space:nowrap;font-size:13px}td.wa{width:17%;font-size:13px}td.ev{font-size:13px}
+td.n,td.m{color:var(--mut);white-space:nowrap;text-align:right;width:1%;font-variant-numeric:tabular-nums}
+td.tit{width:24%}td.tg{width:12%;font-size:13px}td.tr{width:1%;white-space:nowrap;font-size:13px}td.wa{width:14%;font-size:13px}td.ev{font-size:13px}
+td.me{width:16%;min-width:190px;font-size:13px}td.me select{width:100%;padding:4px 6px}td.me textarea{width:100%;margin-top:4px;resize:vertical;min-height:32px;font-size:13px}
+.seen{display:flex;gap:6px;align-items:center;margin-top:4px;color:var(--mut)}.seen input{margin:0}
+.oth{margin-top:4px;font-size:12px;color:var(--mut)}.oth b{color:var(--fg);font-weight:600}
 a{color:var(--fg);text-decoration:none}a:hover{color:var(--acc)}.mut{color:var(--mut)}.tag{font-size:12px;color:var(--mut)}
 .wa .y{background:var(--w);border-radius:6px;padding:3px 7px;display:block}.wa .y b{color:var(--acc)}
 .chip{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;background:var(--chip);color:var(--fg);margin:0 4px 2px 0;white-space:nowrap}
@@ -21,47 +29,97 @@ a{color:var(--fg);text-decoration:none}a:hover{color:var(--acc)}.mut{color:var(-
 details summary{cursor:pointer;color:var(--mut)}details ul{margin:6px 0 0;padding-left:18px}details li{margin:4px 0}
 h2{font-size:16px;margin:22px 0 6px}h3{font-size:13px;color:var(--mut);margin:14px 0 4px;text-transform:uppercase;letter-spacing:.03em}
 .it{padding:6px 0;border-bottom:1px solid var(--line)}.it .src{font-size:12px;color:var(--mut)}
+tr.rg td{background:var(--rgb)}tr.rg td:first-child{box-shadow:inset 4px 0 var(--rg)}
+tr.ry td{background:var(--ryb)}tr.ry td:first-child{box-shadow:inset 4px 0 var(--ry)}
+tr.rrot td{background:var(--rrb)}tr.rrot td:first-child{box-shadow:inset 4px 0 var(--rr)}
+tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size:12px;width:1%;font-variant-numeric:tabular-nums}
+.gem{font-size:12px;font-weight:600;color:var(--acc)}.why{font-size:12px;color:var(--mut)}
+.leg{font-size:12px;color:var(--mut);margin-top:6px;display:flex;gap:14px;flex-wrap:wrap}.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.mode{font-size:12px;color:var(--mut)}.mode.err{color:var(--rr)}
 </style>
 <div class=top>
  <div class=stats id=stats></div>
  <div class=bar>
   <button id=v1 class=on>Videos</button><button id=v2>Sammlung</button>
-  <input id=q placeholder="Suchen in Titel, Zielgruppe, Learnings …">
-  <select id=c><option value="">Alle Kategorien</option><option>A Kaltakquise</option><option>B Verkaufsgespräch</option><option>C Einwand</option><option>D Sonstiges</option></select>
-  <select id=f><option value="">Alle Videos</option><option value=done>✅ ausgewertet</option><option value=open>☐ offen</option><option value=watch>👀 Anschau-Empfehlungen</option><option value=nosubs>⚠️ ohne Transkript</option><option value=pick>⭐ ausgewählt</option></select>
-  <select id=sg><option value="">Alle Segmente</option><option>Handwerk</option><option>KMU</option><option>Großunternehmen</option><option>Privat</option><option>allgemein</option></select>
-  <select id=ph><option value="">Alle Phasen</option><option value=K>Kaltakquise</option><option value=T>Termin / Verkaufsgespräch</option><option value=A>Andere Verkaufsform</option></select>
+  <input id=q placeholder="Suchen in Titel, Zielgruppe, Learnings, Kommentaren …">
+  <select id=c aria-label="Kategorie"><option value="">Alle Kategorien</option><option>A Kaltakquise</option><option>B Verkaufsgespräch</option><option>C Einwand</option><option>D Sonstiges</option></select>
+  <select id=f aria-label="Status"><option value="">Alle Videos</option><option value=done>✅ ausgewertet</option><option value=open>☐ offen</option><option value=watch>👀 Anschau-Empfehlungen</option><option value=nosubs>⚠️ ohne Transkript</option><option value=pick>⭐ ausgewählt</option><option value=seen>👁 von mir angeschaut</option><option value=unseen>👁 von mir noch nicht angeschaut</option><option value=cm>💬 mit Kommentar</option></select>
+  <select id=sg aria-label="Segment"><option value="">Alle Segmente</option><option>Handwerk</option><option>KMU</option><option>Großunternehmen</option><option>Privat</option><option>allgemein</option></select>
+  <select id=ph aria-label="Phase"><option value="">Alle Phasen</option><option value=K>Kaltakquise</option><option value=T>Termin / Verkaufsgespräch</option><option value=A>Andere Verkaufsform</option></select>
+  <select id=zr aria-label="Zeitraum"><option value="">Alle Jahre</option><option value=12>Letzte 12 Monate</option><option value=24>Letzte 24 Monate</option></select>
+  <select id=rv aria-label="Relevanz"><option value="">Alle Relevanzen</option><option value=g>🟢 relevant</option><option value=gy>🟢 + 🟡</option><option value=y>🟡 vielleicht / Wiederholung</option><option value=x>⚪ nicht relevant</option><option value=rot>🔴 gesehen, unbrauchbar</option><option value=gem>💎 Kern-Videos</option><option value=live>🎥 Live-Gespräche</option></select>
   <button id=cp>⭐ Auswahl kopieren</button>
  </div>
+ <div class=leg><span><i style="background:var(--rg)"></i>relevant fürs Skript</span><span><i style="background:var(--ry)"></i>vielleicht / wohl Wiederholung</span><span><i style="background:var(--line)"></i>nicht relevant (blass)</span><span><i style="background:var(--rr)"></i>gesehen, unbrauchbar</span><span>💎 Kern-Video</span><span>🎥 Live-Material</span><span class=mode id=mode>Bewertungen werden geladen …</span></div>
 </div>
 <div id=out></div>
-<script src="videos.js"></script><script src="notes.js"></script>
+<script src="videos.js"></script><script src="notes.js"></script><script src="dates.js"></script><script src="auswahl.js"></script>
 <script>
-const D=window.VIDEOS,N=window.NOTES||{},$=id=>document.getElementById(id);
+const D=window.VIDEOS,N=window.NOTES||{},DT=window.DATES||{},AW=window.AUSWAHL||{},$=id=>document.getElementById(id);
+const LOCAL=location.protocol=='file:';
+const fdt=s=>s?s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(0,4):'';
+const since=m=>{const d=new Date();d.setMonth(d.getMonth()-m);return d.toISOString().slice(0,10)};
 const PH={K:'Kaltakquise',T:'Termin / Verkaufsgespräch',A:'Andere Verkaufsform'};
 const TY0=['Sekretärin','Opener','Bedarfsfrage','Rückfrage','Einwand','Terminvereinbarung','Gesprächseinstieg','Präsentation','Preis','Abschluss','Verkaufsgespräch','Nachfassen','Leitfaden','Prinzip','Organisation'];
 const TY=[...TY0,...new Set(Object.values(N).flatMap(n=>(n.items||[]).map(i=>i.y)).filter(y=>!TY0.includes(y)))];
+const RV=[['','Vorschlag übernehmen'],['g','🟢 relevant'],['y','🟡 vielleicht'],['x','⚪ nicht relevant'],['rot','🔴 gesehen, unbrauchbar']];
 let S={},view='videos';try{S=JSON.parse(localStorage.getItem('s')||'{}');view=localStorage.getItem('v')||'videos'}catch(e){}
 const save=()=>{try{localStorage.setItem('s',JSON.stringify(S));localStorage.setItem('v',view)}catch(e){}};
-const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 const sec=t=>{const[a,b]=String(t||'0:0').split(':').map(Number);return a*60+(b||0)};
 const link=(id,t)=>`https://youtu.be/${id}${t?'?t='+sec(t):''}`;
 const items=(id,ph)=>{const sg=$('sg').value;if(sg&&N[id]?.seg!=sg)return[];return(N[id]?.items||[]).filter(i=>!ph||i.p==ph)};
 const li=(id,i)=>`<li><span class="chip ph ${i.p}">${i.p}</span><span class=chip>${esc(i.y)}${i.e?': '+esc(i.e):''}</span>${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''} <a href="${link(id,i.t)}" target=_blank>▶&nbsp;${esc(i.t)}</a></li>`;
-function stats(){const v=Object.values(N),L=v.reduce((a,n)=>a+(n.items||[]).length,0);
- $('stats').innerHTML=`<span><b>${D.length}</b>Videos</span><span><b>${v.length}</b>ausgewertet</span><span><b>${D.length-v.length}</b>offen</span><span><b>${v.filter(n=>n.watch).length}</b>👀 Empfehlungen</span><span><b>${L}</b>Learnings</span><span><b>${v.filter(n=>n.nosubs).length}</b>ohne Transkript</span><span id=cnt></span>`}
-function ok(d,f){const n=N[d.id];return !f||(f=='done'&&n)||(f=='open'&&!n)||(f=='watch'&&n&&n.watch)||(f=='nosubs'&&n&&n.nosubs)||(f=='pick'&&S[d.id])}
+
+/* Bewertungen: ov = geteilte Relevanz je Video, mine = eigene Notizen, all = Notizen aller Personen */
+const ST={ov:{},mine:{},all:{},names:{},uid:null,db:null,user:null,online:false,inflight:0,deferred:false};
+const eff=id=>ST.ov[id]?.r||AW[id]?.r||'';
+const cmText=id=>Object.values(ST.online?ST.all:{me:ST.mine}).map(v=>v[id]?.text||'').join(' ');
+function lsLoad(){try{const o=JSON.parse(localStorage.getItem('bew')||'{}');ST.ov=o.ov||{};ST.mine=o.mine||{}}catch(e){}}
+function lsSave(){try{localStorage.setItem('bew',JSON.stringify({ov:ST.ov,mine:ST.mine}))}catch(e){}}
+function mode(t,err){const m=$('mode');m.textContent=t;m.classList.toggle('err',!!err)}
+function queue(fn){ST.inflight++;ST.chain=(ST.chain||Promise.resolve()).then(fn).catch(e=>mode(e?.code=='invalid_argument'?'Keine Schreibrechte – Zugriff als Mitwirkender oder Bearbeiter nötig':'Speichern fehlgeschlagen ('+(e?.code||'Fehler')+')',true)).finally(()=>ST.inflight--)}
+function setOv(id,r){if(r)ST.ov[id]={r,by:ST.uid||''};else delete ST.ov[id];
+ if(!ST.online)return lsSave();const ref=ST.db.collection('relevanz').doc(id);queue(()=>r?ref.set({r,by:ST.uid||''}):ref.delete())}
+function setMine(id,patch){const old=ST.mine[id]||{};if(Object.keys(patch).every(k=>(old[k]||'')===(patch[k]||'')))return;const m={...old,...patch};if(!m.seen&&!m.text)delete ST.mine[id];else ST.mine[id]=m;
+ if(!ST.online)return lsSave();if(!ST.uid)return mode('Speichern nicht möglich: nicht angemeldet',true);
+ const body={videos:{...ST.mine}};queue(()=>ST.db.doc('notizen/'+ST.uid).set(body))}
+function later(){const a=document.activeElement;if(a&&a.closest&&a.closest('td.me')){ST.deferred=true;return}r()}
+async function resolveNames(){if(!ST.user)return;const ids=Object.keys(ST.all);if(ids.length)ST.names=await ST.user.profiles(ids)}
+async function connect(){
+ if(LOCAL||!window.claude?.use){lsLoad();mode('Lokal: Bewertungen nur in diesem Browser');return r()}
+ const [db,user]=await Promise.all([claude.use('db'),claude.use('user')]);
+ if(!db){lsLoad();mode('Gemeinsame Speicherung nicht verfügbar – Bewertungen nur in diesem Browser',true);return r()}
+ Object.assign(ST,{db,user,online:true,uid:user?await user.id():null});mode('Gemeinsam gespeichert: alle Eingeladenen sehen Relevanz und Kommentare');
+ db.collection('relevanz').onSnapshot(s=>{const o={};s.docs.forEach(d=>o[d.id]=d.data());ST.ov=o;later()},e=>mode('Relevanz konnte nicht geladen werden ('+e.code+')',true));
+ db.collection('notizen').onSnapshot(async s=>{const a={};s.docs.forEach(d=>a[d.id]=d.data().videos||{});ST.all=a;
+  if(ST.uid&&!ST.inflight)ST.mine={...(a[ST.uid]||{})};await resolveNames();later()},e=>mode('Kommentare konnten nicht geladen werden ('+e.code+')',true));
+}
+function others(id){return Object.entries(ST.all).filter(([u])=>u!==ST.uid).map(([u,v])=>{const o=v[id];if(!o||!(o.seen||o.text))return'';
+ return `<div class=oth>${o.seen?'👁 ':''}<b>${esc(ST.names[u]?.name||'Jemand')}</b>${o.text?': '+esc(o.text):' hat es angeschaut'}</div>`}).join('')}
+function meCell(id){const o=ST.ov[id]?.r||'',m=ST.mine[id]||{};
+ return `<td class=me><select data-ov="${id}" aria-label="Relevanz ändern">${RV.map(([v,l])=>`<option value="${v}"${o==v?' selected':''}>${l}</option>`).join('')}</select>
+ <label class=seen><input type=checkbox data-seen="${id}"${m.seen?' checked':''}> angeschaut</label>
+ <textarea data-cm="${id}" rows=1 placeholder="Kommentar …" aria-label="Kommentar">${esc(m.text||'')}</textarea>${others(id)}</td>`}
+
+function stats(){const v=Object.values(N),L=v.reduce((a,n)=>a+(n.items||[]).length,0),seen=Object.values(ST.mine).filter(m=>m.seen).length;
+ $('stats').innerHTML=`<span><b>${D.length}</b>Videos</span><span><b>${v.length}</b>ausgewertet</span><span><b>${D.length-v.length}</b>offen</span><span><b>${v.filter(n=>n.watch).length}</b>👀 Empfehlungen</span><span><b>${L}</b>Learnings</span><span><b>${seen}</b>👁 von mir angeschaut</span><span id=cnt></span>`}
+function ok(d,f){const n=N[d.id],m=ST.mine[d.id]||{};return !f||(f=='done'&&n)||(f=='open'&&!n)||(f=='watch'&&n&&n.watch)||(f=='nosubs'&&n&&n.nosubs)||(f=='pick'&&S[d.id])||(f=='seen'&&m.seen)||(f=='unseen'&&!m.seen)||(f=='cm'&&cmText(d.id).trim())}
+function okA(d){const a=AW[d.id]||{},z=$('zr').value,v=$('rv').value,r=eff(d.id);
+ if(z&&!(DT[d.id]&&DT[d.id]>=since(+z)))return false;
+ return !v||(v=='gem'&&a.gem)||(v=='live'&&a.live)||(v=='gy'&&(r=='g'||r=='y'))||r==v}
+function row(d,ph){const n=N[d.id],I=items(d.id,ph),a=AW[d.id]||{},r=eff(d.id);
+ const tr=!n?'<span class=mut>–</span>':n.nosubs?'⚠️ keins':LOCAL?`<a href="transcripts/${d.id}.txt" target=_blank>📄 öffnen</a>`:'<span class=mut>nur lokal</span>';
+ const wa=n&&n.watch?`<span class=y><b>👀</b> ${esc(n.why)}</span>`:n&&n.nosubs?`<span class=y><b>⚠️</b> Kein Transkript – selbst anschauen</span>`:'';
+ const cnt=['K','T','A'].map(p=>{const k=I.filter(i=>i.p==p).length;return k?`<span class="chip ph ${p}">${PH[p]} ${k}</span>`:''}).join('');
+ const ev=!n?'<span class=mut>noch nicht ausgewertet</span>':n.skip&&!I.length?`<span class=mut>${esc(n.skip)}</span>`:I.length?`<details><summary>${cnt}</summary><ul>${I.map(i=>li(d.id,i)).join('')}</ul></details>`:'';
+ const badge=(a.gem?`<span class=gem>💎 ${esc(a.gem)}</span> `:'')+(a.live?`<span class=chip>🎥 ${esc(a.live)}</span>`:'');
+ return `<tr class="${r&&r!='-'?'r'+r:''}"><td><input type=checkbox data-id="${d.id}" aria-label="auswählen"${S[d.id]?' checked':''}></td><td class=n>${d.n}</td><td class=dt>${fdt(DT[d.id])}</td>
+ <td class=tit>${badge?badge+'<br>':''}<a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div>${a.why?`<div class=why>${esc(a.why)} · <i>${n?'geprüft':'nach Titel'}</i></div>`:''}</td><td class=m>${d.m} min</td>
+ <td class=tg>${n&&n.seg?`<span class=chip>${esc(n.seg)}</span><br>`:''}${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td>${meCell(d.id)}</tr>`}
 function videos(){const q=$('q').value.toLowerCase(),c=$('c').value,f=$('f').value,ph=$('ph').value;
- const L=D.filter(d=>(!q||(d.t+' '+JSON.stringify(N[d.id]||'')).toLowerCase().includes(q))&&(!c||d.c==c)&&ok(d,f)&&((!ph&&!$('sg').value)||items(d.id,ph).length));
- const rows=L.map(d=>{const n=N[d.id],I=items(d.id,ph);
-  const tr=!n?'<span class=mut>–</span>':n.nosubs?'⚠️ keins':`<a href="transcripts/${d.id}.txt" target=_blank>📄 öffnen</a>`;
-  const wa=n&&n.watch?`<span class=y><b>👀</b> ${esc(n.why)}</span>`:n&&n.nosubs?`<span class=y><b>⚠️</b> Kein Transkript – selbst anschauen</span>`:'';
-  const cnt=['K','T','A'].map(p=>{const k=I.filter(i=>i.p==p).length;return k?`<span class="chip ph ${p}">${PH[p]} ${k}</span>`:''}).join('');
-  const ev=!n?'<span class=mut>noch nicht ausgewertet</span>':n.skip&&!I.length?`<span class=mut>${esc(n.skip)}</span>`:I.length?`<details><summary>${cnt}</summary><ul>${I.map(i=>li(d.id,i)).join('')}</ul></details>`:'';
-  return `<tr><td><input type=checkbox data-id="${d.id}" ${S[d.id]?'checked':''}></td><td class=n>${d.n}</td>
-  <td class=tit><a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div></td><td class=m>${d.m} min</td>
-  <td class=tg>${n&&n.seg?`<span class=chip>${esc(n.seg)}</span><br>`:''}${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td></tr>`}).join('');
- $('out').innerHTML=`<div class=wrap><table><thead><tr><th>⭐</th><th>Nr</th><th>Titel / Kategorie</th><th>Länge</th><th>🎯 Segment / Zielgruppe</th><th>Transkript</th><th>👀 Anschau-Empfehlung</th><th>Auswertung (Phase · Typ · Zitat)</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+ const L=D.filter(d=>(!q||(d.t+' '+JSON.stringify(N[d.id]||'')+' '+cmText(d.id)).toLowerCase().includes(q))&&(!c||d.c==c)&&ok(d,f)&&okA(d)&&((!ph&&!$('sg').value)||items(d.id,ph).length));
+ $('out').innerHTML=`<div class=wrap><table><thead><tr><th>⭐</th><th>Nr</th><th>Datum</th><th>Titel / Kategorie</th><th>Länge</th><th>🎯 Segment / Zielgruppe</th><th>Transkript</th><th>👀 Anschau-Empfehlung</th><th>Auswertung (Phase · Typ · Zitat)</th><th>✍️ Bewertung · angeschaut · Kommentar</th></tr></thead><tbody>${L.map(d=>row(d,ph)).join('')}</tbody></table></div>`;
  $('cnt').textContent=`· angezeigt: ${L.length}`}
 function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};D.forEach(d=>items(d.id,ph).forEach(i=>{if(q&&!(i.x+' '+(i.e||'')+' '+(N[d.id].target||'')).toLowerCase().includes(q))return;((T[i.p]??={})[i.y]??=[]).push({d,i})}));
  let h='',n=0;for(const p of ['K','T','A']){if(!T[p])continue;h+=`<h2 class="ph ${p}">${PH[p]}</h2>`;for(const y of TY){const L=T[p][y];if(!L)continue;n+=L.length;
@@ -69,9 +127,16 @@ function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};D.f
   for(const e of groups){if(e)h+=`<div class=tag style="margin-top:8px"><b>„${esc(e)}“</b></div>`;
    h+=L.filter(o=>!e||(o.i.e||'–')==e).map(({d,i})=>`<div class=it>${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''}<div class=src>🎯 ${N[d.id].seg?esc(N[d.id].seg)+' · ':''}${esc(N[d.id].target||'–')} · <a href="${link(d.id,i.t)}" target=_blank>▶ ${esc(d.t)} (${esc(i.t)})</a></div></div>`).join('')}}}
  $('out').innerHTML=h||'<p class=tag>Keine Learnings für diese Auswahl.</p>';$('cnt').textContent=`· angezeigt: ${n} Learnings`}
-function r(){const v=view=='videos';$('v1').classList.toggle('on',v);$('v2').classList.toggle('on',!v);['c','f','cp'].forEach(i=>$(i).style.display=v?'':'none');stats();v?videos():sammlung()}
+function r(){const v=view=='videos';$('v1').classList.toggle('on',v);$('v2').classList.toggle('on',!v);['c','f','cp','zr','rv'].forEach(i=>$(i).style.display=v?'':'none');stats();v?videos():sammlung()}
 $('v1').onclick=()=>{view='videos';save();r()};$('v2').onclick=()=>{view='sammlung';save();r()};
-document.addEventListener('input',e=>{if(e.target.dataset.id){S[e.target.dataset.id]=e.target.checked;save()}r()});
-$('cp').onclick=()=>{const t=D.filter(d=>S[d.id]).map(d=>'https://youtu.be/'+d.id).join('\n');navigator.clipboard.writeText(t).then(()=>{$('cp').textContent='✅ kopiert'},()=>prompt('Kopieren:',t))};
-r();
+document.addEventListener('input',e=>{const t=e.target;
+ if(t.dataset.cm!==undefined){clearTimeout(t._d);t._d=setTimeout(()=>setMine(t.dataset.cm,{text:t.value.trim()}),1500);return}
+ if(t.closest('td.me'))return;if(t.dataset.id){S[t.dataset.id]=t.checked;save()}r()});
+document.addEventListener('change',e=>{const t=e.target;
+ if(t.dataset.ov!==undefined){setOv(t.dataset.ov,t.value);r()}
+ else if(t.dataset.seen!==undefined){setMine(t.dataset.seen,{seen:t.checked});r()}
+ else if(t.dataset.cm!==undefined)setMine(t.dataset.cm,{text:t.value.trim()})});
+document.addEventListener('focusout',()=>setTimeout(()=>{if(ST.deferred&&!document.activeElement?.closest?.('td.me')){ST.deferred=false;r()}},0));
+$('cp').onclick=()=>{const t=D.filter(d=>S[d.id]).map(d=>'https://youtu.be/'+d.id).join('\n');navigator.clipboard.writeText(t).then(()=>{$('cp').textContent='✅ kopiert'},()=>{$('cp').textContent='Kopieren nicht möglich'})};
+r();connect();
 </script>
