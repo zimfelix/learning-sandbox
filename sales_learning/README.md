@@ -104,6 +104,7 @@ Arbeitsmodus: **Shipping** (Ergebnis zählt), Ergebnisse direkt in die Dateien, 
 ```bash
 cd sales_learning/mahnken-videos
 python3 fetch.py --next 5          # lädt die nächsten 5 offenen Videos (Nr. 1–184, neueste zuerst) nach transcripts/
+python3 fetch.py --next 5 --cat B  # nur eine Kategorie (A Kaltakquise, B Verkaufsgespräch, C Einwand, D Sonstiges)
 python3 fetch.py ID1 ID2           # oder gezielt einzelne Videos
 ```
 

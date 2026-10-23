@@ -2,6 +2,7 @@
 
 Aufruf:  python3 fetch.py VIDEO_ID [VIDEO_ID ...]
          python3 fetch.py --next 5        # die nächsten 5 offenen Videos der letzten 2 Jahre, neueste zuerst
+         python3 fetch.py --next 5 --cat B  # nur Kategorie „B Verkaufsgespräch“ (A/B/C/D)
 Braucht: uv (für `uvx yt-dlp`), node (zum Lesen von notes.js/videos.js).
 """
 import json
@@ -27,11 +28,15 @@ def load_js(name: str, var: str) -> object:
 RECENT_MAX_NR = 184
 
 
-def next_ids(count: int) -> list[str]:
-    """Die nächsten noch nicht ausgewerteten Videos der letzten zwei Jahre, neueste zuerst."""
+def next_ids(count: int, category: str | None = None) -> list[str]:
+    """Die nächsten noch nicht ausgewerteten Videos der letzten zwei Jahre, neueste zuerst.
+
+    category z. B. "B Verkaufsgespräch"; None = alle Kategorien.
+    """
     videos = load_js("videos.js", "VIDEOS")
     notes = load_js("notes.js", "NOTES")
-    open_videos = [v for v in videos if v["n"] <= RECENT_MAX_NR and v["id"] not in notes]
+    open_videos = [v for v in videos if v["n"] <= RECENT_MAX_NR and v["id"] not in notes
+                   and (category is None or v["c"].startswith(category))]
     return [v["id"] for v in open_videos][:count]
 
 
@@ -69,7 +74,12 @@ def vtt_to_text(vtt: Path) -> str:
 
 
 def main(args: list[str]) -> None:
-    ids = next_ids(int(args[1])) if args[:1] == ["--next"] else args
+    category = None
+    if "--cat" in args:
+        position = args.index("--cat")
+        category = args[position + 1]
+        args = args[:position] + args[position + 2:]
+    ids = next_ids(int(args[1]), category) if args[:1] == ["--next"] else args
     OUT.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
         for video_id in ids:
