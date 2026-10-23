@@ -1,0 +1,75 @@
+<!doctype html><html lang=de><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Mahnken Videos</title>
+<style>
+:root{--bg:#fff;--fg:#1d1d1f;--mut:#6e6e73;--line:#e5e5ea;--acc:#c2410c;--w:#fff4e5;--chip:#f2f2f7;--head:#fafafa;--k:#2563eb;--t:#16a34a;--a:#9333ea}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc}}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:14px/1.45 -apple-system,sans-serif;margin:0 auto;padding:0 16px 40px;max-width:1500px}
+.top{position:sticky;top:0;background:var(--bg);z-index:2;border-bottom:1px solid var(--line);padding:10px 0}
+.stats{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:8px;font-size:13px;color:var(--mut)}.stats b{color:var(--fg);font-size:16px;margin-right:3px}
+.bar{display:flex;gap:8px;flex-wrap:wrap}
+input,select,button{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}#q{flex:1;min-width:160px}button{cursor:pointer}button.on{border-color:var(--acc);color:var(--acc)}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:980px}
+th{position:sticky;top:0;background:var(--head);text-align:left;font-size:12px;font-weight:600;color:var(--mut);padding:8px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,td.m{color:var(--mut);white-space:nowrap;text-align:right;width:1%}
+td.tit{width:26%}td.tg{width:13%;font-size:13px}td.tr{width:1%;white-space:nowrap;font-size:13px}td.wa{width:17%;font-size:13px}td.ev{font-size:13px}
+a{color:var(--fg);text-decoration:none}a:hover{color:var(--acc)}.mut{color:var(--mut)}.tag{font-size:12px;color:var(--mut)}
+.wa .y{background:var(--w);border-radius:6px;padding:3px 7px;display:block}.wa .y b{color:var(--acc)}
+.chip{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;background:var(--chip);color:var(--fg);margin:0 4px 2px 0;white-space:nowrap}
+.ph{font-weight:600}.ph.K{color:var(--k)}.ph.T{color:var(--t)}.ph.A{color:var(--a)}
+details summary{cursor:pointer;color:var(--mut)}details ul{margin:6px 0 0;padding-left:18px}details li{margin:4px 0}
+h2{font-size:16px;margin:22px 0 6px}h3{font-size:13px;color:var(--mut);margin:14px 0 4px;text-transform:uppercase;letter-spacing:.03em}
+.it{padding:6px 0;border-bottom:1px solid var(--line)}.it .src{font-size:12px;color:var(--mut)}
+</style>
+<div class=top>
+ <div class=stats id=stats></div>
+ <div class=bar>
+  <button id=v1 class=on>Videos</button><button id=v2>Sammlung</button>
+  <input id=q placeholder="Suchen in Titel, Zielgruppe, Learnings …">
+  <select id=c><option value="">Alle Kategorien</option><option>A Kaltakquise</option><option>B Verkaufsgespräch</option><option>C Einwand</option><option>D Sonstiges</option></select>
+  <select id=f><option value="">Alle Videos</option><option value=done>✅ ausgewertet</option><option value=open>☐ offen</option><option value=watch>👀 Anschau-Empfehlungen</option><option value=nosubs>⚠️ ohne Transkript</option><option value=pick>⭐ ausgewählt</option></select>
+  <select id=ph><option value="">Alle Phasen</option><option value=K>Kaltakquise</option><option value=T>Termin / Verkaufsgespräch</option><option value=A>Andere Verkaufsform</option></select>
+  <button id=cp>⭐ Auswahl kopieren</button>
+ </div>
+</div>
+<div id=out></div>
+<script src="videos.js"></script><script src="notes.js"></script>
+<script>
+const D=window.VIDEOS,N=window.NOTES||{},$=id=>document.getElementById(id);
+const PH={K:'Kaltakquise',T:'Termin / Verkaufsgespräch',A:'Andere Verkaufsform'};
+const TY=['Sekretärin','Opener','Bedarfsfrage','Einwand','Terminvereinbarung','Leitfaden','Prinzip'];
+let S={},view='videos';try{S=JSON.parse(localStorage.getItem('s')||'{}');view=localStorage.getItem('v')||'videos'}catch(e){}
+const save=()=>{try{localStorage.setItem('s',JSON.stringify(S));localStorage.setItem('v',view)}catch(e){}};
+const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const sec=t=>{const[a,b]=String(t||'0:0').split(':').map(Number);return a*60+(b||0)};
+const link=(id,t)=>`https://youtu.be/${id}${t?'?t='+sec(t):''}`;
+const items=(id,ph)=>(N[id]?.items||[]).filter(i=>!ph||i.p==ph);
+const li=(id,i)=>`<li><span class="chip ph ${i.p}">${i.p}</span><span class=chip>${esc(i.y)}${i.e?': '+esc(i.e):''}</span>${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''} <a href="${link(id,i.t)}" target=_blank>▶&nbsp;${esc(i.t)}</a></li>`;
+function stats(){const v=Object.values(N),L=v.reduce((a,n)=>a+(n.items||[]).length,0);
+ $('stats').innerHTML=`<span><b>${D.length}</b>Videos</span><span><b>${v.length}</b>ausgewertet</span><span><b>${D.length-v.length}</b>offen</span><span><b>${v.filter(n=>n.watch).length}</b>👀 Empfehlungen</span><span><b>${L}</b>Learnings</span><span><b>${v.filter(n=>n.nosubs).length}</b>ohne Transkript</span><span id=cnt></span>`}
+function ok(d,f){const n=N[d.id];return !f||(f=='done'&&n)||(f=='open'&&!n)||(f=='watch'&&n&&n.watch)||(f=='nosubs'&&n&&n.nosubs)||(f=='pick'&&S[d.id])}
+function videos(){const q=$('q').value.toLowerCase(),c=$('c').value,f=$('f').value,ph=$('ph').value;
+ const L=D.filter(d=>(!q||(d.t+' '+JSON.stringify(N[d.id]||'')).toLowerCase().includes(q))&&(!c||d.c==c)&&ok(d,f)&&(!ph||items(d.id,ph).length));
+ const rows=L.map(d=>{const n=N[d.id],I=items(d.id,ph);
+  const tr=!n?'<span class=mut>–</span>':n.nosubs?'⚠️ keins':`<a href="transcripts/${d.id}.txt" target=_blank>📄 öffnen</a>`;
+  const wa=n&&n.watch?`<span class=y><b>👀</b> ${esc(n.why)}</span>`:n&&n.nosubs?`<span class=y><b>⚠️</b> Kein Transkript – selbst anschauen</span>`:'';
+  const cnt=['K','T','A'].map(p=>{const k=I.filter(i=>i.p==p).length;return k?`<span class="chip ph ${p}">${PH[p]} ${k}</span>`:''}).join('');
+  const ev=!n?'<span class=mut>noch nicht ausgewertet</span>':n.skip&&!I.length?`<span class=mut>${esc(n.skip)}</span>`:I.length?`<details><summary>${cnt}</summary><ul>${I.map(i=>li(d.id,i)).join('')}</ul></details>`:'';
+  return `<tr><td><input type=checkbox data-id="${d.id}" ${S[d.id]?'checked':''}></td><td class=n>${d.n}</td>
+  <td class=tit><a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div></td><td class=m>${d.m} min</td>
+  <td class=tg>${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td></tr>`}).join('');
+ $('out').innerHTML=`<div class=wrap><table><thead><tr><th>⭐</th><th>Nr</th><th>Titel / Kategorie</th><th>Länge</th><th>🎯 Zielgruppe</th><th>Transkript</th><th>👀 Anschau-Empfehlung</th><th>Auswertung (Phase · Typ · Zitat)</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+ $('cnt').textContent=`· angezeigt: ${L.length}`}
+function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};D.forEach(d=>items(d.id,ph).forEach(i=>{if(q&&!(i.x+' '+(i.e||'')+' '+(N[d.id].target||'')).toLowerCase().includes(q))return;((T[i.p]??={})[i.y]??=[]).push({d,i})}));
+ let h='',n=0;for(const p of ['K','T','A']){if(!T[p])continue;h+=`<h2 class="ph ${p}">${PH[p]}</h2>`;for(const y of TY){const L=T[p][y];if(!L)continue;n+=L.length;
+  const groups=y=='Einwand'?[...new Set(L.map(o=>o.i.e||'–'))]:[null];h+=`<h3>${y} (${L.length})</h3>`;
+  for(const e of groups){if(e)h+=`<div class=tag style="margin-top:8px"><b>„${esc(e)}“</b></div>`;
+   h+=L.filter(o=>!e||(o.i.e||'–')==e).map(({d,i})=>`<div class=it>${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''}<div class=src>🎯 ${esc(N[d.id].target||'–')} · <a href="${link(d.id,i.t)}" target=_blank>▶ ${esc(d.t)} (${esc(i.t)})</a></div></div>`).join('')}}}
+ $('out').innerHTML=h||'<p class=tag>Keine Learnings für diese Auswahl.</p>';$('cnt').textContent=`· angezeigt: ${n} Learnings`}
+function r(){const v=view=='videos';$('v1').classList.toggle('on',v);$('v2').classList.toggle('on',!v);['c','f','cp'].forEach(i=>$(i).style.display=v?'':'none');stats();v?videos():sammlung()}
+$('v1').onclick=()=>{view='videos';save();r()};$('v2').onclick=()=>{view='sammlung';save();r()};
+document.addEventListener('input',e=>{if(e.target.dataset.id){S[e.target.dataset.id]=e.target.checked;save()}r()});
+$('cp').onclick=()=>{const t=D.filter(d=>S[d.id]).map(d=>'https://youtu.be/'+d.id).join('\n');navigator.clipboard.writeText(t).then(()=>{$('cp').textContent='✅ kopiert'},()=>prompt('Kopieren:',t))};
+r();
+</script>
