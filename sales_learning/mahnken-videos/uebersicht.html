@@ -48,14 +48,11 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
   <button id=v1 class=on>Videos</button><button id=v2>Sammlung</button><button id=v3>📋 Leitfaden</button>
   <input id=q placeholder="Suchen in Titel, Zielgruppe, Learnings, Kommentaren …">
   <select id=f aria-label="Status"><option value="">Alle Bewertungen</option><option value=d>✓ ausgewertet, lehrreich</option><option value=x>⚪ nicht relevant</option><option value=rot>🔴 gesehen, unbrauchbar</option><option value=g>🟢 noch auswerten</option><option value=y>🟡 vielleicht</option><option value=open>☐ noch nicht ausgewertet</option></select>
-  <select id=sg aria-label="Segment"><option value="">Alle Segmente</option><option>Handwerk</option><option>KMU</option><option>Großunternehmen</option><option>Privat</option><option>allgemein</option></select>
   <select id=ph aria-label="Phase"><option value="">Alle Phasen</option><option value=K>Kaltakquise</option><option value=T>Termin / Verkaufsgespräch</option><option value=A>Andere Verkaufsform</option></select>
-  <select id=zr aria-label="Zeitraum"><option value="">Alle Jahre</option><option value=12>Letzte 12 Monate</option><option value=24>Letzte 24 Monate</option></select>
-  <select id=me aria-label="Meine"><option value="">Meine: alle</option><option value=pick>⭐ ausgewählt</option><option value=seen>👁 angeschaut</option><option value=unseen>👁 noch nicht angeschaut</option><option value=cm>💬 mit Kommentar</option></select>
   <button id=cp>⭐ Auswahl kopieren</button>
  </div>
  <div class=thm id=thm aria-label="Themen (mehrere wählbar)"></div>
- <div class=leg><span><i style="background:var(--rw)"></i>🎧 Anhör-Liste: selbst anhören</span><span><i style="background:var(--rg)"></i>relevant, noch auswerten</span><span><i style="background:var(--ry)"></i>vielleicht / wohl Wiederholung</span><span><i style="background:var(--rdb);border:1px solid var(--line)"></i>ausgewertet, lehrreich</span><span><i style="background:var(--line)"></i>nicht relevant (blass)</span><span><i style="background:var(--rr)"></i>gesehen, unbrauchbar</span><span>💎 Kern-Video</span><span>🎥 Live-Material</span><span class=mode id=mode>Bewertungen werden geladen …</span></div>
+ <div class=leg><span class=mode id=mode>Bewertungen werden geladen …</span></div>
 </div>
 <div id=out></div>
 <script src="videos.js"></script><script src="notes.js"></script><script src="dates.js"></script><script src="auswahl.js"></script><script src="leitfaden.js"></script><script src="kern.js"></script>
@@ -76,7 +73,7 @@ const save=()=>{try{localStorage.setItem('s',JSON.stringify(S));localStorage.set
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 const sec=t=>{const[a,b]=String(t||'0:0').split(':').map(Number);return a*60+(b||0)};
 const link=(id,t)=>`https://youtu.be/${id}${t?'?t='+sec(t):''}`;
-const items=(id,ph)=>{const sg=$('sg').value;if(sg&&N[id]?.seg!=sg)return[];return(N[id]?.items||[]).filter(i=>!ph||i.p==ph)};
+const items=(id,ph)=>{return(N[id]?.items||[]).filter(i=>!ph||i.p==ph)};
 /* Umgesetzt = im Leitfaden verarbeitet: Feld u in notes.js (Agent) oder Häkchen in der Sammlung (je Person, mine.u) */
 const isU=(id,k)=>!!N[id]?.items?.[k]?.u||[ST.mine,...Object.values(ST.all)].some(v=>(v[id]?.u||[]).includes(k));
 const done=d=>{const I=N[d.id]?.items||[];return I.length>0&&I.every((_,k)=>isU(d.id,k))};
@@ -120,31 +117,36 @@ function meCell(id){const o=ST.ov[id]?.r||'',m=ST.mine[id]||{};
  <label class=seen><input type=checkbox data-kern="${id}"${gemOf(id)?' checked':''}> 💎 Kern-Video</label>
  <textarea data-cm="${id}" rows=1 placeholder="Kommentar …" aria-label="Kommentar">${esc(m.text||'')}</textarea>${others(id)}</td>`}
 
-function stats(){const w=D.filter(d=>eff(d.id)=='w'),seen=w.filter(d=>ST.mine[d.id]?.seen).length;
- $('stats').innerHTML=`<span><b>${D.length}</b>Videos</span><span><b>${Object.keys(N).length}</b>ausgewertet</span><span><b>${D.filter(inMain).length}</b>in der Hauptliste</span><span><b>${D.filter(d=>done(d)&&!LF.has(d.id)).length}</b>✅ abgearbeitet</span><span><b>${Object.entries(N).reduce((c,[id,n])=>c+(n.items||[]).filter((_,k)=>isU(id,k)).length,0)}</b>✅ Learnings umgesetzt</span><span><b>${w.length}</b>🎧 Anhör-Liste (${seen} 👁 angeschaut)</span><span id=cnt></span>`}
+function stats(){const ev=Object.keys(N).length,ein=D.filter(d=>N[d.id]||AW[d.id]?.r).length,lehr=D.filter(d=>N[d.id]&&!['x','rot'].includes(eff(d.id))).length;
+ const H=D.filter(inMain),seen=H.filter(d=>ST.mine[d.id]?.seen).length,all=Object.values(N).reduce((c,n)=>c+(n.items||[]).length,0),u=Object.entries(N).reduce((c,[id,n])=>c+(n.items||[]).filter((_,k)=>isU(id,k)).length,0);
+ $('stats').innerHTML=`<span title="per Transkript ausgewertet oder nach Titel eingestuft"><b>${ein}</b>von ${D.length} Videos eingestuft</span><span><b>${ev}</b>per Transkript ausgewertet</span><span><b>${lehr}</b>davon lehrreich</span><span><b>${H.length}</b>in der Hauptliste (${seen} 👁 angeschaut)</span><span><b>${D.filter(d=>done(d)&&!LF.has(d.id)).length}</b>✅ abgearbeitet</span><span><b>${u}</b>von ${all} Learnings umgesetzt</span><span id=cnt></span>`}
 /* Bewertung (nur sichtbar, wenn auch nicht markierte Videos gezeigt werden) und eigene Filter */
 const okS=(d,f)=>!f||(f=='open'?!N[d.id]:eff(d.id)==f);
-function okMe(d,f){const m=ST.mine[d.id]||{};return !f||(f=='pick'&&S[d.id])||(f=='seen'&&m.seen)||(f=='unseen'&&!m.seen)||(f=='cm'&&cmText(d.id).trim())}
 /* Merkmale: markierte Videos bilden die Hauptliste, nicht markierte lassen sich zuschalten */
 const isLive=d=>{const a=AW[d.id]||{};return !!a.live||(a.th||[]).some(t=>t=='livek'||t=='livet')};
-const MK=[['lf','📌 im Leitfaden',d=>LF.has(d.id)],['gem','💎 Kern-Videos',d=>!!gemOf(d.id)],['watch','👀 Anschauen',d=>!!N[d.id]?.watch||(eff(d.id)=='w'&&!gemOf(d.id))],['live','🎥 Live-Gespräche',isLive],['nosubs','⚠️ ohne Transkript',d=>!!N[d.id]?.nosubs],['done','✅ abgearbeitet',d=>done(d)&&!LF.has(d.id)]];
-const marked=d=>eff(d.id)=='w'||MK.some(([,,f])=>f(d));
-/* Hauptliste: markiert und noch nicht abgearbeitet; 📌 bleibt immer drin */
-const inMain=d=>LF.has(d.id)||(marked(d)&&!done(d));
-/* Themen-Gruppen fassen die th-Werte aus auswahl.js zusammen; Live steht bei den Merkmalen. Mehrere wählbar = mindestens eins passt */
-const TG=[['tel','📞 Einstieg, Nutzensatz & Stimme',['einstieg','stimme']],['sek','📞 Sekretärin',['sek']],['einwand','📞 Einwände am Telefon',['einwand']],['termin','📞 Termin vereinbaren & Nachfassen',['termin','nachfassen']],['taufbau','🤝 Termin: Aufbau, Bedarf, Präsentation',['taufbau']],['tabschluss','🤝 Termin: Einwände, Preis, Abschluss',['tabschluss']],['handwerk','🔨 Handwerk',['handwerk']],['andere','Andere / Organisation',['andere']]];
+/* Format (entweder–oder): Lernvideos = alles außer Live */
+const FMT=[['lern','📚 Lernvideos',d=>!isLive(d)],['live','🎥 Live-Gespräche',isLive]];
+/* Status (mehrere wählbar, mindestens eins passt) */
+const MK=[['lf','📌 im Leitfaden',d=>LF.has(d.id)],['gem','💎 Kern-Videos',d=>!!gemOf(d.id)],['done','✅ abgearbeitet',d=>done(d)&&!LF.has(d.id)]];
+const marked=d=>eff(d.id)=='w'||LF.has(d.id)||!!gemOf(d.id)||!!N[d.id]?.watch||isLive(d)||!!N[d.id]?.nosubs;
+/* Hauptliste: nur die blauen (🎧 Anhör-Liste: 👀 oder 💎) und 📌, ohne abgearbeitete. Live-Videos über den Schalter 🎥 */
+const inMain=d=>LF.has(d.id)||(eff(d.id)=='w'&&!done(d));
+/* Kategorien wie der Leitfaden: th-Werte aus auswahl.js; sec = Abschnitte in kern.js. Sind alle sec abgeschlossen (ok), zählen nur noch deren 📌-Videos */
+const TG=[['sek','📞 Sekretär',['sek'],['Sekretär']],['tel','🎙 Einstieg, Stimme & Ton',['einstieg','stimme'],['Schritt 1','Schritt 2','Schritt 3','Schritt 4']],['einwand','🛡 Einwände am Telefon',['einwand'],[]],['termin','📅 Terminvereinbarung & Nachfassen',['termin','nachfassen'],['Schritt 5','Schritt 6']],['tg','🤝 Termingespräch',['taufbau','tabschluss'],[]],['allg','📋 Kaltakquise allgemein',['handwerk','andere'],[]]];
 const THL=Object.fromEntries(TG.flatMap(([,l,ts])=>ts.map(t=>[t,l])).concat([['livek','🎥 Live'],['livet','🎥 Live']]));
-const inG=(d,k)=>{const g=TG.find(x=>x[0]==k);return(AW[d.id]?.th||[]).some(t=>g[2].includes(t))};
-let TS=new Set(),MS=new Set(),ALL=false,SU=false;
-try{const o=JSON.parse(localStorage.getItem('flt')||'{}');TS=new Set((o.t||[]).filter(k=>TG.some(g=>g[0]==k)));MS=new Set((o.m||[]).filter(k=>MK.some(g=>g[0]==k)));ALL=!!o.all;SU=!!o.su}catch(e){}
-const saveT=()=>{try{localStorage.setItem('flt',JSON.stringify({t:[...TS],m:[...MS],all:ALL,su:SU}))}catch(e){}};
-const okT=d=>(!TS.size||[...TS].some(k=>inG(d,k)))&&(!MS.size||MK.some(([k,,f])=>MS.has(k)&&f(d)));
-const base=()=>view=='videos'&&!ALL&&!MS.has('done')?D.filter(inMain):D;
+const secIds=secs=>new Set(secs.flatMap(k=>[...(KR[k]?.html||'').matchAll(/youtu\.be\/([\w-]{11})/g)].map(m=>m[1])));
+const inG=(d,k)=>{const g=TG.find(x=>x[0]==k);if(g[3].length&&g[3].every(x=>KR[x]?.ok))return secIds(g[3]).has(d.id);return(AW[d.id]?.th||[]).some(t=>g[2].includes(t))};
+let TS=new Set(),MS=new Set(),FM='',ALL=false,SU=false;
+try{const o=JSON.parse(localStorage.getItem('flt2')||'{}');TS=new Set((o.t||[]).filter(k=>TG.some(g=>g[0]==k)));MS=new Set((o.m||[]).filter(k=>MK.some(g=>g[0]==k)));FM=FMT.some(f=>f[0]==o.f)?o.f:'';ALL=!!o.all;SU=!!o.su}catch(e){}
+const saveT=()=>{try{localStorage.setItem('flt2',JSON.stringify({t:[...TS],m:[...MS],f:FM,all:ALL,su:SU}))}catch(e){}};
+const okT=d=>(!FM||FMT.find(f=>f[0]==FM)[2](d))&&(!TS.size||[...TS].some(k=>inG(d,k)))&&(!MS.size||MK.some(([k,,f])=>MS.has(k)&&f(d)));
+const base=()=>view=='videos'&&!ALL&&!MS.has('done')&&FM!='live'?D.filter(inMain):D;
 function thBar(){const B=base(),btn=(a,k,l,n,on)=>`<button data-${a}="${k}" class="${on?'on':''}">${l} <span class=mut>${n}</span></button>`;
- $('thm').innerHTML=MK.map(([k,l,f])=>btn('mk',k,l,B.filter(f).length,MS.has(k))).join('')+'<span class=sep></span>'
- +TG.map(([k,l])=>btn('th',k,l,B.filter(d=>inG(d,k)).length,TS.has(k))).join('')+'<button data-th="">Filter zurücksetzen</button>'
+ const Bf=FM?B.filter(FMT.find(f=>f[0]==FM)[2]):B;
+ $('thm').innerHTML=FMT.map(([k,l,f])=>btn('fm',k,l,(k=='live'&&view=='videos'&&!ALL?D:B).filter(f).length,FM==k)).join('')+'<span class=sep></span>'
+ +MK.map(([k,l,f])=>btn('mk',k,l,Bf.filter(f).length,MS.has(k))).join('')+'<span class=sep></span>'
+ +TG.map(([k,l])=>btn('th',k,l,Bf.filter(d=>inG(d,k)).length,TS.has(k))).join('')+'<button data-th="">Filter zurücksetzen</button>'
  +(view=='videos'?`<label class=seen><input type=checkbox id=all${ALL?' checked':''}> auch nicht markierte und abgearbeitete zeigen <span class=mut>${D.length-D.filter(inMain).length}</span></label>`:'')}
-function okA(d){const z=$('zr').value;return !z||(DT[d.id]&&DT[d.id]>=since(+z))}
 function row(d,ph){const n=N[d.id],I=items(d.id,ph),a=AW[d.id]||{},r=eff(d.id);
  const tr=!n?'<span class=mut>–</span>':n.nosubs?'⚠️ keins':LOCAL?`<a href="transcripts/${d.id}.txt" target=_blank>📄 öffnen</a>`:'<span class=mut>nur lokal</span>';
  const wa=n&&n.watch?`<span class=y><b>👀</b> ${esc(n.why)}</span>`:n&&n.nosubs?`<span class=y><b>⚠️</b> Kein Transkript – selbst anschauen</span>`:'';
@@ -154,12 +156,12 @@ function row(d,ph){const n=N[d.id],I=items(d.id,ph),a=AW[d.id]||{},r=eff(d.id);
  return `<tr class="${r&&r!='-'?'r'+r:''}"><td><input type=checkbox data-id="${d.id}" aria-label="auswählen"${S[d.id]?' checked':''}></td><td class=n>${d.n}</td><td class=dt>${fdt(DT[d.id])}</td>
  <td class=tit>${badge?badge+'<br>':''}<a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div>${a.th?`<div>${[...new Set(a.th.map(t=>THL[t]||t))].map(t=>`<span class=chip>${esc(t)}</span>`).join('')}</div>`:''}${a.why?`<div class=why>${esc(a.why)} · <i>${n?'geprüft':'nach Titel'}</i></div>`:''}</td><td class=m>${d.m} min</td>
  <td class=tg>${n&&n.seg?`<span class=chip>${esc(n.seg)}</span><br>`:''}${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td>${meCell(d.id)}</tr>`}
-function videos(){const q=$('q').value.toLowerCase(),f=ALL?$('f').value:'',me=$('me').value,ph=$('ph').value;
- const L=base().filter(d=>(!q||(d.t+' '+JSON.stringify(N[d.id]||'')+' '+cmText(d.id)).toLowerCase().includes(q))&&okS(d,f)&&okMe(d,me)&&okA(d)&&okT(d)&&((!ph&&!$('sg').value)||items(d.id,ph).length));
+function videos(){const q=$('q').value.toLowerCase(),f=ALL?$('f').value:'',ph=$('ph').value;
+ const L=base().filter(d=>(!q||(d.t+' '+JSON.stringify(N[d.id]||'')+' '+cmText(d.id)).toLowerCase().includes(q))&&okS(d,f)&&okT(d)&&(!ph||items(d.id,ph).length));
  $('out').innerHTML=`<div class=wrap><table><thead><tr><th>⭐</th><th>Nr</th><th>Datum</th><th>Titel / Kategorie</th><th>Länge</th><th>🎯 Segment / Zielgruppe</th><th>Transkript</th><th>👀 Anschau-Empfehlung</th><th>Auswertung (Phase · Typ · Zitat)</th><th>✍️ Bewertung · angeschaut · Kommentar</th></tr></thead><tbody>${L.map(d=>row(d,ph)).join('')}</tbody></table></div>`;
  $('cnt').textContent=`· angezeigt: ${L.length}`}
-function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,sg=$('sg').value,T={};let hid=0;
- D.forEach(d=>{const n=N[d.id];if(!n||!okT(d)||(sg&&n.seg!=sg))return;(n.items||[]).forEach((i,k)=>{if(ph&&i.p!=ph)return;
+function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};let hid=0;
+ D.forEach(d=>{const n=N[d.id];if(!n||!okT(d))return;(n.items||[]).forEach((i,k)=>{if(ph&&i.p!=ph)return;
   if(q&&!(i.x+' '+(i.e||'')+' '+(n.target||'')).toLowerCase().includes(q))return;if(!SU&&isU(d.id,k)){hid++;return}((T[i.p]??={})[i.y]??=[]).push({d,i,k})})});
  const uk=(d,i,k)=>`<label class=uk><input type=checkbox data-u="${d.id}|${k}"${isU(d.id,k)?' checked':''}${i.u?` disabled title="im Leitfaden: ${esc(i.u)}"`:''}> ✅ umgesetzt${i.u?' · '+esc(i.u):''}</label>`;
  let h=`<label class=seen><input type=checkbox id=su${SU?' checked':''}> umgesetzte Learnings zeigen <span class=mut>${hid||''}</span></label>`,n=0;
@@ -172,9 +174,9 @@ function leitfaden(){const det=h=>{const t=(h.match(/<h2>(.*?)<\/h2>/s)?.[1]||''
   return k?h.replace(/<\/h2>/,(KR[k].ok?' <span class=chip>✅ abgeschlossen</span>':'')+'</h2>')+`<div class=kd><div class=kh>Details</div>${KR[k].html}</div>`:h};
  $('out').innerHTML=`<div class=lf>${LFH?LFH.split(/(?=<h2>)/).map(det).join(''):'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
 function r(){const v=view=='videos',l=view=='leitfaden';['v1','v2','v3'].forEach((b,i)=>$(b).classList.toggle('on',view==['videos','sammlung','leitfaden'][i]));
- ['me','cp','zr'].forEach(i=>$(i).style.display=v?'':'none');['q','sg','ph','thm'].forEach(i=>$(i).style.display=l?'none':'');$('f').style.display=v&&ALL?'':'none';stats();thBar();v?videos():l?leitfaden():sammlung()}
+ ['cp'].forEach(i=>$(i).style.display=v?'':'none');['q','ph','thm'].forEach(i=>$(i).style.display=l?'none':'');$('f').style.display=v&&ALL?'':'none';stats();thBar();v?videos():l?leitfaden():sammlung()}
 $('thm').onclick=e=>{const b=e.target.closest('button');if(!b)return;const{th,mk}=b.dataset;
- if(th===''){TS.clear();MS.clear()}else if(th)TS.has(th)?TS.delete(th):TS.add(th);else if(mk)MS.has(mk)?MS.delete(mk):MS.add(mk);saveT();r()};
+ const fm=b.dataset.fm;if(th===''){TS.clear();MS.clear();FM=''}else if(fm)FM=FM==fm?'':fm;else if(th)TS.has(th)?TS.delete(th):TS.add(th);else if(mk)MS.has(mk)?MS.delete(mk):MS.add(mk);saveT();r()};
 $('thm').addEventListener('change',e=>{if(e.target.id=='all'){ALL=e.target.checked;saveT();r()}});
 $('v1').onclick=()=>{view='videos';save();r()};$('v2').onclick=()=>{view='sammlung';save();r()};$('v3').onclick=()=>{view='leitfaden';save();r()};
 document.addEventListener('input',e=>{const t=e.target;
