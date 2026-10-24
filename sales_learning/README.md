@@ -137,7 +137,17 @@ Nach einigen Arbeits-Chats, wenn **kein** anderer Chat in `notes.js` schreibt:
    `node -e "global.window={};require('./notes.js');require('./videos.js');const N=window.NOTES,V=Object.fromEntries(window.VIDEOS.map(v=>[v.id,v]));const g={};for(const[id,n]of Object.entries(N))for(const i of n.items||[]){const k=i.p+' | '+i.y;(g[k]??=[]).push('['+V[id]?.n+'|'+(n.seg||'-')+'|'+id+'@'+i.t+(i.s?'|s':'')+'] '+(i.e?'«'+i.e+'» ':'')+i.x)}for(const k of Object.keys(g).sort())console.log('\n## '+k+' ('+g[k].length+')\n'+g[k].join('\n'))" > /tmp/learnings.txt`
 3. **Stichprobe Zitate** (5–6 Stück, auch neue Videos): Zitat-Ausschnitt in `transcripts/<ID>.txt` suchen (Python `str.find`, nicht `grep` – Umlaute) und mit Zeitstempel vergleichen.
 4. **Qualität prüfen:** richtige Typen (Planung/Motivation = `Organisation`, Follow-up = `Nachfassen`), `seg` gesetzt, Julians Meinung vs. besprochener Trainer getrennt, Widersprüche mit ⚠️ markiert.
-5. **`skript-zwischenstand.md` aktualisieren:** neue stärkere Formulierungen einsetzen, Lücken (Abschnitt „Nächste Schritte“) abhaken, Termin-Phase ausbauen; Kopfzeile „Stand / Basis X Videos“ anpassen.
+5. **Leitfaden Thema für Thema abschließen** (seit 24.10.2026; `skript-zwischenstand.md` ist nur noch Archiv der ausführlichen Varianten):
+   - **`leitfaden.docx`** (Word, `sales_learning/`) = **nur der reine Leitfaden**: oben „Sekretär“, dann „Schritt 1: Begrüßung“ … „Schritt 6: Terminfestigung und Verabschiedung“ (Aufbau wie Julians Vorlage „Telefonakquise Skript: B2B Dienstleistungen“), darunter nur gesprochene Sätze – keine Tipps, Quellen oder Videos. Der Agent schreibt nur, wenn Felix die Datei gespeichert hat.
+   - **`mahnken-videos/kern.js`** = Details je Abschnitt (Reaktionen, Ton, Videos zum Anschauen, `ok` = abgeschlossen), Schlüssel = Anfang der Word-Überschrift. Nur im Tab „Leitfaden“ sichtbar; knapp halten.
+   - Je Thema: Agent schlägt den Kern vor (Sätze, Tonalität, Videos zum Anschauen – Umfang je nach Thema, keine feste Zahl), Felix bestätigt, Abschnitt bekommt ✅. Videos, die nur wiederholen, verlieren ihr 👀.
+   - Verarbeitete Learnings in `notes.js` mit `"u":"<Abschnitt>"` markieren (z. B. `"u":"1 Sekretärin"`), auch überholte und Negativbeispiele. Felix/Kollege können zusätzlich in der Sammlung „✅ umgesetzt“ anhaken (gespeichert je Person als `notizen.videos.<ID>.u` = Learning-Nummern; beim Review per `ArtifactData` auslesen und nach `notes.js` übernehmen). Umgesetzte Learnings sind in der Sammlung ausgeblendet; Videos, deren Learnings alle umgesetzt sind, gelten als **✅ abgearbeitet** und fallen aus der Hauptliste (außer 📌).
+   - Danach `python3 mahnken-videos/leitfaden_export.py` → `leitfaden.js`; Tab **📋 Leitfaden** zeigt Sätze (Word) + Details (`kern.js`); dort verlinkte Videos (`youtu.be/<ID>`) erscheinen als 📌.
+
+```text
+leitfaden.docx (Word, nur Sätze) ──leitfaden_export.py──▶ leitfaden.js ─┐
+kern.js (Details: Reaktionen, Ton, Videos) ─────────────────────────────┴▶ uebersicht.html: Tab Leitfaden + 📌
+```
 6. Committen und pushen nur auf Auftrag.
 
 ## Online-Seiten
@@ -164,9 +174,9 @@ Diese Seite aktualisiert sich nie automatisch. Darum wird nach jeder Änderung a
 
 **Neu veröffentlichen** (nach jeder Änderung an diesen Dateien, im Ordner `mahnken-videos`):
 
-1. `tail -n +2 uebersicht.html > .online.html` (erste Zeile = Doctype, den setzt claude.ai selbst; Datei ist per `.gitignore` ausgenommen).
+1. Falls `leitfaden.docx` geändert wurde: `python3 leitfaden_export.py`. Dann `tail -n +2 uebersicht.html > .online.html` (erste Zeile = Doctype, den setzt claude.ai selbst; Datei ist per `.gitignore` ausgenommen).
 2. In einem neuen Chat zuerst einmal das Artifact mit der URL oben lesen (`Artifact`, `action: "read"`), sonst wird das Veröffentlichen abgelehnt.
-3. Veröffentlichen mit `Artifact` (publish): `url` = Link oben, `file_path` = `mahnken-videos/.online.html`, `files` = `videos.js`, `notes.js`, `dates.js`, `auswahl.js` (Quellpfade **absolut** angeben, z. B. `/Users/felix/Code/python/learning-sandbox/sales_learning/mahnken-videos/notes.js`). Kein `capabilities`-Feld mitgeben – die Datenbank-Einstellung bleibt so erhalten; Bewertungen bleiben ebenfalls erhalten.
+3. Veröffentlichen mit `Artifact` (publish): `url` = Link oben, `file_path` = `mahnken-videos/.online.html`, `files` = `videos.js`, `notes.js`, `dates.js`, `auswahl.js`, `leitfaden.js`, `kern.js` (Quellpfade **absolut** angeben, z. B. `/Users/felix/Code/python/learning-sandbox/sales_learning/mahnken-videos/notes.js`). Kein `capabilities`-Feld mitgeben – die Datenbank-Einstellung bleibt so erhalten; Bewertungen bleiben ebenfalls erhalten.
 
 **Online-Bewertungen auslesen** (beim Review): `ArtifactData` `list` auf die Collections `relevanz` (Dokument-ID = Video-ID, Feld `r`: g/y/x/rot/w) und `notizen` (ein Dokument je Person, `videos.<ID>.seen/.text`). Übernahmen nach `auswahl.js` nur nach Absprache.
 

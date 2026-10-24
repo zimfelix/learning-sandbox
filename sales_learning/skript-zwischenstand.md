@@ -1,5 +1,7 @@
 # Kaltakquise-Skript Handwerk/KMU – Zwischenstand
 
+⚠️ **Archiv seit 24.10.2026.** Der gültige Leitfaden steht in `leitfaden.docx` (Tab „Leitfaden“ in der Übersicht). Hier bleiben die ausführlichen Varianten und Quellen zum Nachschlagen.
+
 Stand: 2026-10-24 · Basis: 91 ausgewertete Videos (Julian Mahnken; davon 68 aus Nr. 1–184), 283 Learnings · Quelle: `mahnken-videos/notes.js`
 
 Legende: **Empfohlen** = Julians aktuelle Empfehlung · *Variante* = belegte Alternative · ❌ = Negativbeispiel · 🛠 = eigener Vorschlag (nicht aus den Videos, aus seinen Prinzipien abgeleitet) · (s) = sinngemäß, Untertitel schlecht · Quelle als `Nr. Video @ Zeit`

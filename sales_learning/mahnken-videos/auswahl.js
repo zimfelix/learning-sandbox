@@ -156,7 +156,7 @@ window.AUSWAHL={
 "Ux9W0r9Mwlk":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 224 Telefonakquise 3 Erfolgs-Elemente für deinen Leitfaden
 "jWbPkgdnt6o":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 233 Telefonakquise: Planbar Termine vereinbaren
 "eqYbJ-a9Tbw":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 236 Wie du deine Terminerscheinungs-Quote erhöhst!
-"TgOdgtN4hNU":{"th":["taufbau"], "r": "g", "why": "Termin: Präsentation"}, // 237 So machst du weltklasse Verkaufspräsentationen
+"TgOdgtN4hNU":{"th": ["taufbau"], "r": "g", "why": "ausgewertet: Präsentation Thema → Erklärung → Nutzen-Kontrollfrage, kein Information Overload"}, // 237 So machst du weltklasse Verkaufspräsentationen
 "4od45IyodDo":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 239 Heiß auf Kaltakquise von Tim Taxis noch aktuell? (2024)
 "pxt1tIjmGPE":{"r": "x", "why": "ausgewertet: wenig lehrreich (Wiederholung, Werbung)"}, // 243 So weckst du Bedarf an deinem Angebot (Telefonakquise)
 "rpnwuchYl7c":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 244 45% Terminquote als Social Recuriting Agentur!
@@ -164,7 +164,7 @@ window.AUSWAHL={
 "rn8TO8d_FWM":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 247 Qualifizierte Termine vereinbaren (Telefonakquise)
 "IvxPSQeeEG4":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 248 So behandelst du jeden Einwand (Anleitung)
 "xJ4xXPoMPKI":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 251 So funktioniert Einwandbehandlung ganz einfach (Telefonakqui
-"i02KHN3gVB0":{"th":["einstieg"], "r": "g", "why": "Leitfaden Schritt für Schritt"}, // 252 Telefonakquise Leitfaden Schritt für Schritt Aufbau
+"i02KHN3gVB0":{"th": ["einstieg"], "r": "x", "why": "ausgewertet: wenig lehrreich (Leitfaden-Überblick wie Nr. 94, Wortlaut nur in der Masterclass)"}, // 252 Telefonakquise Leitfaden Schritt für Schritt Aufbau
 "7FmPXApj_J8":{"th":["tabschluss"], "r": "g", "why": "Termin: Abschluss"}, // 253 Verkaufgespräch: Erfolgreich in den Abschluss gehen
 "TzY0wddtWuU":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 261 Solche Telefonakquise Leitfäden können nicht funktionieren
 "CnDMItEH4aw":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 263 Deine Hero-Story ist Bullshit (Verkaufsgespräch)
@@ -184,12 +184,12 @@ window.AUSWAHL={
 "OD9RT0X_GQw":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 309 Kaltakquise: Keine Ablehnung mehr bekommen
 "qVVDsRjR2_4":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 316 Mühelos vorbei am Sekretariat (Telefonakquise)
 "TA1ACeQU3sQ":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 320 Kaltakquise: Der perfekte Gesprächseinstieg für maximale Ter
-"ufJ7-EBqovE":{"th":["taufbau"], "r": "g", "why": "Termin: Gesprächsführung"}, // 321 Verkaufsgespräch: Führe deinen Kunden durch das Gespräch
+"ufJ7-EBqovE":{"th": ["taufbau"], "r": "x", "why": "ausgewertet: wenig lehrreich (Soll- statt Ist-Fragen wie Nr. 192)"}, // 321 Verkaufsgespräch: Führe deinen Kunden durch das Gespräch
 "gjm7GIw7rDk":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 322 Kaltakquise Leitfaden Analyse
 "iy5N7Q3jQjY":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 329 Verkaufsgespräch: Überlasse deinem Kunden nicht die Wahl
-"sEJWNMIQ49o":{"th":["tabschluss"], "r": "g", "why": "Termin: Einwand im Gespräch"}, // 331 Einwandbehandlung im Verkaufsgespräch - So verkaufst du trot
-"_VIvSmFYsfU":{"th":["taufbau"], "r": "g", "why": "Termin: kompletter Aufbau"}, // 332 Verkaufsgespräch: Der perfekte Aufbau für maximale Umsätze
-"ByrJyaeP6ak":{"th":["livek"], "r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 334 LIVE TELEFONAKQUISE mit Leichtigkeit zum Kaltakquise-Termin
+"sEJWNMIQ49o":{"th": ["tabschluss"], "r": "x", "why": "ausgewertet: wenig lehrreich (Nacht drüber schlafen wie Nr. 163/215)"}, // 331 Einwandbehandlung im Verkaufsgespräch - So verkaufst du trot
+"_VIvSmFYsfU":{"th": ["taufbau"], "r": "g", "why": "ausgewertet: 5 Schritte im Termin, Smalltalk-Regel + Einstiegssatz, ein Call statt zwei (⚠️)"}, // 332 Verkaufsgespräch: Der perfekte Aufbau für maximale Umsätze
+"ByrJyaeP6ak":{"th": ["livek", "nachfassen"], "r": "g", "live": "Telefonat", "why": "ausgewertet: Live-Nachfassen Personalvermittlung – gerade eingestellt, Bewerbung außer der Reihe, Profilversand + Feedback-Termin"}, // 334 LIVE TELEFONAKQUISE mit Leichtigkeit zum Kaltakquise-Termin
 "XPI9WfQ9Aos":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 338 Kaltkakquise: Einwandbehandlung Komplettlösung
 "azos4vfj72k":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 340 Kaltakquise Gesprächseinstieg (Das musst du wissen)
 "nJiwM6PU76k":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 341 Telefonakquise: 3 Fehler die fast jeder macht
@@ -198,8 +198,8 @@ window.AUSWAHL={
 "c-0f3UFtYFU":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 347 Einwandbehandlung: das wissen nur Top-Verkäufer
 "E9XmId2QLGw":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 349 Erklärungsbedürftige Angebote verkaufen - So geht's ganz ein
 "1gQPH03F3Yc":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 350 Verkaufsgespräch: Beachte DAS! (Gesprächsanteil)
-"ni8Ae6gU0VE":{"th":["livet"], "r": "g", "live": "Schulung", "why": "Live-Mitschnitt Verkaufstraining"}, // 351 Verkaufstraining Live Mitschnitt (Verkaufsgespräch)
-"rviaaMxwfzc":{"th":["einwand"], "r": "g", "why": "Einwand „Schicken Sie Unterlagen“"}, // 355 Einwandbehandlung: Schicken Sie Unterlagen DIE Antwort
+"ni8Ae6gU0VE":{"th": ["taufbau"], "r": "g", "live": "Schulung", "why": "ausgewertet: Kauf = Bedarf + Preis + Vertrauen, ❌ Schmerzfragen, Ist-Frage als Überleitung (⚠️ Nr. 192)"}, // 351 Verkaufstraining Live Mitschnitt (Verkaufsgespräch)
+"rviaaMxwfzc":{"r": "x", "why": "ausgewertet: wenig lehrreich (Unterlagen wie Nr. 167 + Abbruchangebot wie Nr. 73, Rest Eigenwerbung)"}, // 355 Einwandbehandlung: Schicken Sie Unterlagen DIE Antwort
 "9eTsRJX3jDM":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 358 Telefonakquise: Vorbei am Sekretariat (Geheimtipp)
 "0Vwb8_hK6jY":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 366 Telefonakquise Einwandbehandlung "Kein Bedarf" #Shorts
 "tl2GR07zSbw":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 371 Einwandbehandlung im Verkauf - DAS musst du wissen!
@@ -212,23 +212,23 @@ window.AUSWAHL={
 "t1y4G4gELSw":{"th":["andere"], "r": "y", "live": "Telefonat", "why": "Challenge-Vlog mit Anrufen"}, // 388 TELEFONAKQUISE Challenge VLOG #1
 "AUW4IJiGuqc":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 389 Die perfekte Verkaufspräsentation - So geht's
 "pW3HJaqKwoM":{"th":["einstieg"], "r": "g", "why": "Begrüßung (ausgewertet)"}, // 390 Telefonakquise: Der perfekte GESPRÄCHSEINSTIEG
-"nfD5kfPvfmo":{"th":["einwand"], "r": "g", "live": "Schulung", "why": "Live-Training Einwand"}, // 395 Live Training EINWANDBEHANDLUNG
+"nfD5kfPvfmo":{"th": ["tabschluss"], "r": "g", "live": "Schulung", "why": "ausgewertet: Einwand Telefon vs. Termin, Reisebüro-Vorwand, Problem finden + gemeinsam lösen (Handwerk)"}, // 395 Live Training EINWANDBEHANDLUNG
 "anRkPyRjsp8":{"th":["livek"], "r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 396 Telefonakquise: LIVE TELEFONAT inkl. Terminvereinbarung (Mar
 "ZiquXywo9uE":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 400 MEHR VERKAUFEN: Wirkungsvolle Follow-up Strategien
 "vePdGc0hxew":{"th":["sek","einstieg"], "r": "g", "why": "Leitfaden Taxis/Kreuter (ausgewertet)"}, // 401 Reaktionsvideo: Dirk Kreuter Telefonakquise Tipps
 "u332FoQeK_M":{"r": "x", "live": "Telefonat", "why": "ausgewertet: wenig lehrreich (Live-Telefonat)"}, // 403 LIVE TELEFONAKQUISE: Gebäudereinigung inklusive Terminverein
 "IzxtuJN1mYA":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 406 Telefonakquise: So machst du den Entscheider ausfindig!
 "00xJqgLwkFg":{"th":["nachfassen"], "r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 407 Telefonakquise: Live Telefonat Personalberater Headhunter
-"FN-6Vp6Cqjg":{"th":["livet"], "r": "g", "live": "Verkaufsgespräch", "why": "Live: Verkaufsgespräch mit Abschluss"}, // 408 Live Mitschnitt: Verkaufsgespräch inklusive Abschluss
-"kCwQLKawP6o":{"th":["livet"], "r": "g", "live": "Verkaufsgespräch", "why": "Live: Verkaufsgespräch mit Abschluss"}, // 410 Live Mitschnitt: Verkaufsgespräch inklusive Abschluss
-"O9IZOCQ8LEg":{"th":["tabschluss"], "r": "g", "why": "Termin: Preisnennung"}, // 411 Was TOP-Verkäufer bei der Preisnennung anders machen
+"FN-6Vp6Cqjg":{"th": ["livet", "tabschluss"], "r": "g", "live": "Verkaufsgespräch", "why": "ausgewertet: Live – Preis an Leistung koppeln, Vertrauen per Referenzgespräch, Bedingungsfrage → Abschluss"}, // 408 Live Mitschnitt: Verkaufsgespräch inklusive Abschluss
+"kCwQLKawP6o":{"th": ["livet", "tabschluss"], "r": "g", "live": "Verkaufsgespräch", "why": "ausgewertet: Live (anderes Gespräch als Nr. 408, Makler) – Anknüpfen, Rückblick-Preisfrage, Skala, Starttermin"}, // 410 Live Mitschnitt: Verkaufsgespräch inklusive Abschluss
+"O9IZOCQ8LEg":{"th": ["tabschluss"], "r": "x", "why": "ausgewertet: Preis vor dem Angebot nennen – nur Begründung, Regel wie Nr. 52/63; Untertitel sehr schlecht, Video bricht vor dem Wortlaut ab"}, // 411 Was TOP-Verkäufer bei der Preisnennung anders machen
 "l73gJ7hR048":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 414 LIVE Workshop: Verkaufen wie eine Maschine
-"4503nGSywaY":{"th":["tabschluss"], "r": "g", "live": "Schulung", "why": "Live-Rollenspiel Einwand + Abschluss"}, // 415 LIVE Rollenspiel: Einwandbehandlung inklusive Verkaufsabschl
-"HNmhrS51cRo":{"th":["tabschluss"], "r": "g", "why": "Termin: Abschluss"}, // 417 Sack zu: Wie du den Verkaufsabschluss machst
-"Uz_J8JB3CyA":{"th":["taufbau"], "r": "g", "why": "Termin: Gesprächseinstieg"}, // 419 Verkaufsgespräch: Der perfekte Gesprächseinstieg
+"4503nGSywaY":{"th": ["tabschluss"], "r": "g", "live": "Schulung", "why": "ausgewertet: Live-Rollenspiel Pflegedienst – Preiseinwand öffnen, Wunschzettel, Bedingungsfrage, Abschluss über Raten"}, // 415 LIVE Rollenspiel: Einwandbehandlung inklusive Verkaufsabschl
+"HNmhrS51cRo":{"th": ["tabschluss"], "r": "g", "why": "ausgewertet: Abschluss in 3 Schritten (offene Punkte → geschlossene Frage → was hält zurück); ⚠️ zu Nr. 142"}, // 417 Sack zu: Wie du den Verkaufsabschluss machst
+"Uz_J8JB3CyA":{"th": ["taufbau"], "r": "g", "why": "ausgewertet: Smalltalk nur, wenn der Kunde anfängt; Überleitung „ist es okay, wenn wir gleich zum Thema kommen“"}, // 419 Verkaufsgespräch: Der perfekte Gesprächseinstieg
 "F_RgIbBdiyE":{"th":["livek"], "r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 420 Telefonakquise: Verrücktes Live Telefonat inkl. Terminverei
-"g6kGerB6ers":{"th":["taufbau"], "r": "g", "why": "Termin: 4 Säulen"}, // 421 Die 4 Säulen im Verkaufsgespräch - So verkaufst du IMMER
-"gFC31qk4XJU":{"th":["tabschluss"], "r": "g", "why": "Termin: Einwand im Gespräch"}, // 422 Einwandbehandlung im Verkaufsgespräch: So funktioniert es im
+"g6kGerB6ers":{"th": ["taufbau"], "r": "x", "why": "ausgewertet: 4 Vertrauenssäulen als Einwand-Diagnose, kein Wortlaut; Rest wie Nr. 63/215"}, // 421 Die 4 Säulen im Verkaufsgespräch - So verkaufst du IMMER
+"gFC31qk4XJU":{"th": ["tabschluss"], "r": "x", "why": "ausgewertet: Vorwand vs. Einwand, Öffnungsfrage wie Nr. 215 (dort besser); ⚠️ Einwand-Vorwand-Technik direkt auf den Vorwand"}, // 422 Einwandbehandlung im Verkaufsgespräch: So funktioniert es im
 "wLrZYtekimY":{"th":["livek"], "r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 423 Telefonakquise: Live Terminvereinbarung (Online Marketing)
 "DQJ0l_idr50":{"r": "x", "live": "Telefonat", "why": "ausgewertet: wenig lehrreich (Live-Telefonat Makler (Privat))"}, // 425 Telefonakquise: Echtes Live Telefonat (Immobilienmakler)
 "H4jjJFVrCaY":{"th":["livek"], "r": "g", "live": "Telefonat", "why": "Live-Telefonat"}, // 426 Telefonakquise: Verblüffendes Live Telefonat mit Terminverei
