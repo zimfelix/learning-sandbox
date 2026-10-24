@@ -23,17 +23,23 @@ window.KERN = {
 <p class=b>„grüß Sie“ am Ende: Er grüßt zurück → von Anfang an Dialog. Regional auch „Servus“ / „Moin“.</p>
 <h4>Ton</h4>
 <p class=b>Sympathisch-neutral: weder „Schönen guten Tag!“ (Verkäufer) noch gelangweilt. Lächeln, vor allem mit tiefer Stimme.</p>
-<p class=b>Nicht zu schnell, nicht monoton. Meldet er sich laut und knapp („Meier, hallo!“): Energie angleichen, nicht gemütlich.</p>
+<p class=b>Nicht zu schnell, nicht monoton. Meldet er sich laut und knapp („Meier, hallo!“): Energie angleichen, nicht gemütlich (Nr. 49 @1:01; Umgang mit dominanten Typen → Schritt 2).</p>
 <h4>Anschauen</h4>
 <p class=b>Nr. 27 💎 Der perfekte Gesprächseinstieg – warum genau diese Sätze · <a href="https://youtu.be/61ZlLVM0uS0" target=_blank>▶ youtu.be/61ZlLVM0uS0</a></p>
-<p class=b>Nr. 14 Cold-Calling-Leitfaden zerlegt (Handwerk) – Ton, Fehler im Pitch · <a href="https://youtu.be/FLDVG9syiUc" target=_blank>▶ youtu.be/FLDVG9syiUc</a></p>
 <p class=b>Nr. 88 Leitfaden-Hacks – kleiner Versprecher statt Perfektion, Dialog in den ersten Sekunden · <a href="https://youtu.be/5gPOrQ35tbQ" target=_blank>▶ youtu.be/5gPOrQ35tbQ</a></p>
-<p class=b>optional: Nr. 49 Dominante Entscheider – nicht hetzen lassen · <a href="https://youtu.be/IFZNmZICF4E" target=_blank>▶ youtu.be/IFZNmZICF4E</a></p>
+<p class=b>optional: Nr. 14 Cold-Calling-Leitfaden zerlegt (Handwerk) – viel Gerede, vor allem was man nicht machen soll · <a href="https://youtu.be/FLDVG9syiUc" target=_blank>▶ youtu.be/FLDVG9syiUc</a></p>
 `},
 "Schritt 2": {"ok": true, "html": `
 <p class=b>Erlaubnis holen statt ungefragt losreden – Julians „All-Time Favorite“, in 9 von 10 Fällen.</p>
 <p class=b>Nach dem Satz Pause: Er sagt „Ja“ – dann erst Schritt 3.</p>
 <p class=b>❌ „Hätten Sie 10 Minuten?“, „Kennen Sie uns schon?“, „Ich komme gleich zum Punkt, weil Ihre Zeit wertvoll ist“, „Das ist ein Kaltakquise-Anruf, geben Sie mir 30 Sekunden?“</p>
+<h4>🛡 Mini-Thema: Dominanter Typ („Machen Sie's schnell“ · „Sie haben 10 Sekunden“ · „Junge, was willst du?“)</h4>
+<p><b>Antwort:</b> „Okay, wunderbar. Ich mach's gleich ganz offen.“ – dann im selben Tempo weiter mit Schritt 3 (Nr. 131 @2:00).</p>
+<p class=b>1. Energie matchen: stärker auftreten, aber nicht frecher oder dominanter werden (Nr. 49 @1:01, Nr. 131 @1:00).</p>
+<p class=b>2. Nicht aus der Ruhe bringen lassen: nicht schneller sprechen, nicht abkürzen, nicht rechtfertigen (Nr. 55 @2:01).</p>
+<p class=b>❌ „Ich mach's ganz schnell / ganz kurz“ – klingt verunsichert.</p>
+<p class=b>Warum: Er testet nur am Anfang. Wer besteht, hat seinen Respekt; danach zählt Relevanz (Schritt 3/4, Nr. 49 @4:00). Handwerker sind oft solche Typen (Nr. 1 @2:01).</p>
+<p class=b>Anschauen: Nr. 49 ab @1:01 · <a href="https://youtu.be/IFZNmZICF4E?t=61" target=_blank>▶ youtu.be/IFZNmZICF4E @1:01</a> · Nr. 131 · <a href="https://youtu.be/yZRhTVyW0y8" target=_blank>▶ youtu.be/yZRhTVyW0y8</a></p>
 <h4>Anschauen</h4>
 <p class=b>Nr. 27 💎 Der perfekte Gesprächseinstieg, @11:08 für ca. 50 Sek. – warum der Satz wirkt: Neugier ohne falsche Erwartung, freie Wahl („es war seine Entscheidung“), Dialog statt Überrumpeln · <a href="https://youtu.be/61ZlLVM0uS0?t=668" target=_blank>▶ youtu.be/61ZlLVM0uS0 @11:08</a></p>
 <p class=b>danach das ganze Video Nr. 27 (Begrüßung + Gesprächseinstieg, schon bei Schritt 1) · <a href="https://youtu.be/61ZlLVM0uS0" target=_blank>▶ youtu.be/61ZlLVM0uS0</a></p>
