@@ -17,6 +17,8 @@ window.KERN = {
 <p class=b>Nr. 16 Vorbei am Sekretariat – Meine Geheim-Tipps – drei Verkäufer-Fehler, Reaktion auf „Worum geht es?“ · <a href="https://youtu.be/pacRsnbOZ2o" target=_blank>▶ youtu.be/pacRsnbOZ2o</a></p>
 `},
 "Schritt 1": {"ok": true, "html": `
+<p><b>⭐ Key Learning fürs ganze Gespräch: keine Konjunktive.</b> Jeden „würde / könnte / hätte / wäre“ umformulieren – Konjunktiv klingt unsicher, der Kunde spiegelt das und bringt einen Einwand (Nr. 88 @8:00, Nr. 70, Nr. 51).</p>
+<p><b>Gezielte Füllwörter statt Perfektion:</b> „Ah, okay.“ · „Alles klar.“ · „Gerne.“ · „Verstehe.“ · „Ich sag's Ihnen ganz offen …“ – etwa jeder zweite Satz, nicht übertreiben. Gemeint ist <i>nicht</i> „äh“, „öh“ oder lange Pausen (Nr. 88 @6:00).</p>
 <p class=b>Name des Gegenübers zuerst (holt ihn ab), „hier ist“ statt „mein Name ist“, kein Firmenname – nur nennen, wenn er danach fragt.</p>
 <p class=b>„grüß Sie“ am Ende: Er grüßt zurück → von Anfang an Dialog. Regional auch „Servus“ / „Moin“.</p>
 <h4>Ton</h4>
@@ -32,13 +34,19 @@ window.KERN = {
 <p class=b>Erlaubnis holen statt ungefragt losreden – Julians „All-Time Favorite“, in 9 von 10 Fällen.</p>
 <p class=b>Nach dem Satz Pause: Er sagt „Ja“ – dann erst Schritt 3.</p>
 <p class=b>❌ „Hätten Sie 10 Minuten?“, „Kennen Sie uns schon?“, „Ich komme gleich zum Punkt, weil Ihre Zeit wertvoll ist“, „Das ist ein Kaltakquise-Anruf, geben Sie mir 30 Sekunden?“</p>
+<h4>Anschauen</h4>
+<p class=b>Nr. 27 💎 Der perfekte Gesprächseinstieg, @11:08 für ca. 50 Sek. – warum der Satz wirkt: Neugier ohne falsche Erwartung, freie Wahl („es war seine Entscheidung“), Dialog statt Überrumpeln · <a href="https://youtu.be/61ZlLVM0uS0?t=668" target=_blank>▶ youtu.be/61ZlLVM0uS0 @11:08</a></p>
+<p class=b>danach das ganze Video Nr. 27 (Begrüßung + Gesprächseinstieg, schon bei Schritt 1) · <a href="https://youtu.be/61ZlLVM0uS0" target=_blank>▶ youtu.be/61ZlLVM0uS0</a></p>
 `},
-"Schritt 3": {"ok": true, "html": `
+"Schritt 3": {"ok": false, "html": `
 <p class=b>Handwerker werden täglich von Agenturen angerufen – darum den Elefanten im Raum offen ansprechen (so ruft Julian selbst für Online-Marketing an). Die Vorlage „… aber ich will Ihre Zeit nicht unnötig in Anspruch nehmen“ ist nur für selten angerufene Themen.</p>
 <p class=b>❌ Tadeln („Ich war auf Ihrer Website, da gibt's Optimierungspotenzial“), klein machen („Ich würde Ihnen nur eine kurze Frage stellen“), unterstellen („attraktiver werden“).</p>
 <h4>Anschauen</h4>
 <p class=b>Nr. 426 Live-Telefonat Online-Marketing – Schritt 3 im Original · <a href="https://youtu.be/H4jjJFVrCaY" target=_blank>▶ youtu.be/H4jjJFVrCaY</a></p>
 <p class=b>Nr. 188 Julian analysiert sein SEO-Telefonat – dasselbe Muster Satz für Satz · <a href="https://youtu.be/8itYRwd2nOI" target=_blank>▶ youtu.be/8itYRwd2nOI</a></p>
 <p class=b>optional: Nr. 28 Echtes Webdesign-Telefonat – so nicht (kleinlaut) · <a href="https://youtu.be/J-bnKLumcqs" target=_blank>▶ youtu.be/J-bnKLumcqs</a></p>
+`},
+"Schritt 5": {"ok": false, "html": `
+<p class=b>Notiz (noch nicht abgestimmt): Bei „Wie machen Sie das genau?“ ohne Konjunktiv überleiten: „Ich zeige Ihnen gerne, wie wir das machen. Wann passt es die Tage, dass wir kurz drüber sprechen?“ – direkt einen konkreten Vorschlag nachschieben („Wie sieht's morgen Vormittag aus?“, Nr. 19 @5:00). ❌ „… da würde ich Ihnen gerne mal zeigen, wie das aussehen könnte. Wann hätten Sie denn mal Zeit?“ (Nr. 88 @8:00)</p>
 `}
 };

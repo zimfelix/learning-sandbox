@@ -8,7 +8,7 @@
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font:14px/1.45 -apple-system,sans-serif;margin:0 auto;padding-block:0 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1600px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-.top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:2;border-bottom:1px solid var(--line);padding:10px 0}
+.top{position:relative;background:var(--bg);z-index:2;border-bottom:1px solid var(--line);padding:10px 0}
 .stats{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:8px;font-size:13px;color:var(--mut)}.stats b{color:var(--fg);font-size:16px;margin-right:3px}
 .bar{display:flex;gap:8px;flex-wrap:wrap}
 input,select,button,textarea{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}#q{flex:1;min-width:160px}button{cursor:pointer}button.on{border-color:var(--acc);color:var(--acc)}
@@ -39,7 +39,19 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 .mode{font-size:12px;color:var(--mut)}.mode.err{color:var(--rr)}
 .thm{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}.thm button{padding:3px 8px;font-size:12px}.thm .seen{margin:0 0 0 6px}.lf{max-width:860px;font-size:15px;line-height:1.55}.lf h1{font-size:22px;margin:8px 0}.lf h2{font-size:19px;margin:28px 0 6px;padding-top:12px;border-top:1px solid var(--line)}.lf h3{font-size:15px;margin:16px 0 4px;color:var(--mut)}.lf p{margin:4px 0}.lf p.b{margin-left:18px;text-indent:-12px}.lf p.b::before{content:"• "}
 .kd{border-left:3px solid var(--acc);background:var(--head);padding:6px 12px;margin:10px 0 6px;font-size:14px;border-radius:0 6px 6px 0}.kd .kh{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}.kd h4{margin:8px 0 2px;font-size:12px;color:var(--mut)}
-.it.du{opacity:.55}.uk{white-space:nowrap}.uk input{vertical-align:-2px}
+.ib{border:0;background:none;padding:0 3px;font-size:12px;color:var(--mut);opacity:.75}.ib:hover{opacity:1}li.dl{opacity:.5}li.dl .tx{text-decoration:line-through}.edf{margin:4px 0}.edf textarea{width:100%;min-height:60px}.edf>*{margin-right:4px}.edf select,.edf input{padding:3px 6px}
+.it.du{opacity:.55}details.uu{margin:6px 0 0 4px;opacity:.6}details.uu summary{font-size:12px}.uk{white-space:nowrap}.uk input{vertical-align:-2px}
+.pk{display:flex;gap:7px;align-items:center;margin-top:5px;padding:5px 8px;border:2px solid var(--line);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}.pk input{width:17px;height:17px;margin:0;flex:none}
+.pw:has(input:checked){border-color:var(--rg);background:var(--rgb);color:var(--rg)}.pa:has(input:checked){border-color:var(--rw);background:var(--rwb);color:var(--rw)}.pg:has(input:checked){border-color:var(--acc);background:var(--w);color:var(--acc)}
+.fg{display:grid;grid-template-columns:minmax(150px,.8fr) minmax(190px,1fr) minmax(250px,1.3fr) minmax(230px,1.2fr);gap:10px;width:100%;align-items:stretch}
+.fc{display:flex;flex-direction:column;gap:3px;background:var(--head);border:1px solid var(--line);border-radius:8px;padding:8px}
+.fh{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);padding:0 4px 4px}
+.thm .fb{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;padding:4px 8px;font-size:13px;line-height:1.3;text-align:left;border:1px solid transparent;background:transparent;border-radius:5px}
+.thm .fb:hover{background:var(--chip)}.thm .fb.on{background:var(--w);border-color:var(--acc);color:var(--acc);font-weight:600}
+.thm .fb.fa{font-weight:600;border-bottom:1px solid var(--line);border-radius:5px 5px 0 0;margin-bottom:2px}
+.fn{font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}.fb.on .fn{color:var(--acc)}
+.fx{display:flex;gap:10px;align-items:center;flex-wrap:wrap;width:100%;margin-top:8px}
+@media(max-width:800px){.fg{grid-template-columns:1fr 1fr}}
 .thm .sep{width:1px;height:18px;background:var(--line);margin:0 4px}
 </style>
 <div class=top>
@@ -67,7 +79,8 @@ const since=m=>{const d=new Date();d.setMonth(d.getMonth()-m);return d.toISOStri
 const PH={K:'Kaltakquise',T:'Termin / Verkaufsgespräch',A:'Andere Verkaufsform'};
 const TY0=['Sekretärin','Opener','Bedarfsfrage','Rückfrage','Einwand','Terminvereinbarung','Gesprächseinstieg','Präsentation','Preis','Abschluss','Verkaufsgespräch','Nachfassen','Leitfaden','Prinzip','Organisation'];
 const TY=[...TY0,...new Set(Object.values(N).flatMap(n=>(n.items||[]).map(i=>i.y)).filter(y=>!TY0.includes(y)))];
-const RV=[['','Vorschlag übernehmen'],['w','🎧 anhören'],['g','🟢 relevant'],['y','🟡 vielleicht'],['x','⚪ nicht relevant'],['rot','🔴 gesehen, unbrauchbar']];
+/* Auswahl je Video: blau = Anhör-Liste; 🟡/⚪ nehmen ein Video aus der blauen Liste. g/rot nur noch sichtbar, wo schon gesetzt */
+const RV=[['','Vorschlag übernehmen'],['w','🔵 anhören (blaue Liste)'],['y','🟡 raus: vielleicht'],['x','⚪ raus: wertlos'],['g','🟢 relevant',1],['rot','🔴 gesehen, unbrauchbar',1]];
 let S={},view='videos';try{S=JSON.parse(localStorage.getItem('s')||'{}');view=localStorage.getItem('v')||'videos'}catch(e){}
 const save=()=>{try{localStorage.setItem('s',JSON.stringify(S));localStorage.setItem('v',view)}catch(e){}};
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
@@ -77,7 +90,24 @@ const items=(id,ph)=>{return(N[id]?.items||[]).filter(i=>!ph||i.p==ph)};
 /* Umgesetzt = im Leitfaden verarbeitet: Feld u in notes.js (Agent) oder Häkchen in der Sammlung (je Person, mine.u) */
 const isU=(id,k)=>!!N[id]?.items?.[k]?.u||[ST.mine,...Object.values(ST.all)].some(v=>(v[id]?.u||[]).includes(k));
 const done=d=>{const I=N[d.id]?.items||[];return I.length>0&&I.every((_,k)=>isU(d.id,k))};
-const li=(id,i)=>`<li>${isU(id,(N[id]?.items||[]).indexOf(i))?'<span class=chip>✅</span>':''}<span class="chip ph ${i.p}">${i.p}</span><span class=chip>${esc(i.y)}${i.e?': '+esc(i.e):''}</span>${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''} <a href="${link(id,i.t)}" target=_blank>▶&nbsp;${esc(i.t)}</a></li>`;
+/* Video-IDs in Learning-Texten als „Nr. X“ zeigen */
+const NR=Object.fromEntries(D.map(d=>[d.id,d.n])),nx=t=>esc(t).replace(/[\w-]{11}/g,m=>NR[m]?'Nr.&nbsp;'+NR[m]:m);
+/* Bearbeiten-Overlay: mine[id].ed = {"<index>":{x}|{del:true}}, mine[id].add = [{p,y,t,x}]; Originale in notes.js bleiben unberührt. Zustand: offene <details>, Bearbeitung, Entwürfe */
+let OPEN=new Set(),EDK=null,DR=null,ADD=null,AF={};
+const ME=()=>ST.online?ST.uid:'me',srcs=()=>ST.online?[...Object.entries(ST.all).filter(([u])=>u!==ST.uid),[ST.uid,ST.mine]]:[['me',ST.mine]];
+const who=u=>u==ME()?'':' · '+esc(ST.names[u]?.name||'Jemand');
+/* Wirksame Änderung je Learning: alle Personen, eigene zuletzt */
+const ovr=(id,k)=>{let o=null;for(const[u,v]of srcs()){const e=v[id]?.ed?.[k];if(e)o={...e,u}}return o};
+const adds=id=>srcs().flatMap(([u,v])=>(v[id]?.add||[]).map((a,j)=>({...a,u,j})));
+const lis=(id,ph)=>{const L=(N[id]?.items||[]).map((o,k)=>{const ov=ovr(id,k);return{i:ov?.x!=null?{...o,x:ov.x}:o,k,ov}});adds(id).forEach(a=>L.push({i:a,k:-1,a}));return L.filter(e=>!ph||e.i.p==ph)};
+const chg=e=>e.a?`<span class=chip>➕ neu${who(e.a.u)}</span>`:e.ov?.del?`<span class=chip>🗑 gelöscht${who(e.ov.u)}</span>`:e.ov?.x!=null?`<span class=chip>✏️ geändert${who(e.ov.u)}</span>`:'';
+const li=(id,e)=>{const{i,k,ov,a}=e,key=id+'|'+k,dl=!!ov?.del,own=(ov?.u??a?.u)==ME(),o=ST.mine[id]?.ed?.[k];
+ const bt=a?(own?`<button class=ib data-deladd="${id}|${a.j}" title="entfernen">🗑</button>`:''):dl?(own?`<button class=ib data-undo="${key}">↩ wiederherstellen</button>`:''):`<button class=ib data-ed="${key}" title="bearbeiten">✏️</button><button class=ib data-del="${key}" title="löschen">🗑</button>`;
+ const f=!a&&EDK==key?`<div class=edf><textarea data-edt=1 rows=3>${esc(DR??i.x)}</textarea><button data-save="${key}">Speichern</button><button data-cancel>Abbrechen</button>${o?`<button data-orig="${key}">↩ Original</button>`:''}</div>`:'';
+ return `<li${dl?' class=dl':''}><span class="chip ph ${i.p}">${i.p}</span><span class=chip>${esc(i.y)}${i.e?': '+esc(i.e):''}</span>${chg(e)}<span class=tx>${nx(i.x)}</span>${i.s?' <i class=mut>(sinngemäß)</i>':''} <a href="${link(id,i.t)}" target=_blank>▶${i.t?'&nbsp;'+esc(i.t):''}</a> ${bt}${f}</li>`};
+/* Formular „Learning hinzufügen“ */
+const addf=id=>{const g=AF,sel=(n,L,v)=>`<select data-af=${n}>${L.map(([val,lab])=>`<option value="${esc(val)}"${val==v?' selected':''}>${esc(lab)}</option>`).join('')}</select>`;
+ return `<div class=edf>${sel('p',Object.keys(PH).map(k=>[k,k+' '+PH[k]]),g.p||'K')} ${sel('y',TY0.map(y=>[y,y]),g.y||'Prinzip')} <input data-af=t placeholder="m:ss" size=6 value="${esc(g.t||'')}"><br><textarea data-af=x rows=3 placeholder="Learning-Text">${esc(g.x||'')}</textarea><br><button data-addsave="${id}">Speichern</button><button data-cancel>Abbrechen</button></div>`};
 
 /* Bewertungen: ov = geteilte Relevanz je Video, mine = eigene Notizen, all = Notizen aller Personen */
 const ST={ov:{},kern:{},mine:{},all:{},names:{},uid:null,db:null,user:null,online:false,inflight:0,deferred:false};
@@ -94,10 +124,10 @@ function setOv(id,r){if(r)ST.ov[id]={r,by:ST.uid||''};else delete ST.ov[id];
  if(!ST.online)return lsSave();const ref=ST.db.collection('relevanz').doc(id);queue(()=>r?ref.set({r,by:ST.uid||''}):ref.delete())}
 function setKern(id,on){const def=!!AW[id]?.gem;if(on===def)delete ST.kern[id];else ST.kern[id]={g:on,by:ST.uid||''};
  if(!ST.online)return lsSave();const ref=ST.db.collection('kern').doc(id);queue(()=>on===def?ref.delete():ref.set({g:on,by:ST.uid||''}))}
-function setMine(id,patch){const old=ST.mine[id]||{};if(Object.keys(patch).every(k=>JSON.stringify(old[k]||'')===JSON.stringify(patch[k]||'')))return;const m={...old,...patch};if(!m.seen&&!m.text&&!m.u?.length)delete ST.mine[id];else ST.mine[id]=m;
+function setMine(id,patch){const old=ST.mine[id]||{};if(Object.keys(patch).every(k=>JSON.stringify(old[k]||'')===JSON.stringify(patch[k]||'')))return;const m={...old,...patch};if(!m.seen&&!m.again&&!m.text&&!m.u?.length&&!Object.keys(m.ed||{}).length&&!m.add?.length)delete ST.mine[id];else ST.mine[id]=m;
  if(!ST.online)return lsSave();if(!ST.uid)return mode('Speichern nicht möglich: nicht angemeldet',true);
  const body={videos:{...ST.mine}};queue(()=>ST.db.doc('notizen/'+ST.uid).set(body))}
-function later(){const a=document.activeElement;if(a&&a.closest&&a.closest('td.me')){ST.deferred=true;return}r()}
+function later(){const a=document.activeElement;if(a&&a.closest&&a.closest('td.me,.edf')){ST.deferred=true;return}r()}
 async function resolveNames(){if(!ST.user)return;const ids=Object.keys(ST.all);if(ids.length)ST.names=await ST.user.profiles(ids)}
 async function connect(){
  if(LOCAL||!window.claude?.use){lsLoad();mode('Lokal: Bewertungen nur in diesem Browser');return r()}
@@ -109,12 +139,13 @@ async function connect(){
  db.collection('notizen').onSnapshot(async s=>{const a={};s.docs.forEach(d=>a[d.id]=d.data().videos||{});ST.all=a;
   if(ST.uid&&!ST.inflight)ST.mine={...(a[ST.uid]||{})};await resolveNames();later()},e=>mode('Kommentare konnten nicht geladen werden ('+e.code+')',true));
 }
-function others(id){return Object.entries(ST.all).filter(([u])=>u!==ST.uid).map(([u,v])=>{const o=v[id];if(!o||!(o.seen||o.text))return'';
- return `<div class=oth>${o.seen?'👁 ':''}<b>${esc(ST.names[u]?.name||'Jemand')}</b>${o.text?': '+esc(o.text):' hat es angeschaut'}</div>`}).join('')}
+function others(id){return Object.entries(ST.all).filter(([u])=>u!==ST.uid).map(([u,v])=>{const o=v[id];if(!o||!(o.seen||o.again||o.text))return'';
+ return `<div class=oth>${o.seen?'👁 ':''}${o.again?'🔁 ':''}<b>${esc(ST.names[u]?.name||'Jemand')}</b>${o.text?': '+esc(o.text):' hat es angeschaut'}</div>`}).join('')}
 function meCell(id){const o=ST.ov[id]?.r||'',m=ST.mine[id]||{};
- return `<td class=me><select data-ov="${id}" aria-label="Relevanz ändern">${RV.map(([v,l])=>`<option value="${v}"${o==v?' selected':''}>${l}</option>`).join('')}</select>
- <label class=seen><input type=checkbox data-seen="${id}"${m.seen?' checked':''}> angeschaut</label>
- <label class=seen><input type=checkbox data-kern="${id}"${gemOf(id)?' checked':''}> 💎 Kern-Video</label>
+ return `<td class=me><select data-ov="${id}" aria-label="Relevanz ändern">${RV.filter(([v,,old])=>!old||o==v).map(([v,l])=>`<option value="${v}"${o==v?' selected':''}>${l}</option>`).join('')}</select>
+ <label class="pk pw"><input type=checkbox data-seen="${id}"${m.seen?' checked':''}> 👁 angeschaut</label>
+ <label class="pk pg"><input type=checkbox data-kern="${id}"${gemOf(id)?' checked':''}> 💎 Kern-Video</label>
+ <label class="pk pa"><input type=checkbox data-again="${id}"${m.again?' checked':''}> 🔁 nochmal anschauen</label>
  <textarea data-cm="${id}" rows=1 placeholder="Kommentar …" aria-label="Kommentar">${esc(m.text||'')}</textarea>${others(id)}</td>`}
 
 function stats(){const ev=Object.keys(N).length,ein=D.filter(d=>N[d.id]||AW[d.id]?.r).length,lehr=D.filter(d=>N[d.id]&&!['x','rot'].includes(eff(d.id))).length;
@@ -127,48 +158,57 @@ const isLive=d=>{const a=AW[d.id]||{};return !!a.live||(a.th||[]).some(t=>t=='li
 /* Format (entweder–oder): Lernvideos = alles außer Live */
 const FMT=[['lern','📚 Lernvideos',d=>!isLive(d)],['live','🎥 Live-Gespräche',isLive]];
 /* Status (mehrere wählbar, mindestens eins passt) */
-const MK=[['lf','📌 im Leitfaden',d=>LF.has(d.id)],['gem','💎 Kern-Videos',d=>!!gemOf(d.id)],['done','✅ abgearbeitet',d=>done(d)&&!LF.has(d.id)]];
+const MK=[['lf','📌 im Leitfaden',d=>LF.has(d.id)],['gem','💎 Kern-Videos',d=>!!gemOf(d.id)],['done','✅ abgearbeitet',d=>done(d)&&!LF.has(d.id)],['seen','👁 von mir angeschaut',d=>!!ST.mine[d.id]?.seen],['again','🔁 nochmal anschauen',d=>!!ST.mine[d.id]?.again]];
 const marked=d=>eff(d.id)=='w'||LF.has(d.id)||!!gemOf(d.id)||!!N[d.id]?.watch||isLive(d)||!!N[d.id]?.nosubs;
-/* Hauptliste: nur die blauen (🎧 Anhör-Liste: 👀 oder 💎) und 📌, ohne abgearbeitete. Live-Videos über den Schalter 🎥 */
-const inMain=d=>LF.has(d.id)||(eff(d.id)=='w'&&!done(d));
+/* Hauptliste: nur die blauen (🎧 Anhör-Liste: 👀 oder 💎), 📌 und 🔁 nochmal anschauen, ohne abgearbeitete. Live-Videos über den Schalter 🎥 */
+const inMain=d=>LF.has(d.id)||!!ST.mine[d.id]?.again||(eff(d.id)=='w'&&!done(d));
 /* Kategorien wie der Leitfaden: th-Werte aus auswahl.js; sec = Abschnitte in kern.js. Sind alle sec abgeschlossen (ok), zählen nur noch deren 📌-Videos */
-const TG=[['sek','📞 Sekretär',['sek'],['Sekretär']],['tel','🎙 Einstieg, Stimme & Ton',['einstieg','stimme'],['Schritt 1','Schritt 2','Schritt 3','Schritt 4']],['einwand','🛡 Einwände am Telefon',['einwand'],[]],['termin','📅 Terminvereinbarung & Nachfassen',['termin','nachfassen'],['Schritt 5','Schritt 6']],['tg','🤝 Termingespräch',['taufbau','tabschluss'],[]],['allg','📋 Kaltakquise allgemein',['handwerk','andere'],[]]];
+/* [Schlüssel, Name, th-Werte, kern-Abschnitte, Oberfilter k = Leitfaden Kaltakquise / t = Leitfaden Termingespräch]; ein Video kann in mehreren Kategorien stehen */
+const TG=[['sek','1 📞 Sekretär',['sek'],['Sekretär'],'k'],['ein','2a 🎙 Einstieg',['einstieg'],['Schritt 1','Schritt 2'],'k'],['bed','2b 💡 Thema & Bedarfsweckung',['bedarf'],['Schritt 3','Schritt 4'],'k'],['ter','2c 📅 Terminvereinbarung & Nachfassen',['termin','nachfassen'],['Schritt 5','Schritt 6'],'k'],['einwand','3 🛡 Einwandbehandlung',['einwand'],[],'k'],['ton','4 🗣 Ton & Stimme',['stimme'],[],'k'],['taufbau','🧭 Aufbau & Präsentation',['taufbau'],[],'t'],['tabschluss','🤝 Preis, Einwand & Abschluss',['tabschluss'],[],'t']];
+const OBS=[['k','Leitfaden Kaltakquise'],['t','Leitfaden Termingespräch']];
 const THL=Object.fromEntries(TG.flatMap(([,l,ts])=>ts.map(t=>[t,l])).concat([['livek','🎥 Live'],['livet','🎥 Live']]));
+const thO=l=>{const i=TG.findIndex(g=>g[1]==l);return i<0?99:i};
 const secIds=secs=>new Set(secs.flatMap(k=>[...(KR[k]?.html||'').matchAll(/youtu\.be\/([\w-]{11})/g)].map(m=>m[1])));
 const inG=(d,k)=>{const g=TG.find(x=>x[0]==k);if(g[3].length&&g[3].every(x=>KR[x]?.ok))return secIds(g[3]).has(d.id);return(AW[d.id]?.th||[]).some(t=>g[2].includes(t))};
-let TS=new Set(),MS=new Set(),FM='',ALL=false,SU=false;
-try{const o=JSON.parse(localStorage.getItem('flt2')||'{}');TS=new Set((o.t||[]).filter(k=>TG.some(g=>g[0]==k)));MS=new Set((o.m||[]).filter(k=>MK.some(g=>g[0]==k)));FM=FMT.some(f=>f[0]==o.f)?o.f:'';ALL=!!o.all;SU=!!o.su}catch(e){}
-const saveT=()=>{try{localStorage.setItem('flt2',JSON.stringify({t:[...TS],m:[...MS],f:FM,all:ALL,su:SU}))}catch(e){}};
-const okT=d=>(!FM||FMT.find(f=>f[0]==FM)[2](d))&&(!TS.size||[...TS].some(k=>inG(d,k)))&&(!MS.size||MK.some(([k,,f])=>MS.has(k)&&f(d)));
-const base=()=>view=='videos'&&!ALL&&!MS.has('done')&&FM!='live'?D.filter(inMain):D;
-function thBar(){const B=base(),btn=(a,k,l,n,on)=>`<button data-${a}="${k}" class="${on?'on':''}">${l} <span class=mut>${n}</span></button>`;
- const Bf=FM?B.filter(FMT.find(f=>f[0]==FM)[2]):B;
- $('thm').innerHTML=FMT.map(([k,l,f])=>btn('fm',k,l,(k=='live'&&view=='videos'&&!ALL?D:B).filter(f).length,FM==k)).join('')+'<span class=sep></span>'
- +MK.map(([k,l,f])=>btn('mk',k,l,Bf.filter(f).length,MS.has(k))).join('')+'<span class=sep></span>'
- +TG.map(([k,l])=>btn('th',k,l,Bf.filter(d=>inG(d,k)).length,TS.has(k))).join('')+'<button data-th="">Filter zurücksetzen</button>'
- +(view=='videos'?`<label class=seen><input type=checkbox id=all${ALL?' checked':''}> auch nicht markierte und abgearbeitete zeigen <span class=mut>${D.length-D.filter(inMain).length}</span></label>`:'')}
-function row(d,ph){const n=N[d.id],I=items(d.id,ph),a=AW[d.id]||{},r=eff(d.id);
+let TS=new Set(),MS=new Set(),FM='',OB='',ALL=false,SU=false;
+try{const o=JSON.parse(localStorage.getItem('flt2')||'{}');TS=new Set((o.t||[]).filter(k=>TG.some(g=>g[0]==k)));MS=new Set((o.m||[]).filter(k=>MK.some(g=>g[0]==k)));FM=FMT.some(f=>f[0]==o.f)?o.f:'';OB=OBS.some(x=>x[0]==o.ob)?o.ob:'';ALL=!!o.all;SU=!!o.su}catch(e){}
+const saveT=()=>{try{localStorage.setItem('flt2',JSON.stringify({t:[...TS],m:[...MS],f:FM,ob:OB,all:ALL,su:SU}))}catch(e){}};
+const inOb=d=>TG.some(g=>g[4]==OB&&inG(d,g[0]));
+const okT=d=>(!FM||FMT.find(f=>f[0]==FM)[2](d))&&(!OB||inOb(d))&&(!TS.size||[...TS].some(k=>inG(d,k)))&&(!MS.size||MK.some(([k,,f])=>MS.has(k)&&f(d)));
+const base=()=>view=='videos'&&!ALL&&!MS.has('done')?D.filter(inMain):D;
+function thBar(){const B=base(),btn=(a,k,l,n,on,cl='')=>`<button data-${a}="${k}" class="fb ${cl}${on?' on':''}"><span>${l}</span><span class=fn>${n}</span></button>`;
+ const Bf0=FM?B.filter(FMT.find(f=>f[0]==FM)[2]):B,Bf=OB?Bf0.filter(inOb):Bf0;
+ /* vier Spalten: Format · Status · Leitfaden Kaltakquise · Leitfaden Termingespräch */
+ const col=(h,body)=>`<div class=fc><div class=fh>${h}</div>${body}</div>`;
+ const obCol=(k,l)=>{const o=OB;OB=k;const c=Bf0.filter(inOb).length;OB=o;
+  return col(l,btn('ob',k,'Alle Themen',c,OB==k,'fa')+TG.filter(g=>g[4]==k).map(([g,lb])=>btn('th',g,lb,(OB&&OB!=k?Bf0:Bf).filter(d=>inG(d,g)).length,TS.has(g))).join(''))};
+ $('thm').innerHTML=`<div class=fg>${col('Format',FMT.map(([k,l,f])=>btn('fm',k,l,B.filter(f).length,FM==k)).join(''))
+ +col('Status',MK.map(([k,l,f])=>btn('mk',k,l,Bf.filter(f).length,MS.has(k))).join(''))+OBS.map(([k,l])=>obCol(k,l)).join('')}</div>`
+ +`<div class=fx><button data-th="">Filter zurücksetzen</button>${view=='videos'?`<label class=seen><input type=checkbox id=all${ALL?' checked':''}> auch nicht markierte und abgearbeitete zeigen <span class=mut>${D.length-D.filter(inMain).length}</span></label>`:''}</div>`}
+function row(d,ph){const n=N[d.id],I=lis(d.id,ph),a=AW[d.id]||{},r=eff(d.id);
  const tr=!n?'<span class=mut>–</span>':n.nosubs?'⚠️ keins':LOCAL?`<a href="transcripts/${d.id}.txt" target=_blank>📄 öffnen</a>`:'<span class=mut>nur lokal</span>';
  const wa=n&&n.watch?`<span class=y><b>👀</b> ${esc(n.why)}</span>`:n&&n.nosubs?`<span class=y><b>⚠️</b> Kein Transkript – selbst anschauen</span>`:'';
- const cnt=['K','T','A'].map(p=>{const k=I.filter(i=>i.p==p).length;return k?`<span class="chip ph ${p}">${PH[p]} ${k}</span>`:''}).join('');
- const ev=!n?'<span class=mut>noch nicht ausgewertet</span>':n.skip&&!I.length?`<span class=mut>${esc(n.skip)}</span>`:I.length?`<details><summary>${cnt}</summary><ul>${I.map(i=>li(d.id,i)).join('')}</ul></details>`:'';
+ const cnt=['K','T','A'].map(p=>{const k=I.filter(e=>e.i.p==p&&!e.ov?.del).length;return k?`<span class="chip ph ${p}">${PH[p]} ${k}</span>`:''}).join('');
+ /* offene Learnings zuerst, umgesetzte eingeklappt darunter */
+ const Io=I.filter(e=>!isU(d.id,e.k)),Iu=I.filter(e=>isU(d.id,e.k)),op=x=>OPEN.has(x)?' open':'';
+ const ev=!n?'<span class=mut>noch nicht ausgewertet</span>':n.skip&&!I.length?`<span class=mut>${esc(n.skip)}</span>`:`<details data-vid="${d.id}"${op(d.id)}><summary>${cnt||'Learnings'}${Iu.length?` <span class=chip>✅ ${Iu.length} umgesetzt</span>`:''}</summary><ul>${Io.map(e=>li(d.id,e)).join('')}</ul>${Iu.length?`<details class=uu data-vid="${d.id}|u"${op(d.id+'|u')}><summary>✅ ${Iu.length} umgesetzt</summary><ul>${Iu.map(e=>li(d.id,e)).join('')}</ul></details>`:''}${ADD==d.id?addf(d.id):`<button class=ib data-add="${d.id}">➕ Learning hinzufügen</button>`}</details>`;
  const gm=gemOf(d.id),badge=(LF.has(d.id)?'<span class=gem>📌 Leitfaden – anschauen</span> ':done(d)?'<span class=chip>✅ abgearbeitet</span> ':'')+(gm?`<span class=gem>💎 ${esc(gm)}</span> `:'')+(a.live?`<span class=chip>🎥 ${esc(a.live)}</span>`:'');
  return `<tr class="${r&&r!='-'?'r'+r:''}"><td><input type=checkbox data-id="${d.id}" aria-label="auswählen"${S[d.id]?' checked':''}></td><td class=n>${d.n}</td><td class=dt>${fdt(DT[d.id])}</td>
- <td class=tit>${badge?badge+'<br>':''}<a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div>${a.th?`<div>${[...new Set(a.th.map(t=>THL[t]||t))].map(t=>`<span class=chip>${esc(t)}</span>`).join('')}</div>`:''}${a.why?`<div class=why>${esc(a.why)} · <i>${n?'geprüft':'nach Titel'}</i></div>`:''}</td><td class=m>${d.m} min</td>
+ <td class=tit>${badge?badge+'<br>':''}<a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div>${a.th?.some(t=>THL[t])?`<div>${[...new Set(a.th.map(t=>THL[t]).filter(Boolean))].sort((x,y)=>thO(x)-thO(y)).map(t=>`<span class=chip>${esc(t)}</span>`).join('')}</div>`:''}${a.why?`<div class=why>${esc(a.why)} · <i>${n?'geprüft':'nach Titel'}</i></div>`:''}</td><td class=m>${d.m} min</td>
  <td class=tg>${n&&n.seg?`<span class=chip>${esc(n.seg)}</span><br>`:''}${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td>${meCell(d.id)}</tr>`}
 function videos(){const q=$('q').value.toLowerCase(),f=ALL?$('f').value:'',ph=$('ph').value;
  const L=base().filter(d=>(!q||(d.t+' '+JSON.stringify(N[d.id]||'')+' '+cmText(d.id)).toLowerCase().includes(q))&&okS(d,f)&&okT(d)&&(!ph||items(d.id,ph).length));
  $('out').innerHTML=`<div class=wrap><table><thead><tr><th>⭐</th><th>Nr</th><th>Datum</th><th>Titel / Kategorie</th><th>Länge</th><th>🎯 Segment / Zielgruppe</th><th>Transkript</th><th>👀 Anschau-Empfehlung</th><th>Auswertung (Phase · Typ · Zitat)</th><th>✍️ Bewertung · angeschaut · Kommentar</th></tr></thead><tbody>${L.map(d=>row(d,ph)).join('')}</tbody></table></div>`;
  $('cnt').textContent=`· angezeigt: ${L.length}`}
 function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};let hid=0;
- D.forEach(d=>{const n=N[d.id];if(!n||!okT(d))return;(n.items||[]).forEach((i,k)=>{if(ph&&i.p!=ph)return;
-  if(q&&!(i.x+' '+(i.e||'')+' '+(n.target||'')).toLowerCase().includes(q))return;if(!SU&&isU(d.id,k)){hid++;return}((T[i.p]??={})[i.y]??=[]).push({d,i,k})})});
- const uk=(d,i,k)=>`<label class=uk><input type=checkbox data-u="${d.id}|${k}"${isU(d.id,k)?' checked':''}${i.u?` disabled title="im Leitfaden: ${esc(i.u)}"`:''}> ✅ umgesetzt${i.u?' · '+esc(i.u):''}</label>`;
+ D.forEach(d=>{const n=N[d.id];if(!n||!okT(d))return;lis(d.id,ph).forEach(e=>{const{i,k}=e;if(e.ov?.del)return;
+  if(q&&!(i.x+' '+(i.e||'')+' '+(n.target||'')).toLowerCase().includes(q))return;if(!SU&&isU(d.id,k)){hid++;return}((T[i.p]??={})[i.y]??=[]).push({d,i,k,e})})});
+ const uk=(d,i,k)=>k<0?'':`<label class=uk><input type=checkbox data-u="${d.id}|${k}"${isU(d.id,k)?' checked':''}${i.u?` disabled title="im Leitfaden: ${esc(i.u)}"`:''}> ✅ umgesetzt${i.u?' · '+esc(i.u):''}</label>`;
  let h=`<label class=seen><input type=checkbox id=su${SU?' checked':''}> umgesetzte Learnings zeigen <span class=mut>${hid||''}</span></label>`,n=0;
  for(const p of ['K','T','A']){if(!T[p])continue;h+=`<h2 class="ph ${p}">${PH[p]}</h2>`;for(const y of TY){const L=T[p][y];if(!L)continue;n+=L.length;
   const groups=y=='Einwand'?[...new Set(L.map(o=>o.i.e||'–'))]:[null];h+=`<h3>${y} (${L.length})</h3>`;
   for(const e of groups){if(e)h+=`<div class=tag style="margin-top:8px"><b>„${esc(e)}“</b></div>`;
-   h+=L.filter(o=>!e||(o.i.e||'–')==e).map(({d,i,k})=>`<div class="it${isU(d.id,k)?' du':''}">${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''}<div class=src>🎯 ${N[d.id].seg?esc(N[d.id].seg)+' · ':''}${esc(N[d.id].target||'–')} · <a href="${link(d.id,i.t)}" target=_blank>▶ ${esc(d.t)} (${esc(i.t)})</a> · ${uk(d,i,k)}</div></div>`).join('')}}}
+   h+=L.filter(o=>!e||(o.i.e||'–')==e).map(({d,i,k,e})=>`<div class="it${isU(d.id,k)?' du':''}">${chg(e)}${nx(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''}<div class=src>🎯 ${N[d.id].seg?esc(N[d.id].seg)+' · ':''}${esc(N[d.id].target||'–')} · <a href="${link(d.id,i.t)}" target=_blank>▶ ${esc(d.t)} (${esc(i.t)})</a> · ${uk(d,i,k)}</div></div>`).join('')}}}
  $('out').innerHTML=h+(n?'':'<p class=tag>Keine offenen Learnings für diese Auswahl.</p>');$('cnt').textContent=`· angezeigt: ${n} Learnings${hid?` (${hid} umgesetzte ausgeblendet)`:''}`}
 function leitfaden(){const det=h=>{const t=(h.match(/<h2>(.*?)<\/h2>/s)?.[1]||'').replace(/<[^>]+>/g,'').trim(),k=Object.keys(KR).find(k=>t.startsWith(k));
   return k?h.replace(/<\/h2>/,(KR[k].ok?' <span class=chip>✅ abgeschlossen</span>':'')+'</h2>')+`<div class=kd><div class=kh>Details</div>${KR[k].html}</div>`:h};
@@ -176,20 +216,37 @@ function leitfaden(){const det=h=>{const t=(h.match(/<h2>(.*?)<\/h2>/s)?.[1]||''
 function r(){const v=view=='videos',l=view=='leitfaden';['v1','v2','v3'].forEach((b,i)=>$(b).classList.toggle('on',view==['videos','sammlung','leitfaden'][i]));
  ['cp'].forEach(i=>$(i).style.display=v?'':'none');['q','ph','thm'].forEach(i=>$(i).style.display=l?'none':'');$('f').style.display=v&&ALL?'':'none';stats();thBar();v?videos():l?leitfaden():sammlung()}
 $('thm').onclick=e=>{const b=e.target.closest('button');if(!b)return;const{th,mk}=b.dataset;
- const fm=b.dataset.fm;if(th===''){TS.clear();MS.clear();FM=''}else if(fm)FM=FM==fm?'':fm;else if(th)TS.has(th)?TS.delete(th):TS.add(th);else if(mk)MS.has(mk)?MS.delete(mk):MS.add(mk);saveT();r()};
+ const fm=b.dataset.fm;const ob=b.dataset.ob;if(th===''){TS.clear();MS.clear();FM='';OB=''}else if(ob){OB=OB==ob?'':ob;TS=new Set([...TS].filter(k=>!OB||TG.find(g=>g[0]==k)[4]==OB))}else if(fm)FM=FM==fm?'':fm;else if(th){TS.has(th)?TS.delete(th):TS.add(th);const g=TG.find(x=>x[0]==th);if(OB&&g[4]!=OB)OB=''}else if(mk)MS.has(mk)?MS.delete(mk):MS.add(mk);saveT();r()};
 $('thm').addEventListener('change',e=>{if(e.target.id=='all'){ALL=e.target.checked;saveT();r()}});
 $('v1').onclick=()=>{view='videos';save();r()};$('v2').onclick=()=>{view='sammlung';save();r()};$('v3').onclick=()=>{view='leitfaden';save();r()};
 document.addEventListener('input',e=>{const t=e.target;
+ if(t.closest('.edf')){if(t.dataset.edt!==undefined)DR=t.value;else if(t.dataset.af)AF[t.dataset.af]=t.value;return} /* Bearbeitungsfelder: nie neu rendern (Datenverlust) */
  if(t.dataset.cm!==undefined){clearTimeout(t._d);t._d=setTimeout(()=>setMine(t.dataset.cm,{text:t.value.trim()}),1500);return}
  if(t.closest('td.me')||t.id=='all'||t.id=='su'||t.dataset.u!==undefined)return;if(t.dataset.id){S[t.dataset.id]=t.checked;save()}r()});
 document.addEventListener('change',e=>{const t=e.target;
  if(t.dataset.ov!==undefined){setOv(t.dataset.ov,t.value);r()}
  else if(t.dataset.kern!==undefined){setKern(t.dataset.kern,t.checked);r()}
  else if(t.dataset.seen!==undefined){setMine(t.dataset.seen,{seen:t.checked});r()}
+ else if(t.dataset.again!==undefined){setMine(t.dataset.again,{again:t.checked});r()}
  else if(t.dataset.cm!==undefined)setMine(t.dataset.cm,{text:t.value.trim()})
  else if(t.dataset.u!==undefined){const[id,k]=t.dataset.u.split('|'),u=new Set(ST.mine[id]?.u||[]);t.checked?u.add(+k):u.delete(+k);setMine(id,{u:[...u].sort((a,b)=>a-b)});r()}
  else if(t.id=='su'){SU=t.checked;saveT();r()}});
-document.addEventListener('focusout',()=>setTimeout(()=>{if(ST.deferred&&!document.activeElement?.closest?.('td.me')){ST.deferred=false;r()}},0));
+document.addEventListener('focusout',()=>setTimeout(()=>{if(ST.deferred&&!document.activeElement?.closest?.('td.me,.edf')){ST.deferred=false;r()}},0));
+/* offene <details> merken (toggle bubbelt nicht → capture) */
+document.addEventListener('toggle',e=>{const d=e.target.dataset?.vid;if(d)e.target.open?OPEN.add(d):OPEN.delete(d)},true);
+/* Learnings bearbeiten: Klicks per Delegation */
+const edSet=(id,k,v)=>{const ed={...(ST.mine[id]?.ed||{})};v?ed[k]=v:delete ed[k];setMine(id,{ed})};
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset,[id,k]=(d.ed||d.del||d.undo||d.orig||d.save||d.deladd||'').split('|'),f=b.closest('.edf');
+ const foc=()=>document.querySelector('.edf textarea')?.focus();
+ if(d.ed){EDK=d.ed;DR=null;ADD=null;r();foc()}
+ else if(d.del)edSet(id,k,{del:true}),r();
+ else if(d.undo)edSet(id,k,null),r();
+ else if(d.orig){edSet(id,k,null);EDK=DR=null;r()}
+ else if(d.save){const x=f.querySelector('textarea').value.trim();if(!x)return;edSet(id,k,x==N[id].items[k].x?null:{x});EDK=DR=null;r()}
+ else if(d.deladd)setMine(id,{add:(ST.mine[id]?.add||[]).filter((_,n)=>n!=k)}),r();
+ else if(d.add){ADD=d.add;AF={};EDK=null;r();foc()}
+ else if(d.addsave){const g=n=>f.querySelector(`[data-af=${n}]`).value.trim();if(!g('x'))return;setMine(d.addsave,{add:[...(ST.mine[d.addsave]?.add||[]),{p:g('p'),y:g('y'),t:g('t'),x:g('x')}]});ADD=null;AF={};r()}
+ else if(d.cancel!==undefined){EDK=DR=ADD=null;r()}});
 $('cp').onclick=()=>{const t=D.filter(d=>S[d.id]).map(d=>'https://youtu.be/'+d.id).join('\n');navigator.clipboard.writeText(t).then(()=>{$('cp').textContent='✅ kopiert'},()=>{$('cp').textContent='Kopieren nicht möglich'})};
 r();connect();
 </script>
