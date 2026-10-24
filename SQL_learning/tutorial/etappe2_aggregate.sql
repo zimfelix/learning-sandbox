@@ -108,15 +108,29 @@ HAVING COUNT(*) >= 2;            -- 3. behalte nur Stapel mit mindestens 2 Zeile
 
 -- B1: Wie viele Filme sind NACH 1990 erschienen?
 -- MEINE ABFRAGE:
-
+SELECT COUNT(*) as filme
+FROM movies
+WHERE released > 1990
 
 -- B2: Was ist das höchste Einspielergebnis?
 -- MEINE ABFRAGE:
 
+SELECT title, MAX(box_office)
+FROM movies
 
 -- B3: Wie hoch ist das durchschnittliche Einspielergebnis
 --     der Filme von SEAN CONNERY?
 -- MEINE ABFRAGE:
+
+SELECT actor, AVG(box_office) AS schnitt
+FROM movies
+WHERE actor = 'SEAN CONNERY'
+
+-- oder:
+SELECT AVG(box_office)
+FROM movies
+GROUP by actor
+HAVING > 1
 
 
 -- B4: Wie viele Filme hat jeder Schauspieler?

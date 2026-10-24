@@ -64,41 +64,41 @@ window.AUSWAHL={
 "fE4ZwX56Gxo":{"r": "x", "why": "ausgewertet: wenig lehrreich (Teamführung)"}, // 60 So performen deine Vertriebler konstant
 "VyBOnVd9SCQ":{"r": "x", "why": "ausgewertet: wenig lehrreich (kein Transkript, Thema Onboarding)"}, // 61 Vertriebler schnell auf Spur bringen (OnBoarding)
 "flSBJjEu084":{"r": "x", "why": "ab 12/2025 per Transkript prüfen (nach Titel grau: Erfahrungsbericht)"}, // 62 Kaltakquise durchgespielt: Sein Weg zum Erfolg - Erfahrungsb
-"6wsiri6hnYg":{"th":["einstieg"], "r": "g", "why": "ab 12/2025 per Transkript prüfen (nach Titel grau: Setting (anderes Format))"}, // 63 Setting Skript komplett erklärt (Schritt für Schritt)
-"t5vk6HyAyPw":{"th":["einstieg"], "r": "g", "live": "Schulung", "why": "Seminar: kompletter Leitfaden"}, // 64 Seminar-Mitschnitt: Mein Verkaufs-Leitfaden (Schritt für Sch
+"6wsiri6hnYg":{"th":["taufbau","tabschluss"], "r": "g", "live": "Schulung", "gem": "Qualifizierung", "why": "Setting: Bedarfsweckung, Preis, wörtliche Qualifizierungsfragen"}, // 63 Setting Skript komplett erklärt (Schritt für Schritt)
+"t5vk6HyAyPw":{"th":["taufbau","tabschluss"], "r": "g", "live": "Schulung", "gem": "Präsentation", "why": "Closing: 7-Schritte-Präsentation, Soft Close, Abschlussfrage"}, // 64 Seminar-Mitschnitt: Mein Verkaufs-Leitfaden (Schritt für Sch
 "8OjVbUgTbQs":{"r": "x", "why": "ab 12/2025 per Transkript prüfen (nach Titel grau: Hemmungen)"}, // 65 Telefonakquise: Mit Leichtigkeit zum Hörer greifen
 "wGvXZTlKn98":{"r": "x", "why": "ab 12/2025 per Transkript prüfen (nach Titel gelb: Show-up)"}, // 66 Kaltakquise: 75%+ Show-up Rate erreichen
 "zwKMSYkioNA":{"r": "x", "why": "ab 12/2025 per Transkript prüfen (nach Titel grau: Vlog)"}, // 67 Umsatz, Akquise und Porsche fahren VLOG
 "AJf1kjWmFxk":{"r": "x", "why": "ab 12/2025 per Transkript prüfen (nach Titel gelb: Ablehnung vermeiden)"}, // 68 So vermeidest du Ablehnung in der Kaltakakquise
 "1ZbB12s8evU":{"th":["tabschluss"], "r": "g", "why": "Termin: Preis Wort für Wort"}, // 69 Preise richtig kommunizieren (Wort für Wort)
-"o8e3nJweZZA":{"th":["sek"], "r": "g", "why": "Sekretariat (Lücke „Worum geht es?“)"}, // 70 So wirst du in 9 von 10 Fällen durchgestellt
+"o8e3nJweZZA":{"th":["sek"], "r": "g", "why": "neueste Durchstell-Formel, keine Konjunktive"}, // 70 So wirst du in 9 von 10 Fällen durchgestellt
 "vlMt4B3GwKo":{"r": "x", "live": "?", "why": "ab 12/2025 per Transkript prüfen (nach Titel gelb: Vlog, evtl. echte Anrufe)"}, // 71 Schlechte Erreichbarkeit - Ich telefoniere trotzdem (VLOG)
-"wVcmsTwMQkU":{"th":["andere"], "r": "g", "why": "ab 12/2025 per Transkript prüfen (nach Titel grau: LinkedIn)"}, // 72 LinkedIn Kontakte easy in zahlende Kunden verwandeln
-"eCUNXUw6EZ8":{"th":["livek"], "r": "g", "live": "Telefonat", "why": "ab 12/2025 per Transkript prüfen (nach Titel gelb: Terminierung einer Trainings-KI)"}, // 73 Ich terminiere LIVE eine Trainings-KI für Kaltakquise
+"wVcmsTwMQkU":{"th":["andere"], "r": "g", "why": "LinkedIn-Kontakte anrufen; Nutzensatz senkt das Risiko"}, // 72 LinkedIn Kontakte easy in zahlende Kunden verwandeln
+"eCUNXUw6EZ8":{"th":["livek","sek","einwand"], "r": "g", "live": "Telefonat", "why": "Live mit KI: Unterlagen-Einwand, Bleistifttermin, 10-Minuten-Angebot"}, // 73 Ich terminiere LIVE eine Trainings-KI für Kaltakquise
 "qzXVQO8VlEU":{"r": "x", "why": "allgemein"}, // 74 Telefonakquise ist so einfach (wirklich)
 "qDtLUo3AkVM":{"r": "x", "why": "LinkedIn"}, // 75 LinkedIn + Telefonakquise = Mehr Termine?
 "XqoeckR4VmA":{"r": "x", "why": "Mindset"}, // 76 Trotz viel Vertriebswissen zu wenig Umsatz? (Der unsichtbare
 "yGdBvaUw8hI":{"r": "x", "why": "Hemmungen"}, // 77 Gib mir 13 Minuten um deine Hemmungen vor der Kaltakquise na
 "X8iuLTFLuQ8":{"r": "x", "why": "Learnings"}, // 78 DAS habe ich in 16 Jahren Kaltakquise gelernt
 "1RJsDEnWC9I":{"r": "x", "why": "Learnings"}, // 79 Ich habe 500.000 Kaltakquise Anrufe gemacht um DAS zu lernen
-"MsSBpPqYcxs":{"th":["einstieg"], "r": "g", "why": "Leitfaden-Trick"}, // 81 Trick 17 für deinen Kaltakquise Leitfaden (Bis zu 45% Termin
+"MsSBpPqYcxs":{"th":["einstieg"], "r": "g", "why": "kein Transkript – Leitfaden-Trick, bei Bedarf selbst anschauen"}, // 81 Trick 17 für deinen Kaltakquise Leitfaden (Bis zu 45% Termin
 "yJAQE9_F7rM":{"th":["tabschluss"], "r": "g", "why": "Nachfassen / Follow-up"}, // 82 Massive Umsatzsteigerung mit dieser Follow up Strategie
-"18Ep6j83ImY":{"th":["einwand"], "r": "g", "why": "Einwand-Spickzettel"}, // 83 Einwandbehandlugng Spickzettel (Akquise)
+"18Ep6j83ImY":{"th":["einwand"], "r": "g", "why": "kein Transkript – Einwand-Spickzettel, bei Bedarf selbst anschauen"}, // 83 Einwandbehandlugng Spickzettel (Akquise)
 "Ekp62DGmTWI":{"th":["taufbau"], "r": "g", "why": "Termin: Closing-Aufbau"}, // 84 90% Abschlussquote mit diesem Gesprächsaufbau (Closing)
 "z7xIFrXWT9Y":{"th":["taufbau"], "r": "g", "why": "Termin: Closing"}, // 86 So begeisterst du deine Gesprächspartner fürs Closing
-"5gPOrQ35tbQ":{"th":["einstieg"], "r": "g", "why": "Leitfaden-Hacks"}, // 88 5 Leitfaden Hacks für sofort mehr Termine (Kaltakquise)
+"5gPOrQ35tbQ":{"th":["einstieg","stimme","termin"], "r": "g", "why": "ausgewertet: Versprecher/Füllwörter statt Perfektion, Termin ohne Konjunktive"}, // 88 5 Leitfaden Hacks für sofort mehr Termine (Kaltakquise)
 "kRsrcqpkGok":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 89 Kaltakquise: Lohnt es sich erst was per Post zu schicken?
 "y6olE7ldlk4":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 90 So gut ist ein Kaltakquise Leitfaden von ChatGPT?
 "y5mnSfrvJEg":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 91 Telefonakquise Leitfaden Analyse - Vermeide diese Fehler
 "RrDSeibWLrQ":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 93 Einwandbehandlung in der Telefonakquise meistern
-"wz-Tvv5y3NY":{"th":["einstieg"], "r": "g", "why": "Leitfaden in Echtzeit (evtl. Nutzensatz)"}, // 94 Ich schreibe einen Kaltakquise Leitfaden (In Echtzeit)
+"wz-Tvv5y3NY":{"th":["einstieg","termin"], "r": "g", "why": "ausgewertet: Leitfaden-Aufbau, Nutzensatz unspezifisch + Grenzen"}, // 94 Ich schreibe einen Kaltakquise Leitfaden (In Echtzeit)
 "TdBKJpPJoXI":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 95 Der perfekte Gesprächseinstieg (Telefonakquise)
 "Bvs0ysL_hgE":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 96 SOFORT Vetrauen aufbauen im Kaltakquise Telefonat
 "VKsG9K_74fU":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher g)"}, // 97 Fast alle machen diesen Pitch Fehler in der Kaltakquise
 "s3VaS9E7uaE":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 98 Diese Formulierung löst 90% der Einwände bei der Akquise
 "uhKHG1-GGgA":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 99 So verwandelst du Einwände in Termine (Telefonakquise)
 "BOUMMNDUQxA":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 100 Kaltakquise: Ablehnung komplett vermeiden
-"tUqyROcnFtE":{"th":["taufbau"], "r": "g", "why": "Pitch mit Erklärung (Nutzensatz)"}, // 102 Mein 100.000€ Pitch inklusive Erklärung
+"tUqyROcnFtE":{"th":["einstieg","stimme"], "r": "x", "why": "ausgewertet: wenig lehrreich (Nutzensatz wie Nr. 94)"}, // 102 Mein 100.000€ Pitch inklusive Erklärung
 "-xwcvxCn-_Y":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 103 Kaltakquise: 90% Showup Rate erreichen (Anleitung)
 "qhGM3eMX4j8":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 104 52K Auftragsvolumen an nur einem Tag per Telefonakquise
 "cLz9T49maPQ":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 105 So erzielst du 40% Terminquote (Kaltakquise)
@@ -106,52 +106,52 @@ window.AUSWAHL={
 "plqhcC-3bTw":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 108 Wie Top-Verkäufer sprechen (und warum du es kopieren solltes
 "6UcKALcHjz4":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 111 Der beste Gesprächseinstieg - 100% Erfolgsquote (Kaltakquise
 "Ej_vvmzdDLk":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 122 Einwände vermeiden (Meine Strategie)
-"Hmwnx5f-R68":{"th":["taufbau"], "r": "g", "why": "Termin: Präsentations-Leitfaden"}, // 123 Der ultimative Leitfaden für deine Verkaufspräsentation
-"bwSFCibBhLg":{"th":["livek"], "r": "g", "live": "Telefonat", "why": "Live-Telefonat im Seminar"}, // 130 Verblüffendes Kaltakquise LIVE Telefonat im Seminar
+"Hmwnx5f-R68":{"th":["taufbau","tabschluss"], "r": "g", "why": "ausgewertet: Präsentation in 3 Schritten, Garantie, Testabschluss"}, // 123 Der ultimative Leitfaden für deine Verkaufspräsentation
+"bwSFCibBhLg":{"th":["livek","einwand","termin"], "r": "g", "live": "Telefonat", "why": "ausgewertet: Rückfrage Firma, „erst Unterlagen“ → Bleistifttermin live"}, // 130 Verblüffendes Kaltakquise LIVE Telefonat im Seminar
 "yZRhTVyW0y8":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 131 So gehst du mit dominanten Typen im Verkauf um
 "kemTkERo5aw":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 136 Kaltakquise: Aus 50 Anwahlen 3-5 Termine vereinbaren
 "AcSelO5msKs":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 137 Q&A Telefonakquise, Keine Zeit, Motivation, Coaching
 "gkjqLnsHWJc":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 139 Telefonakquise - So finden über 90% deiner Termine statt
 "9o_RveKjzyY":{"th":["tabschluss"], "r": "g", "why": "Termin: Abschlussfrage"}, // 142 Die beste Abschlussfrage der Welt (Verkaufsgespräch)
 "Yb6K4Koyuoo":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 143 Meine Kaltakquise Formel
-"urUeJzG_g94":{"th":["einstieg"], "r": "g", "why": "Nutzensatz (Lücke)"}, // 146 Telefonakquise Leitfaden - Dein Nutzensatz
+"urUeJzG_g94":{"th":["einstieg"], "r": "g", "why": "ausgewertet: Nutzensatz = Vorteil + glaubwürdig + kein Risiko"}, // 146 Telefonakquise Leitfaden - Dein Nutzensatz
 "Qwe3Bn1RMyI":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 147 Mein Kaltakquise-Leitfaden Geheimnis
 "IOIdhlhJFrQ":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 148 Der perfekte Verkaufsleitfaden
 "f1greOFiqr0":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 150 Ablehnung bei der Kaltakquise vermeiden!
-"aZvQRGvFcPA":{"th":["sek"], "r": "g", "why": "Sekretariat (Lücke „Worum geht es?“)"}, // 151 Vorbei am Sekretariat - Easymode
+"aZvQRGvFcPA":{"th":["sek"], "r": "x", "why": "ausgewertet: wenig lehrreich (wie Nr. 16, kein Wortlaut)"}, // 151 Vorbei am Sekretariat - Easymode
 "xbStueFkm-E":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 152 Die effektivste Einwandbehandlung der Welt
 "nup17G5RebM":{"th":["einstieg"], "r": "g", "why": "Termin: Präsentation, 23 min"}, // 154 Telefonakquise Masterplan (Präsentation)
 "Rrs_reJdiH8":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 158 Digitale Prozess Agentur - Kaltakquise Strategie
 "9mvRTCC_Arw":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 159 Ehrliche Leitfaden Analyse (Kaltakquise)
 "byfyfh1Lv3o":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 162 Dieser Kaltakquise Gesprächseinstieg Top oder Flop?
-"6Qp3anVVpTU":{"th":["einwand"], "r": "g", "live": "Schulung", "why": "Live-Workshop Einwandbehandlung"}, // 163 Live-Workshop: Einwandbehandlung (Verkaufstraining)
-"YDWXfK8tFtc":{"th":["einwand"], "r": "g", "why": "Einwand „Schicken Sie Unterlagen“"}, // 167 Akquisekrieger Adventskalender Türchen 4: Schicken Sie Unter
+"6Qp3anVVpTU":{"th":["tabschluss"], "r": "g", "live": "Schulung", "gem": "Einwand im Termin", "why": "ausgewertet: Vorwand → wahrer Einwand → Bedingungsfrage → Lösung"}, // 163 Live-Workshop: Einwandbehandlung (Verkaufstraining)
+"YDWXfK8tFtc":{"th":["einwand","termin"], "r": "g", "gem": "Unterlagen-Einwand", "why": "ausgewertet: Unterlagen-Einwand in 3 Schritten (Reframing → Tausch → Bleistifttermin), 4 Min."}, // 167 Akquisekrieger Adventskalender Türchen 4: Schicken Sie Unter
 "invzjyzYjm0":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 168 So löst du diesen Einwand am Jahresende (Telefonakquise)
 "r-WECiYex68":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 170 Akquisekrieger Adventskalender Türchen 2: Die einfachste Ein
 "IGRFMU3rnhU":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 174 Drei essenzielle Elemente für deinen Kaltakquise-Leitfaden
 "V0b0t8eebhY":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 180 Die beste Einwandbehandlung der Welt
-"J-0zaSItBeU":{"th":["einwand"], "r": "g", "why": "Einwand + Stimme, 23 min Training"}, // 181 Einwandbehandlung, Stimme, Verkäufer-Rolle einnehmen
-"HsXfiDfq6FI":{"th":["einwand"], "r": "g", "live": "Schulung", "why": "interne Schulung Einwand – Schwester von Nr. 53"}, // 182 Interne Schulung zur Einwandbehandlung (Uncut)
+"J-0zaSItBeU":{"th":["einwand","nachfassen","stimme"], "r": "g", "live": "Coaching", "why": "ausgewertet: Zeit-Einwände mit Worst-Case-Frage, Partner besprechen, Nachfassen nach 3 Monaten, Stimme/Rolle"}, // 181 Einwandbehandlung, Stimme, Verkäufer-Rolle einnehmen
+"HsXfiDfq6FI":{"th":["einwand"], "r": "g", "live": "Schulung", "why": "ausgewertet: Reframing-Varianten (Partner, läuft gut, Zeitpunkt), Einwand vs. Vorwand, No-Show als Maßstab"}, // 182 Interne Schulung zur Einwandbehandlung (Uncut)
 "b1-hhX_L8GY":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 183 Seminar LEAK - Die richtigen Emotionen im Verkauf
 "Dfr0ZEzm_3Y":{"r": "x", "why": "ausgewertet: wenig lehrreich (Q&A, Wiederholung)"}, // 184 Ich beantworte eure Fragen (Telefonakquise, Einwandbehandlun
-"TviZxtN0VZY":{"th":["einwand"], "r": "g", "live": "Coaching", "why": "Live-Coaching „Schicken Sie Unterlagen“"}, // 186 Live Coaching LEAK - Schicken Sie Unterlagen
+"TviZxtN0VZY":{"th":["einwand","termin"], "r": "g", "live": "Coaching", "why": "ausgewertet: Unterlagen wie Nr. 167 + Kalendereinladung statt Unterlagen"}, // 186 Live Coaching LEAK - Schicken Sie Unterlagen
 "GbXQEAVdGlU":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 187 die beste Preisstrategie für Agenturen
-"8itYRwd2nOI":{"th":["livek"], "r": "g", "live": "Telefonat", "why": "eigenes Live-Telefonat analysiert"}, // 188 Ich analysiere mein Telefonakquise LIVE Telefonat
+"8itYRwd2nOI":{"th":["livek","einstieg"], "r": "g", "live": "Telefonat", "why": "ausgewertet: Analyse von Nr. 423 – alte Bedarfsfrage wirkt heute kaum noch, Empfehlungs-Opener weiter gut"}, // 188 Ich analysiere mein Telefonakquise LIVE Telefonat
 "HwvEAhYlbEk":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 191 Preisstrategie für Anfänger (Dienstleister/Agenturen/Berater
-"Cr_zMge4_4I":{"th":["taufbau"], "r": "g", "why": "Termin: Bedarfsermittlung (Lücke)"}, // 192 Die perfekte Bedarfsermittlung
+"Cr_zMge4_4I":{"th": ["taufbau"], "r": "g", "gem": "Bedarfsermittlung", "why": "ausgewertet: Bedarfsermittlung Einstieg → Soll-Fragen → Vertiefung → Konkretisierung → Zusammenfassung"}, // 192 Die perfekte Bedarfsermittlung
 "5aKlsClMZek":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 193 Telefonakquise Q&A Session
 "XyVGXaOpZvE":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 194 Spontan und Schlagfertig JEDEN Einwand behandeln
 "58HUlHuvhTo":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 198 Live Analyse: Telefonakquise Leitfaden von einem Follower
-"dOUvmlcTFpw":{"th":["sek"], "r": "g", "why": "Sekretariat"}, // 199 90% Durchstellquote im Sekretariat (Telefonakquise)
-"2uAf5uFVguk":{"th":["einwand"], "r": "g", "live": "Schulung", "why": "interne Schulung Einwand"}, // 203 Irres Einwandbehandlungstraining (Interne Schulung)
+"dOUvmlcTFpw":{"th": ["sek", "stimme"], "r": "x", "why": "ausgewertet: wenig lehrreich (wie Nr. 70/16, Stimme langsam)"}, // 199 90% Durchstellquote im Sekretariat (Telefonakquise)
+"2uAf5uFVguk":{"th": ["tabschluss"], "r": "g", "live": "Schulung", "why": "ausgewertet: Nacht drüber schlafen (wie Nr. 163), Ratenzahlung, Referenzgespräch"}, // 203 Irres Einwandbehandlungstraining (Interne Schulung)
 "Eofdm8cTBZ0":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 208 Ändere DAS in deinem Leitfaden (Telefonakquise)
 "czpUyC1iNr4":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 209 Ich bewerte Telefonakquise Leitfaden von Follower
 "jLTiwibJlO0":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 211 No-Show-Rate deutlich verringern (Telefonakquise)
 "wQ31PCqZ598":{"th":["taufbau"], "r": "g", "why": "Termin: Abschluss"}, // 213 80% Abschlussquote im Verkaufsgespräch
 "1FaUrtDObEY":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 214 Sofort Interesse wecken (Kaltakquise)
-"7yQc9XSe9b4":{"th":["tabschluss"], "r": "g", "why": "Termin-Einwand „Nacht drüber schlafen“"}, // 215 Einwandbehandlung (Anleitung) für Ich will eine Nacht drüber
+"7yQc9XSe9b4":{"th": ["tabschluss"], "r": "g", "gem": "Nacht drüber schlafen", "why": "ausgewertet: Nacht drüber schlafen komplett (wie Nr. 163), Frau, Raten, Sommer-Faktencheck"}, // 215 Einwandbehandlung (Anleitung) für Ich will eine Nacht drüber
 "_2hZuctoetg":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 218 Einwandbehandlung - So funktionierts (Anleitung)
-"S-Z2NlbdNok":{"th":["tabschluss"], "r": "g", "why": "Termin-Einwand „will vergleichen“"}, // 222 So gewinnst du den Auftrag wenn dein Kunde vergleichen will
+"S-Z2NlbdNok":{"th": ["tabschluss"], "r": "g", "why": "ausgewertet: Vergleich – als Letzter anbieten, Preisgleichheitsfrage (wie Nr. 57)"}, // 222 So gewinnst du den Auftrag wenn dein Kunde vergleichen will
 "NSAMgRBzlYo":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 223 Telefonakquise: Vorbei am Sekretariat mit Leichtigkeit
 "Ux9W0r9Mwlk":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 224 Telefonakquise 3 Erfolgs-Elemente für deinen Leitfaden
 "jWbPkgdnt6o":{"r": "x", "why": "Felix: nach Titel raus (24.10.2026, vorher y)"}, // 233 Telefonakquise: Planbar Termine vereinbaren

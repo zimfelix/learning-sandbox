@@ -75,16 +75,20 @@ const items=(id,ph)=>{const sg=$('sg').value;if(sg&&N[id]?.seg!=sg)return[];retu
 const li=(id,i)=>`<li><span class="chip ph ${i.p}">${i.p}</span><span class=chip>${esc(i.y)}${i.e?': '+esc(i.e):''}</span>${esc(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''} <a href="${link(id,i.t)}" target=_blank>▶&nbsp;${esc(i.t)}</a></li>`;
 
 /* Bewertungen: ov = geteilte Relevanz je Video, mine = eigene Notizen, all = Notizen aller Personen */
-const ST={ov:{},mine:{},all:{},names:{},uid:null,db:null,user:null,online:false,inflight:0,deferred:false};
+const ST={ov:{},kern:{},mine:{},all:{},names:{},uid:null,db:null,user:null,online:false,inflight:0,deferred:false};
 /* Wirksame Farbe: eigene Bewertung > ausgewertet (Anhör-Liste oder erledigt) > Vorschlag aus auswahl.js */
-const eff=id=>ST.ov[id]?.r||(N[id]?(N[id].watch||AW[id]?.gem?'w':AW[id]?.r=='x'?'x':'d'):AW[id]?.r||'');
+/* Kern-Video: manuelle Markierung (Collection kern, Feld g) > Vorschlag aus auswahl.js */
+const gemOf=id=>{const k=ST.kern[id];return k?(k.g?(AW[id]?.gem||'Kern-Video'):''):(AW[id]?.gem||'')};
+const eff=id=>ST.ov[id]?.r||(N[id]?(N[id].watch||gemOf(id)?'w':AW[id]?.r=='x'?'x':'d'):AW[id]?.r||'');
 const cmText=id=>Object.values(ST.online?ST.all:{me:ST.mine}).map(v=>v[id]?.text||'').join(' ');
-function lsLoad(){try{const o=JSON.parse(localStorage.getItem('bew')||'{}');ST.ov=o.ov||{};ST.mine=o.mine||{}}catch(e){}}
-function lsSave(){try{localStorage.setItem('bew',JSON.stringify({ov:ST.ov,mine:ST.mine}))}catch(e){}}
+function lsLoad(){try{const o=JSON.parse(localStorage.getItem('bew')||'{}');ST.ov=o.ov||{};ST.kern=o.kern||{};ST.mine=o.mine||{}}catch(e){}}
+function lsSave(){try{localStorage.setItem('bew',JSON.stringify({ov:ST.ov,kern:ST.kern,mine:ST.mine}))}catch(e){}}
 function mode(t,err){const m=$('mode');m.textContent=t;m.classList.toggle('err',!!err)}
 function queue(fn){ST.inflight++;ST.chain=(ST.chain||Promise.resolve()).then(fn).catch(e=>mode(e?.code=='invalid_argument'?'Keine Schreibrechte – Zugriff als Mitwirkender oder Bearbeiter nötig':'Speichern fehlgeschlagen ('+(e?.code||'Fehler')+')',true)).finally(()=>ST.inflight--)}
 function setOv(id,r){if(r)ST.ov[id]={r,by:ST.uid||''};else delete ST.ov[id];
  if(!ST.online)return lsSave();const ref=ST.db.collection('relevanz').doc(id);queue(()=>r?ref.set({r,by:ST.uid||''}):ref.delete())}
+function setKern(id,on){const def=!!AW[id]?.gem;if(on===def)delete ST.kern[id];else ST.kern[id]={g:on,by:ST.uid||''};
+ if(!ST.online)return lsSave();const ref=ST.db.collection('kern').doc(id);queue(()=>on===def?ref.delete():ref.set({g:on,by:ST.uid||''}))}
 function setMine(id,patch){const old=ST.mine[id]||{};if(Object.keys(patch).every(k=>(old[k]||'')===(patch[k]||'')))return;const m={...old,...patch};if(!m.seen&&!m.text)delete ST.mine[id];else ST.mine[id]=m;
  if(!ST.online)return lsSave();if(!ST.uid)return mode('Speichern nicht möglich: nicht angemeldet',true);
  const body={videos:{...ST.mine}};queue(()=>ST.db.doc('notizen/'+ST.uid).set(body))}
@@ -96,6 +100,7 @@ async function connect(){
  if(!db){lsLoad();mode('Gemeinsame Speicherung nicht verfügbar – Bewertungen nur in diesem Browser',true);return r()}
  Object.assign(ST,{db,user,online:true,uid:user?await user.id():null});mode('Gemeinsam gespeichert: alle Eingeladenen sehen Relevanz und Kommentare');
  db.collection('relevanz').onSnapshot(s=>{const o={};s.docs.forEach(d=>o[d.id]=d.data());ST.ov=o;later()},e=>mode('Relevanz konnte nicht geladen werden ('+e.code+')',true));
+ db.collection('kern').onSnapshot(s=>{const o={};s.docs.forEach(d=>o[d.id]=d.data());ST.kern=o;later()},e=>mode('Kern-Videos konnten nicht geladen werden ('+e.code+')',true));
  db.collection('notizen').onSnapshot(async s=>{const a={};s.docs.forEach(d=>a[d.id]=d.data().videos||{});ST.all=a;
   if(ST.uid&&!ST.inflight)ST.mine={...(a[ST.uid]||{})};await resolveNames();later()},e=>mode('Kommentare konnten nicht geladen werden ('+e.code+')',true));
 }
@@ -104,6 +109,7 @@ function others(id){return Object.entries(ST.all).filter(([u])=>u!==ST.uid).map(
 function meCell(id){const o=ST.ov[id]?.r||'',m=ST.mine[id]||{};
  return `<td class=me><select data-ov="${id}" aria-label="Relevanz ändern">${RV.map(([v,l])=>`<option value="${v}"${o==v?' selected':''}>${l}</option>`).join('')}</select>
  <label class=seen><input type=checkbox data-seen="${id}"${m.seen?' checked':''}> angeschaut</label>
+ <label class=seen><input type=checkbox data-kern="${id}"${gemOf(id)?' checked':''}> 💎 Kern-Video</label>
  <textarea data-cm="${id}" rows=1 placeholder="Kommentar …" aria-label="Kommentar">${esc(m.text||'')}</textarea>${others(id)}</td>`}
 
 function stats(){const c=r=>D.filter(d=>eff(d.id)==r).length,w=D.filter(d=>eff(d.id)=='w'),seen=w.filter(d=>ST.mine[d.id]?.seen).length;
@@ -118,13 +124,13 @@ function thBar(){$('thm').innerHTML=THM.map(([k,l])=>`<button data-th="${k}" cla
  +`<button data-th="">Alle Themen</button><label class=seen><input type=checkbox id=hx${HX?' checked':''}> nicht relevante ausblenden</label>`}
 function okA(d){const a=AW[d.id]||{},z=$('zr').value,v=$('rv').value,r=eff(d.id);
  if(z&&!(DT[d.id]&&DT[d.id]>=since(+z)))return false;
- return !v||(v=='gem'&&a.gem)||(v=='live'&&a.live)||(v=='gy'&&(r=='g'||r=='y'))||r==v}
+ return !v||(v=='gem'&&gemOf(d.id))||(v=='live'&&a.live)||(v=='gy'&&(r=='g'||r=='y'))||r==v}
 function row(d,ph){const n=N[d.id],I=items(d.id,ph),a=AW[d.id]||{},r=eff(d.id);
  const tr=!n?'<span class=mut>–</span>':n.nosubs?'⚠️ keins':LOCAL?`<a href="transcripts/${d.id}.txt" target=_blank>📄 öffnen</a>`:'<span class=mut>nur lokal</span>';
  const wa=n&&n.watch?`<span class=y><b>👀</b> ${esc(n.why)}</span>`:n&&n.nosubs?`<span class=y><b>⚠️</b> Kein Transkript – selbst anschauen</span>`:'';
  const cnt=['K','T','A'].map(p=>{const k=I.filter(i=>i.p==p).length;return k?`<span class="chip ph ${p}">${PH[p]} ${k}</span>`:''}).join('');
  const ev=!n?'<span class=mut>noch nicht ausgewertet</span>':n.skip&&!I.length?`<span class=mut>${esc(n.skip)}</span>`:I.length?`<details><summary>${cnt}</summary><ul>${I.map(i=>li(d.id,i)).join('')}</ul></details>`:'';
- const badge=(a.gem?`<span class=gem>💎 ${esc(a.gem)}</span> `:'')+(a.live?`<span class=chip>🎥 ${esc(a.live)}</span>`:'');
+ const gm=gemOf(d.id),badge=(gm?`<span class=gem>💎 ${esc(gm)}</span> `:'')+(a.live?`<span class=chip>🎥 ${esc(a.live)}</span>`:'');
  return `<tr class="${r&&r!='-'?'r'+r:''}"><td><input type=checkbox data-id="${d.id}" aria-label="auswählen"${S[d.id]?' checked':''}></td><td class=n>${d.n}</td><td class=dt>${fdt(DT[d.id])}</td>
  <td class=tit>${badge?badge+'<br>':''}<a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div>${a.th?`<div>${a.th.map(t=>`<span class=chip>${esc(THL[t]||t)}</span>`).join('')}</div>`:''}${a.why?`<div class=why>${esc(a.why)} · <i>${n?'geprüft':'nach Titel'}</i></div>`:''}</td><td class=m>${d.m} min</td>
  <td class=tg>${n&&n.seg?`<span class=chip>${esc(n.seg)}</span><br>`:''}${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td>${meCell(d.id)}</tr>`}
@@ -147,6 +153,7 @@ document.addEventListener('input',e=>{const t=e.target;
  if(t.closest('td.me'))return;if(t.dataset.id){S[t.dataset.id]=t.checked;save()}r()});
 document.addEventListener('change',e=>{const t=e.target;
  if(t.dataset.ov!==undefined){setOv(t.dataset.ov,t.value);r()}
+ else if(t.dataset.kern!==undefined){setKern(t.dataset.kern,t.checked);r()}
  else if(t.dataset.seen!==undefined){setMine(t.dataset.seen,{seen:t.checked});r()}
  else if(t.dataset.cm!==undefined)setMine(t.dataset.cm,{text:t.value.trim()})});
 document.addEventListener('focusout',()=>setTimeout(()=>{if(ST.deferred&&!document.activeElement?.closest?.('td.me')){ST.deferred=false;r()}},0));
