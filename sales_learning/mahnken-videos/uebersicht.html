@@ -32,7 +32,8 @@ h2{font-size:16px;margin:22px 0 6px}h3{font-size:13px;color:var(--mut);margin:14
 tr.rg td{background:var(--rgb)}tr.rg td:first-child{box-shadow:inset 4px 0 var(--rg)}
 tr.ry td{background:var(--ryb)}tr.ry td:first-child{box-shadow:inset 4px 0 var(--ry)}
 tr.rd td{background:var(--rdb)}tr.rw td{background:var(--rwb)}tr.rw td:first-child{box-shadow:inset 4px 0 var(--rw)}
-tr.rrot td{background:var(--rrb)}tr.rrot td:first-child{box-shadow:inset 4px 0 var(--rr)}
+tr.rl td{background:var(--rrb)}tr.rl td:first-child{box-shadow:inset 4px 0 var(--rr)}.lv{font-size:12px;font-weight:600;color:var(--rr)}
+tr.rrot td:not(.me){opacity:.5}tr.rrot td:first-child{box-shadow:inset 4px 0 var(--mut)}
 tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size:12px;width:1%;font-variant-numeric:tabular-nums}
 .gem{font-size:12px;font-weight:600;color:var(--acc)}.why{font-size:12px;color:var(--mut)}
 .leg{font-size:12px;color:var(--mut);margin-top:6px;display:flex;gap:14px;flex-wrap:wrap}.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
@@ -59,7 +60,7 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
  <div class=bar>
   <button id=v1 class=on>Videos</button><button id=v2>Sammlung</button><button id=v3>📋 Leitfaden</button>
   <input id=q placeholder="Suchen in Titel, Zielgruppe, Learnings, Kommentaren …">
-  <select id=f aria-label="Status"><option value="">Alle Bewertungen</option><option value=d>✓ ausgewertet, lehrreich</option><option value=x>⚪ nicht relevant</option><option value=rot>🔴 gesehen, unbrauchbar</option><option value=g>🟢 noch auswerten</option><option value=y>🟡 vielleicht</option><option value=open>☐ noch nicht ausgewertet</option></select>
+  <select id=f aria-label="Status"><option value="">Alle Bewertungen</option><option value=d>✓ ausgewertet, lehrreich</option><option value=x>⚪ nicht relevant</option><option value=l>🔴 live wiederholen</option><option value=rot>⛔ gesehen, unbrauchbar</option><option value=g>🟢 noch auswerten</option><option value=y>🟡 vielleicht</option><option value=open>☐ noch nicht ausgewertet</option></select>
   <select id=ph aria-label="Phase"><option value="">Alle Phasen</option><option value=K>Kaltakquise</option><option value=T>Termin / Verkaufsgespräch</option><option value=A>Andere Verkaufsform</option></select>
   <button id=cp>⭐ Auswahl kopieren</button>
  </div>
@@ -79,8 +80,9 @@ const since=m=>{const d=new Date();d.setMonth(d.getMonth()-m);return d.toISOStri
 const PH={K:'Kaltakquise',T:'Termin / Verkaufsgespräch',A:'Andere Verkaufsform'};
 const TY0=['Sekretärin','Opener','Bedarfsfrage','Rückfrage','Einwand','Terminvereinbarung','Gesprächseinstieg','Präsentation','Preis','Abschluss','Verkaufsgespräch','Nachfassen','Leitfaden','Prinzip','Organisation'];
 const TY=[...TY0,...new Set(Object.values(N).flatMap(n=>(n.items||[]).map(i=>i.y)).filter(y=>!TY0.includes(y)))];
-/* Auswahl je Video: blau = Anhör-Liste; 🟡/⚪ nehmen ein Video aus der blauen Liste. g/rot nur noch sichtbar, wo schon gesetzt */
-const RV=[['','Vorschlag übernehmen'],['w','🔵 anhören (blaue Liste)'],['y','🟡 raus: vielleicht'],['x','⚪ raus: wertlos'],['g','🟢 relevant',1],['rot','🔴 gesehen, unbrauchbar',1]];
+/* Auswahl je Video: blau = Anhör-Liste; rot (l) = starkes Live-Telefonat, ein zweites Mal ansehen (Betonung, Tonfall, Timing); 🟡/⚪ nehmen ein Video aus der Liste.
+   g/rot nur noch sichtbar, wo schon gesetzt; rot = altes „gesehen, unbrauchbar“ (grau, ⛔) – Schlüssel bleibt, damit gespeicherte Werte ihre Bedeutung behalten */
+const RV=[['','Vorschlag übernehmen'],['w','🔵 anhören (blaue Liste)'],['l','🔴 live wiederholen'],['y','🟡 raus: vielleicht'],['x','⚪ raus: wertlos'],['g','🟢 relevant',1],['rot','⛔ gesehen, unbrauchbar',1]];
 let S={},view='videos';try{S=JSON.parse(localStorage.getItem('s')||'{}');view=localStorage.getItem('v')||'videos'}catch(e){}
 const save=()=>{try{localStorage.setItem('s',JSON.stringify(S));localStorage.setItem('v',view)}catch(e){}};
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
@@ -158,10 +160,10 @@ const isLive=d=>{const a=AW[d.id]||{};return !!a.live||(a.th||[]).some(t=>t=='li
 /* Format (entweder–oder): Lernvideos = alles außer Live */
 const FMT=[['lern','📚 Lernvideos',d=>!isLive(d)],['live','🎥 Live-Gespräche',isLive]];
 /* Status (mehrere wählbar, mindestens eins passt) */
-const MK=[['lf','📌 im Leitfaden',d=>LF.has(d.id)],['gem','💎 Kern-Videos',d=>!!gemOf(d.id)],['done','✅ abgearbeitet',d=>done(d)&&!LF.has(d.id)],['seen','👁 von mir angeschaut',d=>!!ST.mine[d.id]?.seen],['again','🔁 nochmal anschauen',d=>!!ST.mine[d.id]?.again]];
-const marked=d=>eff(d.id)=='w'||LF.has(d.id)||!!gemOf(d.id)||!!N[d.id]?.watch||isLive(d)||!!N[d.id]?.nosubs;
-/* Hauptliste: nur die blauen (🎧 Anhör-Liste: 👀 oder 💎), 📌 und 🔁 nochmal anschauen, ohne abgearbeitete. Live-Videos über den Schalter 🎥 */
-const inMain=d=>LF.has(d.id)||!!ST.mine[d.id]?.again||(eff(d.id)=='w'&&!done(d));
+const MK=[['lf','📌 im Leitfaden',d=>LF.has(d.id)],['gem','💎 Kern-Videos',d=>!!gemOf(d.id)],['done','✅ abgearbeitet',d=>done(d)&&!LF.has(d.id)],['seen','👁 von mir angeschaut',d=>!!ST.mine[d.id]?.seen],['again','🔁 nochmal anschauen',d=>!!ST.mine[d.id]?.again],['lw','🔴 live wiederholen',d=>eff(d.id)=='l']];
+const marked=d=>eff(d.id)=='w'||eff(d.id)=='l'||LF.has(d.id)||!!gemOf(d.id)||!!N[d.id]?.watch||isLive(d)||!!N[d.id]?.nosubs;
+/* Hauptliste: nur die blauen (🎧 Anhör-Liste: 👀 oder 💎) ohne abgearbeitete, die roten (🔴 live wiederholen, immer), 📌 und 🔁 nochmal anschauen. Live-Videos über den Schalter 🎥 */
+const inMain=d=>LF.has(d.id)||!!ST.mine[d.id]?.again||eff(d.id)=='l'||(eff(d.id)=='w'&&!done(d));
 /* Kategorien wie der Leitfaden: th-Werte aus auswahl.js; sec = Abschnitte in kern.js. Sind alle sec abgeschlossen (ok), zählen nur noch deren 📌-Videos */
 /* [Schlüssel, Name, th-Werte, kern-Abschnitte, Oberfilter k = Leitfaden Kaltakquise / t = Leitfaden Termingespräch]; ein Video kann in mehreren Kategorien stehen */
 const TG=[['sek','1 📞 Sekretär',['sek'],['Sekretär'],'k'],['ein','2a 🎙 Einstieg',['einstieg'],['Schritt 1','Schritt 2'],'k'],['bed','2b 💡 Thema & Bedarfsweckung',['bedarf'],['Schritt 3','Schritt 4'],'k'],['ter','2c 📅 Terminvereinbarung & Nachfassen',['termin','nachfassen'],['Schritt 5','Schritt 6'],'k'],['einwand','3 🛡 Einwandbehandlung',['einwand'],[],'k'],['ton','4 🗣 Ton & Stimme',['stimme'],[],'k'],['taufbau','🧭 Aufbau & Präsentation',['taufbau'],[],'t'],['tabschluss','🤝 Preis, Einwand & Abschluss',['tabschluss'],[],'t']];
@@ -192,7 +194,7 @@ function row(d,ph){const n=N[d.id],I=lis(d.id,ph),a=AW[d.id]||{},r=eff(d.id);
  /* offene Learnings zuerst, umgesetzte eingeklappt darunter */
  const Io=I.filter(e=>!isU(d.id,e.k)),Iu=I.filter(e=>isU(d.id,e.k)),op=x=>OPEN.has(x)?' open':'';
  const ev=!n?'<span class=mut>noch nicht ausgewertet</span>':n.skip&&!I.length?`<span class=mut>${esc(n.skip)}</span>`:`<details data-vid="${d.id}"${op(d.id)}><summary>${cnt||'Learnings'}${Iu.length?` <span class=chip>✅ ${Iu.length} umgesetzt</span>`:''}</summary><ul>${Io.map(e=>li(d.id,e)).join('')}</ul>${Iu.length?`<details class=uu data-vid="${d.id}|u"${op(d.id+'|u')}><summary>✅ ${Iu.length} umgesetzt</summary><ul>${Iu.map(e=>li(d.id,e)).join('')}</ul></details>`:''}${ADD==d.id?addf(d.id):`<button class=ib data-add="${d.id}">➕ Learning hinzufügen</button>`}</details>`;
- const gm=gemOf(d.id),badge=(LF.has(d.id)?'<span class=gem>📌 Leitfaden – anschauen</span> ':done(d)?'<span class=chip>✅ abgearbeitet</span> ':'')+(gm?`<span class=gem>💎 ${esc(gm)}</span> `:'')+(a.live?`<span class=chip>🎥 ${esc(a.live)}</span>`:'');
+ const gm=gemOf(d.id),badge=(r=='l'?'<span class=lv>🔴 live wiederholen</span> ':'')+(LF.has(d.id)?'<span class=gem>📌 Leitfaden – anschauen</span> ':done(d)?'<span class=chip>✅ abgearbeitet</span> ':'')+(gm?`<span class=gem>💎 ${esc(gm)}</span> `:'')+(a.live?`<span class=chip>🎥 ${esc(a.live)}</span>`:'');
  return `<tr class="${r&&r!='-'?'r'+r:''}"><td><input type=checkbox data-id="${d.id}" aria-label="auswählen"${S[d.id]?' checked':''}></td><td class=n>${d.n}</td><td class=dt>${fdt(DT[d.id])}</td>
  <td class=tit>${badge?badge+'<br>':''}<a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div>${a.th?.some(t=>THL[t])?`<div>${[...new Set(a.th.map(t=>THL[t]).filter(Boolean))].sort((x,y)=>thO(x)-thO(y)).map(t=>`<span class=chip>${esc(t)}</span>`).join('')}</div>`:''}${a.why?`<div class=why>${esc(a.why)} · <i>${n?'geprüft':'nach Titel'}</i></div>`:''}</td><td class=m>${d.m} min</td>
  <td class=tg>${n&&n.seg?`<span class=chip>${esc(n.seg)}</span><br>`:''}${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td>${meCell(d.id)}</tr>`}

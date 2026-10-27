@@ -44,13 +44,36 @@ window.KERN = {
 <p class=b>Nr. 27 💎 Der perfekte Gesprächseinstieg, @11:08 für ca. 50 Sek. – warum der Satz wirkt: Neugier ohne falsche Erwartung, freie Wahl („es war seine Entscheidung“), Dialog statt Überrumpeln · <a href="https://youtu.be/61ZlLVM0uS0?t=668" target=_blank>▶ youtu.be/61ZlLVM0uS0 @11:08</a></p>
 <p class=b>danach das ganze Video Nr. 27 (Begrüßung + Gesprächseinstieg, schon bei Schritt 1) · <a href="https://youtu.be/61ZlLVM0uS0" target=_blank>▶ youtu.be/61ZlLVM0uS0</a></p>
 `},
-"Schritt 3": {"ok": false, "html": `
-<p class=b>Handwerker werden täglich von Agenturen angerufen – darum den Elefanten im Raum offen ansprechen (so ruft Julian selbst für Online-Marketing an). Die Vorlage „… aber ich will Ihre Zeit nicht unnötig in Anspruch nehmen“ ist nur für selten angerufene Themen.</p>
-<p class=b>❌ Tadeln („Ich war auf Ihrer Website, da gibt's Optimierungspotenzial“), klein machen („Ich würde Ihnen nur eine kurze Frage stellen“), unterstellen („attraktiver werden“).</p>
+"Schritt 3": {"ok": true, "html": `
+<p><b>Variante Online-Marketing:</b> „Ganz offen gesprochen: Ich mache Online-Marketing für Handwerksbetriebe wie Ihren – aber ich will Sie mit dem Thema gar nicht überrumpeln. Darf ich Ihnen stattdessen eine kurze Frage stellen?“</p>
+<p class=b>Aufbau aus Julians Vorlage und Nr. 130 @2:07 (live, 2025): Thema nur grob, „wie Ihren“ zeigt Branchenerfahrung (Nr. 102 @3:01), dann Frage → er sagt „Ja, machen Sie mal“ (freie Wahl wie in Schritt 2) → Schritt 4.</p>
+<p class=b>Nicht in Worten erklären, warum ich anders bin als die anderen Agenturen – abheben über Aufbau und Stimme (Nr. 18 @5:01, Nr. 1 @4:01).</p>
+<p class=b>❌ Vorwegnahme, die an die anderen Anrufer erinnert: „… dass Sie denken: Nicht schon wieder einer von der Sorte?“ (Nr. 426 / Nr. 188, überholt – Julian nutzt für Online-Marketing heute andere Leitfäden), „Ich will nicht der 17. sein, der Sie nervt“ (Nr. 9 @8:00: „Bist du aber trotzdem“).</p>
+<p class=b>❌ „… ich will Ihre Zeit gar nicht unnötig in Anspruch nehmen“ – nur bei selten angerufenen Themen (Nr. 9 @9:00). ❌ Tadeln („Ich war auf Ihrer Website, da gibt's Optimierungspotenzial“), unterstellen („attraktiver werden“).</p>
+<h4>Ton</h4>
+<p class=b>Kein Konjunktiv: „Darf ich Ihnen stattdessen eine kurze Frage stellen?“ – nicht „Ich würde Ihnen nur eine kurze Frage stellen“. Derselbe Satzbau scheitert in Nr. 28 an „würde“ und unsicherer Stimme. Die Frage in freudiger Erwartung betonen, danach Pause.</p>
 <h4>Anschauen</h4>
-<p class=b>Nr. 426 Live-Telefonat Online-Marketing – Schritt 3 im Original · <a href="https://youtu.be/H4jjJFVrCaY" target=_blank>▶ youtu.be/H4jjJFVrCaY</a></p>
-<p class=b>Nr. 188 Julian analysiert sein SEO-Telefonat – dasselbe Muster Satz für Satz · <a href="https://youtu.be/8itYRwd2nOI" target=_blank>▶ youtu.be/8itYRwd2nOI</a></p>
-<p class=b>optional: Nr. 28 Echtes Webdesign-Telefonat – so nicht (kleinlaut) · <a href="https://youtu.be/J-bnKLumcqs" target=_blank>▶ youtu.be/J-bnKLumcqs</a></p>
+<p class=b>Nr. 130 Live-Telefonat im Seminar ab @2:07 – Schritt 3 und 4 im Original · <a href="https://youtu.be/bwSFCibBhLg?t=127" target=_blank>▶ youtu.be/bwSFCibBhLg @2:07</a></p>
+<p class=b>Nr. 9 ab @7:00 – warum die offene Vorwegnahme bei Handwerkern scheitert · <a href="https://youtu.be/MA_C7LHCsaY?t=420" target=_blank>▶ youtu.be/MA_C7LHCsaY @7:00</a></p>
+<p class=b>optional: Nr. 28 ab @4:00 Echtes Webdesign-Telefonat – derselbe Satz, kleinlaut · <a href="https://youtu.be/J-bnKLumcqs?t=240" target=_blank>▶ youtu.be/J-bnKLumcqs @4:00</a></p>
+`},
+"Schritt 4": {"ok": true, "html": `
+<p class=b>🛠 Auf Websites übertragen nach Julians Bauplan (Vorlage, Nr. 102 @0:00, Nr. 130 @2:07): „Ich gehe davon aus, dass [Haupteinwand ist schon erfüllt]. Die Frage ist: Wenn [Nutzen], sind Sie dann grundsätzlich offen …?“ – geschlossene Frage, auf die er kaum Nein sagen kann (Nr. 22 @1:00).</p>
+<p><b>Leitfaden „Empfehlung“ (Hauptleitfaden):</b> Kern = wer ihm empfohlen wird, schaut vor dem Anruf auf seine Website. Passt auf fast jeden Handwerksbetrieb mit alter Website (Leadfinder). Nutzen knüpft direkt an die Vorwegnahme an. 🛠</p>
+<p class=b><b>Reserve-Satz:</b> „… Die Frage ist: Wenn Ihre Website Sie genauso gut empfiehlt wie Ihre zufriedenen Kunden – sind Sie dann grundsätzlich offen, dass wir die Tage kurz drüber sprechen?“ – kürzer, bildlicher („der perfekte Urlaub“-Prinzip, Nr. 94). 🛠</p>
+<p class=b>Zwei Vorwegnahmen: Schritt 3 gegen das Gespräch („nicht überrumpeln“), Schritt 4 gegen den Bedarf („läuft über Empfehlungen“ – häufigster Handwerker-Einwand, Nr. 28 @6:01, Nr. 102 @4:00).</p>
+<p class=b>Nutzen, nicht Lösung – das „Wie“ kommt im Termin. „Kurz drüber sprechen“ bewusst ohne Inhalt: niedrige Hürde, den Nutzen trägt der „Wenn …“-Teil.</p>
+<p class=b>Ein Kernthema pro Anruf, kein Bauchladen (Nr. 214 @1:01, Nr. 378 @7:00). Bedarf wecken, nicht ermitteln: keine Frage „Was müssten wir liefern, damit es interessant ist?“ (Nr. 378 @12:01, Nr. 188 @4:00).</p>
+<h4>Alternative B: Leitfaden „Gefunden werden“</h4>
+<p class=b>Wenn Empfehlungen bei ihm kein Thema sind oder er „Website haben wir, bringt nix“ sagt:„Ich gehe davon aus, dass Sie schon eine Website haben. Die Frage ist: Wenn Leute aus der Region, die gerade einen [Elektriker] suchen, bei Google direkt bei Ihnen landen und anfragen – sind Sie dann grundsätzlich offen, dass wir kurz drüber sprechen?“ (Nr. 214 @1:01, Nr. 42 @7:01)</p>
+<p class=b>❌ Zahlen versprechen („5 Termine pro Woche“, „30 % mehr Umsatz“ – unglaubwürdig, Nr. 94 @15:02), unterstellen („attraktiver werden“, „bessere Außendarstellung“, Nr. 14 @13:00), offensichtliche Probleme aufzählen (Nr. 9 @11:00), offene Frage direkt danach (Nr. 22 @2:00), „kurzer Austausch“ ohne Nutzen (Nr. 9 @13:01).</p>
+<h4>Reaktion</h4>
+<p class=b>Fragt er nach („Wie machen Sie das?“, „Was kostet das?“) = Interesse → nicht erklären, direkt Schritt 5 (Nr. 18 @3:00, Nr. 53 @2:01). Einwand trotz gutem Satz = fehlendes Vertrauen → Reframing (Nr. 214 @3:01).</p>
+<h4>Ton</h4>
+<p class=b>Ohne Konjunktiv, nicht zu schnell und nicht monoton – ein zu schnell gesprochener Nutzensatz ruiniert auch den besten Satz (Nr. 102 @6:00). Höchstens zwei Sätze, sonst weiß er am Ende nicht mehr, was am Anfang kam (Nr. 102 @2:00).</p>
+<h4>Anschauen</h4>
+<p class=b>Nr. 94 ab @11:01 – Julian erklärt seinen Nutzensatz Wort für Wort (Vorwegnahme, offen statt Zahlen, wann es nicht reicht) · <a href="https://youtu.be/wz-Tvv5y3NY?t=661" target=_blank>▶ youtu.be/wz-Tvv5y3NY @11:01</a></p>
+<p class=b>Nr. 102 ab @6:00 – derselbe Satz einmal falsch gesprochen (zu schnell, monoton) · <a href="https://youtu.be/tUqyROcnFtE?t=360" target=_blank>▶ youtu.be/tUqyROcnFtE @6:00</a></p>
 `},
 "Schritt 5": {"ok": false, "html": `
 <p class=b>Notiz (noch nicht abgestimmt): Bei „Wie machen Sie das genau?“ ohne Konjunktiv überleiten: „Ich zeige Ihnen gerne, wie wir das machen. Wann passt es die Tage, dass wir kurz drüber sprechen?“ – direkt einen konkreten Vorschlag nachschieben („Wie sieht's morgen Vormittag aus?“, Nr. 19 @5:00). ❌ „… da würde ich Ihnen gerne mal zeigen, wie das aussehen könnte. Wann hätten Sie denn mal Zeit?“ (Nr. 88 @8:00)</p>

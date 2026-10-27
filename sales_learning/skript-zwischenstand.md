@@ -120,6 +120,13 @@ Offene Frage ist hier erlaubt, weil Erlaubnis und Thema schon stehen (Nr. 22 @8:
 - „Wenn es eine Sache im Bereich [X] gibt, die nicht immer so läuft, wie Sie sich das wünschen – welche eine Sache ist das?“ → vertiefen: „Wie müsste es aussehen, damit es optimal passt?“ (Nr. 401 @31:01, @36:00 – Achtung: oft „läuft alles gut“)
 - Rückwärts bauen: erst überlegen, welche Antwort du hören willst, dann die Frage danach formulieren (Nr. 387 @7:01).
 
+### 💤 Weitere Leitfäden – geparkt (27.10.2026, nicht im gültigen Leitfaden)
+
+Ideen für andere Kerne in Schritt 4, vorerst kein Thema. Gültig sind „Empfehlung“ (Haupt) und „Gefunden werden“ (Alternative B), siehe Tab „Leitfaden“.
+
+- **Mitarbeiter** – Signal: offene Stellen auf seiner Website. „Ich gehe davon aus, dass Ihnen eher die Leute fehlen als die Aufträge. Die Frage ist: Wenn über Ihre Website auch passende Bewerber auf Sie zukommen – sind Sie dann grundsätzlich offen, dass wir kurz drüber sprechen?“ (Nr. 1 @1:01)
+- **Entlastung** 🛠 – Signal: nur Telefonnummer, kein Anfrageformular. „Ich gehe davon aus, dass Sie lieber auf der Baustelle stehen als am Telefon. Die Frage ist: Wenn Anfragen über Ihre Website gleich mit allem reinkommen, was Sie fürs Angebot brauchen – sind Sie dann grundsätzlich offen, dass wir kurz drüber sprechen?“ (ungetestet)
+
 ## 5 Reaktion des Kunden – nur drei Möglichkeiten (Nr. 53 @1:00)
 
 | Reaktion | Weiter mit |
