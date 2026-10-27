@@ -153,7 +153,7 @@ kern.js (Details: Reaktionen, Ton, Videos) ────────────�
 
 ## Online-Seiten
 
-⚠️ **Vorerst außer Betrieb (Stand 24.10.2026): GitHub-Push und Cloudflare.** Das GitHub-Konto ist von außen ausgeblendet (404), der Cloudflare-Build schlägt fehl. Nicht pushen, Cloudflare ignorieren. Gearbeitet wird **lokal** (`uebersicht.html` in Brave) plus **claude.ai-Seite**; lokale Commits nur auf ausdrücklichen Auftrag.
+⚠️ **Cloudflare außer Betrieb** (Build schlägt fehl, ignorieren). GitHub-Push ist seit 27.10.2026 wieder erlaubt, nur auf ausdrücklichen Auftrag. Gearbeitet wird **lokal** (`uebersicht.html` in Brave) plus **claude.ai-Seite**.
 
 | Seite | Link | Wofür |
 | --- | --- | --- |
@@ -171,7 +171,7 @@ Agent ändert notes.js / auswahl.js / uebersicht.html ──▶ Online-Seite neu
 Felix / Kollege bewerten online ──▶ Datenbank (relevanz, notizen) ──▶ Agent liest sie beim Review aus
 ```
 
-Diese Seite aktualisiert sich nie automatisch. Darum wird nach jeder Änderung an den Dateien unten neu veröffentlicht, spätestens vor einem lokalen Commit. (Der lokale `pre-push`-Hook erinnert daran; Push ist derzeit aber außer Betrieb, siehe oben.) Die Seite bleibt online, bis sie gelöscht wird.
+Diese Seite aktualisiert sich nie automatisch. Darum wird nach jeder Änderung an den Dateien unten neu veröffentlicht, spätestens vor einem lokalen Commit. (Der lokale `pre-push`-Hook erinnert daran.) Die Seite bleibt online, bis sie gelöscht wird.
 
 **Neu veröffentlichen** (nach jeder Änderung an diesen Dateien, im Ordner `mahnken-videos`):
 

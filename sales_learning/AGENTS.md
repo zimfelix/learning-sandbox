@@ -16,9 +16,9 @@ Ergänzt die repositorybezogene `AGENTS.md` im Root. Abweichend vom Sandbox-Stan
 - Pro Paket 5 Videos (`fetch.py --next 5`); Ergebnisse direkt in `mahnken-videos/notes.js`, danach Ladeprüfung mit `node`.
 - Julians eigene Empfehlung klar von der des besprochenen Trainers trennen.
 - Wörtliche Zitate nicht erfinden oder glätten; bei schlechten Untertiteln `s: 1` (sinngemäß).
-- Transkripte bleiben lokal (`.gitignore`); Commit nur auf ausdrücklichen Auftrag, Push derzeit gar nicht.
+- Transkripte bleiben lokal (`.gitignore`); Commit und Push nur auf ausdrücklichen Auftrag.
 - Im Chat pro Paket kurz berichten: neue 👀-Empfehlungen, stärkste Formulierungen, Korrekturen.
 - 👀 sparsam vergeben: nur wenn Tonfall/Timing entscheidend ist oder der Wortlaut in den Untertiteln unverständlich bleibt. Ausgewertete Videos mit 👀 oder 💎 bilden die **Anhör-Liste**; Ziel: höchstens 30–50 Videos. Alles andere gilt nach der Auswertung als erledigt.
 - Erweist sich ein ausgewertetes Video als wenig lehrreich (nur Motivation/Organisation, reine Wiederholung, kein Skript-Beitrag), in `auswahl.js` auf `"r":"x"` setzen; dann erscheint es grau.
 - Nach jeder Änderung an `notes.js`, `auswahl.js`, `dates.js`, `videos.js` oder `uebersicht.html` die **claude.ai-Seite neu veröffentlichen** (README, Abschnitt „Online-Seiten“), damit Felix' Kollege denselben Stand sieht – spätestens **vor jedem Commit** solcher Änderungen, und im Abschlussbericht die veröffentlichte Version nennen.
-- **GitHub-Push und Cloudflare sind vorerst außer Betrieb** (Konto ausgeblendet, Build schlägt fehl): nicht pushen, Cloudflare ignorieren. Gearbeitet wird lokal plus claude.ai-Seite; lokale Commits nur auf ausdrücklichen Auftrag.
+- **GitHub-Push wieder erlaubt** (seit 27.10.2026, nur auf ausdrücklichen Auftrag). **Cloudflare bleibt außer Betrieb** (Build schlägt fehl): ignorieren. Aktive Online-Seite ist die claude.ai-Seite.
