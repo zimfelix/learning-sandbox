@@ -153,7 +153,7 @@ kern.js (Details: Reaktionen, Ton, Videos) ────────────�
 
 ## Online-Seiten
 
-⚠️ **Cloudflare außer Betrieb** (Build schlägt fehl, ignorieren). GitHub-Push ist seit 27.10.2026 wieder erlaubt, nur auf ausdrücklichen Auftrag. Gearbeitet wird **lokal** (`uebersicht.html` in Brave) plus **claude.ai-Seite**.
+⚠️ **Cloudflare außer Betrieb** (Build schlägt fehl, ignorieren). Gearbeitet wird **lokal** (`uebersicht.html` in Brave) plus **claude.ai-Seite**.
 
 | Seite | Link | Wofür |
 | --- | --- | --- |
