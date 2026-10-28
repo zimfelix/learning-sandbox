@@ -1,6 +1,6 @@
 // Details zum Leitfaden, nur für den Tab „Leitfaden“ in uebersicht.html (nicht in Word).
 // Schlüssel = Anfang der Überschrift in leitfaden.docx („Sekretär“, „Schritt 1“ …).
-// ok = Abschnitt abgeschlossen. html = Reaktionen, Ton, Videos zum Anschauen (youtu.be-Links werden 📌).
+// ok = Abschnitt abgeschlossen. say = neue gesprochene Sätze, solange sie noch nicht in Word stehen (ersetzt den Word-Text; danach löschen). html = Reaktionen, Ton, Videos zum Anschauen (youtu.be-Links werden 📌).
 // Im Text keine Video-Verweise ohne Link. „Anschauen“ = alles, was man hören muss (live, Betonung, vorgesprochen), mit Zeitstempel + was man dort sieht.
 // Farbe je <h4>: Mini-Thema/Reaktion/Vorbereitungsfragen gelb, Ton lila, Alternativen blau, Anschauen grau.
 // 🛠 = eigener Vorschlag, nicht aus den Videos.
@@ -93,13 +93,17 @@ window.KERN = {
 <h4>Notiz</h4>
 <p class=b>Zwei Vorwegnahmen im Leitfaden: Schritt 3 gegen das Gespräch („nicht überrumpeln“), Schritt 4 gegen den Bedarf („läuft über Empfehlungen“ – häufigster Handwerker-Einwand).</p>
 `},
-"Schritt 5": {"ok": true, "html": `
-<p class=b><b>Hauptsatz (abgestimmt 28.10.):</b> „Sehr gut, dann lassen Sie uns gleich mal schauen, wann es passt. Wie sieht's bei Ihnen spontan morgen aus?“ – passt morgen nicht: „Okay, kein Problem. Und übermorgen, [Mittwoch]? [15 Uhr] passt bei mir gut.“</p>
-<p class=b><b>Termin heute oder morgen</b> – Julian: „am besten für den nächsten Tag, am allerbesten für den gleichen Tag“. Je weiter weg (3 Tage, eine Woche), desto öfter fällt er aus. „Ende Woche / Anfang nächster Woche“ ist zu weit.</p>
-<p class=b>Immer nur einen Tag weitergehen („Leitplanken“): morgen → übermorgen → in drei Tagen. Nie offen fragen „Wann passt es denn die Tage?“ – dann springt er gedanklich zwei Wochen weiter.</p>
-<p class=b>Nach jedem Ja sofort in den Kalender – nicht weiterreden oder weiter argumentieren, sonst kommt der nächste Einwand („Schicken Sie mal Unterlagen“).</p>
-<p class=b>Kein Widerspruch: Einen Tag vorgeben und eine Uhrzeit anbieten ist gut. Abgeraten wird nur von der alten Doppel-Alternativfrage als Trick.</p>
-<p class=b>❌ „Montag oder Dienstag, vormittags oder nachmittags?“ (wirkt manipulativ) · „… würde ich Ihnen gerne mal zeigen. Wann hätten Sie denn mal Zeit?“ · „Morgen? Ich hoffe, das klingt nicht so, als hätte ich nichts zu tun“ – denkt keiner.</p>
+"Schritt 5": {"ok": true,
+"say": `<p>Sehr gut, dann lassen Sie uns gleich mal schauen, wann es passt. Wie sieht's bei Ihnen spontan morgen aus?</p>
+<p>(Passt nicht) Okay, kein Problem. Und übermorgen, [Mittwoch]? [15 Uhr] passt bei mir gut.</p>
+<p>(Vormittags angerufen) Wie sieht's denn heute Nachmittag spontan bei Ihnen aus? [15 Uhr] passt bei mir gut.</p>
+<p>(Uhrzeit steht) Perfekt, dann am [Mittwoch] um [15 Uhr].</p>`,
+"html": `
+<p class=b><b>Termin heute oder morgen</b> – Julian: „am besten für den nächsten Tag, am allerbesten für den gleichen Tag“. Je weiter weg, desto öfter fällt er aus; vormittags angerufen → heute Nachmittag (fast 100 % Show-up).</p>
+<p class=b><b>Immer nur einen Tag weiter</b> („Leitplanken“): morgen → übermorgen → in drei Tagen. Nie offen fragen „Wann passt es denn die Tage?“ – dann springt er gedanklich zwei Wochen weiter.</p>
+<p class=b>Nach jedem Ja sofort in den Kalender – nicht weiterreden, sonst kommt der nächste Einwand („Schicken Sie mal Unterlagen“).</p>
+<p class=b>Einen Tag vorgeben und eine Uhrzeit anbieten ist gut. Abgeraten wird nur von der alten Doppel-Alternativfrage als Trick.</p>
+<p class=b>❌ „Ende Woche / Anfang nächster Woche“ (zu weit) · „Montag oder Dienstag, vormittags oder nachmittags?“ (wirkt manipulativ) · „… würde ich Ihnen gerne mal zeigen. Wann hätten Sie denn mal Zeit?“ · Sorge „Morgen? Klingt, als hätte ich nichts zu tun“ – denkt keiner.</p>
 <h4>🛡 Mini-Thema: Kein Termin greifbar („Diese Woche geht gar nichts“ · „Weiß ich noch nicht“ · „Hab den Kalender nicht da“)</h4>
 <p><b>Antwort:</b> „Kein Problem. Dann schicke ich Ihnen gleich zwei, drei Terminvorschläge per Mail – ich sag sie Ihnen kurz: [Montag 10 Uhr], [Dienstag 15 Uhr] oder [Mittwoch 9 Uhr]. Passt davon einer?“</p>
 <p class=b><b>Weiß er es immer noch nicht:</b> „Alles klar, dann halte ich Ihnen die drei frei, und Sie bestätigen mir einfach einen per Mail.“</p>
@@ -108,8 +112,6 @@ window.KERN = {
 <p class=b>3. Auch hier nah bleiben: früheste Vorschläge zuerst, nicht erst in zwei Wochen.</p>
 <p class=b>❌ „Dann melden Sie sich einfach, wenn's passt“ · „Ich ruf nächste Woche nochmal an“ – verschobener Termin = verlorener Termin. ❌ „Ich würde Ihnen dann mal Vorschläge schicken“ (Konjunktiv).</p>
 <p class=b>Anschauen: Nr. 428 @6:00 – Julian: Terminvorschläge per Mail, „damit wir es nicht ewig vor uns herschieben“ · <a href="https://youtu.be/aaWn8bLoCQg?t=360" target=_blank>▶ youtu.be/aaWn8bLoCQg @6:00</a></p>
-<h4>Alternativen</h4>
-<p class=b><b>Vormittags angerufen:</b> „Wie sieht's denn heute Nachmittag spontan bei Ihnen aus? 15 Uhr passt bei mir gut.“ – laut Julian fast 100 % Show-up.</p>
 <h4>Anschauen</h4>
 <p class=b>Nr. 19 @3:00 – warum heute oder morgen (Show-up nahe 100 %) · <a href="https://youtu.be/jAQ3TLbFTck?t=180" target=_blank>▶ youtu.be/jAQ3TLbFTck @3:00</a></p>
 <p class=b>Nr. 19 @5:00 – die Formulierung vorgesprochen: „Wie sieht's denn spontan morgen bei Ihnen aus?“ → „Und übermorgen?“ · <a href="https://youtu.be/jAQ3TLbFTck?t=300" target=_blank>▶ youtu.be/jAQ3TLbFTck @5:00</a></p>
@@ -117,18 +119,17 @@ window.KERN = {
 <p class=b>optional: Nr. 378 @16:01 – warum die Doppel-Alternativfrage manipulativ wirkt · <a href="https://youtu.be/vFE9yTOEaOs?t=961" target=_blank>▶ youtu.be/vFE9yTOEaOs @16:01</a></p>
 `},
 "Schritt 6": {"ok": false, "html": `
-<p class=b><b>Vorschlag, noch nicht abgestimmt.</b></p>
-<p class=b>Nach der Zusage nicht einfach verabschieden: Der letzte Eindruck bleibt am stärksten. Mit 2 Fragen wird der Termin für ihn wichtig.</p>
-<p class=b>Egal, was er antwortet: positiv bestätigen und den Termin relevant machen – „Das ist perfekt, genau das schauen wir uns am [Tag] an. Da dürfen Sie gespannt sein.“</p>
-<p class=b>Ob er erscheint, hängt am Gefühl, nicht nur an Argumenten: Das Gespräch soll angenehm sein, anders als die üblichen Anrufe.</p>
-<p class=b>Direkt nach dem Auflegen die Kalendereinladung als Bestätigung schicken.</p>
-<p class=b>❌ Nur „Ich schicke Ihnen gleich die Einladung, schöne Woche noch.“ · Tadeln („Ihre Seite ist ja etwas in die Jahre gekommen …“) · mehr als 2–3 Fragen.</p>
 <h4>Vorbereitungsfragen (Alternativen zu Frage 1 und 2)</h4>
 <p class=b>„Welche Art von Aufträgen wollen Sie gerne mehr haben?“ – er formuliert sein Ziel selbst. 🛠</p>
 <p class=b>„Wie finden neue Kunden Sie heute meistens – über Empfehlung, Google oder anders?“ 🛠</p>
 <p class=b>„Haben Sie ein paar Fotos von fertigen Projekten, die Sie mir vorher schicken können?“ – er investiert etwas, dann kommt er auch zum Termin. 🛠</p>
 <p class=b>„Gibt's eine Website, egal welche Branche, die Ihnen richtig gut gefällt?“ – lockerer als „Farb- und Bildwünsche“. 🛠</p>
 <p class=b>„Ist beim Termin noch jemand dabei, der mitentscheidet?“ – beugt „Muss ich erst mit meiner Frau besprechen“ vor. 🛠</p>
+<h4>Kernpunkte</h4><p class=b>Nach der Zusage nicht einfach verabschieden: Der letzte Eindruck bleibt am stärksten. Mit 2 Fragen wird der Termin für ihn wichtig.</p>
+<p class=b>Egal, was er antwortet: positiv bestätigen und den Termin relevant machen – „Das ist perfekt, genau das schauen wir uns am [Tag] an. Da dürfen Sie gespannt sein.“</p>
+<p class=b>Ob er erscheint, hängt am Gefühl, nicht nur an Argumenten: Das Gespräch soll angenehm sein, anders als die üblichen Anrufe.</p>
+<p class=b>Direkt nach dem Auflegen die Kalendereinladung als Bestätigung schicken.</p>
+<p class=b>❌ Nur „Ich schicke Ihnen gleich die Einladung, schöne Woche noch.“ · Tadeln („Ihre Seite ist ja etwas in die Jahre gekommen …“) · mehr als 2–3 Fragen.</p>
 <h4>Anschauen</h4>
 <p class=b>Nr. 46 @1:00 – falsch und richtig verabschieden, beides vorgesprochen · <a href="https://youtu.be/7BBajXnvH8g?t=60" target=_blank>▶ youtu.be/7BBajXnvH8g @1:00</a></p>
 <p class=b>Nr. 46 @2:00 – auf jede Antwort positiv bestätigen und den Termin relevant machen · <a href="https://youtu.be/7BBajXnvH8g?t=120" target=_blank>▶ youtu.be/7BBajXnvH8g @2:00</a></p>

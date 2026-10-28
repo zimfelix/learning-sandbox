@@ -245,7 +245,7 @@ function kernHtml(h){return h.replace(/<p class=b>❌/g,'<p class="b no">❌').s
 /* Ein Leitfaden-Schritt: Überschrift + gesprochene Sätze (Word) + Details (kern.js) */
 function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return h;
   const t=head.replace(/<[^>]+>/g,'').trim(),d=KR[Object.keys(KR).find(k=>t.startsWith(k))];
-  return head+(d?.ok?' <span class=chip>✅ abgeschlossen</span>':'')+`</h2><div class=say><div class=kh>Gesprochen</div>${body}</div>`
+  return head+(d?.ok?' <span class=chip>✅ abgeschlossen</span>':'')+`</h2><div class=say><div class=kh>Gesprochen${d?.say?' · neu, noch nicht in Word':''}</div>${d?.say||body}</div>`
    +(d?`<div class=kd>${kernHtml(d.html)}</div>`:'')}
 /* PDF: claude.ai blockiert direkte Links auf Dateien → Ansicht per PDF.js in der Seite, Download über die Freigabe „downloads“ */
 const PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
