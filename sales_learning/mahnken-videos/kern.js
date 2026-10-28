@@ -95,10 +95,6 @@ window.KERN = {
 <p class=b>Zwei Vorwegnahmen im Leitfaden: Schritt 3 gegen das Gespräch („nicht überrumpeln“), Schritt 4 gegen den Bedarf („läuft über Empfehlungen“ – häufigster Handwerker-Einwand).</p>
 `},
 "Schritt 5": {"ok": true,
-"say": `<p>Sehr gut, dann lassen Sie uns gleich mal schauen, wann es passt. Wie sieht's bei Ihnen spontan morgen aus?</p>
-<p>(Passt nicht) Okay, kein Problem. Und übermorgen, [Mittwoch]? [15 Uhr] passt bei mir gut.</p>
-<p>(Vormittags angerufen) Wie sieht's denn heute Nachmittag spontan bei Ihnen aus? [15 Uhr] passt bei mir gut.</p>
-<p>(Uhrzeit steht) Perfekt, dann am [Mittwoch] um [15 Uhr].</p>`,
 "html": `
 <p class=b><b>Termin heute oder morgen</b> – Julian: „am besten für den nächsten Tag, am allerbesten für den gleichen Tag“. Je weiter weg, desto öfter fällt er aus; vormittags angerufen → heute Nachmittag (fast 100 % Show-up).</p>
 <p class=b><b>Immer nur einen Tag weiter</b> („Leitplanken“): morgen → übermorgen → in drei Tagen. Nie offen fragen „Wann passt es denn die Tage?“ – dann springt er gedanklich zwei Wochen weiter.</p>
