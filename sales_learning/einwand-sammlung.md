@@ -94,7 +94,9 @@ Aufbau damit: **Reframing (Bedingung) → Ja → ③ Überleitung mit der Beding
 
 ## 6. Entwurf: Handwerker-Websites 🛠 (noch nicht abgestimmt)
 
-**Ausgangslage (Felix, 28.10.2026):** Angerufen werden nur Betriebe, die schon eine Website haben – meist veraltet, zeigt die Projekte nicht so, dass Besucher begeistert anfragen, teils technische Mängel (z. B. kein HTTPS → „Nicht sicher“). Darum gilt **Ersetzen statt Ergänzen**: Julian verkauft laufende Dienstleistungen (Telefonakquise, Recruiting) mit leicht sichtbarem Nutzen – bei einer Website (und später Software) ist der Vergleich mit dem Bestehenden der Normalfall. Ergänzung nur, wenn jemand wirklich rundum zufrieden ist. Aktueller Stand der Antworten: `mahnken-videos/einwaende.js` (die Tabelle unten ist der erste Entwurf).
+**Ausgangslage (Felix, 28.10.2026):** Angerufen werden nur Betriebe, die schon eine Website haben – meist veraltet, zeigt die Projekte nicht so, dass Besucher begeistert anfragen, teils technische Mängel (z. B. kein HTTPS → „Nicht sicher“). Darum gilt **Ersetzen statt Ergänzen**: Julian verkauft laufende Dienstleistungen (Telefonakquise, Recruiting) mit leicht sichtbarem Nutzen – bei einer Website (und später Software) ist der Vergleich mit dem Bestehenden der Normalfall. Ergänzung nur, wenn jemand wirklich rundum zufrieden ist.
+
+**Bestätigte Angebotsfakten (Felix, 28.10.2026):** Der Entwurf ist kostenlos. Gezahlt wird erst am Ende (nach Fertigstellung). Preis am Telefon nicht nennen, sondern im Termin in den ersten 10 Minuten. *Nicht bestätigt und deshalb nicht verwenden:* „Gefällt es nicht, kostet es nichts“. Aktueller Stand der Antworten: `mahnken-videos/einwaende.js` (die Tabelle unten ist der erste Entwurf).
 
 Grundform: **„Okay, das heißt nur, wenn [Bedingung] – nur dann macht es Sinn, dass wir kurz sprechen. Stimmt's?“** → Ja → **„Sehr gut, dann lassen Sie uns direkt schauen, wann es passt – dann zeige ich Ihnen, wie wir [Bedingung] für Sie hinbekommen. Wie sieht's spontan morgen aus?“**
 
