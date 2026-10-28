@@ -51,7 +51,7 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 .ib{border:0;background:none;padding:0 3px;font-size:12px;color:var(--mut);opacity:.75}.ib:hover{opacity:1}li.dl{opacity:.5}li.dl .tx{text-decoration:line-through}.edf{margin:4px 0}.edf textarea{width:100%;min-height:60px}.edf>*{margin-right:4px}.edf select,.edf input{padding:3px 6px}
 .it.du{opacity:.55}details.uu{margin:6px 0 0 4px;opacity:.6}details.uu summary{font-size:12px}.uk{white-space:nowrap}.uk input{vertical-align:-2px}
 .fd{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}.fd .pc{min-width:0;border:1px solid var(--line);border-radius:8px;padding:4px 6px}.fd .pc.own{border-color:var(--acc)}
-.fd .pn{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--mut)}.fd .pc.own .pn{color:var(--acc)}.fd .pk{font-size:12px;padding:3px 6px;border-width:1px}.fd .pk:has(input:disabled){cursor:default}.fd select{width:100%;padding:3px 4px;font-size:12px;margin-bottom:3px}.fd .pk.ro{font-weight:400;color:var(--mut);margin:0 0 3px}
+.fd .pn{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--mut)}.fd .pc.own .pn{color:var(--acc)}.fd .pk{font-size:12px;padding:3px 6px;border-width:1px}.fd .pk:has(input:disabled){cursor:default}.fd .cm{margin-top:4px;padding:4px 6px;border-radius:6px;background:var(--chip);font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.fd .cm.leer{background:none;color:var(--mut);padding:2px 0}.fd select{width:100%;padding:3px 4px;font-size:12px;margin-bottom:3px}.fd .pk.ro{font-weight:400;color:var(--mut);margin:0 0 3px}
 #ich{margin-left:auto;border:2px solid var(--acc);color:var(--acc);font-weight:600}
 .pk{display:flex;gap:7px;align-items:center;margin-top:5px;padding:5px 8px;border:2px solid var(--line);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}.pk input{width:17px;height:17px;margin:0;flex:none}
 .pw:has(input:checked){border-color:var(--rg);background:var(--rgb);color:var(--rg)}.pa:has(input:checked){border-color:var(--rw);background:var(--rwb);color:var(--rw)}.pg:has(input:checked){border-color:var(--acc);background:var(--w);color:var(--acc)}
@@ -170,7 +170,7 @@ async function connect(){
 function pCol(id,w){const own=w==ST.who,o=(colOf(w)||{})[id]||{};
  const cb=(k,on,l,c)=>`<label class="pk ${c}"><input type=checkbox${own?` data-${k}="${id}"`:' disabled'}${on?' checked':''}> ${l}</label>`;
  return `<div class="pc${own?' own':''}"><div class=pn>${PN[w]} (${w})${own?' · ich':''}</div>${cb('seen',o.seen,'👁 angeschaut','pw')}${cb('again',o.again,'🔁 nochmal','pa')}
- ${own?`<textarea data-cm="${id}" rows=2 placeholder="Kommentar …" aria-label="Kommentar ${PN[w]}">${esc(o.text||'')}</textarea>`:o.text?`<div class=oth>💬 ${esc(o.text)}</div>`:''}</div>`}
+ ${own?`<textarea data-cm="${id}" rows=2 placeholder="Kommentar …" aria-label="Kommentar ${PN[w]}">${esc(o.text||'')}</textarea>`:`<div class="cm${o.text?'':' leer'}">💬 ${o.text?esc(o.text):'kein Kommentar'}</div>`}</div>`}
 /* 💎 gemeinsam für beide, darunter je Person angeschaut / nochmal / Kommentar */
 function meCell(id){return `<td class=me><label class="pk pg"><input type=checkbox data-kern="${id}"${isKern(id)?' checked':''}> 💎 Kern-Video (für beide)</label><div class=fd>${WHO.map(w=>pCol(id,w)).join('')}</div></td>`}
 
