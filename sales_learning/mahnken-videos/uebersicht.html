@@ -45,7 +45,7 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 .kd{margin:10px 0 6px;font-size:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
 .ew{margin:36px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
 .ew .ewf{background:var(--rwb);border-left:3px solid var(--rw);border-radius:0 6px 6px 0;padding:6px 12px;margin:8px 0 12px;font-size:14px}
-.ew .ewf p{margin:2px 0}
+.ew .ewf p{margin:2px 0}.ew .ewf p.ewv{margin-left:22px;font-size:13px}.ew .ewf p.ewv.l{margin-left:44px;margin-top:0}
 .ewg{display:grid;grid-template-columns:minmax(0,1fr) 170px minmax(0,1.6fr);gap:0;font-size:14px}
 .ewg>.eh{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);padding:4px 8px;border-bottom:1px solid var(--line)}
 .ewg>.c{padding:8px;border-bottom:1px solid var(--line);min-width:0}
@@ -277,7 +277,7 @@ function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return 
 /* Einwand-Matrix (einwaende.js): links was er sagt → Mitte Kern → rechts ① Reframing bzw. Sonderweg, ② Zusatz */
 function ewHtml(){const E=window.EINWAENDE;if(!E)return'';
  const rows=E.rows.map(r=>{const x=r.x?' ex':'';return`<div class="c ews${x}">${r.sag.map(t=>`<span>„${esc(t)}“</span>`).join('')}</div><div class="c ewk${x}"><div>${esc(r.k)}${r.x?'<small>kein Reframing</small>':''}</div></div><div class="c ewa${x}"><p><b>${r.x?'→':'①'}</b> ${esc(r.a)}</p>${r.z?`<p><b>②</b> ${esc(r.z)}</p>`:''}<p class=q>${esc(r.q)}</p></div>`}).join('');
- return`<section class=ew><h2>🛡 Einwandbehandlung <span class=chip>Entwurf, noch nicht abgestimmt</span></h2><div class=ewf><p>${esc(E.formel)}</p><p>② Nur wenn nötig: ein Zusatz (Mini-Termin, Bleistifttermin, Worst-Case-Frage).</p><p>${esc(E.weiter)}</p></div>
+ return`<section class=ew><h2>🛡 Einwandbehandlung <span class=chip>Entwurf, noch nicht abgestimmt</span></h2><div class=ewf><p>${esc(E.formel)}</p>${(E.varianten||[]).map(([l,t])=>Array.isArray(t)?`<p class=ewv>↳ <b>${esc(l)}:</b></p>${t.map(x=>`<p class="ewv l">${esc(x)}</p>`).join('')}`:`<p class=ewv>↳ <b>${esc(l)}:</b> ${esc(t)}</p>`).join('')}<p>② Nur wenn nötig: ein Zusatz (Mini-Termin, Bleistifttermin, Worst-Case-Frage).</p><p>${esc(E.weiter)}</p></div>
  <div class=ewg><div class=eh>Das sagt er</div><div class=eh>Kern-Einwand</div><div class=eh>So reagierst du</div>${rows}</div>
  <div class=ewn><section class="ks ton"><h4>Ton</h4><p>${esc(E.ton)}</p></section><section class="ks kp"><h4>❌ So nicht</h4><p>${esc(E.no)}</p></section><section class="ks vid"><h4>Anschauen</h4>${E.videos.map(([t,u])=>`<p class=b>${esc(t)} · <a href="${u}" target=_blank>▶ ${u.replace('https://','').replace(/\?t=.*/,'')}</a></p>`).join('')}</section></div></section>`}
 /* kern.js-Einträge mit after: erscheinen nach diesem Schritt, solange Word die Überschrift noch nicht hat */

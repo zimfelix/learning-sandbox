@@ -3,6 +3,11 @@
 // q = Quellen, x = true → kein Reframing (Sonderweg). 🛠 = eigener Vorschlag. youtu.be-Links machen Videos zu 📌.
 window.EINWAENDE = {
 "formel": "① „Okay, das heißt nur, wenn [Lösung für genau sein Problem] – nur dann macht es Sinn, dass wir kurz sprechen. Stimmt's?“",
+"varianten": [
+ ["Einstieg", ["„Okay, das heißt nur, wenn …“", "„Okay, das heißt, unser Gespräch macht nur unter der Voraussetzung Sinn, wenn …“", "„Wenn ich Sie richtig verstehe, …“"]],
+ ["Schluss", ["„… nur dann macht es Sinn, dass wir kurz sprechen.“", "„… nur dann lohnt sich ein Vergleich für Sie.“"]],
+ ["Rückfrage", "„Stimmt's?“ · „Richtig?“ · „Oder?“ · „Habe ich Sie da richtig verstanden?“"]
+],
 "weiter": "③ Nach dem Ja: „Sehr gut, dann lassen Sie uns direkt schauen, wann es passt – dann zeige ich Ihnen, wie wir [die Bedingung] für Sie hinbekommen. Wie sieht's spontan morgen aus?“",
 "rows": [
 {"k": "Kein Bedarf", "sag": ["Kein Interesse, brauchen wir nicht", "Läuft gut bei uns", "Läuft alles über Empfehlungen", "Sind voll ausgelastet", "Haben genug Aufträge"],
