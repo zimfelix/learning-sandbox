@@ -74,7 +74,8 @@ window.KERN = {
 <p class=b><b>Bauplan:</b> „Ich gehe davon aus, dass [Haupteinwand ist schon erfüllt]. Die Frage ist: Wenn [Nutzen], sind Sie dann grundsätzlich offen …?“ – geschlossene Frage, auf die er kaum Nein sagen kann.</p>
 <p class=b><b>Nutzen:</b> konkret, wenn die Zielgruppe klar ist – sonst ein allgemeineres Bild als Nutzen („der perfekte Urlaub“ statt „ich bringe Sie in die Berge“).</p>
 <p class=b>Nutzen, nicht Lösung – das „Wie“ kommt im Termin. „Kurz drüber sprechen“ bewusst ohne Inhalt: niedrige Hürde, den Nutzen trägt der „Wenn …“-Teil.</p>
-<p class=b>Ein Kernthema pro Anruf, kein Bauchladen. <b>Bedarf wecken, nicht ermitteln:</b> keine Frage „Was müssten wir liefern, damit es interessant ist?“ – in umkämpften Märkten wie dem Handwerk bringt das nichts.</p>
+<p class=b>Ein Kernthema pro Anruf, kein Bauchladen. <b>Bedarf wecken, nicht ermitteln.</b></p>
+<p class=b>❌ <b>Nicht in der Kaltakquise:</b> „Was müssten wir liefern, damit es für Sie interessant ist?“ – Bedarf ermitteln gehört ins <b>Termingespräch</b>; am Telefon bringt es in umkämpften Märkten wie dem Handwerk nichts.</p>
 <p class=b>❌ Zahlen versprechen („5 Termine pro Woche“, „30 % mehr Umsatz“ – unglaubwürdig), unterstellen („attraktiver werden“, „bessere Außendarstellung“), offensichtliche Probleme aufzählen, offene Frage direkt danach, „kurzer Austausch“ ohne Nutzen, schmeicheln („Ihre Website empfiehlt Sie so gut wie Ihre Kunden“).</p>
 <h4>🛡 Mini-Thema: Rückfrage („Wie machen Sie das?“ · „Was kostet das?“)</h4>
 <p><b>Antwort:</b> „Das zeige ich Ihnen gerne im Termin – ich bringe einen kostenlosen Entwurf für Ihre Seite mit, und Sie bekommen direkt einen transparenten Preis. Wie sieht's bei Ihnen spontan morgen aus?“ 🛠</p>
