@@ -92,13 +92,21 @@ window.KERN = {
 <p class=b>Nr. 102 @6:00 – derselbe Satz zu schnell und monoton gesprochen – so nicht · <a href="https://youtu.be/tUqyROcnFtE?t=360" target=_blank>▶ youtu.be/tUqyROcnFtE @6:00</a></p>
 <p class=b>Nr. 94 @11:01 – Julian erklärt seinen Nutzensatz Wort für Wort (Vorwegnahme, offen statt Zahlen, wann es nicht reicht) · <a href="https://youtu.be/wz-Tvv5y3NY?t=661" target=_blank>▶ youtu.be/wz-Tvv5y3NY @11:01</a></p>
 `},
-"Schritt 5": {"ok": false, "html": `
-<p class=b><b>Vorschlag, noch nicht abgestimmt.</b> Neuer Hauptsatz für Word: „Sehr gut, dann lassen Sie uns gleich mal schauen, wann es passt. Wie sieht's bei Ihnen spontan morgen aus?“ – passt morgen nicht: „Okay, kein Problem. Und übermorgen, [Mittwoch]? [15 Uhr] passt bei mir gut.“</p>
+"Schritt 5": {"ok": true, "html": `
+<p class=b><b>Hauptsatz (abgestimmt 28.10.):</b> „Sehr gut, dann lassen Sie uns gleich mal schauen, wann es passt. Wie sieht's bei Ihnen spontan morgen aus?“ – passt morgen nicht: „Okay, kein Problem. Und übermorgen, [Mittwoch]? [15 Uhr] passt bei mir gut.“</p>
 <p class=b><b>Termin heute oder morgen</b> – Julian: „am besten für den nächsten Tag, am allerbesten für den gleichen Tag“. Je weiter weg (3 Tage, eine Woche), desto öfter fällt er aus. „Ende Woche / Anfang nächster Woche“ ist zu weit.</p>
 <p class=b>Immer nur einen Tag weitergehen („Leitplanken“): morgen → übermorgen → in drei Tagen. Nie offen fragen „Wann passt es denn die Tage?“ – dann springt er gedanklich zwei Wochen weiter.</p>
 <p class=b>Nach jedem Ja sofort in den Kalender – nicht weiterreden oder weiter argumentieren, sonst kommt der nächste Einwand („Schicken Sie mal Unterlagen“).</p>
 <p class=b>Kein Widerspruch: Einen Tag vorgeben und eine Uhrzeit anbieten ist gut. Abgeraten wird nur von der alten Doppel-Alternativfrage als Trick.</p>
 <p class=b>❌ „Montag oder Dienstag, vormittags oder nachmittags?“ (wirkt manipulativ) · „… würde ich Ihnen gerne mal zeigen. Wann hätten Sie denn mal Zeit?“ · „Morgen? Ich hoffe, das klingt nicht so, als hätte ich nichts zu tun“ – denkt keiner.</p>
+<h4>🛡 Mini-Thema: Kein Termin greifbar („Diese Woche geht gar nichts“ · „Weiß ich noch nicht“ · „Hab den Kalender nicht da“)</h4>
+<p><b>Antwort:</b> „Kein Problem. Dann schicke ich Ihnen gleich zwei, drei Terminvorschläge per Mail – ich sag sie Ihnen kurz: [Montag 10 Uhr], [Dienstag 15 Uhr] oder [Mittwoch 9 Uhr]. Passt davon einer?“</p>
+<p class=b><b>Weiß er es immer noch nicht:</b> „Alles klar, dann halte ich Ihnen die drei frei, und Sie bestätigen mir einfach einen per Mail.“</p>
+<p class=b>1. Nur der Worst Case – erst morgen und übermorgen versuchen.</p>
+<p class=b>2. Vorschläge am Telefon vorlesen, er entscheidet sofort; die Mail ist nur die Bestätigung.</p>
+<p class=b>3. Auch hier nah bleiben: früheste Vorschläge zuerst, nicht erst in zwei Wochen.</p>
+<p class=b>❌ „Dann melden Sie sich einfach, wenn's passt“ · „Ich ruf nächste Woche nochmal an“ – verschobener Termin = verlorener Termin. ❌ „Ich würde Ihnen dann mal Vorschläge schicken“ (Konjunktiv).</p>
+<p class=b>Anschauen: Nr. 428 @6:00 – Julian: Terminvorschläge per Mail, „damit wir es nicht ewig vor uns herschieben“ · <a href="https://youtu.be/aaWn8bLoCQg?t=360" target=_blank>▶ youtu.be/aaWn8bLoCQg @6:00</a></p>
 <h4>Alternativen</h4>
 <p class=b><b>Vormittags angerufen:</b> „Wie sieht's denn heute Nachmittag spontan bei Ihnen aus? 15 Uhr passt bei mir gut.“ – laut Julian fast 100 % Show-up.</p>
 <h4>Anschauen</h4>
