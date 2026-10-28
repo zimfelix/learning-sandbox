@@ -117,6 +117,8 @@ Grundform: **„Okay, das heißt nur, wenn [Bedingung] – nur dann macht es Sin
 
 ## 7. Offen
 
+- [ ] 💡 **Notiz für später (Felix, 28.10.2026):** Die Wie-Frage-Technik aus Nr. 18 @5:01 – Frage nicht beantworten, sondern als Überleitung nutzen („Ja, ist eine gute Frage, will ich Ihnen gerne im Detail erklären. Wie sieht's denn bei Ihnen aus, morgen am Vormittag oder ein bisschen später am Tag? Dann zeige ich es Ihnen mal.“) – allgemein auf Rückfragen anwenden, evtl. auch auf die Preisfrage, z. B. „Gute Frage – den Preis sage ich Ihnen gerne genau, gleich in den ersten 10 Minuten. Wie sieht's morgen aus?“ 🛠. Steht für „Wie machen Sie das?“ schon in Schritt 4 (Mini-Thema Rückfrage, Zeile „Kurz“); offen ist nur die Übertragung auf Preis und andere Rückfragen.
+
 - [x] Die 10 Videos „🗣 Ton & Stimme“ durchgesehen (Nr. 16, 27, 40, 94, 102, 427 neu; liefern vor allem Ton, Vorwegnahme und Sekretärin-Sätze).
 - [ ] Kern-Einwände auf Websites/Handwerk zuschneiden und je Kern 1–2 Behandlungen auswählen.
 - [ ] Dreier-Grafik auf der Seite bauen (links Formulierungen, Mitte Kern, rechts Behandlung).
