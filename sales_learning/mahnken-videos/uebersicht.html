@@ -38,11 +38,13 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 .gem{font-size:12px;font-weight:600;color:var(--acc)}.why{font-size:12px;color:var(--mut)}
 .leg{font-size:12px;color:var(--mut);margin-top:6px;display:flex;gap:14px;flex-wrap:wrap}.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
 .mode{font-size:12px;color:var(--mut)}.mode.err{color:var(--rr)}
-.thm{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}.thm button{padding:3px 8px;font-size:12px}.thm .seen{margin:0 0 0 6px}.lf{max-width:860px;font-size:15px;line-height:1.55}.lf h1{font-size:22px;margin:8px 0}.lf h2{font-size:19px;margin:28px 0 6px;padding-top:12px;border-top:1px solid var(--line)}.lf h3{font-size:15px;margin:16px 0 4px;color:var(--mut)}.lf p{margin:4px 0}.lf p.b{margin-left:18px;text-indent:-12px}.lf p.b::before{content:"• "}
+.thm{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}.thm button{padding:3px 8px;font-size:12px}.thm .seen{margin:0 0 0 6px}.lf{font-size:15px;line-height:1.55}.lf h1{font-size:22px;margin:8px 0}.lf h2{font-size:19px;margin:28px 0 6px;padding-top:12px;border-top:1px solid var(--line)}.lf h3{font-size:15px;margin:16px 0 4px;color:var(--mut)}.lf p{margin:4px 0}.lf p.b{margin-left:18px;text-indent:-12px}.lf p.b::before{content:"• "}
 .kh{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
 /* Leitfaden: gesprochene Sätze (grün) und Details, je Überschrift ein farbiger Block */
 .say{border-left:3px solid var(--t);background:var(--rgb);padding:6px 12px;margin:8px 0;border-radius:0 6px 6px 0}.say .kh{color:var(--t)}
-.kd{margin:10px 0 6px;font-size:14px}
+.kd{margin:10px 0 6px;font-size:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
+.kcol{display:flex;flex-direction:column;gap:8px;min-width:0}.kd .ks{margin:0}
+@media(max-width:900px){.kd{grid-template-columns:1fr}}
 .ks{--c:var(--mut);--cb:var(--head);border-left:3px solid var(--c);background:var(--cb);padding:4px 12px 6px;margin:6px 0;border-radius:0 6px 6px 0}
 .ks h4{margin:4px 0 2px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--c)}
 .ks.kp{--c:var(--fg)}.ks.mini{--c:var(--ry);--cb:var(--ryb)}.ks.ton{--c:var(--a);--cb:var(--ab)}.ks.alt{--c:var(--rw);--cb:var(--rwb)}
@@ -239,14 +241,21 @@ function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};let
  $('out').innerHTML=h+(n?'':'<p class=tag>Keine offenen Learnings für diese Auswahl.</p>');$('cnt').textContent=`· angezeigt: ${n} Learnings${hid?` (${hid} umgesetzte ausgeblendet)`:''}`}
 /* Details gliedern: je <h4> ein Block, Farbe nach Überschrift; Text vor der ersten <h4> = Kernpunkte; ❌-Zeilen rot */
 const KS=[['Kernpunkte','kp'],['Notiz','vid'],['Mini-Thema','mini'],['Reaktion','mini'],['Vorbereitungsfragen','mini'],['Ton','ton'],['Anschauen','vid'],['Alternative','alt']];
-function kernHtml(h){return h.replace(/<p class=b>❌/g,'<p class="b no">❌').split(/(?=<h4>)/).filter(s=>s.trim()).map(s=>{
+function kernHtml(h){const S=h.replace(/<p class=b>❌/g,'<p class="b no">❌').split(/(?=<h4>)/).filter(s=>s.trim()).map(s=>{
   const t=s.match(/^\s*<h4>(.*?)<\/h4>/s)?.[1]||'',c=t?(KS.find(([w])=>t.includes(w))?.[1]||'alt'):'kp';
-  return `<section class="ks ${c}">${t?'':'<h4>Kernpunkte</h4>'}${s}</section>`}).join('')}
+  return{t,c,h:`<section class="ks ${c}">${t?'':'<h4>Kernpunkte</h4>'}${s}</section>`}});
+  /* Spalten: links Kernpunkte/Notiz · Mitte Alternativen/Ton · rechts Mini-Thema, sonst Anschauen.
+     Mit Mini-Thema steht Anschauen unter den Kernpunkten – außer die Mitte wäre leer, dann dort. */
+  const isA=x=>x.t.includes('Anschauen'),mini=S.some(x=>x.c=='mini'),mid=S.some(x=>!isA(x)&&(x.c=='alt'||x.c=='ton')),col=[[],[],[]];
+  S.forEach(x=>col[x.c=='kp'||x.t.includes('Notiz')?0:x.c=='mini'?2:isA(x)?(!mini?2:mid?0:1):1].push(x.h));
+  return col.map(c=>`<div class=kcol>${c.join('')}</div>`).join('')}
 /* Ein Leitfaden-Schritt: Überschrift + gesprochene Sätze (Word) + Details (kern.js) */
 function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return h;
   const t=head.replace(/<[^>]+>/g,'').trim(),d=KR[Object.keys(KR).find(k=>t.startsWith(k))];
   return head+(d?.ok?' <span class=chip>✅ abgeschlossen</span>':'')+`</h2><div class=say><div class=kh>Gesprochen${d?.say?' · neu, noch nicht in Word':''}</div>${d?.say||body}</div>`
    +(d?`<div class=kd>${kernHtml(d.html)}</div>`:'')}
+/* kern.js-Einträge mit after: erscheinen nach diesem Schritt, solange Word die Überschrift noch nicht hat */
+const lfExtra=h=>{const t=h.replace(/<[^>]+>/g,'').trim();return Object.entries(KR).filter(([k,v])=>v.after&&t.startsWith(v.after)&&!LFH.includes('<h2>'+k)).map(([k])=>lfStep(`<h2>${k}</h2>`)).join('')};
 /* PDF: claude.ai blockiert direkte Links auf Dateien → Ansicht per PDF.js in der Seite, Download über die Freigabe „downloads“ */
 const PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
 const loadScript=src=>new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s)});
@@ -261,7 +270,7 @@ async function pdfSave(btn){try{const dl=await claude.use('downloads');if(!dl)th
   await dl.save({filename:'Leitfaden.pdf',data:new Blob([await pdfData()])})}
  catch(e){if(e?.code!='declined')btn.textContent='Download hier nicht möglich'}}
 function leitfaden(){
- $('out').innerHTML=`<div class=lf>${window.LEITFADEN_PDF?`<p class=dl>${LOCAL?'<a href="leitfaden.pdf" target=_blank>📄 Leitfaden-PDF öffnen</a>':'<button data-pdfv>📄 PDF ansehen</button> <button data-pdfd>⬇️ PDF herunterladen</button>'} <span class=tag>Stand ${fdt(window.LEITFADEN_STAND)||'–'}</span></p><div id=pdfbox class=pdfbox></div>`:''}${LFH?LFH.split(/(?=<h2>)/).map(lfStep).join(''):'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
+ $('out').innerHTML=`<div class=lf>${window.LEITFADEN_PDF?`<p class=dl>${LOCAL?'<a href="leitfaden.pdf" target=_blank>📄 Leitfaden-PDF öffnen</a>':'<button data-pdfv>📄 PDF ansehen</button> <button data-pdfd>⬇️ PDF herunterladen</button>'} <span class=tag>Stand ${fdt(window.LEITFADEN_STAND)||'–'}</span></p><div id=pdfbox class=pdfbox></div>`:''}${LFH?LFH.split(/(?=<h2>)/).map(h=>lfStep(h)+lfExtra(h)).join(''):'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
 function r(){const v=view=='videos',l=view=='leitfaden';['v1','v2','v3'].forEach((b,i)=>$(b).classList.toggle('on',view==['videos','sammlung','leitfaden'][i]));
  ['cp'].forEach(i=>$(i).style.display=v?'':'none');['q','ph','thm'].forEach(i=>$(i).style.display=l?'none':'');$('f').style.display=v&&ALL?'':'none';stats();thBar();v?videos():l?leitfaden():sammlung()}
 $('thm').onclick=e=>{const b=e.target.closest('button');if(!b)return;const{th,mk}=b.dataset;
