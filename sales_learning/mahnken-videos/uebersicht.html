@@ -45,7 +45,7 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 .kd{margin:10px 0 6px;font-size:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
 .ew{margin:36px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
 .ew .ewf{background:var(--rwb);border-left:3px solid var(--rw);border-radius:0 6px 6px 0;padding:6px 12px;margin:8px 0 12px;font-size:14px}
-.ew .ewf p{margin:2px 0}.ew .ewf p.ewv{margin-left:22px;font-size:13px}.ew .ewf p.ewv.l{margin-left:44px;margin-top:0}
+.ew .ewf p{margin:2px 0}.ew .ewf.ewend{margin:12px 0}.ew .ewf p.ewv{margin-left:22px;font-size:13px}.ew .ewf p.ewv.l{margin-left:44px;margin-top:0}
 .ewg{display:grid;grid-template-columns:minmax(0,.75fr) 150px minmax(0,2.4fr);gap:0;font-size:14px}
 .ewg>.eh{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);padding:4px 8px;border-bottom:1px solid var(--line)}
 .ewg>.c{padding:5px 8px;border-bottom:1px solid var(--line);min-width:0}
@@ -66,12 +66,22 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 details.ewr{border-bottom:1px solid var(--line)}
 details.ewr>summary{list-style:none;cursor:pointer;padding:6px 8px}
 details.ewr>summary::-webkit-details-marker{display:none}
-details.ewr>summary .ews::before{content:"▸ ";color:var(--mut)}details.ewr[open]>summary .ews::before{content:"▾ "}
+details.ewr>summary .ewk::before{content:"▸ ";color:var(--mut);font-weight:400}details.ewr[open]>summary .ewk::before{content:"▾ "}.ewl .ews .sl{display:block;font-size:13px;line-height:1.35;color:var(--fg)}
 details.ewr[open]{background:var(--head)}
 .ewl .ewk{font-weight:600;color:var(--acc)}.ewl .ewk small{display:block;font-weight:400;font-size:11px;color:var(--mut)}.ewl .ewk small.op{color:var(--ry)}.ewl .ewk small.lv{color:var(--k)}
 .ewl .more{font-size:11px;color:var(--mut);background:var(--chip);border-radius:8px;padding:0 6px}
 .ewb{padding:0 8px 8px;font-size:13px}.ewb .ews div{margin:2px 0 0 14px}.ewb p{margin:3px 0}.ewb .q{font-size:12px;color:var(--mut)}.ewb .lvp{color:var(--fg)}
-.ewtool{margin:4px 0}.ewtool button{font-size:13px;padding:3px 10px}
+.ew .ewr{border-bottom:1px solid var(--line);padding:6px 8px;cursor:pointer}.ew .ewr:hover{background:var(--head)}.ew .ewr.open{background:var(--head)}
+.ew .ewr:has(+.ewsep){border-bottom:0}
+.ew .xs,.ew .xz,.ew .xq{display:none}.ew .ewl .ews .sl.xs{display:none}
+.ew.t-sag .ewl .ews .sl.xs,.ew .ewl .ewr.open .ews .sl.xs{display:block}.ew.t-sag .ms,.ew .ewr.open .ms{display:none}
+.ew .ewl .ews{counter-reset:s}.ew.t-sag .ewl .ews .sl::before,.ew .ewl .ewr.open .ews .sl::before{counter-increment:s;content:counter(s) ". ";color:var(--mut)}
+.ew .ewl .ewa .xz,.ew .ewl .ewa .xz b{color:var(--mut)}
+.ew.t-z .xz,.ew .ewr.open .xz{display:block}
+.ew.t-q .xq,.ew .ewr.open .xq{display:block}
+.ewl .ewk small.cnt{color:var(--mut)}.ew.t-z .ewk small.cnt{display:none}
+.ewtool button.on{border-color:var(--acc);color:var(--acc)}
+.ewl .ewa .sub{display:block;margin:0 0 4px}.ewl .ewa .st{margin:0 0 4px}.ewl .ewa .stn{display:inline-block;min-width:18px;text-align:center;font-size:11px;font-weight:700;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:9px;padding:0 5px}.ewl .ewk .cat{display:inline-block;font-size:11px;font-weight:600;color:var(--rw);background:var(--rwb);border-radius:8px;padding:0 6px;margin-left:2px}.ewl .ewa .sub i{color:var(--mut)}.ewtool{margin:4px 0}.ewtool button{font-size:13px;padding:3px 10px}
 @media(max-width:900px){.ewgr{grid-template-columns:1fr}.ewhd{display:none}}
 .kcol{display:flex;flex-direction:column;gap:8px;min-width:0}.kd .ks{margin:0}
 @media(max-width:900px){.kd{grid-template-columns:1fr}}
@@ -291,18 +301,24 @@ function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return 
    +(d?`<div class=kd>${kernHtml(d.html)}</div>`:'')}
 /* Einwand-Matrix (einwaende.js): links was er sagt (aufklappbar) → Mitte Kern → rechts ① Reframing, ② Zusatz (aufklappbar), Quellen als Links */
 const ewQ=q=>esc(q).replace(/Nr\. (\d+)(?: @(\d+):(\d+))?/g,(m,n,mi,se)=>{const v=D.find(d=>d.n==+n);return v?`<a href="https://youtu.be/${v.id}${mi?'?t='+(mi*60+ +se):''}" target=_blank>${m}</a>`:m});
+let EWT={sag:false,z:false,q:false};try{EWT={...EWT,...JSON.parse(localStorage.getItem('ewt')||'{}')}}catch(e){}
 function ewHtml(){const E=window.EINWAENDE;if(!E)return'';
- const row=r=>{const[f,...rest]=r.sag;
-  return`<details class=ewr><summary class=ewgr><span class=ews>„${esc(f)}“${rest.length?` <span class=more>+${rest.length}</span>`:''}</span><span class=ewk>${esc(r.k)}${r.o?`<small class=op>⏳ ${esc(r.o)}</small>`:''}</span><span class=ewa><b>①</b> ${esc(r.a)}</span></summary>
-  <div class="ewgr ewb"><div class=ews>${rest.map(t=>`<div>„${esc(t)}“</div>`).join('')}</div><div></div><div class=ewa>${r.b?`<p><b>② ${esc(r.bt||'Zusatz')}:</b> ${esc(r.b)}</p>`:''}<p class=q>${ewQ(r.q)}</p></div></div></details>`};
+ const row=r=>{const[f,...rest]=r.sag,ex=[...(r.b?[[r.bt||'Zusatz',r.b]]:[]),...(r.ex||[])];
+  return`<div class=ewr><div class=ewgr><div class=ews><span class=sl>„${esc(f)}“</span>${rest.map(t=>`<span class="sl xs">„${esc(t)}“</span>`).join('')}${rest.length?`<span class="more ms">+${rest.length}</span>`:''}</div>
+  <div class=ewk>${esc(r.k)}${r.o?`<small class=op>⏳ ${esc(r.o)}</small>`:''}${ex.length?`<small class="cnt">${ex.length}× ②</small>`:''}</div>
+  <div class=ewa>${r.steps?r.steps.map(([l,x],i)=>`<p class=st><b>①</b> <b>${esc(l)}:</b> ${esc(x)}</p>`).join(''):`<p><b>①</b> ${esc(r.a).replace(/\n/g,'<br>')}</p>`}${ex.map(([l,x])=>`<p class=xz><b>② ${esc(l)}:</b> ${esc(x).replace(/\n/g,'<br>')}</p>`).join('')}<p class="q xq">📎 ${ewQ(r.q)}</p></div></div></div>`};
  const vars=(E.varianten||[]).map(([l,t])=>Array.isArray(t)?`<p class=ewv>↳ <b>${esc(l)}:</b></p>${t.map(x=>`<p class="ewv l">${esc(x)}</p>`).join('')}`:`<p class=ewv>↳ <b>${esc(l)}:</b> ${esc(t)}</p>`).join('');
  const H=E.rows.filter(r=>r.g!='neben'),N2=E.rows.filter(r=>r.g=='neben');
- return`<section class=ew><h2>🛡 Einwandbehandlung <span class=chip>Entwurf, noch nicht abgestimmt</span></h2><div class=ewf><p>${esc(E.formel)}</p>${vars}<p>② Nur wenn nötig: ein zweiter Satz – <b>Alternative</b> (statt ①, andere Lage) oder <b>Zusatz</b> (nach ①).</p><p>${esc(E.weiter)}</p>${E.kette?`<p>🔁 ${esc(E.kette)}</p>`:''}${E.rueck?`<p>❓ ${esc(E.rueck)}</p>`:''}${E.merk?`<p>💡 ${esc(E.merk)}</p>`:''}</div>
- <div class=ewtool><button type=button data-ewall>Alle aufklappen</button> <span class=tag>Klick auf eine Zeile zeigt ②, weitere Sätze und Quellen</span></div>
+ return`<section class="ew${Object.keys(EWT).filter(k=>EWT[k]).map(k=>' t-'+k).join('')}"><h2>🛡 Einwandbehandlung <span class=chip>Entwurf, noch nicht abgestimmt</span></h2><div class=ewf><p>${esc(E.formel)}</p>${vars}<p>② Nur wenn nötig: ein zweiter Satz – <b>Alternative</b> (statt ①, andere Lage) oder <b>Zusatz</b> (nach ①).</p>${E.kette?`<p>🔁 ${esc(E.kette)}</p>`:''}${E.rueck?`<p>❓ ${esc(E.rueck)}</p>`:''}${E.merk?`<p>💡 ${esc(E.merk)}</p>`:''}</div>
+ <div class=ewtool>${[['sag','💬 Alle Kundensätze'],['z','② Alle Zusätze'],['q','📎 Alle Quellen']].map(([k,l])=>`<button type=button data-ewt=${k}${EWT[k]?' class=on':''}>${l}</button>`).join(' ')} <span class=tag>Klick auf eine Zeile klappt nur diese auf</span></div>
  <div class=ewl><div class="ewgr ewhd"><span>Das sagt er</span><span>Kern-Einwand</span><span>① So reagierst du</span></div>
  <div class=ewgp>Haupt-Einwände</div>${H.map(row).join('')}<div class="ewgp ewsep">Weitere Einwände</div>${N2.map(row).join('')}</div>
+ <div class="ewf ewend"><p><b>Abschluss nach jedem Ja</b></p><p>${esc(E.weiter)}</p></div>
  <div class=ewn><section class="ks ton"><h4>Ton</h4><p>${esc(E.ton)}</p></section><section class="ks kp"><h4>❌ So nicht</h4><p>${esc(E.no)}</p></section><section class="ks vid"><h4>Anschauen</h4>${E.videos.map(([t,u])=>`<p class=b>${esc(t)} · <a href="${u}" target=_blank>▶ ${u.replace('https://','').replace(/\?t=.*/,'')}</a></p>`).join('')}</section></div></section>`}
-document.addEventListener('click',e=>{const b=e.target.closest('[data-ewall]');if(!b)return;const ds=[...document.querySelectorAll('.ew details.ewr')],op=!ds.every(d=>d.open);ds.forEach(d=>d.open=op);b.textContent=op?'Alle zuklappen':'Alle aufklappen'});
+/* Schalter der Einwand-Matrix: Kundensätze / Zusätze / Quellen; Zustand je Browser gemerkt */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-ewt]');if(b){const k=b.dataset.ewt;EWT[k]=!EWT[k];try{localStorage.setItem('ewt',JSON.stringify(EWT))}catch(x){}
+  b.classList.toggle('on',EWT[k]);b.closest('.ew').classList.toggle('t-'+k,EWT[k]);return}
+ const r=e.target.closest('.ew .ewr');if(r&&!e.target.closest('a'))r.classList.toggle('open')});
 /* kern.js-Einträge mit after: erscheinen nach diesem Schritt, solange Word die Überschrift noch nicht hat */
 const lfExtra=h=>{const t=h.replace(/<[^>]+>/g,'').trim();return Object.entries(KR).filter(([k,v])=>v.after&&t.startsWith(v.after)&&!LFH.includes('<h2>'+k)).map(([k])=>lfStep(`<h2>${k}</h2>`)).join('')};
 /* PDF: claude.ai blockiert direkte Links auf Dateien → Ansicht per PDF.js in der Seite, Download über die Freigabe „downloads“ */

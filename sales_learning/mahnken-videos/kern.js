@@ -76,7 +76,7 @@ window.KERN = {
 <h4>Ton</h4>
 <p class=b>Höchstens zwei Sätze, ruhig und nicht monoton.</p>
 <h4>🛡 Mini-Thema: Rückfrage („Wie machen Sie das?“ · „Was kostet das?“)</h4>
-<p><b>Antwort:</b> „Das zeige ich Ihnen gerne im Termin – ich bringe einen kostenlosen Entwurf für Ihre Seite mit, und den Preis sage ich Ihnen gleich in den ersten 10 Minuten. Passt er nicht, beenden wir das Gespräch einfach. Wie sieht's bei Ihnen spontan morgen aus?“ 🛠 (Felix)</p>
+<p><b>Antwort:</b> „Das zeige ich Ihnen gerne im Termin – ich bringe einen kostenlosen Entwurf für Ihre Seite mit, und den Preis sage ich Ihnen in den ersten 10 Minuten – passt er nicht, sagen Sie einfach Nein. Wie sieht's bei Ihnen spontan morgen aus?“ 🛠 (Felix)</p>
 <p class=b><b>Kurz, nur bei „Wie machen Sie das?“:</b> „Gute Frage – das zeige ich Ihnen gerne im Detail. Wie sieht's bei Ihnen spontan morgen aus?“</p>
 <p class=b>1. Rückfrage = Interesse → nicht erklären, sofort Schritt 5.</p>
 <p class=b>2. Preis aufgreifen, aber keine Zahl am Telefon.</p>
