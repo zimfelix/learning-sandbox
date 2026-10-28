@@ -19,7 +19,7 @@ th{position:sticky;top:0;background:var(--head);text-align:left;font-size:12px;f
 td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 td.n,td.m{color:var(--mut);white-space:nowrap;text-align:right;width:1%;font-variant-numeric:tabular-nums}
 td.tit{width:24%}td.tg{width:12%;font-size:13px}td.tr{width:1%;white-space:nowrap;font-size:13px}td.wa{width:14%;font-size:13px}td.ev{font-size:13px}
-td.me{width:20%;min-width:300px;font-size:13px}td.me select{width:100%;padding:4px 6px}td.me textarea{width:100%;margin-top:4px;resize:vertical;min-height:32px;font-size:13px}
+td.me{width:20%;min-width:300px;font-size:13px}td.me select{width:100%;padding:4px 6px}td.me textarea{width:100%;margin-top:4px;resize:vertical;min-height:32px;font-size:13px}td.me textarea.gcm{display:block;margin-top:6px;min-height:84px;line-height:1.4}.gmeta{font-size:11px;color:var(--mut);margin-top:2px}
 .seen{display:flex;gap:6px;align-items:center;margin-top:4px;color:var(--mut)}.seen input{margin:0}
 .oth{margin-top:4px;font-size:12px;color:var(--mut)}.oth b{color:var(--fg);font-weight:600}
 a{color:var(--fg);text-decoration:none}a:hover{color:var(--acc)}.mut{color:var(--mut)}.tag{font-size:12px;color:var(--mut)}
@@ -43,6 +43,21 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 /* Leitfaden: gesprochene Sätze (grün) und Details, je Überschrift ein farbiger Block */
 .say{border-left:3px solid var(--t);background:var(--rgb);padding:6px 12px;margin:8px 0;border-radius:0 6px 6px 0}.say .kh{color:var(--t)}
 .kd{margin:10px 0 6px;font-size:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
+.ew{margin:36px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
+.ew .ewf{background:var(--rwb);border-left:3px solid var(--rw);border-radius:0 6px 6px 0;padding:6px 12px;margin:8px 0 12px;font-size:14px}
+.ew .ewf p{margin:2px 0}
+.ewg{display:grid;grid-template-columns:minmax(0,1fr) 170px minmax(0,1.6fr);gap:0;font-size:14px}
+.ewg>.eh{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);padding:4px 8px;border-bottom:1px solid var(--line)}
+.ewg>.c{padding:8px;border-bottom:1px solid var(--line);min-width:0}
+.ewg .ews span{display:inline-block;background:var(--chip);border-radius:12px;padding:2px 9px;margin:2px 3px 2px 0;font-size:13px}
+.ewg .ewk{display:flex;align-items:center;gap:6px;font-weight:600;color:var(--acc)}
+.ewg .ewk::before,.ewg .ewk::after{content:"→";color:var(--mut);font-weight:400}
+.ewg .ewk small{display:block;font-weight:400;font-size:11px;color:var(--mut)}
+.ewg .ewa p{margin:2px 0}
+.ewg .ewa .q{font-size:12px;color:var(--mut)}
+.ewg .ex{background:var(--ryb)}
+.ew .ewn{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px;font-size:14px}
+@media(max-width:900px){.ewg{grid-template-columns:1fr}.ewg>.eh{display:none}.ewg .ewk::before{content:none}.ewg>.c{border-bottom:0;padding:4px 8px}.ewg .ewa{border-bottom:1px solid var(--line)!important;padding-bottom:10px}.ew .ewn{grid-template-columns:1fr}}
 .kcol{display:flex;flex-direction:column;gap:8px;min-width:0}.kd .ks{margin:0}
 @media(max-width:900px){.kd{grid-template-columns:1fr}}
 .ks{--c:var(--mut);--cb:var(--head);border-left:3px solid var(--c);background:var(--cb);padding:4px 12px 6px;margin:6px 0;border-radius:0 6px 6px 0}
@@ -83,13 +98,13 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
  <div class=leg><span class=mode id=mode>Bewertungen werden geladen …</span></div>
 </div>
 <div id=out></div>
-<script src="videos.js"></script><script src="notes.js"></script><script src="dates.js"></script><script src="auswahl.js"></script><script src="leitfaden.js"></script><script src="kern.js"></script>
+<script src="videos.js"></script><script src="notes.js"></script><script src="dates.js"></script><script src="auswahl.js"></script><script src="leitfaden.js"></script><script src="kern.js"></script><script src="einwaende.js"></script>
 <script>
 const D=window.VIDEOS,N=window.NOTES||{},DT=window.DATES||{},AW=window.AUSWAHL||{},$=id=>document.getElementById(id);
 const LOCAL=location.protocol=='file:';
 /* Leitfaden: Quelle ist sales_learning/leitfaden.docx, exportiert per leitfaden_export.py; dort verlinkte Videos sind 📌 */
 /* Details je Abschnitt aus kern.js; Videos aus Leitfaden und Details sind 📌 */
-const KR=window.KERN||{},LFH=window.LEITFADEN||'',LF=new Set([...(LFH+Object.values(KR).map(k=>k.html).join('')).matchAll(/youtu\.be\/([\w-]{11})/g)].map(m=>m[1]));
+const KR=window.KERN||{},LFH=window.LEITFADEN||'',LF=new Set([...(LFH+Object.values(KR).map(k=>k.html).join('')+JSON.stringify(window.EINWAENDE||{})).matchAll(/youtu\.be\/([\w-]{11})/g)].map(m=>m[1]));
 const fdt=s=>s?s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(0,4):'';
 const since=m=>{const d=new Date();d.setMonth(d.getMonth()-m);return d.toISOString().slice(0,10)};
 const PH={K:'Kaltakquise',T:'Termin / Verkaufsgespräch',A:'Andere Verkaufsform'};
@@ -134,12 +149,12 @@ let ICH='';try{ICH=localStorage.getItem('ich')||''}catch(e){}
 const ST={mine:{},all:{},kern:{},who:WHO.includes(ICH)?ICH:'F',db:null,online:false,inflight:0,deferred:false};
 /* Kern-Video je Person: Feld k ('y'/'n') > Vorschlag aus auswahl.js. Filter und 💎-Abzeichen nutzen die gewählte Person */
 /* 💎 Kern-Video gilt für beide: Collection kern (Dokument je Video, Feld g) > Vorschlag aus auswahl.js */
-const isKern=id=>{const k=ST.kern[id];return k?!!k.g:!!AW[id]?.gem};
+const isKern=id=>{const k=ST.kern[id];return k&&'g' in k?!!k.g:!!AW[id]?.gem};
 const gemOf=id=>isKern(id)?(AW[id]?.gem||'Kern-Video'):'';
 const colOf=w=>w==ST.who?ST.mine:ST.online?(ST.all[w]||null):lsGet(w);
 /* Wirksame Farbe: Relevanz der gewählten Person (Feld r) > ausgewertet (Anhör-Liste oder erledigt) > Vorschlag aus auswahl.js */
 const eff=id=>(N[id]?(N[id].watch||gemOf(id)?'w':AW[id]?.r=='x'?'x':'d'):AW[id]?.r||'');
-const cmText=id=>WHO.map(w=>colOf(w)?.[id]?.text||'').join(' ');
+const cmText=id=>gCm(id);
 /* lokal je Person ein Eintrag; das alte gemeinsame 'bew' (vor der Trennung, alles von Felix) gilt als F */
 function lsGet(w){try{const s=localStorage.getItem('bew_'+w);if(s)return JSON.parse(s);if(w!='F')return{};
  const o=JSON.parse(localStorage.getItem('bew')||'{}'),m=o.mine||{};
@@ -150,9 +165,14 @@ function lsSave(){try{localStorage.setItem('bew_'+ST.who,JSON.stringify(ST.mine)
 function mode(t,err){const m=$('mode');m.textContent=t;m.classList.toggle('err',!!err)}
 function queue(fn){ST.inflight++;ST.chain=(ST.chain||Promise.resolve()).then(fn).catch(e=>mode(e?.code=='invalid_argument'?'Keine Schreibrechte – Zugriff als Mitwirkender oder Bearbeiter nötig':'Speichern fehlgeschlagen ('+(e?.code||'Fehler')+')',true)).finally(()=>ST.inflight--)}
 function setOv(id,r){setMine(id,{r:r||undefined})}
-function setKern(id,on){const def=!!AW[id]?.gem;if(on===def)delete ST.kern[id];else ST.kern[id]={g:on};
+function putShared(id,doc){if(Object.keys(doc).length)ST.kern[id]=doc;else delete ST.kern[id];
  if(!ST.online){try{localStorage.setItem('kern2',JSON.stringify(ST.kern))}catch(e){};return}
- const ref=ST.db.collection('kern').doc(id);queue(()=>on===def?ref.delete():ref.set({g:on}))}
+ const ref=ST.db.collection('kern').doc(id);queue(()=>Object.keys(doc).length?ref.set(doc):ref.delete())}
+function setKern(id,on){const doc={...(ST.kern[id]||{})};if(on===!!AW[id]?.gem)delete doc.g;else doc.g=on;putShared(id,doc)}
+/* Gemeinsamer Kommentar: beide schreiben in dasselbe Feld; vorhandene Einzelkommentare werden beim ersten Anzeigen übernommen */
+const oldCm=id=>WHO.map(w=>{const t=colOf(w)?.[id]?.text;return t?PN[w]+': '+t:''}).filter(Boolean).join('\n');
+const gCm=id=>{const k=ST.kern[id];return k?.m?(k.c||''):oldCm(id)};
+function setCm(id,text){if(text===gCm(id))return;putShared(id,{...(ST.kern[id]||{}),c:text,m:1,cb:ST.who,ca:Date.now()})}
 function setMine(id,patch){const old=ST.mine[id]||{};if(Object.keys(patch).every(k=>JSON.stringify(old[k]||'')===JSON.stringify(patch[k]||'')))return;const m={...old,...patch};if(!m.seen&&!m.again&&!m.text&&!m.u?.length&&!Object.keys(m.ed||{}).length&&!m.add?.length)delete ST.mine[id];else ST.mine[id]=JSON.parse(JSON.stringify(m));
  if(!ST.online)return lsSave();
  const body={videos:{...ST.mine}};queue(()=>ST.db.doc('notizen/'+ST.who).set(body))}
@@ -172,10 +192,10 @@ async function connect(){
 /* Eine Personen-Spalte: gewählte Person editierbar, die andere nur lesbar */
 function pCol(id,w){const own=w==ST.who,o=(colOf(w)||{})[id]||{};
  const cb=(k,on,l,c)=>`<label class="pk ${c}"><input type=checkbox${own?` data-${k}="${id}"`:' disabled'}${on?' checked':''}> ${l}</label>`;
- return `<div class="pc${own?' own':''}"><div class=pn>${PN[w]} (${w})${own?' · ich':''}</div>${cb('seen',o.seen,'👁 angeschaut','pw')}${cb('again',o.again,'🔁 nochmal','pa')}
- ${own?`<textarea data-cm="${id}" rows=2 placeholder="Kommentar …" aria-label="Kommentar ${PN[w]}">${esc(o.text||'')}</textarea>`:`<div class="cm${o.text?'':' leer'}">💬 ${o.text?esc(o.text):'kein Kommentar'}</div>`}</div>`}
-/* 💎 gemeinsam für beide, darunter je Person angeschaut / nochmal / Kommentar */
-function meCell(id){return `<td class=me><label class="pk pg"><input type=checkbox data-kern="${id}"${isKern(id)?' checked':''}> 💎 Kern-Video (für beide)</label><div class=fd>${WHO.map(w=>pCol(id,w)).join('')}</div></td>`}
+ return `<div class="pc${own?' own':''}"><div class=pn>${PN[w]} (${w})${own?' · ich':''}</div>${cb('seen',o.seen,'👁 angeschaut','pw')}${cb('again',o.again,'🔁 nochmal','pa')}</div>`}
+/* 💎 gemeinsam für beide, darunter je Person angeschaut / nochmal, darunter ein gemeinsamer Kommentar */
+function meCell(id){const k=ST.kern[id]||{},meta=k.m&&k.cb?`zuletzt ${PN[k.cb]||k.cb}${k.ca?' · '+new Date(k.ca).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):''}`:'';
+ return `<td class=me><label class="pk pg"><input type=checkbox data-kern="${id}"${isKern(id)?' checked':''}> 💎 Kern-Video (für beide)</label><div class=fd>${WHO.map(w=>pCol(id,w)).join('')}</div><textarea class=gcm data-gcm="${id}" rows=4 placeholder="💬 Gemeinsamer Kommentar (Felix & Demi) …" aria-label="Gemeinsamer Kommentar">${esc(gCm(id))}</textarea>${meta?`<div class=gmeta>${esc(meta)}</div>`:''}</td>`}
 
 function stats(){const ev=Object.keys(N).length,ein=D.filter(d=>N[d.id]||AW[d.id]?.r).length,lehr=D.filter(d=>N[d.id]&&!['x','rot'].includes(eff(d.id))).length;
  const H=D.filter(inMain),seen=H.filter(d=>ST.mine[d.id]?.seen).length,all=Object.values(N).reduce((c,n)=>c+(n.items||[]).length,0),u=Object.entries(N).reduce((c,[id,n])=>c+(n.items||[]).filter((_,k)=>isU(id,k)).length,0);
@@ -254,6 +274,12 @@ function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return 
   const t=head.replace(/<[^>]+>/g,'').trim(),d=KR[Object.keys(KR).find(k=>t.startsWith(k))];
   return head+(d?.ok?' <span class=chip>✅ abgeschlossen</span>':'')+`</h2><div class=say><div class=kh>Gesprochen${d?.say?' · neu, noch nicht in Word':''}</div>${d?.say||body}</div>`
    +(d?`<div class=kd>${kernHtml(d.html)}</div>`:'')}
+/* Einwand-Matrix (einwaende.js): links was er sagt → Mitte Kern → rechts ① Reframing bzw. Sonderweg, ② Zusatz */
+function ewHtml(){const E=window.EINWAENDE;if(!E)return'';
+ const rows=E.rows.map(r=>{const x=r.x?' ex':'';return`<div class="c ews${x}">${r.sag.map(t=>`<span>„${esc(t)}“</span>`).join('')}</div><div class="c ewk${x}"><div>${esc(r.k)}${r.x?'<small>kein Reframing</small>':''}</div></div><div class="c ewa${x}"><p><b>${r.x?'→':'①'}</b> ${esc(r.a)}</p>${r.z?`<p><b>②</b> ${esc(r.z)}</p>`:''}<p class=q>${esc(r.q)}</p></div>`}).join('');
+ return`<section class=ew><h2>🛡 Einwandbehandlung <span class=chip>Entwurf, noch nicht abgestimmt</span></h2><div class=ewf><p>${esc(E.formel)}</p><p>② Nur wenn nötig: ein Zusatz (Mini-Termin, Bleistifttermin, Worst-Case-Frage).</p><p>${esc(E.weiter)}</p></div>
+ <div class=ewg><div class=eh>Das sagt er</div><div class=eh>Kern-Einwand</div><div class=eh>So reagierst du</div>${rows}</div>
+ <div class=ewn><section class="ks ton"><h4>Ton</h4><p>${esc(E.ton)}</p></section><section class="ks kp"><h4>❌ So nicht</h4><p>${esc(E.no)}</p></section><section class="ks vid"><h4>Anschauen</h4>${E.videos.map(([t,u])=>`<p class=b>${esc(t)} · <a href="${u}" target=_blank>▶ ${u.replace('https://','').replace(/\?t=.*/,'')}</a></p>`).join('')}</section></div></section>`}
 /* kern.js-Einträge mit after: erscheinen nach diesem Schritt, solange Word die Überschrift noch nicht hat */
 const lfExtra=h=>{const t=h.replace(/<[^>]+>/g,'').trim();return Object.entries(KR).filter(([k,v])=>v.after&&t.startsWith(v.after)&&!LFH.includes('<h2>'+k)).map(([k])=>lfStep(`<h2>${k}</h2>`)).join('')};
 /* PDF: claude.ai blockiert direkte Links auf Dateien → Ansicht per PDF.js in der Seite, Download über die Freigabe „downloads“ */
@@ -270,7 +296,7 @@ async function pdfSave(btn){try{const dl=await claude.use('downloads');if(!dl)th
   await dl.save({filename:'Leitfaden.pdf',data:new Blob([await pdfData()])})}
  catch(e){if(e?.code!='declined')btn.textContent='Download hier nicht möglich'}}
 function leitfaden(){
- $('out').innerHTML=`<div class=lf>${window.LEITFADEN_PDF?`<p class=dl>${LOCAL?'<a href="leitfaden.pdf" target=_blank>📄 Leitfaden-PDF öffnen</a>':'<button data-pdfv>📄 PDF ansehen</button> <button data-pdfd>⬇️ PDF herunterladen</button>'} <span class=tag>Stand ${fdt(window.LEITFADEN_STAND)||'–'}</span></p><div id=pdfbox class=pdfbox></div>`:''}${LFH?LFH.split(/(?=<h2>)/).map(h=>lfStep(h)+lfExtra(h)).join(''):'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
+ $('out').innerHTML=`<div class=lf>${window.LEITFADEN_PDF?`<p class=dl>${LOCAL?'<a href="leitfaden.pdf" target=_blank>📄 Leitfaden-PDF öffnen</a>':'<button data-pdfv>📄 PDF ansehen</button> <button data-pdfd>⬇️ PDF herunterladen</button>'} <span class=tag>Stand ${fdt(window.LEITFADEN_STAND)||'–'}</span></p><div id=pdfbox class=pdfbox></div>`:''}${LFH?LFH.split(/(?=<h2>)/).map(h=>lfStep(h)+lfExtra(h)).join('')+ewHtml():'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
 function r(){const v=view=='videos',l=view=='leitfaden';['v1','v2','v3'].forEach((b,i)=>$(b).classList.toggle('on',view==['videos','sammlung','leitfaden'][i]));
  ['cp'].forEach(i=>$(i).style.display=v?'':'none');['q','ph','thm'].forEach(i=>$(i).style.display=l?'none':'');$('f').style.display=v&&ALL?'':'none';stats();thBar();v?videos():l?leitfaden():sammlung()}
 $('thm').onclick=e=>{const b=e.target.closest('button');if(!b)return;const{th,mk}=b.dataset;
@@ -279,14 +305,14 @@ $('thm').addEventListener('change',e=>{if(e.target.id=='all'){ALL=e.target.check
 $('v1').onclick=()=>{view='videos';save();r()};$('v2').onclick=()=>{view='sammlung';save();r()};$('v3').onclick=()=>{view='leitfaden';save();r()};
 document.addEventListener('input',e=>{const t=e.target;
  if(t.closest('.edf')){if(t.dataset.edt!==undefined)DR=t.value;else if(t.dataset.af)AF[t.dataset.af]=t.value;return} /* Bearbeitungsfelder: nie neu rendern (Datenverlust) */
- if(t.dataset.cm!==undefined){clearTimeout(t._d);t._d=setTimeout(()=>setMine(t.dataset.cm,{text:t.value.trim()}),1500);return}
+ if(t.dataset.gcm!==undefined){clearTimeout(t._d);t._d=setTimeout(()=>setCm(t.dataset.gcm,t.value.trim()),1500);return}
  if(t.closest('td.me')||t.id=='all'||t.id=='su'||t.dataset.u!==undefined)return;if(t.dataset.id){S[t.dataset.id]=t.checked;save()}r()});
 document.addEventListener('change',e=>{const t=e.target;
  if(t.dataset.ov!==undefined){setOv(t.dataset.ov,t.value);r()}
  else if(t.dataset.kern!==undefined){setKern(t.dataset.kern,t.checked);r()}
  else if(t.dataset.seen!==undefined){setMine(t.dataset.seen,{seen:t.checked});r()}
  else if(t.dataset.again!==undefined){setMine(t.dataset.again,{again:t.checked});r()}
- else if(t.dataset.cm!==undefined)setMine(t.dataset.cm,{text:t.value.trim()})
+ else if(t.dataset.gcm!==undefined){clearTimeout(t._d);setCm(t.dataset.gcm,t.value.trim())}
  else if(t.dataset.u!==undefined){const[id,k]=t.dataset.u.split('|'),u=new Set(ST.mine[id]?.u||[]);t.checked?u.add(+k):u.delete(+k);setMine(id,{u:[...u].sort((a,b)=>a-b)});r()}
  else if(t.id=='su'){SU=t.checked;saveT();r()}});
 document.addEventListener('focusout',()=>setTimeout(()=>{if(ST.deferred&&!document.activeElement?.closest?.('td.me,.edf')){ST.deferred=false;r()}},0));
