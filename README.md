@@ -30,7 +30,7 @@ Die bestehende doppelte Ebene `obsidian/obsidian/` bleibt vorerst erhalten; es w
 | --- | --- | --- |
 | `SQL_learning/` | Künstliche JSON-Nutzungsdaten lesen; schrittweise SQLite und Auswertung kennenlernen | [SQL-Lernen](SQL_learning/README.md) |
 | `lead-finder/` | Teilzeit-Bürojobs bei Handwerkern über die BA-Jobsuche finden und mit Haiku auswerten | [Lead Finder](lead-finder/README.md) |
-| `sales_learning/` | Gesprächseinstiege und Einwandantworten aus Vertriebsvideos sammeln | [Sales Learning](sales_learning/README.md) |
+| `sales_learning/` | Gesprächseinstiege und Einwandantworten aus Vertriebsvideos sammeln | [Sales Learning](sales_learning/README.md) · [🌐 Online-Seite](https://claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV) |
 | `obsidian/` | Lernkarten, SVG-Vorschauen und Darstellung in Obsidian erproben | [Obsidian](obsidian/README.md) |
 
 Obsidian ist keine Voraussetzung für das SQL-Lernen. Weitere Vorhaben können nach Absprache eigene Unterordner erhalten. Es gibt keinen zentralen Programmstart; Ausführung und Dependencies (Abhängigkeiten) stehen in der jeweiligen README.

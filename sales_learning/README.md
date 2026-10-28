@@ -1,5 +1,7 @@
 # Sales Learning – Vertrieb und Telefonakquise
 
+**🌐 Hauptseite (Leitfaden, Videos, Bewertungen Felix | Demi): https://claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV** – Zugriff nur mit Einladung (claude.ai-Konto). Ein Git-Push ändert diese Seite nicht; sie wird von einem Agent neu veröffentlicht.
+
 **Ziel:** ein einsatzfertiges **Gesprächsskript für die Kaltakquise bei Handwerksbetrieben** (plus Einwand-Vorlagen und Empfehlungen fürs Verkaufsgespräch) – kein Informationssammelsurium. Quelle sind öffentlich verfügbare Vertriebsvideos; herausgezogen werden wörtliche Gesprächseinstiege, Einwandantworten und Bedarfsfragen, getrennt nach **Kaltakquise** (erster Anruf) und **Verkaufsgespräch** (der Termin selbst).
 
 **Eigenständiges Vorhaben:** unabhängig von `SQL_learning/`, `obsidian/` und `lead-finder/`. Wer hier arbeitet, fasst diese Ordner nicht an; die Root-`learning-state.md` (SQL-/Python-Lernstand) ist für dieses Vorhaben nicht relevant.
