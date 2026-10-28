@@ -81,7 +81,7 @@ details.ewr[open]{background:var(--head)}
 .ew.t-q .xq,.ew .ewr.open .xq{display:block}
 .ewl .ewk small.cnt{color:var(--mut)}.ew.t-z .ewk small.cnt{display:none}
 .ewtool button.on{border-color:var(--acc);color:var(--acc)}
-.ewl .ewa .sub{display:block;margin:0 0 4px}.ewl .ewa .st{margin:0 0 4px}.ewl .ewa .stn{display:inline-block;min-width:18px;text-align:center;font-size:11px;font-weight:700;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:9px;padding:0 5px}.ewl .ewk .cat{display:inline-block;font-size:11px;font-weight:600;color:var(--rw);background:var(--rwb);border-radius:8px;padding:0 6px;margin-left:2px}.ewl .ewa .sub i{color:var(--mut)}.ewtool{margin:4px 0}.ewtool button{font-size:13px;padding:3px 10px}
+.ewl .ewa .sub{display:block;margin:0 0 4px}.ewl .ewa .nt{color:#8b6f47;font-size:13px;margin:2px 0}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .ewl .ewa .nt{color:#c8a77a}}:root[data-theme=dark] .ewl .ewa .nt{color:#c8a77a}.ewl .ewa .st{margin:0 0 4px}.ewl .ewa .stn{display:inline-block;min-width:18px;text-align:center;font-size:11px;font-weight:700;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:9px;padding:0 5px}.ewl .ewk .cat{display:inline-block;font-size:11px;font-weight:600;color:var(--rw);background:var(--rwb);border-radius:8px;padding:0 6px;margin-left:2px}.ewl .ewa .sub i{color:var(--mut)}.ewtool{margin:4px 0}.ewtool button{font-size:13px;padding:3px 10px}
 @media(max-width:900px){.ewgr{grid-template-columns:1fr}.ewhd{display:none}}
 .kcol{display:flex;flex-direction:column;gap:8px;min-width:0}.kd .ks{margin:0}
 @media(max-width:900px){.kd{grid-template-columns:1fr}}
@@ -306,14 +306,14 @@ function ewHtml(){const E=window.EINWAENDE;if(!E)return'';
  const row=r=>{const[f,...rest]=r.sag,ex=[...(r.b?[[r.bt||'Zusatz',r.b]]:[]),...(r.ex||[])];
   return`<div class=ewr><div class=ewgr><div class=ews><span class=sl>„${esc(f)}“</span>${rest.map(t=>`<span class="sl xs">„${esc(t)}“</span>`).join('')}${rest.length?`<span class="more ms">+${rest.length}</span>`:''}</div>
   <div class=ewk>${esc(r.k)}${r.o?`<small class=op>⏳ ${esc(r.o)}</small>`:''}${ex.length?`<small class="cnt">${ex.length}× ②</small>`:''}</div>
-  <div class=ewa>${r.steps?r.steps.map(([l,x],i)=>`<p class=st><b>①</b> <b>${esc(l)}:</b> ${esc(x)}</p>`).join(''):`<p><b>①</b> ${esc(r.a).replace(/\n/g,'<br>')}</p>`}${ex.map(([l,x])=>`<p class=xz><b>② ${esc(l)}:</b> ${esc(x).replace(/\n/g,'<br>')}</p>`).join('')}<p class="q xq">📎 ${ewQ(r.q)}</p></div></div></div>`};
+  <div class=ewa>${r.steps?r.steps.map(([l,x],i)=>`<p class=st><b>①</b> <b>${esc(l)}:</b> ${esc(x)}</p>`).join(''):`<p><b>①</b> ${esc(r.a).replace(/\n/g,'<br>')}</p>`}${r.nt?`<p class=nt>${esc(r.nt)}</p>`:''}${ex.map(([l,x])=>`<p class=xz><b>② ${esc(l)}:</b> ${esc(x).replace(/\n/g,'<br>')}</p>`).join('')}<p class="q xq">📎 ${ewQ(r.q)}</p></div></div></div>`};
  const vars=(E.varianten||[]).map(([l,t])=>Array.isArray(t)?`<p class=ewv>↳ <b>${esc(l)}:</b></p>${t.map(x=>`<p class="ewv l">${esc(x)}</p>`).join('')}`:`<p class=ewv>↳ <b>${esc(l)}:</b> ${esc(t)}</p>`).join('');
  const H=E.rows.filter(r=>r.g!='neben'),N2=E.rows.filter(r=>r.g=='neben');
  return`<section class="ew${Object.keys(EWT).filter(k=>EWT[k]).map(k=>' t-'+k).join('')}"><h2>🛡 Einwandbehandlung <span class=chip>Entwurf, noch nicht abgestimmt</span></h2><div class=ewf><p>${esc(E.formel)}</p>${vars}<p>② Nur wenn nötig: ein zweiter Satz – <b>Alternative</b> (statt ①, andere Lage) oder <b>Zusatz</b> (nach ①).</p>${E.kette?`<p>🔁 ${esc(E.kette)}</p>`:''}${E.rueck?`<p>❓ ${esc(E.rueck)}</p>`:''}${E.merk?`<p>💡 ${esc(E.merk)}</p>`:''}</div>
  <div class=ewtool>${[['sag','💬 Alle Kundensätze'],['z','② Alle Zusätze'],['q','📎 Alle Quellen']].map(([k,l])=>`<button type=button data-ewt=${k}${EWT[k]?' class=on':''}>${l}</button>`).join(' ')} <span class=tag>Klick auf eine Zeile klappt nur diese auf</span></div>
  <div class=ewl><div class="ewgr ewhd"><span>Das sagt er</span><span>Kern-Einwand</span><span>① So reagierst du</span></div>
  <div class=ewgp>Haupt-Einwände</div>${H.map(row).join('')}<div class="ewgp ewsep">Weitere Einwände</div>${N2.map(row).join('')}</div>
- <div class="ewf ewend"><p><b>Abschluss nach jedem Ja</b></p><p>${esc(E.weiter)}</p></div>
+ <div class="ewf ewend"><p><b>Abschluss nach jedem Ja</b></p><p>${esc(E.weiter).replace(/\n/g,'<br>')}</p></div>
  <div class=ewn><section class="ks ton"><h4>Ton</h4><p>${esc(E.ton)}</p></section><section class="ks kp"><h4>❌ So nicht</h4><p>${esc(E.no)}</p></section><section class="ks vid"><h4>Anschauen</h4>${E.videos.map(([t,u])=>`<p class=b>${esc(t)} · <a href="${u}" target=_blank>▶ ${u.replace('https://','').replace(/\?t=.*/,'')}</a></p>`).join('')}</section></div></section>`}
 /* Schalter der Einwand-Matrix: Kundensätze / Zusätze / Quellen; Zustand je Browser gemerkt */
 document.addEventListener('click',e=>{const b=e.target.closest('[data-ewt]');if(b){const k=b.dataset.ewt;EWT[k]=!EWT[k];try{localStorage.setItem('ewt',JSON.stringify(EWT))}catch(x){}
