@@ -58,6 +58,21 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 .ewg .ex{background:var(--ryb)}
 .ew .ewn{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px;font-size:14px}
 @media(max-width:900px){.ewg{grid-template-columns:1fr}.ewg>.eh{display:none}.ewg .ewk::before{content:none}.ewg>.c{border-bottom:0;padding:4px 8px}.ewg .ewa{border-bottom:1px solid var(--line)!important;padding-bottom:10px}.ew .ewn{grid-template-columns:1fr}}
+.ewl{font-size:14px;margin-top:6px}
+.ewgr{display:grid;grid-template-columns:minmax(0,.75fr) 150px minmax(0,2.4fr);gap:0 10px;align-items:start}
+.ewhd{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);padding:4px 8px;border-bottom:1px solid var(--line)}
+.ewgp{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);padding:8px 8px 2px}
+.ewsep{border-top:2px solid var(--rr);margin-top:-1px;padding-top:8px}details.ewr:has(+.ewsep){border-bottom:0}
+details.ewr{border-bottom:1px solid var(--line)}
+details.ewr>summary{list-style:none;cursor:pointer;padding:6px 8px}
+details.ewr>summary::-webkit-details-marker{display:none}
+details.ewr>summary .ews::before{content:"▸ ";color:var(--mut)}details.ewr[open]>summary .ews::before{content:"▾ "}
+details.ewr[open]{background:var(--head)}
+.ewl .ewk{font-weight:600;color:var(--acc)}.ewl .ewk small{display:block;font-weight:400;font-size:11px;color:var(--mut)}.ewl .ewk small.op{color:var(--ry)}.ewl .ewk small.lv{color:var(--k)}
+.ewl .more{font-size:11px;color:var(--mut);background:var(--chip);border-radius:8px;padding:0 6px}
+.ewb{padding:0 8px 8px;font-size:13px}.ewb .ews div{margin:2px 0 0 14px}.ewb p{margin:3px 0}.ewb .q{font-size:12px;color:var(--mut)}.ewb .lvp{color:var(--fg)}
+.ewtool{margin:4px 0}.ewtool button{font-size:13px;padding:3px 10px}
+@media(max-width:900px){.ewgr{grid-template-columns:1fr}.ewhd{display:none}}
 .kcol{display:flex;flex-direction:column;gap:8px;min-width:0}.kd .ks{margin:0}
 @media(max-width:900px){.kd{grid-template-columns:1fr}}
 .ks{--c:var(--mut);--cb:var(--head);border-left:3px solid var(--c);background:var(--cb);padding:4px 12px 6px;margin:6px 0;border-radius:0 6px 6px 0}
@@ -277,13 +292,17 @@ function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return 
 /* Einwand-Matrix (einwaende.js): links was er sagt (aufklappbar) → Mitte Kern → rechts ① Reframing, ② Zusatz (aufklappbar), Quellen als Links */
 const ewQ=q=>esc(q).replace(/Nr\. (\d+)(?: @(\d+):(\d+))?/g,(m,n,mi,se)=>{const v=D.find(d=>d.n==+n);return v?`<a href="https://youtu.be/${v.id}${mi?'?t='+(mi*60+ +se):''}" target=_blank>${m}</a>`:m});
 function ewHtml(){const E=window.EINWAENDE;if(!E)return'';
- const rows=E.rows.map(r=>{const[f,...rest]=r.sag,x=r.x?' ex':'';
-  const sag=rest.length?`<details><summary>„${esc(f)}“ <span class=more>+${rest.length}</span></summary>${rest.map(t=>`<div>„${esc(t)}“</div>`).join('')}</details>`:`„${esc(f)}“`;
-  return`<div class="c ews${x}">${sag}</div><div class="c ewk${x}"><div>${esc(r.k)}${r.x?'<small>kein Reframing</small>':''}${r.o?`<small class=op>⏳ offen: ${esc(r.o)}</small>`:''}</div></div><div class="c ewa${x}"><p><b>${r.x?'→':'①'}</b> ${esc(r.a)}</p><div class=q>${r.z?`<details><summary>② Zusatz</summary><p>${esc(r.z)}</p></details>`:''}<span>${ewQ(r.q)}</span></div></div>`}).join('');
+ const row=r=>{const[f,...rest]=r.sag;
+  return`<details class=ewr><summary class=ewgr><span class=ews>„${esc(f)}“${rest.length?` <span class=more>+${rest.length}</span>`:''}</span><span class=ewk>${esc(r.k)}${r.o?`<small class=op>⏳ ${esc(r.o)}</small>`:''}</span><span class=ewa><b>①</b> ${esc(r.a)}</span></summary>
+  <div class="ewgr ewb"><div class=ews>${rest.map(t=>`<div>„${esc(t)}“</div>`).join('')}</div><div></div><div class=ewa>${r.b?`<p><b>② ${esc(r.bt||'Zusatz')}:</b> ${esc(r.b)}</p>`:''}<p class=q>${ewQ(r.q)}</p></div></div></details>`};
  const vars=(E.varianten||[]).map(([l,t])=>Array.isArray(t)?`<p class=ewv>↳ <b>${esc(l)}:</b></p>${t.map(x=>`<p class="ewv l">${esc(x)}</p>`).join('')}`:`<p class=ewv>↳ <b>${esc(l)}:</b> ${esc(t)}</p>`).join('');
- return`<section class=ew><h2>🛡 Einwandbehandlung <span class=chip>Entwurf, noch nicht abgestimmt</span></h2><div class=ewf><p>${esc(E.formel)}</p>${vars}<p>② Nur wenn nötig: ein Zusatz (Mini-Termin, Bleistifttermin, Worst-Case-Frage).</p><p>${esc(E.weiter)}</p>${E.kette?`<p>🔁 ${esc(E.kette)}</p>`:''}${E.rueck?`<p>❓ ${esc(E.rueck)}</p>`:''}${E.merk?`<p>💡 ${esc(E.merk)}</p>`:''}</div>
- <div class=ewg><div class=eh>Das sagt er</div><div class=eh>Kern-Einwand</div><div class=eh>So reagierst du · Quellen</div>${rows}</div>
+ const H=E.rows.filter(r=>r.g!='neben'),N2=E.rows.filter(r=>r.g=='neben');
+ return`<section class=ew><h2>🛡 Einwandbehandlung <span class=chip>Entwurf, noch nicht abgestimmt</span></h2><div class=ewf><p>${esc(E.formel)}</p>${vars}<p>② Nur wenn nötig: ein zweiter Satz – <b>Alternative</b> (statt ①, andere Lage) oder <b>Zusatz</b> (nach ①).</p><p>${esc(E.weiter)}</p>${E.kette?`<p>🔁 ${esc(E.kette)}</p>`:''}${E.rueck?`<p>❓ ${esc(E.rueck)}</p>`:''}${E.merk?`<p>💡 ${esc(E.merk)}</p>`:''}</div>
+ <div class=ewtool><button type=button data-ewall>Alle aufklappen</button> <span class=tag>Klick auf eine Zeile zeigt ②, weitere Sätze und Quellen</span></div>
+ <div class=ewl><div class="ewgr ewhd"><span>Das sagt er</span><span>Kern-Einwand</span><span>① So reagierst du</span></div>
+ <div class=ewgp>Haupt-Einwände</div>${H.map(row).join('')}<div class="ewgp ewsep">Weitere Einwände</div>${N2.map(row).join('')}</div>
  <div class=ewn><section class="ks ton"><h4>Ton</h4><p>${esc(E.ton)}</p></section><section class="ks kp"><h4>❌ So nicht</h4><p>${esc(E.no)}</p></section><section class="ks vid"><h4>Anschauen</h4>${E.videos.map(([t,u])=>`<p class=b>${esc(t)} · <a href="${u}" target=_blank>▶ ${u.replace('https://','').replace(/\?t=.*/,'')}</a></p>`).join('')}</section></div></section>`}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-ewall]');if(!b)return;const ds=[...document.querySelectorAll('.ew details.ewr')],op=!ds.every(d=>d.open);ds.forEach(d=>d.open=op);b.textContent=op?'Alle zuklappen':'Alle aufklappen'});
 /* kern.js-Einträge mit after: erscheinen nach diesem Schritt, solange Word die Überschrift noch nicht hat */
 const lfExtra=h=>{const t=h.replace(/<[^>]+>/g,'').trim();return Object.entries(KR).filter(([k,v])=>v.after&&t.startsWith(v.after)&&!LFH.includes('<h2>'+k)).map(([k])=>lfStep(`<h2>${k}</h2>`)).join('')};
 /* PDF: claude.ai blockiert direkte Links auf Dateien → Ansicht per PDF.js in der Seite, Download über die Freigabe „downloads“ */
