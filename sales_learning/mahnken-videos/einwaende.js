@@ -6,7 +6,7 @@
 // (anders als Julian, der laufende Dienstleistungen verkauft). Ergänzung nur, wenn jemand wirklich zufrieden ist.
 window.EINWAENDE = {
 "formel": "① „Verstanden, das heißt nur, wenn [Lösung für genau sein Problem] – nur dann lohnt sich ein Gespräch für Sie, oder?“",
-"rueck": "Rückfragen, keine Einwände – kurz und wahr beantworten, dann weiter: „Woher haben Sie meine Nummer?“ → „Die habe ich von Ihrer Google-Unternehmensseite.“ · „Wer sind Sie überhaupt?“ → „Felix Zimmermann – ich baue Websites für Handwerksbetriebe wie Ihren.“ · „Was kostet das?“ / „Wie machen Sie das?“ → in den Termin überleiten: „Den Preis sage ich Ihnen in den ersten 10 Minuten – passt er nicht, sagen Sie einfach Nein.“ Keine Zahl am Telefon.",
+"rueck": "Rückfragen, keine Einwände – kurz und wahr beantworten, dann weiter: „Woher haben Sie meine Nummer?“ → „Die habe ich von Ihrer Website.“ · „Wer sind Sie überhaupt?“ → „Felix Zimmermann – ich baue Websites für Handwerksbetriebe wie Ihren.“ · „Was kostet das?“ / „Wie machen Sie das?“ → in den Termin überleiten: „Den Preis sage ich Ihnen in den ersten 10 Minuten – passt er nicht, sagen Sie einfach Nein.“ Keine Zahl am Telefon.",
 "merk": "Das Bild im Wenn-Teil macht den Satz stark, nicht die Formel. Wo es passt: kostenloser Entwurf + Zahlung erst am Ende.",
 "kette": "Kommt danach ein neuer Einwand: einfach den nächsten genauso reframen – höchstens 1–2 Runden, dann lockerlassen.",
 "varianten": [
