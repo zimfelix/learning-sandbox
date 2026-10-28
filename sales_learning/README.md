@@ -168,7 +168,7 @@ Zugriff vergibt nur Felix über das Teilen-Menü der Seite. Zum Mitarbeiten brau
 
 ```text
 Agent ändert notes.js / auswahl.js / uebersicht.html ──▶ Online-Seite neu veröffentlichen (unten)
-Felix / Kollege bewerten online ──▶ Datenbank (relevanz, notizen) ──▶ Agent liest sie beim Review aus
+Felix / Kollege bewerten online ──▶ Datenbank (kern, notizen) ──▶ Agent liest sie beim Review aus
 ```
 
 Diese Seite aktualisiert sich nie automatisch. Darum wird nach jeder Änderung an den Dateien unten neu veröffentlicht, spätestens vor einem lokalen Commit. (Der lokale `pre-push`-Hook erinnert daran.) Die Seite bleibt online, bis sie gelöscht wird.
@@ -179,7 +179,15 @@ Diese Seite aktualisiert sich nie automatisch. Darum wird nach jeder Änderung a
 2. In einem neuen Chat zuerst einmal das Artifact mit der URL oben lesen (`Artifact`, `action: "read"`), sonst wird das Veröffentlichen abgelehnt.
 3. Veröffentlichen mit `Artifact` (publish): `url` = Link oben, `file_path` = `mahnken-videos/.online.html`, `files` = `videos.js`, `notes.js`, `dates.js`, `auswahl.js`, `leitfaden.js`, `kern.js` (Quellpfade **absolut** angeben, z. B. `/Users/felix/Code/python/learning-sandbox/sales_learning/mahnken-videos/notes.js`). Kein `capabilities`-Feld mitgeben – die Datenbank-Einstellung bleibt so erhalten; Bewertungen bleiben ebenfalls erhalten.
 
-**Online-Bewertungen auslesen** (beim Review): `ArtifactData` `list` auf die Collections `relevanz` (Dokument-ID = Video-ID, Feld `r`: g/y/x/rot/w/l; `w` = 🔵 anhören, `l` = 🔴 live wiederholen (starkes Live-Telefonat, zweites Mal ansehen), `rot` = altes ⛔ „gesehen, unbrauchbar“) und `notizen` (ein Dokument je Person, `videos.<ID>.seen/.text`). Übernahmen nach `auswahl.js` nur nach Absprache.
+**Hauptseite ist die claude.ai-Seite** (seit 28.10.2026). Die lokale `uebersicht.html` ist nur Vorschau; Häkchen dort bleiben im Browser und kommen nicht online an.
+
+**Personen:** oben rechts „Felix (F)“ / „Demi (D)“ wählen – kein Login, nur Zuordnung. Je Person: 👁 angeschaut, 🔁 nochmal, Kommentar (Collection `notizen`, Dokument `F` bzw. `D`, Feld `videos.<ID>.seen/.again/.text`, dazu `u`/`ed`/`add`). Gemeinsam für beide: 💎 Kern-Video (Collection `kern`, Dokument = Video-ID, Feld `g` true/false; fehlt es, gilt der Vorschlag aus `auswahl.js`). Schreiben darf jeder Eingeladene ab Stufe Mitwirkender.
+
+**Word für Demi:** claude.ai liefert keine `.docx` aus. Nach Änderungen in Word zusätzlich *Datei → Als PDF exportieren* nach `sales_learning/leitfaden.pdf`; `leitfaden_export.py` kopiert es mit, der Tab Leitfaden verlinkt es (beim Veröffentlichen `leitfaden.pdf` in `files` mitgeben).
+
+**Backup:** Die Online-Datenbank liegt bei claude.ai. Beim Review zusätzlich `mahnken-videos/online-backup.json` aktualisieren (Collections `notizen` und `kern` per `ArtifactData` auslesen) und mitcommitten.
+
+**Online-Bewertungen auslesen** (beim Review): `ArtifactData` `list` auf die Collections `kern` und `notizen` (Dokumente `F`, `D`).
 
 ## Ideen für später (beim Review ansprechen)
 

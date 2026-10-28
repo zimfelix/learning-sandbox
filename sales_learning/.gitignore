@@ -2,3 +2,6 @@ mahnken-videos/transcripts/
 mahnken-videos/.online.html
 quelle/
 ~$*.docx
+
+# PDF-Kopie des Leitfadens wird beim Export erzeugt
+mahnken-videos/leitfaden.pdf

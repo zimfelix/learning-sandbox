@@ -4,12 +4,16 @@ Aufruf: python3 leitfaden_export.py   (nur macOS: nutzt das eingebaute textutil)
 """
 import json
 import re
+import shutil
 import subprocess
 from datetime import date
 from pathlib import Path
 
 HERE = Path(__file__).parent
 SRC, OUT = HERE.parent / "leitfaden.docx", HERE / "leitfaden.js"
+# Optional: aus Word gespeichertes PDF (Datei → Als PDF exportieren → sales_learning/leitfaden.pdf).
+# Wird neben die Seite kopiert und im Tab „Leitfaden“ verlinkt (.docx kann claude.ai nicht ausliefern).
+PDF_SRC, PDF_OUT = HERE.parent / "leitfaden.pdf", HERE / "leitfaden.pdf"
 
 
 def docx_html(path):
@@ -43,8 +47,13 @@ def clean(html):
 
 def main():
     html = clean(docx_html(SRC))
+    pdf = PDF_SRC.exists()
+    if pdf:
+        shutil.copyfile(PDF_SRC, PDF_OUT)
     OUT.write_text(f"window.LEITFADEN={json.dumps(html, ensure_ascii=False)};\n"
-                   f"window.LEITFADEN_STAND={json.dumps(date.today().isoformat())};\n")
+                   f"window.LEITFADEN_STAND={json.dumps(date.today().isoformat())};\n"
+                   f"window.LEITFADEN_PDF={json.dumps(pdf)};\n")
+    print("PDF:", "kopiert" if pdf else "fehlt – in Word als sales_learning/leitfaden.pdf exportieren")
     print(f"{OUT.name}: {len(html)} Zeichen, Videos verlinkt: {len(set(re.findall(r'youtu.be/([\w-]{11})', html)))}")
 
 

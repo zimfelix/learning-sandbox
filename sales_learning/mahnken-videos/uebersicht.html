@@ -2,9 +2,9 @@
 <title>Mahnken Videos</title><meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Arbeitstabelle: Filterleiste oben (sticky), darunter breite Tabelle mit eigener Scrollfläche */
-:root{--bg:#fff;--fg:#1d1d1f;--mut:#6e6e73;--line:#e5e5ea;--acc:#c2410c;--w:#fff4e5;--chip:#f2f2f7;--head:#fafafa;--k:#2563eb;--t:#16a34a;--a:#9333ea;--rg:#16a34a;--rgb:#effaf3;--ry:#d97706;--ryb:#fffaeb;--rr:#dc2626;--rrb:#fdeeee;--rw:#2563eb;--rwb:#eef4ff;--rdb:#f7faf8}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;--rw:#60a5fa;--rwb:#172238;--rdb:#202422;color-scheme:dark}}
-:root[data-theme=dark]{--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;--rw:#60a5fa;--rwb:#172238;--rdb:#202422;color-scheme:dark}
+:root{--bg:#fff;--fg:#1d1d1f;--mut:#6e6e73;--line:#e5e5ea;--acc:#c2410c;--w:#fff4e5;--chip:#f2f2f7;--head:#fafafa;--k:#2563eb;--t:#16a34a;--a:#9333ea;--rg:#16a34a;--rgb:#effaf3;--ry:#d97706;--ryb:#fffaeb;--rr:#dc2626;--rrb:#fdeeee;--rw:#2563eb;--rwb:#eef4ff;--rdb:#f7faf8;--ab:#f6f0fe}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;--rw:#60a5fa;--rwb:#172238;--rdb:#202422;--ab:#251a33;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#1c1c1e;--fg:#f2f2f7;--mut:#98989d;--line:#38383a;--acc:#fb923c;--w:#3a2a17;--chip:#2c2c2e;--head:#242426;--k:#60a5fa;--t:#4ade80;--a:#c084fc;--rg:#4ade80;--rgb:#16271d;--ry:#fbbf24;--ryb:#2b2416;--rr:#f87171;--rrb:#2e1a1a;--rw:#60a5fa;--rwb:#172238;--rdb:#202422;--ab:#251a33;color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font:14px/1.45 -apple-system,sans-serif;margin:0 auto;padding-block:0 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1600px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
@@ -14,12 +14,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 input,select,button,textarea{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}#q{flex:1;min-width:160px}button{cursor:pointer}button.on{border-color:var(--acc);color:var(--acc)}
 :focus-visible{outline:2px solid var(--acc);outline-offset:1px}
 .wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:1180px}
+table{width:100%;border-collapse:collapse;min-width:1300px}
 th{position:sticky;top:0;background:var(--head);text-align:left;font-size:12px;font-weight:600;color:var(--mut);padding:8px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
 td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 td.n,td.m{color:var(--mut);white-space:nowrap;text-align:right;width:1%;font-variant-numeric:tabular-nums}
 td.tit{width:24%}td.tg{width:12%;font-size:13px}td.tr{width:1%;white-space:nowrap;font-size:13px}td.wa{width:14%;font-size:13px}td.ev{font-size:13px}
-td.me{width:16%;min-width:190px;font-size:13px}td.me select{width:100%;padding:4px 6px}td.me textarea{width:100%;margin-top:4px;resize:vertical;min-height:32px;font-size:13px}
+td.me{width:20%;min-width:300px;font-size:13px}td.me select{width:100%;padding:4px 6px}td.me textarea{width:100%;margin-top:4px;resize:vertical;min-height:32px;font-size:13px}
 .seen{display:flex;gap:6px;align-items:center;margin-top:4px;color:var(--mut)}.seen input{margin:0}
 .oth{margin-top:4px;font-size:12px;color:var(--mut)}.oth b{color:var(--fg);font-weight:600}
 a{color:var(--fg);text-decoration:none}a:hover{color:var(--acc)}.mut{color:var(--mut)}.tag{font-size:12px;color:var(--mut)}
@@ -39,9 +39,20 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 .leg{font-size:12px;color:var(--mut);margin-top:6px;display:flex;gap:14px;flex-wrap:wrap}.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
 .mode{font-size:12px;color:var(--mut)}.mode.err{color:var(--rr)}
 .thm{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}.thm button{padding:3px 8px;font-size:12px}.thm .seen{margin:0 0 0 6px}.lf{max-width:860px;font-size:15px;line-height:1.55}.lf h1{font-size:22px;margin:8px 0}.lf h2{font-size:19px;margin:28px 0 6px;padding-top:12px;border-top:1px solid var(--line)}.lf h3{font-size:15px;margin:16px 0 4px;color:var(--mut)}.lf p{margin:4px 0}.lf p.b{margin-left:18px;text-indent:-12px}.lf p.b::before{content:"• "}
-.kd{border-left:3px solid var(--acc);background:var(--head);padding:6px 12px;margin:10px 0 6px;font-size:14px;border-radius:0 6px 6px 0}.kd .kh{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}.kd h4{margin:8px 0 2px;font-size:12px;color:var(--mut)}
+.kh{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+/* Leitfaden: gesprochene Sätze (grün) und Details, je Überschrift ein farbiger Block */
+.say{border-left:3px solid var(--t);background:var(--rgb);padding:6px 12px;margin:8px 0;border-radius:0 6px 6px 0}.say .kh{color:var(--t)}
+.kd{margin:10px 0 6px;font-size:14px}
+.ks{--c:var(--mut);--cb:var(--head);border-left:3px solid var(--c);background:var(--cb);padding:4px 12px 6px;margin:6px 0;border-radius:0 6px 6px 0}
+.ks h4{margin:4px 0 2px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--c)}
+.ks.kp{--c:var(--fg)}.ks.mini{--c:var(--ry);--cb:var(--ryb)}.ks.ton{--c:var(--a);--cb:var(--ab)}.ks.alt{--c:var(--rw);--cb:var(--rwb)}
+.lf p.dl{margin:4px 0 8px}.lf p.dl a{display:inline-block;padding:6px 12px;border:2px solid var(--acc);border-radius:8px;color:var(--acc);font-weight:600}
+.lf p.no{background:var(--rrb);border-radius:4px;padding:2px 6px;margin-left:0;text-indent:0}.lf p.no::before{content:none}
 .ib{border:0;background:none;padding:0 3px;font-size:12px;color:var(--mut);opacity:.75}.ib:hover{opacity:1}li.dl{opacity:.5}li.dl .tx{text-decoration:line-through}.edf{margin:4px 0}.edf textarea{width:100%;min-height:60px}.edf>*{margin-right:4px}.edf select,.edf input{padding:3px 6px}
 .it.du{opacity:.55}details.uu{margin:6px 0 0 4px;opacity:.6}details.uu summary{font-size:12px}.uk{white-space:nowrap}.uk input{vertical-align:-2px}
+.fd{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}.fd .pc{min-width:0;border:1px solid var(--line);border-radius:8px;padding:4px 6px}.fd .pc.own{border-color:var(--acc)}
+.fd .pn{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--mut)}.fd .pc.own .pn{color:var(--acc)}.fd .pk{font-size:12px;padding:3px 6px;border-width:1px}.fd .pk:has(input:disabled){cursor:default}.fd select{width:100%;padding:3px 4px;font-size:12px;margin-bottom:3px}.fd .pk.ro{font-weight:400;color:var(--mut);margin:0 0 3px}
+#ich{margin-left:auto;border:2px solid var(--acc);color:var(--acc);font-weight:600}
 .pk{display:flex;gap:7px;align-items:center;margin-top:5px;padding:5px 8px;border:2px solid var(--line);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}.pk input{width:17px;height:17px;margin:0;flex:none}
 .pw:has(input:checked){border-color:var(--rg);background:var(--rgb);color:var(--rg)}.pa:has(input:checked){border-color:var(--rw);background:var(--rwb);color:var(--rw)}.pg:has(input:checked){border-color:var(--acc);background:var(--w);color:var(--acc)}
 .fg{display:grid;grid-template-columns:minmax(150px,.8fr) minmax(190px,1fr) minmax(250px,1.3fr) minmax(230px,1.2fr);gap:10px;width:100%;align-items:stretch}
@@ -63,6 +74,7 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
   <select id=f aria-label="Status"><option value="">Alle Bewertungen</option><option value=d>✓ ausgewertet, lehrreich</option><option value=x>⚪ nicht relevant</option><option value=l>🔴 live wiederholen</option><option value=rot>⛔ gesehen, unbrauchbar</option><option value=g>🟢 noch auswerten</option><option value=y>🟡 vielleicht</option><option value=open>☐ noch nicht ausgewertet</option></select>
   <select id=ph aria-label="Phase"><option value="">Alle Phasen</option><option value=K>Kaltakquise</option><option value=T>Termin / Verkaufsgespräch</option><option value=A>Andere Verkaufsform</option></select>
   <button id=cp>⭐ Auswahl kopieren</button>
+  <select id=ich aria-label="Ich bin" title="Wer bewertet gerade? (kein Login, nur Zuordnung)"><option value=F>👤 Felix (F)</option><option value=D>👤 Demi (D)</option></select>
  </div>
  <div class=thm id=thm aria-label="Themen (mehrere wählbar)"></div>
  <div class=leg><span class=mode id=mode>Bewertungen werden geladen …</span></div>
@@ -90,14 +102,14 @@ const sec=t=>{const[a,b]=String(t||'0:0').split(':').map(Number);return a*60+(b|
 const link=(id,t)=>`https://youtu.be/${id}${t?'?t='+sec(t):''}`;
 const items=(id,ph)=>{return(N[id]?.items||[]).filter(i=>!ph||i.p==ph)};
 /* Umgesetzt = im Leitfaden verarbeitet: Feld u in notes.js (Agent) oder Häkchen in der Sammlung (je Person, mine.u) */
-const isU=(id,k)=>!!N[id]?.items?.[k]?.u||[ST.mine,...Object.values(ST.all)].some(v=>(v[id]?.u||[]).includes(k));
+const isU=(id,k)=>!!N[id]?.items?.[k]?.u||WHO.some(w=>(colOf(w)?.[id]?.u||[]).includes(k));
 const done=d=>{const I=N[d.id]?.items||[];return I.length>0&&I.every((_,k)=>isU(d.id,k))};
 /* Video-IDs in Learning-Texten als „Nr. X“ zeigen */
 const NR=Object.fromEntries(D.map(d=>[d.id,d.n])),nx=t=>esc(t).replace(/[\w-]{11}/g,m=>NR[m]?'Nr.&nbsp;'+NR[m]:m);
 /* Bearbeiten-Overlay: mine[id].ed = {"<index>":{x}|{del:true}}, mine[id].add = [{p,y,t,x}]; Originale in notes.js bleiben unberührt. Zustand: offene <details>, Bearbeitung, Entwürfe */
 let OPEN=new Set(),EDK=null,DR=null,ADD=null,AF={};
-const ME=()=>ST.online?ST.uid:'me',srcs=()=>ST.online?[...Object.entries(ST.all).filter(([u])=>u!==ST.uid),[ST.uid,ST.mine]]:[['me',ST.mine]];
-const who=u=>u==ME()?'':' · '+esc(ST.names[u]?.name||'Jemand');
+const ME=()=>ST.who,srcs=()=>[...WHO.filter(w=>w!=ST.who).map(w=>[w,colOf(w)||{}]),[ST.who,ST.mine]];
+const who=u=>u==ME()?'':' · '+PN[u];
 /* Wirksame Änderung je Learning: alle Personen, eigene zuletzt */
 const ovr=(id,k)=>{let o=null;for(const[u,v]of srcs()){const e=v[id]?.ed?.[k];if(e)o={...e,u}}return o};
 const adds=id=>srcs().flatMap(([u,v])=>(v[id]?.add||[]).map((a,j)=>({...a,u,j})));
@@ -111,44 +123,56 @@ const li=(id,e)=>{const{i,k,ov,a}=e,key=id+'|'+k,dl=!!ov?.del,own=(ov?.u??a?.u)=
 const addf=id=>{const g=AF,sel=(n,L,v)=>`<select data-af=${n}>${L.map(([val,lab])=>`<option value="${esc(val)}"${val==v?' selected':''}>${esc(lab)}</option>`).join('')}</select>`;
  return `<div class=edf>${sel('p',Object.keys(PH).map(k=>[k,k+' '+PH[k]]),g.p||'K')} ${sel('y',TY0.map(y=>[y,y]),g.y||'Prinzip')} <input data-af=t placeholder="m:ss" size=6 value="${esc(g.t||'')}"><br><textarea data-af=x rows=3 placeholder="Learning-Text">${esc(g.x||'')}</textarea><br><button data-addsave="${id}">Speichern</button><button data-cancel>Abbrechen</button></div>`};
 
-/* Bewertungen: ov = geteilte Relevanz je Video, mine = eigene Notizen, all = Notizen aller Personen */
-const ST={ov:{},kern:{},mine:{},all:{},names:{},uid:null,db:null,user:null,online:false,inflight:0,deferred:false};
-/* Wirksame Farbe: eigene Bewertung > ausgewertet (Anhör-Liste oder erledigt) > Vorschlag aus auswahl.js */
-/* Kern-Video: manuelle Markierung (Collection kern, Feld g) > Vorschlag aus auswahl.js */
-const gemOf=id=>{const k=ST.kern[id];return k?(k.g?(AW[id]?.gem||'Kern-Video'):''):(AW[id]?.gem||'')};
-const eff=id=>ST.ov[id]?.r||(N[id]?(N[id].watch||gemOf(id)?'w':AW[id]?.r=='x'?'x':'d'):AW[id]?.r||'');
-const cmText=id=>Object.values(ST.online?ST.all:{me:ST.mine}).map(v=>v[id]?.text||'').join(' ');
-function lsLoad(){try{const o=JSON.parse(localStorage.getItem('bew')||'{}');ST.ov=o.ov||{};ST.kern=o.kern||{};ST.mine=o.mine||{}}catch(e){}}
-function lsSave(){try{localStorage.setItem('bew',JSON.stringify({ov:ST.ov,kern:ST.kern,mine:ST.mine}))}catch(e){}}
+/* Bewertungen je Person: F = Felix, D = Demi – Auswahl oben rechts, kein Login (nur Zuordnung).
+   Online: Dokument notizen/F bzw. notizen/D = {videos:{<id>:{r,seen,again,text,k,u,ed,add}}}; lokal: localStorage bew_F / bew_D.
+   mine = Notizen der gewählten Person (editierbar), all = beide Personen (online). Jeder sieht die Spalte des anderen. */
+const WHO=['F','D'],PN={F:'Felix',D:'Demi'};
+let ICH='';try{ICH=localStorage.getItem('ich')||''}catch(e){}
+const ST={mine:{},all:{},kern:{},who:WHO.includes(ICH)?ICH:'F',db:null,online:false,inflight:0,deferred:false};
+/* Kern-Video je Person: Feld k ('y'/'n') > Vorschlag aus auswahl.js. Filter und 💎-Abzeichen nutzen die gewählte Person */
+/* 💎 Kern-Video gilt für beide: Collection kern (Dokument je Video, Feld g) > Vorschlag aus auswahl.js */
+const isKern=id=>{const k=ST.kern[id];return k?!!k.g:!!AW[id]?.gem};
+const gemOf=id=>isKern(id)?(AW[id]?.gem||'Kern-Video'):'';
+const colOf=w=>w==ST.who?ST.mine:ST.online?(ST.all[w]||null):lsGet(w);
+/* Wirksame Farbe: Relevanz der gewählten Person (Feld r) > ausgewertet (Anhör-Liste oder erledigt) > Vorschlag aus auswahl.js */
+const eff=id=>(N[id]?(N[id].watch||gemOf(id)?'w':AW[id]?.r=='x'?'x':'d'):AW[id]?.r||'');
+const cmText=id=>WHO.map(w=>colOf(w)?.[id]?.text||'').join(' ');
+/* lokal je Person ein Eintrag; das alte gemeinsame 'bew' (vor der Trennung, alles von Felix) gilt als F */
+function lsGet(w){try{const s=localStorage.getItem('bew_'+w);if(s)return JSON.parse(s);if(w!='F')return{};
+ const o=JSON.parse(localStorage.getItem('bew')||'{}'),m=o.mine||{};
+ for(const[id,k]of Object.entries(o.kern||{}))if(!m[id]?.k)m[id]={...m[id],k:k.g?'y':'n'};
+ for(const[id,v]of Object.entries(o.ov||{}))m[id]={...m[id],r:v.r};return m}catch(e){return{}}}
+function lsLoad(){ST.mine=lsGet(ST.who);try{ST.kern=JSON.parse(localStorage.getItem('kern2')||'null')||Object.fromEntries(Object.entries(lsGet('F')).filter(([,v])=>v.k).map(([id,v])=>[id,{g:v.k=='y'}]))}catch(e){}}
+function lsSave(){try{localStorage.setItem('bew_'+ST.who,JSON.stringify(ST.mine))}catch(e){}}
 function mode(t,err){const m=$('mode');m.textContent=t;m.classList.toggle('err',!!err)}
 function queue(fn){ST.inflight++;ST.chain=(ST.chain||Promise.resolve()).then(fn).catch(e=>mode(e?.code=='invalid_argument'?'Keine Schreibrechte – Zugriff als Mitwirkender oder Bearbeiter nötig':'Speichern fehlgeschlagen ('+(e?.code||'Fehler')+')',true)).finally(()=>ST.inflight--)}
-function setOv(id,r){if(r)ST.ov[id]={r,by:ST.uid||''};else delete ST.ov[id];
- if(!ST.online)return lsSave();const ref=ST.db.collection('relevanz').doc(id);queue(()=>r?ref.set({r,by:ST.uid||''}):ref.delete())}
-function setKern(id,on){const def=!!AW[id]?.gem;if(on===def)delete ST.kern[id];else ST.kern[id]={g:on,by:ST.uid||''};
- if(!ST.online)return lsSave();const ref=ST.db.collection('kern').doc(id);queue(()=>on===def?ref.delete():ref.set({g:on,by:ST.uid||''}))}
-function setMine(id,patch){const old=ST.mine[id]||{};if(Object.keys(patch).every(k=>JSON.stringify(old[k]||'')===JSON.stringify(patch[k]||'')))return;const m={...old,...patch};if(!m.seen&&!m.again&&!m.text&&!m.u?.length&&!Object.keys(m.ed||{}).length&&!m.add?.length)delete ST.mine[id];else ST.mine[id]=m;
- if(!ST.online)return lsSave();if(!ST.uid)return mode('Speichern nicht möglich: nicht angemeldet',true);
- const body={videos:{...ST.mine}};queue(()=>ST.db.doc('notizen/'+ST.uid).set(body))}
+function setOv(id,r){setMine(id,{r:r||undefined})}
+function setKern(id,on){const def=!!AW[id]?.gem;if(on===def)delete ST.kern[id];else ST.kern[id]={g:on};
+ if(!ST.online){try{localStorage.setItem('kern2',JSON.stringify(ST.kern))}catch(e){};return}
+ const ref=ST.db.collection('kern').doc(id);queue(()=>on===def?ref.delete():ref.set({g:on}))}
+function setMine(id,patch){const old=ST.mine[id]||{};if(Object.keys(patch).every(k=>JSON.stringify(old[k]||'')===JSON.stringify(patch[k]||'')))return;const m={...old,...patch};if(!m.seen&&!m.again&&!m.text&&!m.u?.length&&!Object.keys(m.ed||{}).length&&!m.add?.length)delete ST.mine[id];else ST.mine[id]=JSON.parse(JSON.stringify(m));
+ if(!ST.online)return lsSave();
+ const body={videos:{...ST.mine}};queue(()=>ST.db.doc('notizen/'+ST.who).set(body))}
+/* Person wechseln (oben rechts): nur Zuordnung, wird im Browser gemerkt */
+function setWho(w){ST.who=w;try{localStorage.setItem('ich',w)}catch(e){};ST.mine=ST.online?{...(ST.all[w]||{})}:lsGet(w);EDK=DR=ADD=null;$('ich').value=w;r()}
 function later(){const a=document.activeElement;if(a&&a.closest&&a.closest('td.me,.edf')){ST.deferred=true;return}r()}
-async function resolveNames(){if(!ST.user)return;const ids=Object.keys(ST.all);if(ids.length)ST.names=await ST.user.profiles(ids)}
 async function connect(){
- if(LOCAL||!window.claude?.use){lsLoad();mode('Lokal: Bewertungen nur in diesem Browser');return r()}
+ if(LOCAL||!window.claude?.use){lsLoad();mode('⚠️ Lokale Vorschau – Häkchen bleiben nur in diesem Browser. Gearbeitet wird online: claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV',true);return r()}
  const [db,user]=await Promise.all([claude.use('db'),claude.use('user')]);
  if(!db){lsLoad();mode('Gemeinsame Speicherung nicht verfügbar – Bewertungen nur in diesem Browser',true);return r()}
- Object.assign(ST,{db,user,online:true,uid:user?await user.id():null});mode('Gemeinsam gespeichert: alle Eingeladenen sehen Relevanz und Kommentare');
- db.collection('relevanz').onSnapshot(s=>{const o={};s.docs.forEach(d=>o[d.id]=d.data());ST.ov=o;later()},e=>mode('Relevanz konnte nicht geladen werden ('+e.code+')',true));
+ if(!ICH&&user&&!user.isOwner()){ST.who='D';$('ich').value='D'}
+ Object.assign(ST,{db,online:true});mode('Gemeinsam gespeichert: Felix und Demi sehen gegenseitig ihre Bewertungen');
  db.collection('kern').onSnapshot(s=>{const o={};s.docs.forEach(d=>o[d.id]=d.data());ST.kern=o;later()},e=>mode('Kern-Videos konnten nicht geladen werden ('+e.code+')',true));
- db.collection('notizen').onSnapshot(async s=>{const a={};s.docs.forEach(d=>a[d.id]=d.data().videos||{});ST.all=a;
-  if(ST.uid&&!ST.inflight)ST.mine={...(a[ST.uid]||{})};await resolveNames();later()},e=>mode('Kommentare konnten nicht geladen werden ('+e.code+')',true));
+ db.collection('notizen').onSnapshot(s=>{const a={};s.docs.forEach(d=>{if(WHO.includes(d.id))a[d.id]=d.data().videos||{}});ST.all=a;
+  if(!ST.inflight)ST.mine={...(a[ST.who]||{})};later()},e=>mode('Bewertungen konnten nicht geladen werden ('+e.code+')',true));
 }
-function others(id){return Object.entries(ST.all).filter(([u])=>u!==ST.uid).map(([u,v])=>{const o=v[id];if(!o||!(o.seen||o.again||o.text))return'';
- return `<div class=oth>${o.seen?'👁 ':''}${o.again?'🔁 ':''}<b>${esc(ST.names[u]?.name||'Jemand')}</b>${o.text?': '+esc(o.text):' hat es angeschaut'}</div>`}).join('')}
-function meCell(id){const o=ST.ov[id]?.r||'',m=ST.mine[id]||{};
- return `<td class=me><select data-ov="${id}" aria-label="Relevanz ändern">${RV.filter(([v,,old])=>!old||o==v).map(([v,l])=>`<option value="${v}"${o==v?' selected':''}>${l}</option>`).join('')}</select>
- <label class="pk pw"><input type=checkbox data-seen="${id}"${m.seen?' checked':''}> 👁 angeschaut</label>
- <label class="pk pg"><input type=checkbox data-kern="${id}"${gemOf(id)?' checked':''}> 💎 Kern-Video</label>
- <label class="pk pa"><input type=checkbox data-again="${id}"${m.again?' checked':''}> 🔁 nochmal anschauen</label>
- <textarea data-cm="${id}" rows=1 placeholder="Kommentar …" aria-label="Kommentar">${esc(m.text||'')}</textarea>${others(id)}</td>`}
+/* Eine Personen-Spalte: gewählte Person editierbar, die andere nur lesbar */
+function pCol(id,w){const own=w==ST.who,o=(colOf(w)||{})[id]||{};
+ const cb=(k,on,l,c)=>`<label class="pk ${c}"><input type=checkbox${own?` data-${k}="${id}"`:' disabled'}${on?' checked':''}> ${l}</label>`;
+ return `<div class="pc${own?' own':''}"><div class=pn>${PN[w]} (${w})${own?' · ich':''}</div>${cb('seen',o.seen,'👁 angeschaut','pw')}${cb('again',o.again,'🔁 nochmal','pa')}
+ ${own?`<textarea data-cm="${id}" rows=2 placeholder="Kommentar …" aria-label="Kommentar ${PN[w]}">${esc(o.text||'')}</textarea>`:o.text?`<div class=oth>💬 ${esc(o.text)}</div>`:''}</div>`}
+/* 💎 gemeinsam für beide, darunter je Person angeschaut / nochmal / Kommentar */
+function meCell(id){return `<td class=me><label class="pk pg"><input type=checkbox data-kern="${id}"${isKern(id)?' checked':''}> 💎 Kern-Video (für beide)</label><div class=fd>${WHO.map(w=>pCol(id,w)).join('')}</div></td>`}
 
 function stats(){const ev=Object.keys(N).length,ein=D.filter(d=>N[d.id]||AW[d.id]?.r).length,lehr=D.filter(d=>N[d.id]&&!['x','rot'].includes(eff(d.id))).length;
  const H=D.filter(inMain),seen=H.filter(d=>ST.mine[d.id]?.seen).length,all=Object.values(N).reduce((c,n)=>c+(n.items||[]).length,0),u=Object.entries(N).reduce((c,[id,n])=>c+(n.items||[]).filter((_,k)=>isU(id,k)).length,0);
@@ -200,7 +224,7 @@ function row(d,ph){const n=N[d.id],I=lis(d.id,ph),a=AW[d.id]||{},r=eff(d.id);
  <td class=tg>${n&&n.seg?`<span class=chip>${esc(n.seg)}</span><br>`:''}${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td>${meCell(d.id)}</tr>`}
 function videos(){const q=$('q').value.toLowerCase(),f=ALL?$('f').value:'',ph=$('ph').value;
  const L=base().filter(d=>(!q||(d.t+' '+JSON.stringify(N[d.id]||'')+' '+cmText(d.id)).toLowerCase().includes(q))&&okS(d,f)&&okT(d)&&(!ph||items(d.id,ph).length));
- $('out').innerHTML=`<div class=wrap><table><thead><tr><th>⭐</th><th>Nr</th><th>Datum</th><th>Titel / Kategorie</th><th>Länge</th><th>🎯 Segment / Zielgruppe</th><th>Transkript</th><th>👀 Anschau-Empfehlung</th><th>Auswertung (Phase · Typ · Zitat)</th><th>✍️ Bewertung · angeschaut · Kommentar</th></tr></thead><tbody>${L.map(d=>row(d,ph)).join('')}</tbody></table></div>`;
+ $('out').innerHTML=`<div class=wrap><table><thead><tr><th>⭐</th><th>Nr</th><th>Datum</th><th>Titel / Kategorie</th><th>Länge</th><th>🎯 Segment / Zielgruppe</th><th>Transkript</th><th>👀 Anschau-Empfehlung</th><th>Auswertung (Phase · Typ · Zitat)</th><th>✍️ 💎 · Felix | Demi</th></tr></thead><tbody>${L.map(d=>row(d,ph)).join('')}</tbody></table></div>`;
  $('cnt').textContent=`· angezeigt: ${L.length}`}
 function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};let hid=0;
  D.forEach(d=>{const n=N[d.id];if(!n||!okT(d))return;lis(d.id,ph).forEach(e=>{const{i,k}=e;if(e.ov?.del)return;
@@ -212,9 +236,18 @@ function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};let
   for(const e of groups){if(e)h+=`<div class=tag style="margin-top:8px"><b>„${esc(e)}“</b></div>`;
    h+=L.filter(o=>!e||(o.i.e||'–')==e).map(({d,i,k,e})=>`<div class="it${isU(d.id,k)?' du':''}">${chg(e)}${nx(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''}<div class=src>🎯 ${N[d.id].seg?esc(N[d.id].seg)+' · ':''}${esc(N[d.id].target||'–')} · <a href="${link(d.id,i.t)}" target=_blank>▶ ${esc(d.t)} (${esc(i.t)})</a> · ${uk(d,i,k)}</div></div>`).join('')}}}
  $('out').innerHTML=h+(n?'':'<p class=tag>Keine offenen Learnings für diese Auswahl.</p>');$('cnt').textContent=`· angezeigt: ${n} Learnings${hid?` (${hid} umgesetzte ausgeblendet)`:''}`}
-function leitfaden(){const det=h=>{const t=(h.match(/<h2>(.*?)<\/h2>/s)?.[1]||'').replace(/<[^>]+>/g,'').trim(),k=Object.keys(KR).find(k=>t.startsWith(k));
-  return k?h.replace(/<\/h2>/,(KR[k].ok?' <span class=chip>✅ abgeschlossen</span>':'')+'</h2>')+`<div class=kd><div class=kh>Details</div>${KR[k].html}</div>`:h};
- $('out').innerHTML=`<div class=lf>${LFH?LFH.split(/(?=<h2>)/).map(det).join(''):'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
+/* Details gliedern: je <h4> ein Block, Farbe nach Überschrift; Text vor der ersten <h4> = Kernpunkte; ❌-Zeilen rot */
+const KS=[['Mini-Thema','mini'],['Reaktion','mini'],['Vorbereitungsfragen','mini'],['Ton','ton'],['Anschauen','vid'],['Alternative','alt']];
+function kernHtml(h){return h.replace(/<p class=b>❌/g,'<p class="b no">❌').split(/(?=<h4>)/).filter(s=>s.trim()).map(s=>{
+  const t=s.match(/^\s*<h4>(.*?)<\/h4>/s)?.[1]||'',c=t?(KS.find(([w])=>t.includes(w))?.[1]||'alt'):'kp';
+  return `<section class="ks ${c}">${t?'':'<h4>Kernpunkte</h4>'}${s}</section>`}).join('')}
+/* Ein Leitfaden-Schritt: Überschrift + gesprochene Sätze (Word) + Details (kern.js) */
+function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return h;
+  const t=head.replace(/<[^>]+>/g,'').trim(),d=KR[Object.keys(KR).find(k=>t.startsWith(k))];
+  return head+(d?.ok?' <span class=chip>✅ abgeschlossen</span>':'')+`</h2><div class=say><div class=kh>Gesprochen</div>${body}</div>`
+   +(d?`<div class=kd>${kernHtml(d.html)}</div>`:'')}
+function leitfaden(){
+ $('out').innerHTML=`<div class=lf>${window.LEITFADEN_PDF?`<p class=dl><a href="leitfaden.pdf" target=_blank>📄 Leitfaden als PDF ansehen / herunterladen</a> <span class=tag>Stand ${fdt(window.LEITFADEN_STAND)||'–'}</span></p>`:''}${LFH?LFH.split(/(?=<h2>)/).map(lfStep).join(''):'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
 function r(){const v=view=='videos',l=view=='leitfaden';['v1','v2','v3'].forEach((b,i)=>$(b).classList.toggle('on',view==['videos','sammlung','leitfaden'][i]));
  ['cp'].forEach(i=>$(i).style.display=v?'':'none');['q','ph','thm'].forEach(i=>$(i).style.display=l?'none':'');$('f').style.display=v&&ALL?'':'none';stats();thBar();v?videos():l?leitfaden():sammlung()}
 $('thm').onclick=e=>{const b=e.target.closest('button');if(!b)return;const{th,mk}=b.dataset;
@@ -250,5 +283,6 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  else if(d.addsave){const g=n=>f.querySelector(`[data-af=${n}]`).value.trim();if(!g('x'))return;setMine(d.addsave,{add:[...(ST.mine[d.addsave]?.add||[]),{p:g('p'),y:g('y'),t:g('t'),x:g('x')}]});ADD=null;AF={};r()}
  else if(d.cancel!==undefined){EDK=DR=ADD=null;r()}});
 $('cp').onclick=()=>{const t=D.filter(d=>S[d.id]).map(d=>'https://youtu.be/'+d.id).join('\n');navigator.clipboard.writeText(t).then(()=>{$('cp').textContent='✅ kopiert'},()=>{$('cp').textContent='Kopieren nicht möglich'})};
+$('ich').value=ST.who;$('ich').onchange=e=>setWho(e.target.value);
 r();connect();
 </script>
