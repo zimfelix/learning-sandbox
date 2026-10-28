@@ -47,6 +47,7 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 .ks h4{margin:4px 0 2px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--c)}
 .ks.kp{--c:var(--fg)}.ks.mini{--c:var(--ry);--cb:var(--ryb)}.ks.ton{--c:var(--a);--cb:var(--ab)}.ks.alt{--c:var(--rw);--cb:var(--rwb)}
 .lf p.dl{margin:4px 0 8px}.lf p.dl a{display:inline-block;padding:6px 12px;border:2px solid var(--acc);border-radius:8px;color:var(--acc);font-weight:600}
+.pdfbox canvas{display:block;width:100%;height:auto;margin:8px 0;border:1px solid var(--line);border-radius:6px;background:#fff}.lf p.dl button{border:2px solid var(--acc);color:var(--acc);font-weight:600}
 .lf p.no{background:var(--rrb);border-radius:4px;padding:2px 6px;margin-left:0;text-indent:0}.lf p.no::before{content:none}
 .ib{border:0;background:none;padding:0 3px;font-size:12px;color:var(--mut);opacity:.75}.ib:hover{opacity:1}li.dl{opacity:.5}li.dl .tx{text-decoration:line-through}.edf{margin:4px 0}.edf textarea{width:100%;min-height:60px}.edf>*{margin-right:4px}.edf select,.edf input{padding:3px 6px}
 .it.du{opacity:.55}details.uu{margin:6px 0 0 4px;opacity:.6}details.uu summary{font-size:12px}.uk{white-space:nowrap}.uk input{vertical-align:-2px}
@@ -246,8 +247,21 @@ function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return 
   const t=head.replace(/<[^>]+>/g,'').trim(),d=KR[Object.keys(KR).find(k=>t.startsWith(k))];
   return head+(d?.ok?' <span class=chip>✅ abgeschlossen</span>':'')+`</h2><div class=say><div class=kh>Gesprochen</div>${body}</div>`
    +(d?`<div class=kd>${kernHtml(d.html)}</div>`:'')}
+/* PDF: claude.ai blockiert direkte Links auf Dateien → Ansicht per PDF.js in der Seite, Download über die Freigabe „downloads“ */
+const PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+const loadScript=src=>new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s)});
+const pdfData=async()=>(await fetch('leitfaden.pdf')).arrayBuffer();
+async function pdfShow(box){if(box.childElementCount){box.textContent='';return}box.textContent='PDF wird geladen …';
+ try{if(!window.pdfjsLib)await loadScript(PDFJS+'pdf.min.js');pdfjsLib.GlobalWorkerOptions.workerSrc=PDFJS+'pdf.worker.min.js';
+  const doc=await pdfjsLib.getDocument({data:await pdfData()}).promise;box.textContent='';
+  for(let i=1;i<=doc.numPages;i++){const pg=await doc.getPage(i),vp=pg.getViewport({scale:2}),c=document.createElement('canvas');
+   c.width=vp.width;c.height=vp.height;box.appendChild(c);await pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise}}
+ catch(e){box.textContent='PDF-Ansicht hier nicht möglich – derselbe Text steht unten im Leitfaden.'}}
+async function pdfSave(btn){try{const dl=await claude.use('downloads');if(!dl)throw{code:'unavailable'};
+  await dl.save({filename:'Leitfaden.pdf',data:new Blob([await pdfData()])})}
+ catch(e){if(e?.code!='declined')btn.textContent='Download hier nicht möglich'}}
 function leitfaden(){
- $('out').innerHTML=`<div class=lf>${window.LEITFADEN_PDF?`<p class=dl><a href="leitfaden.pdf" target=_blank>📄 Leitfaden als PDF ansehen / herunterladen</a> <span class=tag>Stand ${fdt(window.LEITFADEN_STAND)||'–'}</span></p>`:''}${LFH?LFH.split(/(?=<h2>)/).map(lfStep).join(''):'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
+ $('out').innerHTML=`<div class=lf>${window.LEITFADEN_PDF?`<p class=dl>${LOCAL?'<a href="leitfaden.pdf" target=_blank>📄 Leitfaden-PDF öffnen</a>':'<button data-pdfv>📄 PDF ansehen</button> <button data-pdfd>⬇️ PDF herunterladen</button>'} <span class=tag>Stand ${fdt(window.LEITFADEN_STAND)||'–'}</span></p><div id=pdfbox class=pdfbox></div>`:''}${LFH?LFH.split(/(?=<h2>)/).map(lfStep).join(''):'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
 function r(){const v=view=='videos',l=view=='leitfaden';['v1','v2','v3'].forEach((b,i)=>$(b).classList.toggle('on',view==['videos','sammlung','leitfaden'][i]));
  ['cp'].forEach(i=>$(i).style.display=v?'':'none');['q','ph','thm'].forEach(i=>$(i).style.display=l?'none':'');$('f').style.display=v&&ALL?'':'none';stats();thBar();v?videos():l?leitfaden():sammlung()}
 $('thm').onclick=e=>{const b=e.target.closest('button');if(!b)return;const{th,mk}=b.dataset;
@@ -271,7 +285,7 @@ document.addEventListener('focusout',()=>setTimeout(()=>{if(ST.deferred&&!docume
 document.addEventListener('toggle',e=>{const d=e.target.dataset?.vid;if(d)e.target.open?OPEN.add(d):OPEN.delete(d)},true);
 /* Learnings bearbeiten: Klicks per Delegation */
 const edSet=(id,k,v)=>{const ed={...(ST.mine[id]?.ed||{})};v?ed[k]=v:delete ed[k];setMine(id,{ed})};
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset,[id,k]=(d.ed||d.del||d.undo||d.orig||d.save||d.deladd||'').split('|'),f=b.closest('.edf');
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.pdfv!==undefined)return pdfShow($('pdfbox'));if(b.dataset.pdfd!==undefined)return pdfSave(b);const d=b.dataset,[id,k]=(d.ed||d.del||d.undo||d.orig||d.save||d.deladd||'').split('|'),f=b.closest('.edf');
  const foc=()=>document.querySelector('.edf textarea')?.focus();
  if(d.ed){EDK=d.ed;DR=null;ADD=null;r();foc()}
  else if(d.del)edSet(id,k,{del:true}),r();
