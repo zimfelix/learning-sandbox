@@ -67,16 +67,15 @@ window.KERN = {
 <p class=b>Nr. 9 @7:00 – warum die offene Vorwegnahme („nicht schon wieder einer …“) bei Handwerkern scheitert · <a href="https://youtu.be/MA_C7LHCsaY?t=420" target=_blank>▶ youtu.be/MA_C7LHCsaY @7:00</a></p>
 `},
 "Schritt 4": {"ok": true, "html": `
-<p class=b><b>Leitfaden „Empfehlung“ (Hauptleitfaden):</b> Kern = wer ihm empfohlen wird, schaut vor dem Anruf auf seine Website. Passt auf fast jeden Handwerksbetrieb mit alter Website (Leadfinder). Nutzen knüpft direkt an die Vorwegnahme an. 🛠</p>
-<p class=b>🛠 Auf Websites übertragen nach Julians Bauplan: „Ich gehe davon aus, dass [Haupteinwand ist schon erfüllt]. Die Frage ist: Wenn [Nutzen], sind Sie dann grundsätzlich offen …?“ – geschlossene Frage, auf die er kaum Nein sagen kann.</p>
-<p class=b>Zwei Vorwegnahmen: Schritt 3 gegen das Gespräch („nicht überrumpeln“), Schritt 4 gegen den Bedarf („läuft über Empfehlungen“ – häufigster Handwerker-Einwand).</p>
+<h4>Alternative: „Gefunden werden“ – wenn er unterbricht oder zu schnell ist</h4>
+<p>„Ich gehe davon aus, dass Sie schon eine Website haben. Die Frage ist: Wenn Leute aus der Region, die gerade einen [Elektriker] suchen, bei Google direkt bei Ihnen landen und anfragen – sind Sie dann grundsätzlich offen, dass wir kurz drüber sprechen?“</p>
+<p class=b>Passt auch, wenn Empfehlungen bei ihm kein Thema sind oder er „Website haben wir, bringt nix“ sagt.</p>
+<h4>Kernpunkte</h4>
+<p class=b><b>Bauplan:</b> „Ich gehe davon aus, dass [Haupteinwand ist schon erfüllt]. Die Frage ist: Wenn [Nutzen], sind Sie dann grundsätzlich offen …?“ – geschlossene Frage, auf die er kaum Nein sagen kann.</p>
+<p class=b><b>Nutzen:</b> konkret, wenn die Zielgruppe klar ist – sonst ein allgemeineres Bild als Nutzen („der perfekte Urlaub“ statt „ich bringe Sie in die Berge“).</p>
 <p class=b>Nutzen, nicht Lösung – das „Wie“ kommt im Termin. „Kurz drüber sprechen“ bewusst ohne Inhalt: niedrige Hürde, den Nutzen trägt der „Wenn …“-Teil.</p>
-<p class=b>Ein Kernthema pro Anruf, kein Bauchladen. Bedarf wecken, nicht ermitteln: keine Frage „Was müssten wir liefern, damit es interessant ist?“</p>
-<p class=b>Einwand trotz gutem Satz = fehlendes Vertrauen → Reframing (Einwandbehandlung).</p>
+<p class=b>Ein Kernthema pro Anruf, kein Bauchladen. <b>Bedarf wecken, nicht ermitteln:</b> keine Frage „Was müssten wir liefern, damit es interessant ist?“ – in umkämpften Märkten wie dem Handwerk bringt das nichts.</p>
 <p class=b>❌ Zahlen versprechen („5 Termine pro Woche“, „30 % mehr Umsatz“ – unglaubwürdig), unterstellen („attraktiver werden“, „bessere Außendarstellung“), offensichtliche Probleme aufzählen, offene Frage direkt danach, „kurzer Austausch“ ohne Nutzen, schmeicheln („Ihre Website empfiehlt Sie so gut wie Ihre Kunden“).</p>
-<h4>Alternativen</h4>
-<p class=b><b>A: Online-Marketing allgemein</b> – ohne Empfehlungen, auch für Online-Marketing: „Ich gehe davon aus, dass Sie schon eine Website haben. Die Frage ist: Wenn darüber regelmäßig Anfragen für genau die Aufträge reinkommen, die Sie haben wollen – sind Sie dann grundsätzlich offen, dass wir die Tage kurz drüber sprechen?“ 🛠</p>
-<p class=b><b>B: Leitfaden „Gefunden werden“</b> – wenn Empfehlungen bei ihm kein Thema sind oder er „Website haben wir, bringt nix“ sagt: „Ich gehe davon aus, dass Sie schon eine Website haben. Die Frage ist: Wenn Leute aus der Region, die gerade einen [Elektriker] suchen, bei Google direkt bei Ihnen landen und anfragen – sind Sie dann grundsätzlich offen, dass wir kurz drüber sprechen?“</p>
 <h4>🛡 Mini-Thema: Rückfrage („Wie machen Sie das?“ · „Was kostet das?“)</h4>
 <p><b>Antwort:</b> „Das zeige ich Ihnen gerne im Termin – ich bringe einen kostenlosen Entwurf für Ihre Seite mit, und Sie bekommen direkt einen transparenten Preis. Wie sieht's bei Ihnen spontan morgen aus?“ 🛠</p>
 <p class=b><b>Kurz, nur bei „Wie machen Sie das?“:</b> „Gute Frage – das zeige ich Ihnen gerne im Detail. Wie sieht's bei Ihnen spontan morgen aus?“</p>
@@ -86,11 +85,13 @@ window.KERN = {
 <p class=b>❌ Erklären („Also, wir machen das so, dass …“), Konjunktiv („… würde ich Ihnen gerne mal zeigen. Wann hätten Sie denn Zeit?“).</p>
 <p class=b>Anschauen: Nr. 18 @5:01 – Wie-Frage als Überleitung zum Termin, vorgesprochen · <a href="https://youtu.be/p9rQHNxk-Yw?t=301" target=_blank>▶ youtu.be/p9rQHNxk-Yw @5:01</a> · Nr. 130 @2:07–4:00 – live: Kunde fragt nach Firma und Geschäftsmodell, Julian antwortet knapp · <a href="https://youtu.be/bwSFCibBhLg?t=127" target=_blank>▶ youtu.be/bwSFCibBhLg @2:07</a></p>
 <h4>Ton</h4>
-<p class=b>Ohne Konjunktiv, nicht zu schnell und nicht monoton – ein zu schnell gesprochener Nutzensatz ruiniert auch den besten Satz. Höchstens zwei Sätze, sonst weiß er am Ende nicht mehr, was am Anfang kam.</p>
+<p class=b>Höchstens zwei Sätze, ruhig und nicht monoton – sonst weiß er am Ende nicht mehr, was am Anfang kam.</p>
 <h4>Anschauen</h4>
 <p class=b>Nr. 102 @0:00 – Julian spricht seinen Nutzensatz („die ersten 100.000 €“): so klingt er richtig · <a href="https://youtu.be/tUqyROcnFtE" target=_blank>▶ youtu.be/tUqyROcnFtE @0:00</a></p>
 <p class=b>Nr. 102 @6:00 – derselbe Satz zu schnell und monoton gesprochen – so nicht · <a href="https://youtu.be/tUqyROcnFtE?t=360" target=_blank>▶ youtu.be/tUqyROcnFtE @6:00</a></p>
 <p class=b>Nr. 94 @11:01 – Julian erklärt seinen Nutzensatz Wort für Wort (Vorwegnahme, offen statt Zahlen, wann es nicht reicht) · <a href="https://youtu.be/wz-Tvv5y3NY?t=661" target=_blank>▶ youtu.be/wz-Tvv5y3NY @11:01</a></p>
+<h4>Notiz</h4>
+<p class=b>Zwei Vorwegnahmen im Leitfaden: Schritt 3 gegen das Gespräch („nicht überrumpeln“), Schritt 4 gegen den Bedarf („läuft über Empfehlungen“ – häufigster Handwerker-Einwand).</p>
 `},
 "Schritt 5": {"ok": true, "html": `
 <p class=b><b>Hauptsatz (abgestimmt 28.10.):</b> „Sehr gut, dann lassen Sie uns gleich mal schauen, wann es passt. Wie sieht's bei Ihnen spontan morgen aus?“ – passt morgen nicht: „Okay, kein Problem. Und übermorgen, [Mittwoch]? [15 Uhr] passt bei mir gut.“</p>

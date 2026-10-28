@@ -238,7 +238,7 @@ function sammlung(){const q=$('q').value.toLowerCase(),ph=$('ph').value,T={};let
    h+=L.filter(o=>!e||(o.i.e||'–')==e).map(({d,i,k,e})=>`<div class="it${isU(d.id,k)?' du':''}">${chg(e)}${nx(i.x)}${i.s?' <i class=mut>(sinngemäß)</i>':''}<div class=src>🎯 ${N[d.id].seg?esc(N[d.id].seg)+' · ':''}${esc(N[d.id].target||'–')} · <a href="${link(d.id,i.t)}" target=_blank>▶ ${esc(d.t)} (${esc(i.t)})</a> · ${uk(d,i,k)}</div></div>`).join('')}}}
  $('out').innerHTML=h+(n?'':'<p class=tag>Keine offenen Learnings für diese Auswahl.</p>');$('cnt').textContent=`· angezeigt: ${n} Learnings${hid?` (${hid} umgesetzte ausgeblendet)`:''}`}
 /* Details gliedern: je <h4> ein Block, Farbe nach Überschrift; Text vor der ersten <h4> = Kernpunkte; ❌-Zeilen rot */
-const KS=[['Mini-Thema','mini'],['Reaktion','mini'],['Vorbereitungsfragen','mini'],['Ton','ton'],['Anschauen','vid'],['Alternative','alt']];
+const KS=[['Kernpunkte','kp'],['Notiz','vid'],['Mini-Thema','mini'],['Reaktion','mini'],['Vorbereitungsfragen','mini'],['Ton','ton'],['Anschauen','vid'],['Alternative','alt']];
 function kernHtml(h){return h.replace(/<p class=b>❌/g,'<p class="b no">❌').split(/(?=<h4>)/).filter(s=>s.trim()).map(s=>{
   const t=s.match(/^\s*<h4>(.*?)<\/h4>/s)?.[1]||'',c=t?(KS.find(([w])=>t.includes(w))?.[1]||'alt'):'kp';
   return `<section class="ks ${c}">${t?'':'<h4>Kernpunkte</h4>'}${s}</section>`}).join('')}
