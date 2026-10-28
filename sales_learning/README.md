@@ -18,6 +18,9 @@ sales_learning/
     ├── notes.js          Auswertung pro Video: Zielgruppe, 👀-Empfehlung, Learnings
     ├── auswahl.js        Vorauswahl: Relevanz grün/gelb/grau, 💎 Kern-Video, 🎥 Live, Thema `th` (Filter in der Übersicht)
     ├── dates.js          Upload-Datum je Video
+    ├── kern.js           Details je Leitfaden-Schritt (Tab Leitfaden)
+    ├── einwaende.js      Einwand-Matrix (Tab Leitfaden)
+    ├── live-einwaende.js Live-Einwände zum Anhören, Filter „🛡 Einwand-Fokus“
     └── transcripts/      Transkripte als .txt (lokal, nicht eingecheckt)
 ```
 
@@ -179,7 +182,7 @@ Diese Seite aktualisiert sich nie automatisch. Darum wird nach jeder Änderung a
 
 1. Falls `leitfaden.docx` geändert wurde: `python3 leitfaden_export.py`. Dann `tail -n +2 uebersicht.html > .online.html` (erste Zeile = Doctype, den setzt claude.ai selbst; Datei ist per `.gitignore` ausgenommen).
 2. In einem neuen Chat zuerst einmal das Artifact mit der URL oben lesen (`Artifact`, `action: "read"`), sonst wird das Veröffentlichen abgelehnt.
-3. Veröffentlichen mit `Artifact` (publish): `url` = Link oben, `file_path` = `mahnken-videos/.online.html`, `files` = `videos.js`, `notes.js`, `dates.js`, `auswahl.js`, `leitfaden.js`, `kern.js` (Quellpfade **absolut** angeben, z. B. `/Users/felix/Code/python/learning-sandbox/sales_learning/mahnken-videos/notes.js`). Kein `capabilities`-Feld mitgeben – die Datenbank-Einstellung bleibt so erhalten; Bewertungen bleiben ebenfalls erhalten.
+3. Veröffentlichen mit `Artifact` (publish): `url` = Link oben, `file_path` = `mahnken-videos/.online.html`, `files` = `videos.js`, `notes.js`, `dates.js`, `auswahl.js`, `leitfaden.js`, `kern.js`, `einwaende.js`, `live-einwaende.js` (Quellpfade **absolut** angeben, z. B. `/Users/felix/Code/python/learning-sandbox/sales_learning/mahnken-videos/notes.js`). Kein `capabilities`-Feld mitgeben – die Datenbank-Einstellung bleibt so erhalten; Bewertungen bleiben ebenfalls erhalten.
 
 **Hauptseite ist die claude.ai-Seite** (seit 28.10.2026). Die lokale `uebersicht.html` ist nur Vorschau; Häkchen dort bleiben im Browser und kommen nicht online an.
 

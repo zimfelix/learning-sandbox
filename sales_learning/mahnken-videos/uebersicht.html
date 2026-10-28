@@ -83,6 +83,9 @@ details.ewr[open]{background:var(--head)}
 .ewtool button.on{border-color:var(--acc);color:var(--acc)}
 .ewl .ewa .sub{display:block;margin:0 0 4px}.ewl .ewa .nt{color:#8b6f47;font-size:13px;margin:2px 0}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .ewl .ewa .nt{color:#c8a77a}}:root[data-theme=dark] .ewl .ewa .nt{color:#c8a77a}.ewl .ewa .st{margin:0 0 4px}.ewl .ewa .stn{display:inline-block;min-width:18px;text-align:center;font-size:11px;font-weight:700;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:9px;padding:0 5px}.ewl .ewk .cat{display:inline-block;font-size:11px;font-weight:600;color:var(--rw);background:var(--rwb);border-radius:8px;padding:0 6px;margin-left:2px}.ewl .ewa .sub i{color:var(--mut)}.ewtool{margin:4px 0}.ewtool button{font-size:13px;padding:3px 10px}
 @media(max-width:900px){.ewgr{grid-template-columns:1fr}.ewhd{display:none}}
+/* Live-Einwände: links Kundensatz + Quelle, rechts Reaktion; Negativbeispiele rot */
+.lvg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:0 12px;font-size:14px}.lvr{padding:6px 8px;border-bottom:1px solid var(--line)}.lvr p{margin:2px 0}.lvr .q{font-size:12px;color:var(--mut)}.lvr.lno{background:var(--rrb)}
+@media(max-width:900px){.lvg{grid-template-columns:1fr}}
 .kcol{display:flex;flex-direction:column;gap:8px;min-width:0}.kd .ks{margin:0}
 @media(max-width:900px){.kd{grid-template-columns:1fr}}
 .ks{--c:var(--mut);--cb:var(--head);border-left:3px solid var(--c);background:var(--cb);padding:4px 12px 6px;margin:6px 0;border-radius:0 6px 6px 0}
@@ -123,7 +126,7 @@ details.ewr[open]{background:var(--head)}
  <div class=leg><span class=mode id=mode>Bewertungen werden geladen …</span></div>
 </div>
 <div id=out></div>
-<script src="videos.js"></script><script src="notes.js"></script><script src="dates.js"></script><script src="auswahl.js"></script><script src="leitfaden.js"></script><script src="kern.js"></script><script src="einwaende.js"></script>
+<script src="videos.js"></script><script src="notes.js"></script><script src="dates.js"></script><script src="auswahl.js"></script><script src="leitfaden.js"></script><script src="kern.js"></script><script src="einwaende.js"></script><script src="live-einwaende.js"></script>
 <script>
 const D=window.VIDEOS,N=window.NOTES||{},DT=window.DATES||{},AW=window.AUSWAHL||{},$=id=>document.getElementById(id);
 const LOCAL=location.protocol=='file:';
@@ -232,7 +235,9 @@ const isLive=d=>{const a=AW[d.id]||{};return !!a.live||(a.th||[]).some(t=>t=='li
 /* Format (entweder–oder): Lernvideos = alles außer Live */
 const FMT=[['lern','📚 Lernvideos',d=>!isLive(d)],['live','🎥 Live-Gespräche',isLive]];
 /* Status (mehrere wählbar, mindestens eins passt) */
-const MK=[['lf','📌 im Leitfaden',d=>LF.has(d.id)],['gem','💎 Kern-Videos',d=>!!gemOf(d.id)],['done','✅ abgearbeitet',d=>done(d)&&!LF.has(d.id)],['seen','👁 von mir angeschaut',d=>!!ST.mine[d.id]?.seen],['again','🔁 nochmal anschauen',d=>!!ST.mine[d.id]?.again],['lw','🔴 live wiederholen',d=>eff(d.id)=='l']];
+/* 🛡 Einwand-Fokus = Videos aus live-einwaende.js und die Anschau-Videos der Einwand-Matrix */
+const EF=new Set([...(window.LIVE_EINWAENDE?.rows||[]).map(r=>r.id),...(window.EINWAENDE?.videos||[]).map(([,u])=>u.match(/youtu\.be\/([\w-]{11})/)?.[1]).filter(Boolean)]);
+const MK=[['ef','🛡 Einwand-Fokus',d=>EF.has(d.id)],['lf','📌 im Leitfaden',d=>LF.has(d.id)],['gem','💎 Kern-Videos',d=>!!gemOf(d.id)],['done','✅ abgearbeitet',d=>done(d)&&!LF.has(d.id)],['seen','👁 von mir angeschaut',d=>!!ST.mine[d.id]?.seen],['again','🔁 nochmal anschauen',d=>!!ST.mine[d.id]?.again],['lw','🔴 live wiederholen',d=>eff(d.id)=='l']];
 const marked=d=>eff(d.id)=='w'||eff(d.id)=='l'||LF.has(d.id)||!!gemOf(d.id)||!!N[d.id]?.watch||isLive(d)||!!N[d.id]?.nosubs;
 /* Hauptliste: nur die blauen (🎧 Anhör-Liste: 👀 oder 💎) ohne abgearbeitete, die roten (🔴 live wiederholen, immer), 📌 und 🔁 nochmal anschauen. Live-Videos über den Schalter 🎥 */
 const inMain=d=>LF.has(d.id)||!!ST.mine[d.id]?.again||eff(d.id)=='l'||(eff(d.id)=='w'&&!done(d));
@@ -249,7 +254,7 @@ try{const o=JSON.parse(localStorage.getItem('flt2')||'{}');TS=new Set((o.t||[]).
 const saveT=()=>{try{localStorage.setItem('flt2',JSON.stringify({t:[...TS],m:[...MS],f:FM,ob:OB,all:ALL,su:SU}))}catch(e){}};
 const inOb=d=>TG.some(g=>g[4]==OB&&inG(d,g[0]));
 const okT=d=>(!FM||FMT.find(f=>f[0]==FM)[2](d))&&(!OB||inOb(d))&&(!TS.size||[...TS].some(k=>inG(d,k)))&&(!MS.size||MK.some(([k,,f])=>MS.has(k)&&f(d)));
-const base=()=>view=='videos'&&!ALL&&!MS.has('done')?D.filter(inMain):D;
+const base=()=>view=='videos'&&!ALL&&!MS.has('done')&&!MS.has('ef')?D.filter(inMain):D;
 function thBar(){const B=base(),btn=(a,k,l,n,on,cl='')=>`<button data-${a}="${k}" class="fb ${cl}${on?' on':''}"><span>${l}</span><span class=fn>${n}</span></button>`;
  const Bf0=FM?B.filter(FMT.find(f=>f[0]==FM)[2]):B,Bf=OB?Bf0.filter(inOb):Bf0;
  /* vier Spalten: Format · Status · Leitfaden Kaltakquise · Leitfaden Termingespräch */
@@ -266,7 +271,7 @@ function row(d,ph){const n=N[d.id],I=lis(d.id,ph),a=AW[d.id]||{},r=eff(d.id);
  /* offene Learnings zuerst, umgesetzte eingeklappt darunter */
  const Io=I.filter(e=>!isU(d.id,e.k)),Iu=I.filter(e=>isU(d.id,e.k)),op=x=>OPEN.has(x)?' open':'';
  const ev=!n?'<span class=mut>noch nicht ausgewertet</span>':n.skip&&!I.length?`<span class=mut>${esc(n.skip)}</span>`:`<details data-vid="${d.id}"${op(d.id)}><summary>${cnt||'Learnings'}${Iu.length?` <span class=chip>✅ ${Iu.length} umgesetzt</span>`:''}</summary><ul>${Io.map(e=>li(d.id,e)).join('')}</ul>${Iu.length?`<details class=uu data-vid="${d.id}|u"${op(d.id+'|u')}><summary>✅ ${Iu.length} umgesetzt</summary><ul>${Iu.map(e=>li(d.id,e)).join('')}</ul></details>`:''}${ADD==d.id?addf(d.id):`<button class=ib data-add="${d.id}">➕ Learning hinzufügen</button>`}</details>`;
- const gm=gemOf(d.id),badge=(r=='l'?'<span class=lv>🔴 live wiederholen</span> ':'')+(LF.has(d.id)?'<span class=gem>📌 Leitfaden – anschauen</span> ':done(d)?'<span class=chip>✅ abgearbeitet</span> ':'')+(gm?`<span class=gem>💎 ${esc(gm)}</span> `:'')+(a.live?`<span class=chip>🎥 ${esc(a.live)}</span>`:'');
+ const gm=gemOf(d.id),badge=(EF.has(d.id)?'<span class=chip>🛡 Einwand-Fokus</span> ':'')+(r=='l'?'<span class=lv>🔴 live wiederholen</span> ':'')+(LF.has(d.id)?'<span class=gem>📌 Leitfaden – anschauen</span> ':done(d)?'<span class=chip>✅ abgearbeitet</span> ':'')+(gm?`<span class=gem>💎 ${esc(gm)}</span> `:'')+(a.live?`<span class=chip>🎥 ${esc(a.live)}</span>`:'');
  return `<tr class="${r&&r!='-'?'r'+r:''}"><td><input type=checkbox data-id="${d.id}" aria-label="auswählen"${S[d.id]?' checked':''}></td><td class=n>${d.n}</td><td class=dt>${fdt(DT[d.id])}</td>
  <td class=tit>${badge?badge+'<br>':''}<a href="https://youtu.be/${d.id}" target=_blank>${esc(d.t)}</a><div class=tag>${d.c}</div>${a.th?.some(t=>THL[t])?`<div>${[...new Set(a.th.map(t=>THL[t]).filter(Boolean))].sort((x,y)=>thO(x)-thO(y)).map(t=>`<span class=chip>${esc(t)}</span>`).join('')}</div>`:''}${a.why?`<div class=why>${esc(a.why)} · <i>${n?'geprüft':'nach Titel'}</i></div>`:''}</td><td class=m>${d.m} min</td>
  <td class=tg>${n&&n.seg?`<span class=chip>${esc(n.seg)}</span><br>`:''}${n?esc(n.target||'–'):''}</td><td class=tr>${tr}</td><td class=wa>${wa}</td><td class=ev>${ev}</td>${meCell(d.id)}</tr>`}
@@ -315,6 +320,11 @@ function ewHtml(){const E=window.EINWAENDE;if(!E)return'';
  <div class=ewgp>Haupt-Einwände</div>${H.map(row).join('')}<div class="ewgp ewsep">Weitere Einwände</div>${N2.map(row).join('')}</div>
  <div class="ewf ewend"><p><b>Abschluss nach jedem Ja</b></p><p>${esc(E.weiter).replace(/\n/g,'<br>')}</p></div>
  <div class=ewn><section class="ks ton"><h4>Ton</h4><p>${esc(E.ton)}</p></section><section class="ks kp"><h4>❌ So nicht</h4><p>${esc(E.no)}</p></section><section class="ks vid"><h4>Anschauen</h4>${E.videos.map(([t,u])=>`<p class=b>${esc(t)} · <a href="${u}" target=_blank>▶ ${u.replace('https://','').replace(/\?t=.*/,'')}</a></p>`).join('')}</section></div></section>`}
+/* Live-Einwände (live-einwaende.js): gruppiert nach Kern-Einwand; „Nr. X @m:ss“ wird zum Link, die Videos werden dadurch nicht 📌 */
+function liveHtml(){const L=window.LIVE_EINWAENDE;if(!L)return'';const A={echt:'🎙 echtes Telefonat',ki:'🤖 KI-Rollenspiel',coaching:'🎓 Coaching'};
+ const row=r=>`<div class="lvg lvr${r.no?' lno':''}"><div><p>${esc(r.sag)}${r.s?' <i class=mut>(sinngemäß)</i>':''}</p><p class=q>${ewQ('Nr. '+r.n+' @'+r.t)} · ${A[r.art]||''} · ${esc(r.was)}</p></div><div>${esc(r.r).split('\n').map(x=>`<p>${x}</p>`).join('')}${r.x?`<p class=q>📎 ${ewQ(r.x)}</p>`:''}</div></div>`;
+ return`<section class=ew><h2>🎥 Live-Einwände <span class=chip>zum Anhören · nicht in die Matrix übernommen</span></h2><div class=ewf>${(L.regeln||[]).map(t=>`<p>💡 ${ewQ(t)}</p>`).join('')}</div>
+ <div class=ewl><div class="lvg ewhd"><span>Das sagt er</span><span>So reagiert Julian</span></div>${[...new Set(L.rows.map(r=>r.k))].map(k=>`<div class=ewgp>${esc(k)}</div>`+L.rows.filter(r=>r.k==k).map(row).join('')).join('')}</div></section>`}
 /* Schalter der Einwand-Matrix: Kundensätze / Zusätze / Quellen; Zustand je Browser gemerkt */
 document.addEventListener('click',e=>{const b=e.target.closest('[data-ewt]');if(b){const k=b.dataset.ewt;EWT[k]=!EWT[k];try{localStorage.setItem('ewt',JSON.stringify(EWT))}catch(x){}
   b.classList.toggle('on',EWT[k]);b.closest('.ew').classList.toggle('t-'+k,EWT[k]);return}
@@ -335,7 +345,7 @@ async function pdfSave(btn){try{const dl=await claude.use('downloads');if(!dl)th
   await dl.save({filename:'Leitfaden.pdf',data:new Blob([await pdfData()])})}
  catch(e){if(e?.code!='declined')btn.textContent='Download hier nicht möglich'}}
 function leitfaden(){
- $('out').innerHTML=`<div class=lf>${window.LEITFADEN_PDF?`<p class=dl>${LOCAL?'<a href="leitfaden.pdf" target=_blank>📄 Leitfaden-PDF öffnen</a>':'<button data-pdfv>📄 PDF ansehen</button> <button data-pdfd>⬇️ PDF herunterladen</button>'} <span class=tag>Stand ${fdt(window.LEITFADEN_STAND)||'–'}</span></p><div id=pdfbox class=pdfbox></div>`:''}${LFH?LFH.split(/(?=<h2>)/).map(h=>lfStep(h)+lfExtra(h)).join('')+ewHtml():'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
+ $('out').innerHTML=`<div class=lf>${window.LEITFADEN_PDF?`<p class=dl>${LOCAL?'<a href="leitfaden.pdf" target=_blank>📄 Leitfaden-PDF öffnen</a>':'<button data-pdfv>📄 PDF ansehen</button> <button data-pdfd>⬇️ PDF herunterladen</button>'} <span class=tag>Stand ${fdt(window.LEITFADEN_STAND)||'–'}</span></p><div id=pdfbox class=pdfbox></div>`:''}${LFH?LFH.split(/(?=<h2>)/).map(h=>lfStep(h)+lfExtra(h)).join('')+ewHtml()+liveHtml():'<p class=tag>Noch kein Leitfaden exportiert.</p>'}<p class=tag>Sätze: leitfaden.docx (Stand ${fdt(window.LEITFADEN_STAND)||'–'}) · Details: kern.js</p></div>`;$('cnt').textContent=''}
 function r(){const v=view=='videos',l=view=='leitfaden';['v1','v2','v3'].forEach((b,i)=>$(b).classList.toggle('on',view==['videos','sammlung','leitfaden'][i]));
  ['cp'].forEach(i=>$(i).style.display=v?'':'none');['q','ph','thm'].forEach(i=>$(i).style.display=l?'none':'');$('f').style.display=v&&ALL?'':'none';stats();thBar();v?videos():l?leitfaden():sammlung()}
 $('thm').onclick=e=>{const b=e.target.closest('button');if(!b)return;const{th,mk}=b.dataset;
