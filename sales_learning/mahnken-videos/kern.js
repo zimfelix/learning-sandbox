@@ -122,4 +122,18 @@ window.KERN = {
 <p class=b>Nr. 46 @2:00 – Abschlusssatz im Original · <a href="https://youtu.be/7BBajXnvH8g?t=120" target=_blank>▶ youtu.be/7BBajXnvH8g @2:00</a></p>
 <p class=b>Nr. 19 @7:01 – die zwei Fragen im Wortlaut · <a href="https://youtu.be/jAQ3TLbFTck?t=421" target=_blank>▶ youtu.be/jAQ3TLbFTck @7:01</a></p>
 `},
+"Ton & Stimme": {"after": "Schritt 6", "html": `
+<p><b>Gilt fürs ganze Gespräch</b> – Details stehen beim jeweiligen Schritt.</p>
+<p class=b>⭐ <b>Keine Konjunktive</b> (würde / könnte / hätte / wäre) – klingt unsicher.</p>
+<p class=b><b>Lächeln</b>, sympathisch-neutral, nicht zu schnell, nicht monoton.</p>
+<p class=b><b>Ruhig bleiben, wenn es eng wird:</b> nicht schneller werden, nicht abkürzen, nicht rechtfertigen.</p>
+<p class=b><b>Energie angleichen</b> – bei lauten, knappen Typen kraftvoller, aber nie frecher.</p>
+<p class=b><b>Gezielte Füllwörter</b> („Ah, okay.“ · „Verstehe.“ · „Ich sag's Ihnen ganz offen …“) statt glatt und perfekt – kein „äh“, keine langen Pausen.</p>
+<p class=b>❌ Namen des Gegenübers ständig wiederholen („Herr Müller, Herr Müller …“) – wirkt manipulativ.</p>
+<p class=b>Reagiert einer ruppig oder legt auf: erst den eigenen Ton und Leitfaden prüfen, nicht gleich Zielgruppe oder Angebot wechseln.</p>
+<h4>Anschauen</h4>
+<p class=b>Nr. 102 @0:00 – Nutzensatz richtig gesprochen · <a href="https://youtu.be/tUqyROcnFtE" target=_blank>▶ youtu.be/tUqyROcnFtE</a> · @6:00 – zu schnell, monoton · <a href="https://youtu.be/tUqyROcnFtE?t=360" target=_blank>▶ @6:00</a></p>
+<p class=b>Nr. 28 @1:00 – unsicher, Stimme geht hoch – so nicht · <a href="https://youtu.be/J-bnKLumcqs?t=60" target=_blank>▶ youtu.be/J-bnKLumcqs @1:00</a></p>
+<p class=b>Nr. 88 @6:00 – Füllwörter ohne Unsicherheit · <a href="https://youtu.be/5gPOrQ35tbQ?t=360" target=_blank>▶ youtu.be/5gPOrQ35tbQ @6:00</a></p>
+`},
 };

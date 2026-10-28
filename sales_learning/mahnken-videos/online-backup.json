@@ -2,28 +2,70 @@
  "stand": "2026-10-28",
  "quelle": "claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV",
  "kern": {
-  "YDWXfK8tFtc": {
-   "g": false
+  "7BBajXnvH8g": {
+   "g": true
   },
   "EJyUFrP_oOQ": {
    "g": false
   },
+  "FLDVG9syiUc": {
+   "c": "abgeschlossen. viel, wies NICHT geht...",
+   "ca": 1793200486226,
+   "cb": "F",
+   "m": 1
+  },
   "KKvUr--VrQE": {
+   "c": "Felix: parnter - preis/leistung nur bei dienstleistung // \nintern - ergänzung bzw. bei website - ergänzen",
+   "ca": 1793186120332,
+   "cb": "F",
+   "g": true,
+   "m": 1
+  },
+  "MA_C7LHCsaY": {
+   "c": "abgeschlossen. viel, wies NICHT geht...",
+   "ca": 1793200491421,
+   "cb": "F",
+   "m": 1
+  },
+  "YDWXfK8tFtc": {
+   "g": false
+  },
+  "jAQ3TLbFTck": {
+   "g": false
+  },
+  "p9rQHNxk-Yw": {
    "g": true
   }
  },
  "notizen": {
+  "D": {
+   "videos": {
+    "4yXqZaCVaXc": {
+     "seen": true
+    },
+    "61ZlLVM0uS0": {
+     "seen": true
+    },
+    "6wsiri6hnYg": {
+     "seen": true
+    },
+    "7BBajXnvH8g": {
+     "seen": true
+    },
+    "JziWDNtfZX0": {
+     "seen": true
+    },
+    "KKvUr--VrQE": {
+     "seen": true
+    },
+    "vlN2igIk_84": {
+     "seen": true
+    }
+   }
+  },
   "F": {
    "videos": {
     "5gPOrQ35tbQ": {
-     "ed": {
-      "3": {
-       "del": true
-      },
-      "4": {
-       "del": true
-      }
-     },
      "seen": true,
      "text": "KEINE KONJUNKTIVE"
     },
@@ -34,6 +76,9 @@
     },
     "639wCGS1SA4": {
      "again": true,
+     "seen": true
+    },
+    "7BBajXnvH8g": {
      "seen": true
     },
     "8itYRwd2nOI": {
@@ -67,7 +112,7 @@
      "again": false,
      "k": "y",
      "seen": true,
-     "text": "top einwandbehandlung"
+     "text": "parnter - preis/leistung nur bei dienstleistung // intern - ergänzung bzw. bei website - ergänzen"
     },
     "MA_C7LHCsaY": {
      "seen": true
@@ -87,12 +132,13 @@
      "seen": true,
      "text": "einwandbehandlung"
     },
+    "jAQ3TLbFTck": {
+     "seen": true
+    },
+    "p9rQHNxk-Yw": {
+     "seen": true
+    },
     "pacRsnbOZ2o": {
-     "ed": {
-      "3": {
-       "del": true
-      }
-     },
      "seen": true
     },
     "tUqyROcnFtE": {
@@ -112,14 +158,6 @@
      "text": "Unterschied zwischen Nutzensatz vs Schritt 3 und 4 liegt in der Attraktiivtät des Angebots. IT muss erst vermittelt werden, daher sollte meine Dienstleistung step und 4 haben, um den nutzen klarer hervorzuheben. KEY\n\nNutzensatz sollte eher ein Bild vermitteln, als konkret sein, da ich den Bedarf noch nicht kenne. zB ich vermittel ihnen den Traumurlaub vs ich bringe sie in die Berge."
     },
     "yZRhTVyW0y8": {
-     "add": [
-      {
-       "p": "K",
-       "t": "",
-       "x": "\"Machen sies schnell\" - Okay wunderbar ich machs gleich ganz OFFEN - (nicht schnell, kurz) > Nicht verunsichern, verkleinern lassen, aber auch nicht frech oder dominanter werden.",
-       "y": "Prinzip"
-      }
-     ],
      "seen": true
     },
     "zdFAzni-M1s": {
@@ -128,6 +166,10 @@
      "text": "live beispiele"
     }
    }
+  },
+  "u_eB8LjqJy27B_YGiQKgGLiA": {
+   "videos": {},
+   "who": "F"
   }
  }
 }

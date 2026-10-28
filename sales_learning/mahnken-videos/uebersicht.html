@@ -224,7 +224,7 @@ function meCell(id){const k=ST.kern[id]||{},meta=k.m&&k.cb?`zuletzt ${PN[k.cb]||
 
 function stats(){const ev=Object.keys(N).length,ein=D.filter(d=>N[d.id]||AW[d.id]?.r).length,lehr=D.filter(d=>N[d.id]&&!['x','rot'].includes(eff(d.id))).length;
  const H=D.filter(inMain),seen=H.filter(d=>ST.mine[d.id]?.seen).length,all=Object.values(N).reduce((c,n)=>c+(n.items||[]).length,0),u=Object.entries(N).reduce((c,[id,n])=>c+(n.items||[]).filter((_,k)=>isU(id,k)).length,0);
- $('stats').innerHTML=`<span title="per Transkript ausgewertet oder nach Titel eingestuft"><b>${ein}</b>von ${D.length} Videos eingestuft</span><span><b>${ev}</b>per Transkript ausgewertet</span><span><b>${lehr}</b>davon lehrreich</span><span><b>${H.length}</b>in der Hauptliste (${seen} 👁 angeschaut)</span><span><b>${D.filter(d=>done(d)&&!LF.has(d.id)).length}</b>✅ abgearbeitet</span><span><b>${u}</b>von ${all} Learnings umgesetzt</span><span id=cnt></span>`}
+ $('stats').innerHTML=`<span title="per Transkript ausgewertet oder nach Titel eingestuft"><b>${ein}</b>von ${D.length} Videos eingestuft</span><span><b>${ev}</b>per Transkript ausgewertet</span><span><b>${lehr}</b>davon lehrreich</span><span><b>${H.length}</b>in der Hauptliste (${seen} 👁 angeschaut)</span><span title="im Leitfaden oder in der Einwand-Matrix verlinkt"><b>${LF.size}</b>📌 im Leitfaden verarbeitet</span><span><b>${D.filter(d=>done(d)&&!LF.has(d.id)).length}</b>✅ sonst abgearbeitet</span><span><b>${u}</b>von ${all} Learnings umgesetzt</span><span id=cnt></span>`}
 /* Bewertung (nur sichtbar, wenn auch nicht markierte Videos gezeigt werden) und eigene Filter */
 const okS=(d,f)=>!f||(f=='open'?!N[d.id]:eff(d.id)==f);
 /* Merkmale: markierte Videos bilden die Hauptliste, nicht markierte lassen sich zuschalten */
@@ -238,7 +238,7 @@ const marked=d=>eff(d.id)=='w'||eff(d.id)=='l'||LF.has(d.id)||!!gemOf(d.id)||!!N
 const inMain=d=>LF.has(d.id)||!!ST.mine[d.id]?.again||eff(d.id)=='l'||(eff(d.id)=='w'&&!done(d));
 /* Kategorien wie der Leitfaden: th-Werte aus auswahl.js; sec = Abschnitte in kern.js. Sind alle sec abgeschlossen (ok), zählen nur noch deren 📌-Videos */
 /* [Schlüssel, Name, th-Werte, kern-Abschnitte, Oberfilter k = Leitfaden Kaltakquise / t = Leitfaden Termingespräch]; ein Video kann in mehreren Kategorien stehen */
-const TG=[['sek','1 📞 Sekretär',['sek'],['Sekretär'],'k'],['ein','2a 🎙 Einstieg',['einstieg'],['Schritt 1','Schritt 2'],'k'],['bed','2b 💡 Thema & Bedarfsweckung',['bedarf'],['Schritt 3','Schritt 4'],'k'],['ter','2c 📅 Terminvereinbarung & Nachfassen',['termin','nachfassen'],['Schritt 5','Schritt 6'],'k'],['einwand','3 🛡 Einwandbehandlung',['einwand'],[],'k'],['ton','4 🗣 Ton & Stimme',['stimme'],[],'k'],['taufbau','🧭 Aufbau & Präsentation',['taufbau'],[],'t'],['tabschluss','🤝 Preis, Einwand & Abschluss',['tabschluss'],[],'t']];
+const TG=[['sek','1 📞 Sekretär',['sek'],['Sekretär'],'k'],['ein','2a 🎙 Einstieg',['einstieg'],['Schritt 1','Schritt 2'],'k'],['bed','2b 💡 Thema & Bedarfsweckung',['bedarf'],['Schritt 3','Schritt 4'],'k'],['ter','2c 📅 Terminvereinbarung & Nachfassen',['termin','nachfassen'],['Schritt 5','Schritt 6'],'k'],['einwand','3 🛡 Einwandbehandlung',['einwand'],[],'k'],['ton','4 🗣 Ton & Stimme',['stimme'],['Ton & Stimme'],'k'],['taufbau','🧭 Aufbau & Präsentation',['taufbau'],[],'t'],['tabschluss','🤝 Preis, Einwand & Abschluss',['tabschluss'],[],'t']];
 const OBS=[['k','Leitfaden Kaltakquise'],['t','Leitfaden Termingespräch']];
 const THL=Object.fromEntries(TG.flatMap(([,l,ts])=>ts.map(t=>[t,l])).concat([['livek','🎥 Live'],['livet','🎥 Live']]));
 const thO=l=>{const i=TG.findIndex(g=>g[1]==l);return i<0?99:i};
@@ -297,7 +297,7 @@ function kernHtml(h){const S=h.replace(/<p class=b>❌/g,'<p class="b no">❌').
 /* Ein Leitfaden-Schritt: Überschrift + gesprochene Sätze (Word) + Details (kern.js) */
 function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return h;
   const t=head.replace(/<[^>]+>/g,'').trim(),d=KR[Object.keys(KR).find(k=>t.startsWith(k))];
-  return head+(d?.ok?' <span class=chip>✅ abgeschlossen</span>':'')+`</h2><div class=say><div class=kh>Gesprochen${d?.say?' · neu, noch nicht in Word':''}</div>${d?.say||body}</div>`
+  return head+(d?.ok?' <span class=chip>✅ abgeschlossen</span>':'')+`</h2>`+(d?.say||body.trim()?`<div class=say><div class=kh>Gesprochen${d?.say?' · neu, noch nicht in Word':''}</div>${d?.say||body}</div>`:'')
    +(d?`<div class=kd>${kernHtml(d.html)}</div>`:'')}
 /* Einwand-Matrix (einwaende.js): links was er sagt (aufklappbar) → Mitte Kern → rechts ① Reframing, ② Zusatz (aufklappbar), Quellen als Links */
 const ewQ=q=>esc(q).replace(/Nr\. (\d+)(?: @(\d+):(\d+))?/g,(m,n,mi,se)=>{const v=D.find(d=>d.n==+n);return v?`<a href="https://youtu.be/${v.id}${mi?'?t='+(mi*60+ +se):''}" target=_blank>${m}</a>`:m});
@@ -309,7 +309,7 @@ function ewHtml(){const E=window.EINWAENDE;if(!E)return'';
   <div class=ewa>${r.steps?r.steps.map(([l,x],i)=>`<p class=st><b>①</b> <b>${esc(l)}:</b> ${esc(x)}</p>`).join(''):`<p><b>①</b> ${esc(r.a).replace(/\n/g,'<br>')}</p>`}${r.nt?`<p class=nt>${esc(r.nt)}</p>`:''}${ex.map(([l,x])=>`<p class=xz><b>② ${esc(l)}:</b> ${esc(x).replace(/\n/g,'<br>')}</p>`).join('')}<p class="q xq">📎 ${ewQ(r.q)}</p></div></div></div>`};
  const vars=(E.varianten||[]).map(([l,t])=>Array.isArray(t)?`<p class=ewv>↳ <b>${esc(l)}:</b></p>${t.map(x=>`<p class="ewv l">${esc(x)}</p>`).join('')}`:`<p class=ewv>↳ <b>${esc(l)}:</b> ${esc(t)}</p>`).join('');
  const H=E.rows.filter(r=>r.g!='neben'),N2=E.rows.filter(r=>r.g=='neben');
- return`<section class="ew${Object.keys(EWT).filter(k=>EWT[k]).map(k=>' t-'+k).join('')}"><h2>🛡 Einwandbehandlung <span class=chip>Entwurf, noch nicht abgestimmt</span></h2><div class=ewf><p>${esc(E.formel)}</p>${vars}<p>② Nur wenn nötig: ein zweiter Satz – <b>Alternative</b> (statt ①, andere Lage) oder <b>Zusatz</b> (nach ①).</p>${E.kette?`<p>🔁 ${esc(E.kette)}</p>`:''}${E.rueck?`<p>❓ ${esc(E.rueck)}</p>`:''}${E.merk?`<p>💡 ${esc(E.merk)}</p>`:''}</div>
+ return`<section class="ew${Object.keys(EWT).filter(k=>EWT[k]).map(k=>' t-'+k).join('')}"><h2>🛡 Einwandbehandlung <span class=chip>✅ abgeschlossen</span></h2><div class=ewf><p>${esc(E.formel)}</p>${vars}<p>② Nur wenn nötig: ein zweiter Satz – <b>Alternative</b> (statt ①, andere Lage) oder <b>Zusatz</b> (nach ①).</p>${E.kette?`<p>🔁 ${esc(E.kette)}</p>`:''}${E.rueck?`<p>❓ ${esc(E.rueck)}</p>`:''}${E.merk?`<p>💡 ${esc(E.merk)}</p>`:''}</div>
  <div class=ewtool>${[['sag','💬 Alle Kundensätze'],['z','② Alle Zusätze'],['q','📎 Alle Quellen']].map(([k,l])=>`<button type=button data-ewt=${k}${EWT[k]?' class=on':''}>${l}</button>`).join(' ')} <span class=tag>Klick auf eine Zeile klappt nur diese auf</span></div>
  <div class=ewl><div class="ewgr ewhd"><span>Das sagt er</span><span>Kern-Einwand</span><span>① So reagierst du</span></div>
  <div class=ewgp>Haupt-Einwände</div>${H.map(row).join('')}<div class="ewgp ewsep">Weitere Einwände</div>${N2.map(row).join('')}</div>
