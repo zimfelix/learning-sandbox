@@ -8,6 +8,7 @@ window.KERN = {
 "Sekretär": {"ok": true, "html": `
 <p><b>Bei „Worum geht es denn?“:</b> „Es geht um die Neukundengewinnung über Ihren Online-Auftritt. Das ist ein Thema, das ich mit Herrn [Nachname] direkt abstimmen möchte. Wenn Sie mich einmal weiterstellen, sagen Sie gerne: Felix Zimmermann ist dran. Ich bleibe so lange in der Leitung, danke.“ 🛠</p>
 <p><b>Bei „Dafür ist eigentlich [Name] zuständig“</b> (kein Entscheider): „Danke. Die Umsetzung macht sicherlich [Name]. Bei mir geht es aber um die Frage, welche Aufträge die Seite bringen soll – und das entscheidet ja Herr [Nachname].“ 🛠</p>
+<p><b>Bei „Geht es um Verkauf?“ / „Wenn Sie was verkaufen wollen, können Sie gleich auflegen“:</b> ehrlich bleiben – „Ja, genau. Deshalb will ich in 2 Minuten mit Herrn [Nachname] klären, ob es für ihn überhaupt interessant ist. Wenn nicht, hören Sie nie wieder von mir.“ 🛠</p>
 <p><b>Bei „Er ist nicht da“:</b> „Alles klar, wann ist er denn wieder im Haus?“ – später neu anrufen, nicht pitchen.</p>
 <h4>Ton</h4>
 <p class=b>Selbstverständlich wie beim eigenen Steuerberater: klar, ruhig, langsam, ohne Konjunktiv.</p>
