@@ -6,7 +6,7 @@
 // 🛠 = eigener Vorschlag, nicht aus den Videos.
 window.KERN = {
 "Sekretär": {"ok": true,
-"say": `<p>Hallo, Felix Zimmermann spricht, ich grüße Sie.</p>
+"say": `<p>Hallo, Felix Zimmermann spricht, grüße Sie.</p>
 <p class=wt>(Antwort abwarten – „Grüß Sie“ / „Hallo“)</p>
 <p>Wenn Sie mich gleich einmal zum [V + N] weiterstellen, dann richten Sie gerne aus, der Felix Zimmermann ist dran. </p>
 <p>Ich bleib so lange in der Leitung, danke.</p>`,
@@ -26,12 +26,12 @@ window.KERN = {
 <p class=b>Nr. 16 – drei Verkäufer-Fehler, „Worum geht es?“ · <a href="https://youtu.be/pacRsnbOZ2o" target=_blank>▶ youtu.be/pacRsnbOZ2o</a></p>
 `},
 "Schritt 1": {"ok": true,
-"say": `<p>(Aeh) Hallo Herr [Nachname], Felix Zimmermann spricht, ich grüße Sie!</p>`,
+"say": `<p>(Aeh) Hallo Herr [Nachname], Felix Zimmermann spricht, grüße Sie!</p>`,
 "html": `
 <p><b>⭐ Keine Konjunktive</b> im ganzen Gespräch: „würde / könnte / hätte / wäre“ umformulieren – klingt unsicher.</p>
 <p><b>Gezielte Füllwörter:</b> „Ah, okay.“ · „Alles klar.“ · „Gerne.“ · „Verstehe.“ · „Ich sag's Ihnen ganz offen …“ – etwa jeder zweite Satz. Nicht „äh“, „öh“ oder lange Pausen.</p>
 <p class=b>Name des Gegenübers zuerst, „Felix Zimmermann spricht“ statt „mein Name ist“, kein Firmenname.</p>
-<p class=b>„ich grüße Sie“ am Ende: Er grüßt zurück → Dialog.</p>
+<p class=b>„grüße Sie“ am Ende: Er grüßt zurück → Dialog.</p>
 <h4>Ton</h4>
 <p class=b><b>Lächeln</b> – besonders mit dunkler Stimme, lieber mehr als zu wenig.</p>
 <p class=b>Sympathisch-neutral: weder „Schönen guten Tag!“ noch gelangweilt.</p>
