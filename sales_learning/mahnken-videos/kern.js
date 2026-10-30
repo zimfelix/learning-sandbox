@@ -29,7 +29,7 @@ window.KERN = {
 "say": `<p>(Aeh) Hallo Herr [Nachname], Felix Zimmermann spricht, grüße Sie!</p>`,
 "html": `
 <p><b>⭐ Keine Konjunktive</b> im ganzen Gespräch: „würde / könnte / hätte / wäre“ umformulieren – klingt unsicher.</p>
-<p><b>Gezielte Füllwörter:</b> „Ah, okay.“ · „Alles klar.“ · „Gerne.“ · „Verstehe.“ · „Ich sag's Ihnen ganz offen …“ – etwa jeder zweite Satz. Nicht „äh“, „öh“ oder lange Pausen.</p>
+<p><b>Gezielte Füllwörter:</b> „Ah, okay.“ · „Alles klar.“ · „Okay, wunderbar.“ · „Gerne.“ · „Sag ich Ihnen gerne.“ · „Verstehe.“ · „Ich sag's Ihnen ganz offen …“ – etwa jeder zweite Satz. Nicht „äh“, „öh“ oder lange Pausen.</p>
 <p class=b>Name des Gegenübers zuerst, „Felix Zimmermann spricht“ statt „mein Name ist“, kein Firmenname.</p>
 <p class=b>„grüße Sie“ am Ende: Er grüßt zurück → Dialog.</p>
 <h4>Alternative: Er meldet sich nur mit „Hallo“ (ohne Namen)</h4>
