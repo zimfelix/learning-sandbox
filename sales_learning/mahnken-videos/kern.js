@@ -13,7 +13,7 @@ window.KERN = {
 "html": `
 <p><b class=rx>Bei „Worum geht es denn?“:</b> „Herr [Nachname] bekommt von uns einen kostenfreien Entwurf, mit dem er seinen Online-Auftritt vergleichen kann. Das stimme ich kurz mit ihm ab. Wenn Sie mich bitte durchstellen, sagen Sie gerne: Felix Zimmermann ist dran.“ 🛠</p>
 <p><b class=rx>Bei „Geht es um Verkauf? Da haben wir kein Interesse“:</b> „Verstehe ich total – Sie kriegen bestimmt zehn solche Anrufe am Tag. Am Telefon verkaufe ich aber nichts: Herr [Nachname] bekommt einen kostenfreien Entwurf, und danach entscheidet er selbst, ob er das überhaupt möchte.“ 🛠</p>
-<p><b class=rx>Bei „Er ist nicht da“:</b> „Alles klar – kann ich ihn denn irgendwie mobil erreichen? Es ist gerade dringend.“ 🛠</p>
+<p><b class=rx>Bei „Er ist nicht da“ / „gerade außer Haus“:</b> „Alles klar. Haben Sie da eine Handynummer für mich? Er erwartet meinen Rückruf.“ 🛠</p>
 <p><b class=rx>Bei „Dafür ist eigentlich [Name] zuständig“</b> (kein Entscheider): „Danke. Die Umsetzung macht sicherlich [Name]. Bei mir geht es aber um die Frage, welche Aufträge die Seite bringen soll – und das entscheidet ja Herr [Nachname].“ 🛠</p>
 <h4>Ton</h4>
 <p class=b>Selbstverständlich wie beim eigenen Steuerberater: klar, ruhig, langsam, ohne Konjunktiv.</p>
@@ -32,6 +32,9 @@ window.KERN = {
 <p><b>Gezielte Füllwörter:</b> „Ah, okay.“ · „Alles klar.“ · „Gerne.“ · „Verstehe.“ · „Ich sag's Ihnen ganz offen …“ – etwa jeder zweite Satz. Nicht „äh“, „öh“ oder lange Pausen.</p>
 <p class=b>Name des Gegenübers zuerst, „Felix Zimmermann spricht“ statt „mein Name ist“, kein Firmenname.</p>
 <p class=b>„grüße Sie“ am Ende: Er grüßt zurück → Dialog.</p>
+<h4>Alternative: Er meldet sich nur mit „Hallo“ (ohne Namen)</h4>
+<p>„Hallo, Felix Zimmermann spricht, grüße Sie. Bin ich da verbunden mit Frau / Herrn [Nachname]?“</p>
+<p class=b>Kürzer: „… Spreche ich mit Frau / Herrn [Nachname]?“ · Name unbekannt: „… Spreche ich mit der Inhaberin / dem Inhaber?“</p>
 <h4>Ton</h4>
 <p class=b><b>Lächeln</b> – besonders mit dunkler Stimme, lieber mehr als zu wenig.</p>
 <p class=b>Sympathisch-neutral: weder „Schönen guten Tag!“ noch gelangweilt.</p>
@@ -46,6 +49,7 @@ window.KERN = {
 "Schritt 2": {"ok": true, "html": `
 <p class=b>Erlaubnis holen statt ungefragt losreden.</p>
 <p class=b>Nach dem Satz Pause: Er sagt „Ja“ – dann erst Schritt 3.</p>
+<p class=b><b>Fragt er direkt „Was möchten Sie?“ / „Worum geht's?“:</b> Schritt 2 überspringen, direkt Schritt 3 („Ganz offen gesprochen: … Darf ich Ihnen stattdessen eine kurze Frage stellen?“) – fühlt sich flüssiger an.</p>
 <p class=b>❌ „Hätten Sie 10 Minuten?“ · „Kennen Sie uns schon?“ · „Ich komme gleich zum Punkt, weil Ihre Zeit wertvoll ist“ · „Geben Sie mir 30 Sekunden?“</p>
 <h4>Ton</h4>
 <p class=b>Weiter lächeln.</p>
@@ -74,21 +78,33 @@ window.KERN = {
 <p class=b>Nr. 28 @4:00 – kleinlaut mit „würde“ – so nicht · <a href="https://youtu.be/J-bnKLumcqs?t=240" target=_blank>▶ youtu.be/J-bnKLumcqs @4:00</a></p>
 <p class=b>Nr. 9 @7:00 – warum „nicht schon wieder einer …“ scheitert · <a href="https://youtu.be/MA_C7LHCsaY?t=420" target=_blank>▶ youtu.be/MA_C7LHCsaY @7:00</a></p>
 `},
-"Schritt 4": {"ok": true, "html": `
-<p class=b><b>Bauplan:</b> „Ich gehe davon aus, dass [Haupteinwand ist schon erfüllt]. Die Frage ist: Wenn [Nutzen], sind Sie dann grundsätzlich offen …?“ – geschlossene Frage.</p>
+"Schritt 4": {"ok": true,
+"say": `<p>Sie haben ja schon eine Seite, und vermutlich läuft viel über Empfehlungen.</p>
+<p>Die Frage ist: Wenn gezielt mehr von den Aufträgen reinkommen, die Sie am liebsten machen – sind Sie dann grundsätzlich offen für einen Vergleich?</p>
+<p>(Einwandbehandlung)</p>`,
+"html": `
+<p class=b><b>Bauplan:</b> „Sie haben ja schon [Haupteinwand ist schon erfüllt]. Die Frage ist: Wenn [Nutzen], sind Sie dann grundsätzlich offen für einen Vergleich?“ – kurz, geschlossene Frage, kein Konjunktiv. „Vergleich“, weil er seine Seite mit dem Entwurf vergleicht.</p>
 <p class=b><b>Das Was ist wichtiger als das Wie:</b> Das Wie wird immer im Termin besprochen – dort kommt auch das Angebot.</p>
 <p class=b>Ein Kernthema pro Anruf. <b>Bedarf wecken, nicht ermitteln.</b></p>
-<p class=b>❌ Bedarf ermitteln („Was müssten wir liefern …?“) – gehört ins <b>Termingespräch</b>.</p>
-<p class=b>❌ Zahlen versprechen („30 % mehr Umsatz“) · unterstellen („bessere Außendarstellung“) · schmeicheln · offene Frage direkt danach.</p>
-<h4>Alternative: „Gefunden werden“ – wenn er unterbricht oder zu schnell ist</h4>
-<p>„Ich gehe davon aus, dass Sie schon eine Website haben. Die Frage ist: Wenn Leute aus der Region, die gerade einen [Elektriker] suchen, bei Google direkt bei Ihnen landen und anfragen – sind Sie dann grundsätzlich offen, dass wir kurz drüber sprechen?“</p>
+<p class=b>Bedarf ermitteln („Was müsste ich liefern, damit es für Sie spannend ist?“) – gehört eher ins <b>Termingespräch</b>, kann aber auch hier passen.</p>
+<p class=b>❌ Unterstellen („bessere Außendarstellung“) · schmeicheln · offene Frage direkt danach.</p>
+<h4>Alternative B: Frage zuerst (wie Julians Skript-Vorlage)</h4>
+<p>„… Die Frage ist: Sind Sie grundsätzlich offen für einen Vergleich, wenn gezielt mehr von den Aufträgen reinkommen, die Sie am liebsten machen?“</p>
+<h4>Alternative C: Schluss mit „Gespräch“ statt „Vergleich“</h4>
+<p>„… sind Sie dann grundsätzlich offen für ein kurzes Gespräch?“</p>
+<p class=b>„Vergleich“ ist stärker: Ein „kurzer Austausch“ hat für ihn keinen eigenen Wert (Nr. 9 @11:00 · <a href="https://youtu.be/MA_C7LHCsaY?t=660" target=_blank>▶ youtu.be/MA_C7LHCsaY @11:00</a>).</p>
+<h4>Alternative: Beauty (Kosmetik, Friseur, Nagelstudio)</h4>
+<p>„Sie haben ja schon eine Seite, und vermutlich läuft viel über Stammkunden. Die Frage ist: Wenn gezielt mehr Kundinnen Ihre Lieblingsbehandlungen online buchen – sind Sie dann grundsätzlich offen für einen Vergleich?“ 🛠</p>
+<h4>Alternative: Restaurant</h4>
+<p>„Sie haben ja schon eine Seite, und vermutlich läuft viel über Empfehlungen. Die Frage ist: Wenn über die Seite gezielt mehr Reservierungen reinkommen – sind Sie dann grundsätzlich offen für einen Vergleich?“ 🛠</p>
+<p class=b>Nicht während des Service anrufen (ca. 11:30–14 und ab 17:30) – besser 14:30–17 Uhr. Termin dann auch in diesem Fenster vorschlagen, nicht 18 Uhr.</p>
 <h4>Ton</h4>
 <p class=b>Höchstens zwei Sätze, ruhig und nicht monoton.</p>
 <h4>🛡 Mini-Thema: Rückfrage („Wie machen Sie das?“ · „Was kostet das?“)</h4>
-<p><b>Antwort:</b> „Das zeige ich Ihnen gerne im Termin – ich bringe einen kostenlosen Entwurf für Ihre Seite mit, und den Preis sage ich Ihnen in den ersten 10 Minuten – passt er nicht, sagen Sie einfach Nein. Wie sieht's bei Ihnen spontan morgen aus?“ 🛠</p>
-<p class=b><b>Kurz, nur bei „Wie machen Sie das?“:</b> „Gute Frage – das zeige ich Ihnen gerne im Detail. Wie sieht's bei Ihnen spontan morgen aus?“</p>
+<p><b>Antwort:</b> „Das zeige ich Ihnen direkt im Termin. Ich bringe den kostenlosen Entwurf Ihrer Seite mit, und den Preis sage ich Ihnen in den ersten 10 Minuten – passt er nicht, sagen Sie einfach Nein. Wie sieht's denn morgen Abend um 18 Uhr aus, oder mittags um 12?“ 🛠</p>
+<p class=b><b>Kurz, nur bei „Wie machen Sie das?“:</b> „Gute Frage – das zeige ich Ihnen gerne im Detail. Wie sieht's bei Ihnen morgen um 18 Uhr aus, oder in der Mittagspause um 12?“</p>
 <p class=b>1. Rückfrage = Interesse → nicht erklären, sofort Schritt 5.</p>
-<p class=b>2. Preis aufgreifen, aber keine Zahl am Telefon.</p>
+<p class=b>2. Preis aufgreifen: nur die Spanne 500–950 €, kein fester Preis am Telefon.</p>
 <p class=b>3. Höchstens zwei Sätze, dann ein konkreter Tag.</p>
 <p class=b>❌ Erklären („Also, wir machen das so …“) · Konjunktiv („Wann hätten Sie Zeit?“).</p>
 <p class=b>Anschauen: Nr. 18 @5:01 – Wie-Frage → Termin · <a href="https://youtu.be/p9rQHNxk-Yw?t=301" target=_blank>▶ youtu.be/p9rQHNxk-Yw @5:01</a> · Nr. 130 @2:07 – knapp antworten, live · <a href="https://youtu.be/bwSFCibBhLg?t=127" target=_blank>▶ youtu.be/bwSFCibBhLg @2:07</a></p>
@@ -98,10 +114,10 @@ window.KERN = {
 <p class=b>Nr. 94 @11:01 – Nutzensatz Wort für Wort erklärt · <a href="https://youtu.be/wz-Tvv5y3NY?t=661" target=_blank>▶ youtu.be/wz-Tvv5y3NY @11:01</a></p>
 `},
 "Schritt 5": {"ok": true,
-"say": `<p>Sehr gut, dann lassen sie uns das kurz festmachen.</p>
+"say": `<p>Sehr gut, dann lassen Sie uns das eben festmachen.</p>
 <p>Ich zeige Ihnen den Entwurf direkt über Zoom. Sie brauchen dafür nichts installieren, ich schicke Ihnen einfach einen Link per Mail.</p>
 
-<p>Passt Ihnen heute eher 16 Uhr oder morgen um 12?</p>
+<p>(Passt es Ihnen da morgen eher um 18 Uhr oder mittags um 12 Uhr?) <span class=wt>– nur, falls noch nicht beantwortet</span></p>
 
 <p>… Perfekt, also [X]. Ist die info@ von Ihrer Website noch aktuell?</p>`,
 "html": `
@@ -146,19 +162,5 @@ window.KERN = {
 <p class=b>⭐ Nr. 46 @1:00 – falsch und richtig verabschieden · <a href="https://youtu.be/7BBajXnvH8g?t=60" target=_blank>▶ youtu.be/7BBajXnvH8g @1:00</a></p>
 <p class=b>Nr. 46 @2:00 – Abschlusssatz im Original · <a href="https://youtu.be/7BBajXnvH8g?t=120" target=_blank>▶ youtu.be/7BBajXnvH8g @2:00</a></p>
 <p class=b>Nr. 19 @7:01 – die zwei Fragen im Wortlaut · <a href="https://youtu.be/jAQ3TLbFTck?t=421" target=_blank>▶ youtu.be/jAQ3TLbFTck @7:01</a></p>
-`},
-"Ton & Stimme": {"after": "Schritt 6", "html": `
-<p><b>Gilt fürs ganze Gespräch</b> – Details stehen beim jeweiligen Schritt.</p>
-<p class=b>⭐ <b>Keine Konjunktive</b> (würde / könnte / hätte / wäre) – klingt unsicher.</p>
-<p class=b><b>Lächeln</b>, sympathisch-neutral, nicht zu schnell, nicht monoton.</p>
-<p class=b><b>Ruhig bleiben, wenn es eng wird:</b> nicht schneller werden, nicht abkürzen, nicht rechtfertigen.</p>
-<p class=b><b>Energie angleichen</b> – bei lauten, knappen Typen kraftvoller, aber nie frecher.</p>
-<p class=b><b>Gezielte Füllwörter</b> („Ah, okay.“ · „Verstehe.“ · „Ich sag's Ihnen ganz offen …“) statt glatt und perfekt – kein „äh“, keine langen Pausen.</p>
-<p class=b>❌ Namen des Gegenübers ständig wiederholen („Herr Müller, Herr Müller …“) – wirkt manipulativ.</p>
-<p class=b>Reagiert einer ruppig oder legt auf: erst den eigenen Ton und Leitfaden prüfen, nicht gleich Zielgruppe oder Angebot wechseln.</p>
-<h4>Anschauen</h4>
-<p class=b>Nr. 102 @0:00 – Nutzensatz richtig gesprochen · <a href="https://youtu.be/tUqyROcnFtE" target=_blank>▶ youtu.be/tUqyROcnFtE</a> · @6:00 – zu schnell, monoton · <a href="https://youtu.be/tUqyROcnFtE?t=360" target=_blank>▶ @6:00</a></p>
-<p class=b>Nr. 28 @1:00 – unsicher, Stimme geht hoch – so nicht · <a href="https://youtu.be/J-bnKLumcqs?t=60" target=_blank>▶ youtu.be/J-bnKLumcqs @1:00</a></p>
-<p class=b>Nr. 88 @6:00 – Füllwörter ohne Unsicherheit · <a href="https://youtu.be/5gPOrQ35tbQ?t=360" target=_blank>▶ youtu.be/5gPOrQ35tbQ @6:00</a></p>
 `},
 };
