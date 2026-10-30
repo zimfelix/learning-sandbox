@@ -6,7 +6,7 @@
 // 🛠 = eigener Vorschlag, nicht aus den Videos.
 window.KERN = {
 "Sekretär": {"ok": true,
-"say": `<p>Hallo, hier ist Felix Zimmermann, grüß Sie.</p>
+"say": `<p>Hallo, Felix Zimmermann spricht, ich grüße Sie.</p>
 <p class=wt>(Antwort abwarten – „Grüß Sie“ / „Hallo“)</p>
 <p>Wenn Sie mich gleich einmal zum [V + N] weiterstellen, dann richten Sie gerne aus, der Felix Zimmermann ist dran. </p>
 <p>Ich bleib so lange in der Leitung, danke.</p>`,
@@ -25,11 +25,13 @@ window.KERN = {
 <p class=b>Nr. 427 – live, 3 von 4 durchgestellt · <a href="https://youtu.be/zdFAzni-M1s" target=_blank>▶ youtu.be/zdFAzni-M1s</a></p>
 <p class=b>Nr. 16 – drei Verkäufer-Fehler, „Worum geht es?“ · <a href="https://youtu.be/pacRsnbOZ2o" target=_blank>▶ youtu.be/pacRsnbOZ2o</a></p>
 `},
-"Schritt 1": {"ok": true, "html": `
+"Schritt 1": {"ok": true,
+"say": `<p>(Aeh) Hallo Herr [Nachname], Felix Zimmermann spricht, ich grüße Sie!</p>`,
+"html": `
 <p><b>⭐ Keine Konjunktive</b> im ganzen Gespräch: „würde / könnte / hätte / wäre“ umformulieren – klingt unsicher.</p>
 <p><b>Gezielte Füllwörter:</b> „Ah, okay.“ · „Alles klar.“ · „Gerne.“ · „Verstehe.“ · „Ich sag's Ihnen ganz offen …“ – etwa jeder zweite Satz. Nicht „äh“, „öh“ oder lange Pausen.</p>
-<p class=b>Name des Gegenübers zuerst, „hier ist“ statt „mein Name ist“, kein Firmenname.</p>
-<p class=b>„grüß Sie“ am Ende: Er grüßt zurück → Dialog.</p>
+<p class=b>Name des Gegenübers zuerst, „Felix Zimmermann spricht“ statt „mein Name ist“, kein Firmenname.</p>
+<p class=b>„ich grüße Sie“ am Ende: Er grüßt zurück → Dialog.</p>
 <h4>Ton</h4>
 <p class=b><b>Lächeln</b> – besonders mit dunkler Stimme, lieber mehr als zu wenig.</p>
 <p class=b>Sympathisch-neutral: weder „Schönen guten Tag!“ noch gelangweilt.</p>
@@ -96,6 +98,12 @@ window.KERN = {
 <p class=b>Nr. 94 @11:01 – Nutzensatz Wort für Wort erklärt · <a href="https://youtu.be/wz-Tvv5y3NY?t=661" target=_blank>▶ youtu.be/wz-Tvv5y3NY @11:01</a></p>
 `},
 "Schritt 5": {"ok": true,
+"say": `<p>Sehr gut, dann lassen sie uns das kurz festmachen.</p>
+<p>Ich zeige Ihnen den Entwurf direkt über Zoom. Sie brauchen dafür nichts installieren, ich schicke Ihnen einfach einen Link per Mail.</p>
+
+<p>Passt Ihnen heute eher 16 Uhr oder morgen um 12?</p>
+
+<p>… Perfekt, also [X]. Ist die info@ von Ihrer Website noch aktuell?</p>`,
 "html": `
 <p class=b><b>Termin heute oder morgen</b> – je weiter weg, desto öfter fällt er aus.</p>
 <p class=b><b>Immer nur einen Tag weiter:</b> morgen → übermorgen → in drei Tagen. Nie „Wann passt es denn die Tage?“</p>
@@ -115,6 +123,16 @@ window.KERN = {
 <p class=b>optional: Nr. 378 @16:01 – warum die Doppel-Alternativfrage manipuliert · <a href="https://youtu.be/vFE9yTOEaOs?t=961" target=_blank>▶ youtu.be/vFE9yTOEaOs @16:01</a></p>
 `},
 "Schritt 6": {"ok": true,
+"say": `<p>Okay, klasse, ich freue mich drauf!</p>
+<p class=sp>Damit ich mich perfekt auf unseren Termin vorbereiten kann und Ihnen am [Wochentag] direkt einen Entwurf mitbringen kann, habe ich noch zwei kurze Fragen. Darf ich die eben stellen?</p>
+<p class=sp>Frage 1… Welche Projekte begeistern Sie am meisten – also von welcher Sorte wollen Sie mehr Aufträge?</p>
+<p class=sp>Frage 2… Gibt es eine Art von Websites, die Ihnen richtig gut gefällt? Eher mit vielen Bildern, Videos und Bewegungen oder eher schlicht und klar – was gefällt Ihnen da oder wollen sie mir freie Hand lassen?</p>
+<p class=sp>Klasse, das sind perfekte Voraussetzungen!</p>
+<p>Wir haben schon einige Seiten genau in diese Richtung entworfen, davon zeige ich Ihnen am [X] ein paar und dazu Ihren eigenen Entwurf.</p>
+<p>Da dürfen Sie wirklich gespannt sein.</p>
+<p class=sp>Übrigens, die Einladung ist grade raus. Wenn Sie kurz auf ‚Annehmen‘ drücken, haben wir es beide im Kalender.</p>
+<p>(kann grade nicht bestätigen) … „Kein Problem, dann bestätigen Sie einfach heute Abend kurz. Sobald die Bestätigung da ist, setze ich mich an Ihren Entwurf“</p>
+<p class=sp>Ich freu mich drauf! Herr [X], bis bald!</p>`,
 "html": `
 <p class=b><b>Der letzte Eindruck bleibt:</b> fragen → bestätigen → Relevanz (er sieht seine Seite und echte Beispiele).</p>
 <p class=b>⚠️ Der Entwurf muss dann auch kommen, und die gezeigten Seiten müssen echt sein.</p>
