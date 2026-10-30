@@ -41,7 +41,7 @@ tr.rx td:not(.me){opacity:.5}td.dt{color:var(--mut);white-space:nowrap;font-size
 .thm{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}.thm button{padding:3px 8px;font-size:12px}.thm .seen{margin:0 0 0 6px}.lf{font-size:15px;line-height:1.55}.lf h1{font-size:22px;margin:8px 0}.lf h2{font-size:19px;margin:28px 0 6px;padding-top:12px;border-top:1px solid var(--line)}.lf h3{font-size:15px;margin:16px 0 4px;color:var(--mut)}.lf p{margin:4px 0}.lf p.b{margin-left:18px;text-indent:-12px}.lf p.b::before{content:"• "}
 .kh{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
 /* Leitfaden: gesprochene Sätze (grün) und Details, je Überschrift ein farbiger Block */
-.say{border-left:3px solid var(--t);background:var(--rgb);padding:6px 12px;margin:8px 0;border-radius:0 6px 6px 0}.say .kh{color:var(--t)}.lf b.rx{color:var(--t)}.say .wt{color:var(--mut);font-style:italic}.say p.sp{margin-top:14px}
+.say{border-left:3px solid var(--t);background:var(--rgb);padding:6px 12px;margin:8px 0;border-radius:0 6px 6px 0}.say .kh{color:var(--t)}.lf b.rx{color:var(--t)}.say .wt{color:var(--mut);font-style:italic}.say p.sp{margin-top:14px}.say.ewscr{margin:12px 0}.say p.sh{margin-top:14px}.say .kh+p.sh{margin-top:4px}
 .kd{margin:10px 0 6px;font-size:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
 .ew{margin:36px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
 .ew .ewf{background:var(--rwb);border-left:3px solid var(--rw);border-radius:0 6px 6px 0;padding:6px 12px;margin:8px 0 12px;font-size:14px}
@@ -307,6 +307,10 @@ function lfStep(h){const[head,body]=h.split('</h2>');if(body===undefined)return 
 /* Einwand-Matrix (einwaende.js): links was er sagt (aufklappbar) → Mitte Kern → rechts ① Reframing, ② Zusatz (aufklappbar), Quellen als Links */
 const ewQ=q=>esc(q).replace(/Nr\. (\d+)(?: @(\d+):(\d+))?/g,(m,n,mi,se)=>{const v=D.find(d=>d.n==+n);return v?`<a href="https://youtu.be/${v.id}${mi?'?t='+(mi*60+ +se):''}" target=_blank>${m}</a>`:m});
 let EWT={sag:false,z:false,q:false};try{EWT={...EWT,...JSON.parse(localStorage.getItem('ewt')||'{}')}}catch(e){}
+/* Gesprochene Sätze eines Schritts: neu im Web (kern.js say) vor Word; Marker „(Einwandbehandlung)“ weglassen */
+const lfSec=n=>LFH.split(/(?=<h2>)/).find(x=>x.startsWith('<h2>'+n))||'';
+const lfSay=n=>(KR[n]?.say||lfSec(n).split('</h2>')[1]||'').replace(/<p>\(Einwandbehandlung\)<\/p>/,'');
+const scr=(ns,t)=>`<div class="say ewscr"><div class=kh>${t}</div>${ns.map(n=>`<p class=sh><b>${esc(lfSec(n).split('</h2>')[0].replace('<h2>','')||n)}</b></p>${lfSay(n)}`).join('')}</div>`;
 function ewHtml(){const E=window.EINWAENDE;if(!E)return'';
  const row=r=>{const[f,...rest]=r.sag,ex=[...(r.b?[[r.bt||'Zusatz',r.b]]:[]),...(r.ex||[])];
   return`<div class=ewr><div class=ewgr><div class=ews><span class=sl>„${esc(f)}“</span>${rest.map(t=>`<span class="sl xs">„${esc(t)}“</span>`).join('')}${rest.length?`<span class="more ms">+${rest.length}</span>`:''}</div>
@@ -314,11 +318,12 @@ function ewHtml(){const E=window.EINWAENDE;if(!E)return'';
   <div class=ewa>${r.steps?r.steps.map(([l,x],i)=>`<p class=st><b>①</b> <b>${esc(l)}:</b> ${esc(x)}</p>`).join(''):`<p><b>①</b> ${esc(r.a).replace(/\n/g,'<br>')}</p>`}${r.nt?`<p class=nt>${esc(r.nt)}</p>`:''}${ex.map(([l,x])=>`<p class=xz><b>② ${esc(l)}:</b> ${esc(x).replace(/\n/g,'<br>')}</p>`).join('')}<p class="q xq">📎 ${ewQ(r.q)}</p></div></div></div>`};
  const vars=(E.varianten||[]).map(([l,t])=>Array.isArray(t)?`<p class=ewv>↳ <b>${esc(l)}:</b></p>${t.map(x=>`<p class="ewv l">${esc(x)}</p>`).join('')}`:`<p class=ewv>↳ <b>${esc(l)}:</b> ${esc(t)}</p>`).join('');
  const H=E.rows.filter(r=>r.g!='neben'),N2=E.rows.filter(r=>r.g=='neben');
- return`<section class="ew${Object.keys(EWT).filter(k=>EWT[k]).map(k=>' t-'+k).join('')}"><h2>🛡 Einwandbehandlung <span class=chip>✅ abgeschlossen</span></h2><div class=ewf><p>${esc(E.formel)}</p>${vars}<p>② Nur wenn nötig: ein zweiter Satz – <b>Alternative</b> (statt ①, andere Lage) oder <b>Zusatz</b> (nach ①).</p>${E.kette?`<p>🔁 ${esc(E.kette)}</p>`:''}${E.rueck?`<p>❓ ${esc(E.rueck)}</p>`:''}${E.merk?`<p>💡 ${esc(E.merk)}</p>`:''}</div>
+ return`<section class="ew${Object.keys(EWT).filter(k=>EWT[k]).map(k=>' t-'+k).join('')}"><h2>🛡 Einwandbehandlung <span class=chip>✅ abgeschlossen</span></h2><div class=ewf><p>${esc(E.formel)}</p>${vars}<p>② Nur wenn nötig: ein zweiter Satz – <b>Alternative</b> (statt ①, andere Lage) oder <b>Zusatz</b> (nach ①).</p>${E.kette?`<p>🔁 ${esc(E.kette)}</p>`:''}${E.rueck?`<p>❓ ${esc(E.rueck.intro)}</p>${E.rueck.q.map(([q,a])=>`<p class=ewv>${esc(q)} → ${esc(a)}</p>`).join('')}`:''}${E.merk?`<p>💡 ${esc(E.merk)}</p>`:''}</div>
+ ${scr(['Schritt 1','Schritt 2','Schritt 3','Schritt 4'],'📞 Volles Skript · Schritt 1–4 (gesprochen)')}
  <div class=ewtool>${[['sag','💬 Alle Kundensätze'],['z','② Alle Zusätze'],['q','📎 Alle Quellen']].map(([k,l])=>`<button type=button data-ewt=${k}${EWT[k]?' class=on':''}>${l}</button>`).join(' ')} <span class=tag>Klick auf eine Zeile klappt nur diese auf</span></div>
  <div class=ewl><div class="ewgr ewhd"><span>Das sagt er</span><span>Kern-Einwand</span><span>① So reagierst du</span></div>
  <div class=ewgp>Haupt-Einwände</div>${H.map(row).join('')}<div class="ewgp ewsep">Weitere Einwände</div>${N2.map(row).join('')}</div>
- <div class="ewf ewend"><p><b>Abschluss nach jedem Ja</b></p><p>${esc(E.weiter).replace(/\n/g,'<br>')}</p></div>
+ ${scr(['Schritt 5','Schritt 6'],'✅ Nach dem Ja · Schritt 5–6 (gesprochen)')}
  <div class=ewn><section class="ks ton"><h4>Ton</h4><p>${esc(E.ton)}</p></section><section class="ks kp"><h4>❌ So nicht</h4><p>${esc(E.no)}</p></section><section class="ks vid"><h4>Anschauen</h4>${E.videos.map(([t,u])=>`<p class=b>${esc(t)} · <a href="${u}" target=_blank>▶ ${u.replace('https://','').replace(/\?t=.*/,'')}</a></p>`).join('')}</section></div></section>`}
 /* Live-Einwände (live-einwaende.js): gruppiert nach Kern-Einwand; „Nr. X @m:ss“ wird zum Link, die Videos werden dadurch nicht 📌 */
 function liveHtml(){const L=window.LIVE_EINWAENDE;if(!L)return'';const A={echt:'🎙 echtes Telefonat',ki:'🤖 KI-Rollenspiel',coaching:'🎓 Coaching'};
