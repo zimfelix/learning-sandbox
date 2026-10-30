@@ -1,6 +1,6 @@
 // Einwand-Matrix für den Tab „Leitfaden“ (abgeschlossen 28.10.2026). Quelle: sales_learning/einwand-sammlung.md
 // Je Zeile: nt = Hinweis in Klammern direkt nach ① (grau-braun), steps = zwei Sätze nacheinander [[Beschriftung, Text]] statt a, ex = mehrere ②-Sätze [[Beschriftung, Text]] (\n = Zeilenumbruch), k = Kern-Einwand, g = haupt/neben,  sag = so sagt es der Kunde, a = Hauptantwort, b = zweiter Satz, bt = „Alternative …“ oder „Zusatz“,
-// o = offen. Live-Einwände von Julian stehen getrennt in sales_learning/live-einwaende.md (nicht hier).
+// o = offen. Live-Einwände von Julian stehen getrennt in mahnken-videos/live-einwaende.js (nicht hier).
 // q = Quellen, x = true → kein Reframing (Sonderweg). 🛠 = eigener Vorschlag. youtu.be-Links machen Videos zu 📌.
 // Ausgangslage Felix: Jeder Angerufene HAT eine Website, meist veraltet, zeigt die Projekte nicht. Darum Ersetzen statt Ergänzen
 // (anders als Julian, der laufende Dienstleistungen verkauft). Ergänzung nur, wenn jemand wirklich zufrieden ist.

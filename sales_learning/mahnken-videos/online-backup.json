@@ -1,9 +1,25 @@
 {
- "stand": "2026-10-28",
+ "stand": "2026-10-30",
  "quelle": "claude.ai/artifact/WvLTv6W2EHNkAuwjJvFzgV",
  "kern": {
+  "61ZlLVM0uS0": {
+   "c": "Skript: Schritt 1 und 2",
+   "ca": 1793200785437,
+   "cb": "F",
+   "m": 1
+  },
+  "6wsiri6hnYg": {
+   "c": "termin",
+   "ca": 1793293693126,
+   "cb": "F",
+   "m": 1
+  },
   "7BBajXnvH8g": {
-   "g": true
+   "c": "Terminfestigung 1o1",
+   "ca": 1793200840487,
+   "cb": "F",
+   "g": true,
+   "m": 1
   },
   "EJyUFrP_oOQ": {
    "g": false
@@ -11,6 +27,18 @@
   "FLDVG9syiUc": {
    "c": "abgeschlossen. viel, wies NICHT geht...",
    "ca": 1793200486226,
+   "cb": "F",
+   "m": 1
+  },
+  "IFZNmZICF4E": {
+   "c": "Energie matchen am Anfang\nNICHT schneller werden...\n''Perfekt, dann sag ich ihnen gleich offen...'' - nicht sag ich ihnen schnell",
+   "ca": 1793200893169,
+   "cb": "F",
+   "m": 1
+  },
+  "J-bnKLumcqs": {
+   "c": "Keine Gegenfragen. OK.",
+   "ca": 1793200796736,
    "cb": "F",
    "m": 1
   },
@@ -31,10 +59,40 @@
    "g": false
   },
   "jAQ3TLbFTck": {
-   "g": false
+   "c": "So nah wie möglich legen.\nNicht offen fragen, sondern am besten einen Tag, zwei Möglichkeiten, oder nachmittag/früh.\nNIE die nächsten 2 Wochen öffnen.",
+   "ca": 1793200732421,
+   "cb": "F",
+   "g": false,
+   "m": 1
   },
   "p9rQHNxk-Yw": {
    "g": true
+  },
+  "pacRsnbOZ2o": {
+   "c": "coaching mit kunde, einfach live video schauen für betonungen.",
+   "ca": 1793200635155,
+   "cb": "F",
+   "m": 1
+  },
+  "t5vk6HyAyPw": {
+   "c": "termin",
+   "ca": 1793293879627,
+   "cb": "F",
+   "m": 1
+  },
+  "vlN2igIk_84": {
+   "c": "Beschreibungen. Schau Live Sekretär Video.",
+   "ca": 1793200821670,
+   "cb": "F",
+   "g": false,
+   "m": 1
+  },
+  "zdFAzni-M1s": {
+   "c": "live beispiele, sehr gut!",
+   "ca": 1793200601989,
+   "cb": "F",
+   "g": true,
+   "m": 1
   }
  },
  "notizen": {
@@ -65,6 +123,12 @@
   },
   "F": {
    "videos": {
+    "4503nGSywaY": {
+     "seen": true
+    },
+    "4yXqZaCVaXc": {
+     "seen": true
+    },
     "5gPOrQ35tbQ": {
      "seen": true,
      "text": "KEINE KONJUNKTIVE"
@@ -75,6 +139,10 @@
      "text": "schritt 1 und 2"
     },
     "639wCGS1SA4": {
+     "again": true,
+     "seen": true
+    },
+    "6Qp3anVVpTU": {
      "again": true,
      "seen": true
     },
@@ -95,6 +163,9 @@
      "seen": true,
      "text": "viel gerede, basically was man alles nicht machen soll"
     },
+    "FN-6Vp6Cqjg": {
+     "seen": true
+    },
     "F_RgIbBdiyE": {
      "seen": true
     },
@@ -106,6 +177,9 @@
      "seen": true
     },
     "J-bnKLumcqs": {
+     "seen": true
+    },
+    "JziWDNtfZX0": {
      "seen": true
     },
     "KKvUr--VrQE": {
@@ -133,6 +207,9 @@
      "text": "einwandbehandlung"
     },
     "jAQ3TLbFTck": {
+     "seen": true
+    },
+    "kCwQLKawP6o": {
      "seen": true
     },
     "p9rQHNxk-Yw": {

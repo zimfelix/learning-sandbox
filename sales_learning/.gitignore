@@ -5,3 +5,4 @@ quelle/
 
 # PDF-Kopie des Leitfadens wird beim Export erzeugt
 mahnken-videos/leitfaden.pdf
+__pycache__/

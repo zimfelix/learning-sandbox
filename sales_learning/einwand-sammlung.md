@@ -119,7 +119,7 @@ Grundform: **„Okay, das heißt nur, wenn [Bedingung] – nur dann macht es Sin
 
 ## 7. Live-Einwände
 
-Getrennt gesammelt in `live-einwaende.md` (nicht in die Matrix übernehmen).
+Getrennt gesammelt in `mahnken-videos/live-einwaende.js` (Tab Leitfaden, Abschnitt „🎥 Live-Einwände“; nicht in die Matrix übernehmen).
 
 ## 8. Offen
 
