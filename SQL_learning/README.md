@@ -20,11 +20,29 @@ SQLite ist neu; JSON und APIs wurden bereits kurz behandelt, aber nicht als behe
 
 ## Aktueller Stand
 
-- `tutorial/`: SQL-Übungen an `bond.db` (Bond-Filme). `bond.sql` = Reset-Skript (Schema + 4 Filme), `etappe1_select.sql` (abgeschlossen), `etappe2_aggregate.sql` (in Arbeit), `bond_fk.sql` (Foreign Key + `JOIN`, wartet). `bond.db` ist nicht in Git und entsteht durch Ausführen von `bond.sql`. Lernstand: `../learning-state.md`, Abschnitt „SQL“.
+- `tutorial/`: SQL-Übungen an `bond.db` (Bond-Filme). `bond.sql` = Reset-Skript (Schema + 4 Filme), `etappe1_select.sql` (in Wiederholung), `etappe2_aggregate.sql` (in Arbeit), `bond_fk.sql` (Foreign Key + `JOIN`, wartet). `bond.db` ist nicht in Git und entsteht durch Ausführen von `bond.sql`. Lernstand: `../learning-state.md`, Abschnitt „SQL“.
 - `main.py`: `main()` liest einen künstlichen Messwert aus JSON und gibt seine Felder aus.
 - `data/sample_usage.json`: erfundene Beispieldaten, kein CodexBar-Export. `reporting_period` benennt die letzten 30 Tage relativ zum Messzeitpunkt; der Dollarwert ist nur ein Beispiel und wird nicht berechnet.
 - Noch keine Datenbankspeicherung, Anbieteranbindung oder automatisierten Produkttests. Feldprüfung und Fehlerbehandlung fehlen.
 - Beginne mit künstlichen Daten. Echte Anbieteranbindung, Importe und automatische Beobachtung folgen nur im jeweils ausdrücklich beauftragten Schritt.
+
+## SQL-Stil (gilt für Übungen und Agentencode)
+
+Der Agent schreibt SQL in diesem Stil und prüft Felix’ Antworten in Teil B auch darauf – getrennt von der inhaltlichen Bewertung (erst „richtig?“, dann „sauber formatiert?“).
+
+- Bis etwa 2 Klauseln darf eine Abfrage in einer Zeile stehen, ab 3 Klauseln eine Klausel pro Zeile.
+- Schlüsselwörter groß (`SELECT`, `WHERE`, `AND`), Namen klein mit `_` (`box_office`).
+- Weitere Bedingungen eingerückt in eigener Zeile (`  AND …`), lange Spaltenlisten eine Spalte pro Zeile.
+- Text in `'einfachen'` Anführungszeichen, genau wie in den Daten geschrieben (`'SEAN CONNERY'`).
+- Jede Abfrage endet mit `;`.
+
+```sql
+SELECT title, released
+FROM movies
+WHERE released < 2000
+  AND box_office > 100
+ORDER BY released DESC;
+```
 
 ## Ausführen
 

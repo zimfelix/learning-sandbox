@@ -1,6 +1,6 @@
 # Learning State – Learning Sandbox
 
-Übersicht über alle bisher besprochenen Themen, projektübergreifend. Stand: 2026-10-22.
+Übersicht über alle bisher besprochenen Themen, projektübergreifend. Stand: 2026-11-03.
 
 **Status:**
 - **neu** – kurz angesprochen oder noch nicht begonnen, z. B. SQL/SQLite und seine Besonderheiten.
@@ -52,17 +52,20 @@ Ziel ist **Agentic Coding auf Review-Niveau**, kein Vibe Coding: Agents schreibe
 | Speicheroptionen | JSON (verschachtelt) · CSV (Tabellen) · SQLite (viele Datensätze, Abfragen) · SQL = Sprache | neu |
 | SQLite | praktisch begonnen, siehe Abschnitt „SQL“ | neu |
 
-## SQL (Stand 2026-10-22)
+## SQL (Stand 2026-11-03)
 
 Übungen in `SQL_learning/tutorial/`, Aufbau je Etappe: A vorhersagen · B selbst schreiben · C Fehler finden (Review).
 
 | Thema | Kern | Status |
 |---|---|---|
-| Werkzeug | `.sql` = Text (Skript), `.db` = binary file, nur über DB Browser/`sqlite3` öffnen; Konsole = ausprobieren, `.sql`-Datei = behalten | gefestigt |
+| Werkzeug | `.sql` = Text, führt sich nicht selbst aus; `.db` = die Datenbank (binary file). Geöffnet in PyCharm über das Plugin Database Navigator („DB Browser“-Leiste), Connection zeigt auf `bond.db`; Konsole = Schmierzettel, `.sql`-Datei = behalten. Auto-Commit OFF öffnet selbst eine Transaction → `BEGIN;` aus `bond.sql` scheitert dort, Reset im Terminal (`sqlite3 bond.db < bond.sql`) | gefestigt |
+| Aufbau einer DB | Datei `bond.db` → Schema `main` (bei SQLite praktisch immer) → Kategorie `Tables` → Tabelle `movies` → Columns (Spalten) + Constraints (Regeln); Rows (Zeilen) = Datensätze. Baum = Navigation/Struktur, Daten liest man per `SELECT` | neu |
+| Reihenfolgen | geschrieben `SELECT FROM WHERE GROUP BY HAVING ORDER BY`; ausgeführt = gelesen `FROM WHERE GROUP BY HAVING SELECT ORDER BY`. Schreiben in Schreib-, prüfen in Ausführungsreihenfolge | neu |
+| SQL-Stil | ab 3 Klauseln eine pro Zeile, Keywords groß, `AND` eingerückt, `;` am Ende; `ASC`/`DESC` gehört zur Sortierspalte, keine eigene Klausel. Regeln in `SQL_learning/README.md` | neu |
 | Skript vs. Abfragen-Sammlung | Skript ganz ausführen; einzelne Abfragen per Cursor + ⌘↩. execute (ausführen) ≠ commit | neu |
 | `PRIMARY KEY`, `DROP`/`CREATE` | doppelte ID → constraint violation, kein Ersetzen; `DROP`+`CREATE`+`INSERT` = Reset-Skript | neu |
 | Transaction | `BEGIN`/`COMMIT` = alles oder nichts; schützt nur, wenn bei Fehler auch Rollback passiert | neu |
-| Etappe 1: `SELECT`/`WHERE`/`ORDER BY` | `etappe1_select.sql` abgeschlossen. `WHERE` streicht Zeilen, `SELECT` Spalten; `AND` prüft pro Zeile, jede condition vollständig; `NOT`/`!=`/`NOT IN` zum Ausschließen; Komma zählt auf, verbindet keine conditions | gefestigt |
+| Etappe 1: `SELECT`/`WHERE`/`ORDER BY` | `etappe1_select.sql` am 2026-11-03 zurückgesetzt und **in Wiederholung**: Teil A (A1–A6) und B1–B4 gemacht, B5, B6 und Teil C offen (C1, C4, C6 neu formuliert, Originale waren verloren). `WHERE` streicht Zeilen, `SELECT` Spalten; `AND` prüft pro Zeile, jede condition vollständig; `NOT`/`!=`/`NOT IN` zum Ausschließen; Komma zählt auf, verbindet keine conditions | gefestigt |
 | Etappe 2: `COUNT`/`SUM`/`GROUP BY`/`HAVING` | `etappe2_aggregate.sql` **in Arbeit**: Teil A gelesen (A1, A3, A4 beantwortet), B und C offen. Kern: `GROUP BY` bildet die Gruppen, aggregate function rechnet pro Gruppe; `AS` = alias, nur Name | neu |
 | Foreign Key + `JOIN` | `bond_fk.sql` vorbereitet, noch nicht bearbeitet | neu |
 | Noch offen | `INSERT`/`UPDATE`/`DELETE` (fehlendes `WHERE`), größere Datenbank erkunden, CTE (`WITH`) | neu |
@@ -86,3 +89,4 @@ Ziel ist **Agentic Coding auf Review-Niveau**, kein Vibe Coding: Agents schreibe
 - *decomposition* (Zerlegung) statt *composition*.
 - Bei SQL: `'Text'` = Wert, `"Name"` = Spalte/Tabelle; Text-Vergleiche unterscheiden Groß-/Kleinschreibung; fehlendes Komma macht still einen alias.
 - `COUNT(*)` zählt Zeilen der aktuellen Gruppe; „pro Schauspieler“ entsteht erst durch `GROUP BY`, nicht durch `SELECT`.
+- Etappe-1-Wiederholung (2026-11-03): `FROM` vergessen (Meldung dann `no such column`), Tabellenname hinter `SELECT` statt Spalte, `;` vergessen, `DESC` statt `ASC` bei „klein → groß“, beim Lesen die `SELECT`-Liste überflogen. `*` = alle Spalten, nicht alle Zeilen.
