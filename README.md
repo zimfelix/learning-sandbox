@@ -13,6 +13,7 @@ learning-sandbox/
 │   ├── README.md      Lernziel, Stand und Ausführung
 │   ├── main.py
 │   └── data/          künstliche Beispieldaten
+├── python_learning/   Python-Basics: Uni-Kurs + Video-Tutorial, eigene venv
 └── obsidian/          unabhängiges Lernkarten-Vorhaben
     ├── AGENTS.md      spezielle Regeln für Lernkarten
     ├── README.md      Einstieg und Ablage
@@ -27,6 +28,7 @@ Die bestehende doppelte Ebene `obsidian/obsidian/` bleibt vorerst erhalten; es w
 | Ordner | Zweck | Einstieg |
 | --- | --- | --- |
 | `SQL_learning/` | Künstliche JSON-Nutzungsdaten lesen; schrittweise SQLite und Auswertung kennenlernen | [SQL-Lernen](SQL_learning/README.md) |
+| `python_learning/` | Python-Grundlagen für den Uni-Kurs „Grundlagen der Programmierung“, mit Video-Tutorial zum Mitcoden | [Python](python_learning/README.md) |
 | `obsidian/` | Lernkarten, SVG-Vorschauen und Darstellung in Obsidian erproben | [Obsidian](obsidian/README.md) |
 
 Obsidian ist keine Voraussetzung für das SQL-Lernen. Weitere Vorhaben können nach Absprache eigene Unterordner erhalten. Es gibt keinen zentralen Programmstart; Ausführung und Dependencies (Abhängigkeiten) stehen in der jeweiligen README.

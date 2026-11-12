@@ -1,0 +1,6 @@
+# Uni-Kurs „Grundlagen der Programmierung“: Kapitel 2–4
+ipykernel          # Jupyter-Notebooks in PyCharm ausführen
+python-dateutil    # 2.6 Zeitstempel (relativedelta)
+numpy              # 3.1
+matplotlib         # 3.2
+pandas             # 3.3
