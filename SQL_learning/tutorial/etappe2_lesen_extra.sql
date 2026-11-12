@@ -23,7 +23,7 @@
 -- X1: Erst filtern, dann gruppieren
 -- FRAGE: Wie viele Ergebniszeilen? Was steht bei CONNERY?
 -- ZWISCHENSTAND nach WHERE:
--- MEINE ANTWORT: 1
+-- MEINE ANTWORT:
 
 SELECT actor, COUNT(*) AS filme
 FROM movies

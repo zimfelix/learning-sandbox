@@ -56,6 +56,8 @@ Ziel ist **Agentic Coding auf Review-Niveau**, kein Vibe Coding: Agents schreibe
 
 Übungen in `SQL_learning/tutorial/`, Aufbau je Etappe: A vorhersagen · B selbst schreiben · C Fehler finden (Review).
 
+**▶ Nächster Einstieg (pausiert 2026-11-12 zugunsten `python_learning/`):** `etappe2_aggregate.sql` bei **A1** (Datei ist leer zurückgesetzt), danach `etappe2_lesen_extra.sql`, dann `bond_fk.sql`. Vorher `bond.db` per `sqlite3 bond.db < bond.sql` zurücksetzen.
+
 | Thema | Kern | Status |
 |---|---|---|
 | Werkzeug | `.sql` = Text, führt sich nicht selbst aus; `.db` = die Datenbank (binary file). Geöffnet in PyCharm über das Plugin Database Navigator („DB Browser“-Leiste), Connection zeigt auf `bond.db`; Konsole = Schmierzettel, `.sql`-Datei = behalten. Auto-Commit OFF öffnet selbst eine Transaction → `BEGIN;` aus `bond.sql` scheitert dort, Reset im Terminal (`sqlite3 bond.db < bond.sql`) | gefestigt |
@@ -65,8 +67,8 @@ Ziel ist **Agentic Coding auf Review-Niveau**, kein Vibe Coding: Agents schreibe
 | Skript vs. Abfragen-Sammlung | Skript ganz ausführen; einzelne Abfragen per Cursor + ⌘↩. execute (ausführen) ≠ commit | neu |
 | `PRIMARY KEY`, `DROP`/`CREATE` | doppelte ID → constraint violation, kein Ersetzen; `DROP`+`CREATE`+`INSERT` = Reset-Skript | neu |
 | Transaction | `BEGIN`/`COMMIT` = alles oder nichts; schützt nur, wenn bei Fehler auch Rollback passiert | neu |
-| Etappe 1: `SELECT`/`WHERE`/`ORDER BY` | `etappe1_select.sql` am 2026-11-03 zurückgesetzt und **in Wiederholung**: Teil A (A1–A6) und B1–B4 gemacht, B5, B6 und Teil C offen (C1, C4, C6 neu formuliert, Originale waren verloren). `WHERE` streicht Zeilen, `SELECT` Spalten; `AND` prüft pro Zeile, jede condition vollständig; `NOT`/`!=`/`NOT IN` zum Ausschließen; Komma zählt auf, verbindet keine conditions | gefestigt |
-| Etappe 2: `COUNT`/`SUM`/`GROUP BY`/`HAVING` | `etappe2_aggregate.sql` **in Arbeit**: Teil A gelesen (A1, A3, A4 beantwortet), B und C offen. Kern: `GROUP BY` bildet die Gruppen, aggregate function rechnet pro Gruppe; `AS` = alias, nur Name | neu |
+| Etappe 1: `SELECT`/`WHERE`/`ORDER BY` | `etappe1_select.sql` **abgeschlossen** (erst 2026-10-22, Wiederholung 2026-11-03 komplett: A, B, C). Logik (welche Zeilen, welche Richtung) sitzt meist; Schwächen bei Struktur: `FROM` vergessen/falsch platziert, unvollständige Bedingung `AND < 400` (in C5 überlesen). `WHERE` streicht Zeilen, `SELECT` Spalten; jede condition vollständig; `'Wert'` vs. `"Bezeichner"`; ohne Komma still ein alias; `AS` immer ausschreiben | gefestigt |
+| Etappe 2: `COUNT`/`SUM`/`GROUP BY`/`HAVING` | `etappe2_aggregate.sql` und `etappe2_lesen_extra.sql` am 2026-11-03 zurückgesetzt, **Neustart bei A1**. Kern: `GROUP BY` bildet die Gruppen, aggregate function rechnet pro Gruppe; `AS` = alias, nur Name, v. a. für berechnete Spalten | neu |
 | Foreign Key + `JOIN` | `bond_fk.sql` vorbereitet, noch nicht bearbeitet | neu |
 | Noch offen | `INSERT`/`UPDATE`/`DELETE` (fehlendes `WHERE`), größere Datenbank erkunden, CTE (`WITH`) | neu |
 

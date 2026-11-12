@@ -1,5 +1,7 @@
 -- ════════════════════════════════════════════════════════════════
 -- ETAPPE 1: Daten lesen – SELECT, WHERE, ORDER BY
+-- STATUS: ✅ abgeschlossen (Wiederholung 2026-11-03, A/B/C komplett,
+--         Antworten im Chat besprochen)
 -- ════════════════════════════════════════════════════════════════
 --
 -- WAS WIR ÜBEN

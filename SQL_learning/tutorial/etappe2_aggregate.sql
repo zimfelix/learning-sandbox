@@ -38,7 +38,7 @@
 
 -- A1: Zählen
 -- FRAGE: Welche Zahl kommt heraus?
--- MEINE ANTWORT: 4
+-- MEINE ANTWORT:
 
 SELECT COUNT(*)          -- zähle die Zeilen (ohne GROUP BY: die ganze Tabelle = 1 Gruppe)
 FROM movies;             -- aus der Tabelle movies
@@ -46,14 +46,14 @@ FROM movies;             -- aus der Tabelle movies
 
 -- A2: Summe mit alias (Ersatzname)
 -- FRAGE: Wie viele Zeilen hat das Ergebnis? Ungefähr welche Zahl?
--- MEINE ANTWORT: gesamt: 800 ca -- auch hier wo kommt gesamt hin in der antwort??
+-- MEINE ANTWORT:
 
 SELECT SUM(box_office)   -- addiere alle Werte der Spalte box_office
        AS gesamt         -- nenne die Ergebnisspalte "gesamt" (nur der Name)
 FROM movies;             -- aus der Tabelle movies
 
 -- Hinweis: Kommazahlen (REAL) sind intern nicht ganz exakt,
--- deshalb erscheinen   evtl. viele Nachkommastellen. ROUND rundet:
+-- deshalb erscheinen evtl. viele Nachkommastellen. ROUND rundet:
 SELECT ROUND(SUM(box_office), 1)   -- erst summieren, dann auf 1 Nachkommastelle runden
        AS gesamt                   -- Ergebnisspalte heißt "gesamt"
 FROM movies;
@@ -61,7 +61,7 @@ FROM movies;
 
 -- A3: Mehrere Aggregatfunktionen auf einmal
 -- FRAGE: Welcher Wert ist MIN, welcher MAX?
--- MEINE ANTWORT: 250 / 59.5 / 594.2
+-- MEINE ANTWORT:
 
 SELECT AVG(box_office),  -- Durchschnitt (average) aller Einspielergebnisse
        MIN(box_office),  -- kleinster Wert
@@ -71,7 +71,7 @@ FROM movies;             -- alle drei rechnen über dieselben 4 Zeilen → 1 Erg
 
 -- A4: Erst filtern, dann zählen
 -- FRAGE: Welche Zahl kommt heraus?
--- MEINE ANTWORT: 2
+-- MEINE ANTWORT:
 
 SELECT COUNT(*)                  -- 3. zähle die Zeilen, die übrig geblieben sind
 FROM movies                      -- 1. nimm die Tabelle movies (4 Zeilen)
@@ -108,29 +108,15 @@ HAVING COUNT(*) >= 2;            -- 3. behalte nur Stapel mit mindestens 2 Zeile
 
 -- B1: Wie viele Filme sind NACH 1990 erschienen?
 -- MEINE ABFRAGE:
-SELECT COUNT(*) as filme
-FROM movies
-WHERE released > 1990
+
 
 -- B2: Was ist das höchste Einspielergebnis?
 -- MEINE ABFRAGE:
 
-SELECT title, MAX(box_office)
-FROM movies
 
 -- B3: Wie hoch ist das durchschnittliche Einspielergebnis
 --     der Filme von SEAN CONNERY?
 -- MEINE ABFRAGE:
-
-SELECT actor, AVG(box_office) AS schnitt
-FROM movies
-WHERE actor = 'SEAN CONNERY'
-
--- oder:
-SELECT AVG(box_office)
-FROM movies
-GROUP by actor
-HAVING > 1
 
 
 -- B4: Wie viele Filme hat jeder Schauspieler?
@@ -151,6 +137,8 @@ HAVING > 1
 
 -- ── TEIL C: Fehler finden (Review-Training) ─────────────────────
 -- Jede Abfrage hat EINEN Fehler. Erst finden, dann ausführen.
+-- Antwort als Kommentar darunter – die Abfrage selbst bleibt
+-- unverändert, damit der Fehler sichtbar bleibt.
 -- Manche Fehler melden sich laut, manche liefern still ein
 -- falsches Ergebnis. Vergleiche immer mit dem "Gewollt".
 
