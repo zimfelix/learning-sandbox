@@ -14,12 +14,22 @@ Python-Grundlagen für den Uni-Kurs **„Grundlagen der Programmierung“ (WS 20
 ## Ablauf pro Kapitel
 
 ```text
-Vorlesungs-Notebook lesen + ausführen  →  Übungs-Notebook selbst lösen  →  Review mit dem Agenten
+Vorlesungs-Notebook lesen + ausführen  →  Aufgabe im Übungs-Notebook lesen
+  →  Lösung in uni_loesungen.py schreiben  →  Review mit dem Agenten
 ```
 
 Reihenfolge nach Uni-Kapiteln: 2.1 Variable/Datentyp → 2.2 Operator → 2.3 Kontrollstruktur → 2.4 Funktion → 2.5 Datenstruktur → 2.6 Zeitstempel → 3.1–3.4 numpy, matplotlib, pandas, random → 4.1 Error/Exception → 4.2 API (`yfinance`) → 4.3 GUI (Roulette).
 
-Die Notebooks laufen in VS Code oder PyCharm mit der `.venv` als Kernel. Lösungen bleiben wie das Uni-Material lokal (Repo ist öffentlich).
+**Editor: PyCharm** (nicht VS Code). Lösungen stehen in `uni_loesungen.py`: nur eigener Code ohne Aufgabentexte, deshalb darf die Datei ins öffentliche Repo. Das Uni-Material selbst bleibt lokal.
+
+## Stand (2026-11-13)
+
+- **Erledigt:** 2.1, 2.3, 2.4 und Zusatzaufgaben 1–3 zu 2.4 (gesichert in `uni_loesungen.py`).
+- **Offen in 2.2:** Teil 1 (`x`/`y` statt `a`/`b`), Teil 3 (`+=` usw.), Teil 5 (`True`/`False` mit `and`/`or`/`not`).
+- **Offen in 2.4 Zusatz:** 4 `zaehle_gerade`, 5 global/lokal mit `bonus`, 6 Default-Wert `potenz`. Die Aufgabentexte stehen im Chat vom 2026-11-13, kurz: zählen mit `ist_gerade`, `print(gesamt)` außerhalb der Funktion testen, `potenz(basis, exponent=2)`.
+- **Bewerbungs-Basics:** `bewerbung_basics.py` noch nicht bearbeitet.
+- **Nächster Einstieg:** 30–60 min `bewerbung_basics.py`, danach 2.5 Datenstruktur.
+- **Wackelig:** `+=` (Variable verändern statt nur rechnen), `print` vs. `return`, Accumulator-Muster, `for` vs. `while`, Funktionen aufrufen statt nur definieren.
 
 ## Setup
 
@@ -39,6 +49,7 @@ PyCharm: `python_learning/` öffnen → Settings → Python Interpreter → *Add
 python_learning/
 ├── README.md
 ├── requirements.txt   Dependencies der venv
+├── uni_loesungen.py   Felix' Lösungen zu den Uni-Übungen
 ├── python_basics.py   Felix' eigene Mitcode-Datei
 ├── bewerbung_basics.py     7 "Mach mal …"-Aufgaben + FizzBuzz, zum Wiederholen
 ├── bewerbung_loesungen.py  Lösungen dazu (erst nach eigenem Versuch)
