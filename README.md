@@ -13,7 +13,7 @@ learning-sandbox/
 │   ├── README.md      Lernziel, Stand und Ausführung
 │   ├── main.py
 │   └── data/          künstliche Beispieldaten
-├── python_learning/   Python-Basics: Uni-Kurs + Video-Tutorial, eigene venv
+├── python_learning/   Python-Basics: Uni-Kurs + Video-Tutorial, nutzt Root-`.venv/`
 └── obsidian/          unabhängiges Lernkarten-Vorhaben
     ├── AGENTS.md      spezielle Regeln für Lernkarten
     ├── README.md      Einstieg und Ablage

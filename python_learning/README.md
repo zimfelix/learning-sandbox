@@ -40,12 +40,12 @@ Reihenfolge nach Uni-Kapiteln: 2.1 Variable/Datentyp → 2.2 Operator → 2.3 Ko
 ## Setup
 
 ```bash
-cd python_learning
-python3 -m venv .venv                       # einmalig, Python 3.14
-.venv/bin/pip install -r requirements.txt
+cd learning-sandbox
+python3.14 -m venv .venv                    # im Repo-Root, einmalig
+.venv/bin/pip install -r python_learning/requirements.txt
 ```
 
-PyCharm (Projekt `learning-sandbox`, erledigt am 2026-11-13): Interpreter → *Add Local Interpreter* → *Select existing* → `python_learning/.venv/bin/python`. Notebooks (`.ipynb`) brauchen diese venv als Kernel. Den Kernel stellt das Paket `ipykernel` bereit. Beim ersten Öffnen eines Notebooks oben rechts **Trust Notebook** anklicken, sonst laufen die Zellen nicht.
+PyCharm (Projekt `learning-sandbox`, erledigt am 2026-11-13): Interpreter → *Add Local Interpreter* → *Select existing* → `learning-sandbox/.venv/bin/python` (gemeinsame Root-venv). Notebooks (`.ipynb`) brauchen diese venv als Kernel. Den Kernel stellt das Paket `ipykernel` bereit. Beim ersten Öffnen eines Notebooks oben rechts **Trust Notebook** anklicken, sonst laufen die Zellen nicht.
 
 `yfinance` (Kapitel 4.2) wird erst bei Bedarf nachinstalliert.
 
@@ -56,6 +56,5 @@ python_learning/
 ├── README.md
 ├── requirements.txt   Dependencies der venv
 ├── notes.py           Felix' eigene Notizen / Mitcode
-├── .venv/             lokale Umgebung (nicht in Git)
 └── uni_material/      Uni-Dateien aus Google Drive (nur lokal, nicht in Git)
 ```

@@ -79,7 +79,7 @@ Ziel ist **Agentic Coding auf Review-Niveau**, kein Vibe Coding: Agents schreibe
 |---|---|---|
 | UI vs. API | UI: Mensch ↔ Programm; API: Programm ↔ Programm | neu |
 | Data Format / Interface / Storage | JSON / CLI-HTTP / SQLite: drei verschiedene Rollen | neu |
-| Virtual Environment | `venv` pro Vorhaben, wird nicht eingecheckt | neu |
+| Virtual Environment | eigene Python-Umgebung mit eigenen Paketen; hier eine gemeinsame `.venv/` im Root (seit 2026-11-13), da PyCharm einen Interpreter pro Projekt setzt; wird nicht eingecheckt | neu |
 | Harness | `harness/` regelt Agentenarbeit, `docs/` das Projektwissen; stabiler Core + Project Profile | neu |
 | Agent-Isolation | Computer Use teilt Maus, Tastatur und Fokus; Abhilfe über DevTools Protocol, VM oder Container (z. B. Cua). Nicht live recherchiert | neu |
 | Frontend-Stack | TypeScript/TSX, React (UI-Struktur), Vite, HTML/CSS/JS, Browser; nur notiert | neu |
