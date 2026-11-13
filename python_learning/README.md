@@ -40,6 +40,8 @@ python_learning/
 ├── README.md
 ├── requirements.txt   Dependencies der venv
 ├── python_basics.py   Felix' eigene Mitcode-Datei
+├── bewerbung_basics.py     7 "Mach mal …"-Aufgaben + FizzBuzz, zum Wiederholen
+├── bewerbung_loesungen.py  Lösungen dazu (erst nach eigenem Versuch)
 ├── .venv/             lokale Umgebung (nicht in Git)
 └── uni_material/      Uni-Dateien aus Google Drive (nur lokal, nicht in Git)
 ```
