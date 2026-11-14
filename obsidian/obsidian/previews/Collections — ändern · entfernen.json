@@ -1,0 +1,29 @@
+{
+  "title": "Collections — ändern · entfernen",
+  "category": "Uni Grundlagen I",
+  "accent": "#f38ba8",
+  "lines": [
+    ["title", "Collections — ändern · entfernen"],
+    ["muted", "mutable (veränderbar) · immutable (unveränderbar)"],
+    ["gap", ""],
+    ["rule", "Aufbau merken, Methoden folgen daraus."],
+    ["gap", ""],
+    ["code", "list  # Reihe mit Positionen → [index]"],
+    ["code", "dict  # Schrank mit Etiketten → [key]"],
+    ["code", "set   # Sack ohne Ordnung → nur add/remove"],
+    ["code", "tuple # eingeschweißt → nichts änderbar"],
+    ["code", "str   # eingeschweißt → nur Kopien (replace)"],
+    ["gap", ""],
+    ["code", "liste[1] = \"Welt\"      # ändern"],
+    ["code", "liste.append(42)       # ans Ende"],
+    ["code", "liste.pop(0)           # über Position"],
+    ["code", "liste.remove(\"Welt\")   # über Wert"],
+    ["gap", ""],
+    ["code", "d[\"Alter\"] = 26        # ändern/hinzufügen"],
+    ["code", "del d[\"Stadt\"]         # entfernen"],
+    ["code", "menge.add(6); menge.remove(3)"],
+    ["code", "text = text.replace(\",\", \".\")"],
+    ["gap", ""],
+    ["muted", "Methoden nachschauen: obj. tippen oder dir(obj)"]
+  ]
+}

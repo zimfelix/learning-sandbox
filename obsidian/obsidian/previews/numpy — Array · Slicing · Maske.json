@@ -1,0 +1,26 @@
+{
+  "title": "numpy — Array · Slicing · Maske",
+  "category": "Uni Grundlagen I",
+  "accent": "#f38ba8",
+  "lines": [
+    ["title", "numpy — Array · Slicing · Maske"],
+    ["code", "np.sum(x) · x * 2 · x[5:11] · x[3:8] = 100 · x[x > 10]"],
+    ["muted", "Liste = Behälter · Array = Taschenrechner für alle"],
+    ["gap", ""],
+    ["rule", "[] wie bei Listen + filtern + mehrere Stellen setzen"],
+    ["gap", ""],
+    ["code", "import numpy as np"],
+    ["code", "x = np.array(range(1, 21))   # [1 2 ... 20]"],
+    ["code", "np.sum(x)  np.mean(x)  np.max(x)  np.min(x)"],
+    ["gap", ""],
+    ["code", "x * 2          # [2 4 ... 40]  elementweise"],
+    ["code", "x + 10         # Liste: TypeError"],
+    ["code", "x[5:11]        # [6 7 8 9 10 11]  stop exklusiv"],
+    ["code", "x[3:8] = 100   # alle fünf → 100"],
+    ["gap", ""],
+    ["code", "x > 10         # [False ... True]  Maske"],
+    ["code", "x[x > 10]      # nur die True-Stellen"],
+    ["gap", ""],
+    ["muted", "Index ≠ Wert · gemischte Typen → alles Text · Slice = view"]
+  ]
+}

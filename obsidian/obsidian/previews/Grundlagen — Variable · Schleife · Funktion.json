@@ -1,0 +1,25 @@
+{
+  "title": "Grundlagen — Variable · Schleife · Funktion",
+  "category": "Uni Grundlagen I",
+  "accent": "#f38ba8",
+  "lines": [
+    ["title", "Grundlagen — Variable · Schleife · Funktion"],
+    ["code", "z += 2 · range(1, 11) · return · funktion()"],
+    ["muted", "Rechnen allein ändert nichts: speichern · zurückgeben · aufrufen"],
+    ["gap", ""],
+    ["code", "z + 2      # rechnet nur, z bleibt"],
+    ["code", "z += 2     # z = z + 2  → speichert"],
+    ["code", "range(1, 11)   # 1 … 10, stop exklusiv"],
+    ["gap", ""],
+    ["code", "def addiere(a, b):"],
+    ["code", "    return a + b     # print → None"],
+    ["code", "summe = addiere(2, 3)   # erst () führt aus"],
+    ["gap", ""],
+    ["code", "gesamt = 0             # 1. vorher starten"],
+    ["code", "for i in range(1, n + 1):"],
+    ["code", "    gesamt += i        # 2. drin sammeln"],
+    ["code", "return gesamt          # 3. danach zurück"],
+    ["gap", ""],
+    ["muted", "break/continue: erst prüfen, dann ausgeben"]
+  ]
+}
