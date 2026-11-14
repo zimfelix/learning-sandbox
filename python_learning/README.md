@@ -28,13 +28,39 @@ Reihenfolge nach Uni-Kapiteln: 2.1 Variable/Datentyp → 2.2 Operator → 2.3 Ko
 
 **Editor: PyCharm** (nicht VS Code). Das Uni-Material bleibt lokal, auch das Übungs-Notebook mit Felix' Lösungen.
 
-## Stand (2026-11-13)
+## Klausurplan (Stand 2026-11-14)
 
-- **Erledigt:** 2.1, 2.3, 2.4 und Zusatzaufgaben 1–3 zu 2.4.
+Klausur **mit Stift und Papier**, ca. **24./25.11.2026** (genaues Datum offen, ob Unterlagen erlaubt sind, ebenfalls offen). Auf Papier gibt es keine Autovervollständigung: Die Kern-Syntax muss selbst geschrieben werden können.
+
+**Umfang:** täglich ein 2-h-Block (50 min · 10 min Pause · 50 min · 5 min Lernkarten-Einzeiler). Lieber nach 1 h abbrechen als sich durchquälen; an Papier-Tagen bei Bedarf einen kurzen Zusatzblock.
+
+| Tage | Inhalt |
+| --- | --- |
+| 15.–18.11. | Rest durchgehen: 3.3 pandas · 3.4 random · 4.1 Exception · 4.2 API · 4.3 GUI. Nur verstehen + Lernkarte, kein Pauken |
+| 19.–23.11. | Papier-Training: 2–3 Kapitel pro Tag ohne PyCharm auf Papier lösen, abtippen/fotografieren, Agent korrigiert wie in einer Klausur |
+| Tag vor der Klausur | nur die Lernkarten-Einzeiler (Obsidian, `Uni Grundlagen I`) wiederholen, Pause |
+
+**Muss auswendig sitzen:**
+
+| Kapitel | Kern |
+| --- | --- |
+| 2.1–2.4 | `+=`, `if/elif/else`, `for … in range()`, `while`, `def` + `return` |
+| 2.5 | Liste, Dict, Tupel, Set: anlegen, `[]`, `append`, `del` |
+| 2.6 | `datetime.now()`, `objekt.strftime(format)`, `datetime.strptime(text, format)` |
+| 3.1 | `np.array`, `np.sum/mean/max/min`, `x[5:11]`, `x[x > 10]` |
+| 3.2 | `plt.plot / scatter / hist`, `plt.show()` |
+
+**Nur erkennen:** `subplots`, `relativedelta`, Formatcode-Details, `np.arange`.
+
+## Stand (2026-11-14)
+
+- **Selbsteinschätzung 2026-11-14:** 2.1–2.5 relativ sicher; 2.6, 3.1, 3.2 noch wackelig, sollen morgen besser sitzen.
+- **2026-11-14:** 2.6 (+ Wiederholung `u2_6b`), 3.1 und 3.2 durchgearbeitet; 3.2 Teil 3–4 und 2.6b Teil 4 per Lösung. Wackelig: `strptime`/`strftime` (Richtung, Klasse vs. Objekt), `timedelta` über `.days`/`.seconds`, `()` beim Aufruf vergessen (`plt.show`), `range`-Start/-Stop.
+- **Erledigt (2026-11-13):** 2.1, 2.3, 2.4 und Zusatzaufgaben 1–3 zu 2.4.
 - **Offen in 2.2:** Teil 1 (`x`/`y` statt `a`/`b`), Teil 3 (`+=` usw.), Teil 5 (`True`/`False` mit `and`/`or`/`not`).
 - **Bewerbungs-Basics:** durchgearbeitet und gelöscht (2026-11-13). Wackelig: Methoden raten (`append[...]`, `.replace`/`.rename`), `dict[key] = wert`, `.items()`, FizzBuzz-Reihenfolge.
 - **Eigene Zusatzaufgaben 4–6 zu 2.4:** entfallen, weil nur noch das Übungs-Notebook zählt.
-- **Nächster Einstieg:** 2.5 Teil 1 (Tupel), danach die Reste aus 2.2.
+- **Nächster Einstieg:** 3.3 pandas (laut Klausurplan). Reste aus 2.2 (Teil 1, 3, 5) im Papier-Training mitnehmen.
 - **Wackelig:** `+=` (Variable verändern statt nur rechnen), `print` vs. `return`, Accumulator-Muster, `for` vs. `while`, Funktionen aufrufen statt nur definieren.
 
 ## Setup

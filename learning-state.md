@@ -27,7 +27,7 @@ Ziel ist **Agentic Coding auf Review-Niveau**, kein Vibe Coding: Agents schreibe
 | Expression & Statement | Expression liefert einen Wert, Statement führt eine Anweisung aus | gefestigt |
 | Function vs. Method Call | `show_provider("claude")` vs. `text.upper()` | gefestigt |
 | Built-ins | `len()`, `isinstance()`, `type()` usw. | gefestigt |
-| Uni-Kurs (`python_learning/`, 2026-11-13) | 2.1–2.4 durchgearbeitet. Konzepte schnell verstanden, Mechanik eingerostet: `z + 2` vs. `z += 2`, `print` vs. `return`, Funktion definiert aber nicht aufgerufen, `range` stoppt vor dem Endwert, Accumulator (vorher starten · drin sammeln · danach `return`), bei `break`/`continue` erst prüfen, dann ausgeben. Stand und offene Aufgaben: `python_learning/README.md` | neu |
+| Uni-Kurs (`python_learning/`, 2026-11-13) | 2.1–2.4 durchgearbeitet. Konzepte schnell verstanden, Mechanik eingerostet: `z + 2` vs. `z += 2`, `print` vs. `return`, Funktion definiert aber nicht aufgerufen, `range` stoppt vor dem Endwert, Accumulator (vorher starten · drin sammeln · danach `return`), bei `break`/`continue` erst prüfen, dann ausgeben. Stand 2026-11-14: 2.1–2.5 laut Selbsteinschätzung relativ sicher; 2.6 (`strptime`/`strftime`), 3.1 numpy, 3.2 matplotlib neu und wackelig. Papierklausur ca. 24./25.11., Plan in `python_learning/README.md` | neu |
 
 ## Objekte und Klassen
 
