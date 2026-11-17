@@ -6,9 +6,9 @@ Python-Grundlagen für den Uni-Kurs **„Grundlagen der Programmierung“ (WS 20
 
 | Quelle | Rolle |
 | --- | --- |
-| `uni_material/Grundlagen_der_Programmierung_Uebung.ipynb` | **Leitfaden**: Uni-Aufgaben, Lösungen ab 2.5 direkt hier in PyCharm |
-| `uni_material/Grundlagen_der_Programmierung.ipynb` | Code-Beispiele der Vorlesung |
-| `uni_material/Grundlagen_der_Programmierung_2026_2027.pdf` | Folien, eher generisch – nur zum Nachschlagen |
+| `uni_material/Grundlagen_der_Programmierung_Uebung.ipynb` | Übungsreihenfolge: Uni-Aufgaben, Lösungen ab 2.5 direkt hier in PyCharm |
+| `uni_material/Grundlagen_der_Programmierung.ipynb` | Code-Beispiele der Vorlesung, **klausurrelevant** (Syntax wie hier üben, z. B. `menge1.union(menge2)`) |
+| `uni_material/Grundlagen_der_Programmierung_2026_2027.pdf` | Folien, **Klausurschwerpunkt** (laut Felix 2026-11-17 eher Folien als Übungsaufgaben) |
 | [The Morpheus Tutorials – Python Tutorials Deutsch](https://www.youtube.com/playlist?list=PLNmsVeXQZj7q0ao69AIogD94oBgp3E9Zs) | schaut Felix **separat**; Aufgaben orientieren sich nicht daran |
 
 ## Ablauf pro Kapitel
@@ -30,6 +30,10 @@ Reihenfolge nach Uni-Kapiteln: 2.1 Variable/Datentyp → 2.2 Operator → 2.3 Ko
 
 ## Klausurplan (Stand 2026-11-14)
 
+**Schwerpunkt (2026-11-17):** Die Klausur orientiert sich eher an den Folien und der Vorlesung als an den Übungsaufgaben. Papier-Training deshalb an den Inhalten von Folien und Vorlesungs-Notebook ausrichten, nicht nur an den Übungsaufgaben.
+
+**Niveau-Referenz:** drei Original-Aufgaben aus Vorklausuren (Summe mit Teilbarkeit, Funktion mit `if`/`return`, String `replace`/`count`) liegen mit Musterlösung und typischen Fehlern in `uni_material/uebungen/klausur_beispiele.py` (nur lokal). Papier-Training an diesem Schwierigkeitsgrad ausrichten.
+
 Klausur **mit Stift und Papier**, ca. **24./25.11.2026** (genaues Datum offen, ob Unterlagen erlaubt sind, ebenfalls offen). Auf Papier gibt es keine Autovervollständigung: Die Kern-Syntax muss selbst geschrieben werden können.
 
 **Umfang:** täglich ein 2-h-Block (50 min · 10 min Pause · 50 min · 5 min Lernkarten-Einzeiler). Lieber nach 1 h abbrechen als sich durchquälen; an Papier-Tagen bei Bedarf einen kurzen Zusatzblock.
@@ -44,8 +48,8 @@ Klausur **mit Stift und Papier**, ca. **24./25.11.2026** (genaues Datum offen, o
 
 | Kapitel | Kern |
 | --- | --- |
-| 2.1–2.4 | `+=`, `if/elif/else`, `for … in range()`, `while`, `def` + `return` |
-| 2.5 | Liste, Dict, Tupel, Set: anlegen, `[]`, `append`, `del` |
+| 2.1–2.4 | `+=`, `if/elif/else`, `for … in range()`, `while`, `def` + `return`; `range(start, stop, step)`: stop exklusiv, z. B. `range(1, 3, 2)` → nur `1`, `range(10, 0, -2)` → 10, 8, 6, 4, 2 (prüfungsrelevant) |
+| 2.5 | Liste, Dict, Tupel, Set: anlegen, `[]`, `append`, `del`; Set: `intersection`, `union`, `difference` |
 | 2.6 | `datetime.now()`, `objekt.strftime(format)`, `datetime.strptime(text, format)` |
 | 3.1 | `np.array`, `np.sum/mean/max/min`, `x[5:11]`, `x[x > 10]` |
 | 3.2 | `plt.plot / scatter / hist`, `plt.show()` |
