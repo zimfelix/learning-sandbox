@@ -6,5 +6,6 @@ data/*.db
 data/*.db-journal
 SQL_learning/tutorial/*.db
 
-# Uni-Kursmaterial nur lokal
-python_learning/uni_material/
+# Uni-Kursmaterial (PDF, Notebooks) nur lokal, Übungen öffentlich
+python_learning/uni_material/*
+!python_learning/uni_material/uebungen/
