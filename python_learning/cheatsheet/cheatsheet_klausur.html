@@ -368,6 +368,8 @@ print(df)  # Methoden hängen am OBJEKT df, nicht an pd</pre>
 <table><tr><th>Aufgabe</th><th>Code</th></tr>
 <tr><td>Spalte lesen</td><td><code>df['Gehalt']</code> · mehrere <code>df[['Name','Alter']]</code></td></tr>
 <tr><td>neue Spalte „30 % des Gehalts“</td><td><code>df['Steuer'] = df['Gehalt'] * 0.3</code> (elementweise)</td></tr>
+<tr><td>neue Spalte aus Bedingung „mind. 50“</td><td><code>df['Bestanden'] = df['Punkte'] &gt;= 50</code> → True/False je Zeile, KEIN if (if + Spalte → ValueError)</td></tr>
+<tr><td>„wie viele …“ (True zählen)</td><td><code>df['Bestanden'].sum()</code> → 3 (True = 1) · <code>len(df[df['Punkte'] &gt;= 50])</code></td></tr>
 <tr><td>Wert ändern „für eine Person“</td><td><code>df.loc[df['Name'] == 'Bob', 'Gehalt'] = 3800</code></td></tr>
 <tr><td>Wert ändern per Index</td><td><code>df.loc[0, 'Gehalt'] = 4100</code> (Zeile, Spalte)</td></tr>
 <tr><td>Zeile entfernen</td><td><code>df = df.drop(2)</code> (Index; NEU ZUWEISEN!)</td></tr>
@@ -430,13 +432,11 @@ for i in range(6): fl.append(random.uniform(1, 80))
 zahl_int = random.randint(-5, 5)
 print(fl, zahl_int)  # [51.51…, 2.97…, …] 3</pre>
 
-<div class="warn"><b>⚠ Typische Fehler</b><br>
-<code>=</code> zuweisen vs. <code>==</code> vergleichen · <code>:</code> nach if/for/while/def · Einrückung · <code>import</code> vergessen → NameError<br>
-Funktion definiert, aber nicht aufgerufen · <code>print</code> statt <code>return</code> · return nur im if · Ergebnis berechnet, nicht ausgegeben<br>
-range/Slicing: Ende exklusiv · <code>randint</code> inklusiv · „mindestens“ = <code>&gt;=</code> · <code>and if</code> → <code>and</code><br>
-<code>and</code> bei Einzelwerten, <code>&amp;</code> + Klammern bei Arrays/DataFrames<br>
-<code>strptime</code> str→Datum · <code>strftime</code> Datum→str · Variable nie <code>list</code>/<code>str</code>/<code>sum</code> nennen<br>
-<code>shuffle</code> gibt None · <code>drop</code> ohne Zuweisung ändert df nicht · <code>df.mean(liste)</code> → TypeError · <code>'a'+3</code> → <code>'a'+str(3)</code></div>
+<div class="warn"><b>⚠ Typische Fehler datetime</b><br>
+<code>import datetime</code> → <code>datetime(…)</code> TypeError · richtig: <code>from datetime import datetime, timedelta</code><br>
+<code>strptime</code> Text→Datum · <code>strftime</code> Datum→Text · Format EXAKT wie Text<br>
+<code>relativedelta(minute=90)</code> → ValueError · Plural <code>minutes=</code> addiert<br>
+<code>diff.days</code> ohne () · Teile <code>.year .hour</code> ohne ()</div>
 
 </div>
 <script>
