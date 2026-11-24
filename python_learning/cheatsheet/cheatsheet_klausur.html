@@ -36,6 +36,7 @@ th { background: #ddd; }
 int(True) → 1   float(42) → 42.0   # „umwandeln“
 str(3.14) → '3.14'   int(3.9) → 3 (abschneiden)
 int('3.5') → ValueError · input() liefert IMMER str
+round(2.0567, 2) → 2.06  # „auf 2 Nachkommastellen runden“
 'Hallo' + str(3) → 'Hallo3'        # Zahl an Text: str()!</pre>
 <p><b>Escape:</b> <code>\'</code> <code>\"</code> <code>\\</code>=\ <code>\n</code> neue Zeile <code>\t</code> Tab <code>\b</code> Backspace</p>
 <h2>String-Methoden (s = 'hello World') – ändern s NICHT</h2>
@@ -46,10 +47,33 @@ s.replace('Wo','AA') → 'hello AArld'  # „ersetze“ (alt, neu)
 s.split(' ') → ['hello','World']  # „zerlegen“ → LISTE
 s[0] 'h'  s[-1] 'd'  s[0:5] 'hello'   # Zeichen/Teilstring
 s = s.upper()  # Ergebnis behalten = neu zuweisen</pre>
+<h2>String-Beispiele wie in der Klausur (geprüft)</h2>
+<pre>t = 'Ich mag Python und ich mag Kaffee'
+t.count('mag') → 2               # „wie oft kommt 'mag' vor“
+t.lower().count('ich') → 2       # Groß/klein egal → erst lower
+t.count('ich') → 1               # 'Ich' zählt NICHT mit!
+t.replace('mag', 'liebe')        # ersetzt ALLE Vorkommen
+# → 'Ich liebe Python und ich liebe Kaffee'
+t.split(' ') → ['Ich','mag',…]   # „Wörter“ → Liste
+len(t.split(' ')) → 7            # „wie viele Wörter“
+t.split(' ')[2] → 'Python'       # „drittes Wort“
+w = 'Klausurvorbereitung'
+w = w.lower()                    # ZUWEISEN, sonst bleibt w
+w.count('u') → 3   len(w) → 19   # Anzahl u / Zeichen
+w[0:7] → 'klausur'  w[-4:] → 'tung'  # Anfang / Ende
+'na' in 'Banane' → True          # „enthält der Text …?“
+'hallo welt'.capitalize() → 'Hallo welt'
+'Hallo' + ' ' + 'Welt' → 'Hallo Welt'  'ab' * 3 → 'ababab'
+# Kette: erst ersetzen, DANN zählen (Vorklausur):
+y = 'wirtschaftsinformatik'.replace('i', 'o')
+y.count('o') → 4                 # 3 i → o + 1 o schon da</pre>
 <h2>Übung 2.1 gelöst</h2>
-<pre>a = None; b = True; c = 42; d = 3.14; e = 'Hello, World!'
+<pre># 1) Variablen a–e anlegen · 2) ausgeben
+a = None; b = True; c = 42; d = 3.14; e = 'Hello, World!'
 print(a, b, c, d, e)  # None True 42 3.14 Hello, World!
+# 3) Typ prüfen
 print(type(a), type(b))  # &lt;class 'NoneType'&gt; &lt;class 'bool'&gt; …
+# 4) umwandeln: b→int, c→float, d→str, e→GROSS · 5) ausgeben
 b_int = int(b)                # 1
 c_float = float(c)            # 42.0
 d_str = str(d)                # '3.14'
@@ -77,14 +101,20 @@ a &lt; b &lt; c erlaubt</pre>
 <pre>not 7-(1+2**3) &lt; -3 or 'hallo' != 'hallo '
 → 7-9=-2 · -2&lt;-3 False · not → True · or → True</pre>
 <h2>Übung 2.2 gelöst (x = 10, y = 3)</h2>
-<pre>print(x+y, x-y, x*y, x/y, x%y, x**y)  # 13 7 30 3.333… 1 1000
+<pre># 1) + - * / % ** von x, y ausgeben
+print(x+y, x-y, x*y, x/y, x%y, x**y)  # 13 7 30 3.333… 1 1000
+# 2) str1 + str2 verketten → greeting
 greeting = 'Hello' + ' ' + 'World'  # Hello World
+# 3) z = 5: +2, −3, ×4, ÷2 mit Zuweisungsop., je ausgeben
 z = 5
 z += 2; print(z)   # 7      z -= 3; print(z)   # 4
 z *= 4; print(z)  # 16     z /= 2; print(z)  # 8.0 (float!)
+# 4) x, y mit allen Vergleichen
 print(x==y, x!=y, x&gt;y, x&lt;y, x&gt;=y, x&lt;=y)  # F T T F T F
+# 5) and/or/not mit True, False
 a = True; b = False
 print(a and b, a or b, not a)          # False True False
+# 6) sind 3 und 6 in my_list?
 my_list = [1, 2, 3, 4, 5]
 print(3 in my_list, 6 in my_list)      # True False</pre>
 
@@ -106,14 +136,18 @@ while counter &lt; 5:  # „solange“ / „bis 5 erreicht“
 <tr><td><code>range(0,10,2)</code></td><td>0 2 4 6 8</td><td><code>range(5,0,-1)</code></td><td>5 4 3 2 1</td></tr></table>
 <p class="c">⚠ Folie 48: „range(0,10,2) … 10“ ist falsch, 10 ist NICHT dabei.</p>
 <h2>Übung 2.3 gelöst</h2>
-<pre>number = -3
+<pre># 1) if/elif/else: positiv / null / negativ
+number = -3
 if number &gt; 0:    print('Die Zahl ist positiv')
 elif number == 0: print('Die Zahl ist null')
 else:             print('Die Zahl ist negativ')   # ← läuft
+# 2a) for: 1 bis 10 ausgeben
 for i in range(1, 11): print(i)           # 1 … 10
+# 2b) while bis counter 5 erreicht, +1, ausgeben
 counter = 0
 while counter &lt; 5:                        # &lt;= 5 gäbe bis 6!
     counter += 1; print(counter)          # 1 2 3 4 5
+# 3) 1–10: gerade → continue, bei 7 → break, sonst ausgeben
 for i in range(1, 11):
     if i % 2 == 0: continue  # gerade überspringen
     if i == 7: break  # bei 7 Ende (7 NICHT gedruckt)
@@ -125,18 +159,24 @@ for i in range(1, 11):
 e = summe(2, 3)  # Argumente 2, 3 → 5 · ohne Aufruf: nichts</pre>
 <p><b>return</b> gibt Wert zurück (weiterrechnen) · <b>print</b> zeigt nur, Funktion liefert dann <code>None</code> · return nur im if → sonst None!</p>
 <h2>Übung 2.4 gelöst</h2>
-<pre>def addiere(a, b):
+<pre># 1a) addiere(a, b) gibt Summe zurück
+def addiere(a, b):
     return a + b
 print(addiere(2, 3))                  # 5
+# 1b) ist_gerade(n) → True/False
 def ist_gerade(n):
     return n % 2 == 0  # Vergleich liefert schon True/False
 print(ist_gerade(4), ist_gerade(7))   # True False
+# 2) global_var = 10; Funktion: local_var = x*global_var
+#    drin ausgeben; danach global_var außen ausgeben
 global_var = 10                       # global
 def multipliziere_mit_global_var(x):
     local_var = x * global_var        # lokal, nur hier drin
     print(local_var)
 multipliziere_mit_global_var(5)       # 50   ← AUFRUF!
 print(global_var)                     # 10   unverändert
+# 3) aufrufe_funktion() definiert innere_funktion(y) = y²
+#    und ruft sie mit festem Wert auf + gibt aus
 def aufrufe_funktion():               # Funktion IN Funktion
     def innere_funktion(y): return y ** 2
     print(innere_funktion(4))  # innere nur hier nutzbar
@@ -146,7 +186,7 @@ aufrufe_funktion()  # 16   ← äußere AUFRUFEN!</pre>
 summe = 0  # Accumulator VOR der Schleife
 for i in range(10, 1001):
     if i % 7 == 0 and i % 2 == 0:  # and, NICHT 'and if'
-        summe += i  # a += i sammelt; c = a + i nicht!
+        summe += i  # += ! (=+ heißt = +i → überschreibt)
 print(summe)
 # rechnen(a,b,c): ist a*b mindestens 100 → zu c addieren
 def rechnen(a, b, c):
@@ -160,6 +200,14 @@ print(y.count('o'))  # 4
 # Zählen: anzahl = 0 … if Bedingung: anzahl += 1
 # Liste bauen: erg = [] … erg.append(x)
 # Max ohne max(): m = l[0] … if x &gt; m: m = x
+# Dict filtern → Liste (Bestand &lt; 6):
+def nachbestellen(lager):
+    erg = []
+    for name, menge in lager.items():  # Key, Value
+        if menge &lt; 6:
+            erg.append(name)
+    return erg  # NACH der Schleife
+print(nachbestellen(lager))  # ['Heft', 'Lineal']
 # Mittelwert/Std 1…100 → 50.5 / 28.87 (siehe 3.1)</pre>
 
 <h1>2.5 Datenstrukturen</h1>
@@ -196,18 +244,22 @@ m1.union(m2) → {'apple','banana','cherry','strawberry'}
 m1.difference(m2) → {'apple','banana'}  # in m1, NICHT in m2
 m2.difference(m1) → {'strawberry'}      # Reihenfolge zählt!</pre>
 <h2>Übung 2.5 komplett gelöst</h2>
-<pre>mein_tupel = (1, 'Hallo', 3.14, True)
+<pre># 1) Tupel (1,'Hallo',3.14,True), drittes Element ausgeben
+mein_tupel = (1, 'Hallo', 3.14, True)
 print(mein_tupel[2])  # 3.14 (drittes = Index 2)
 mein_tupel[0] = 5  # TypeError: Tupel unveränderbar
+# 2) Liste: 2. Wert → 'Welt', 42 anhängen, 1. Wert weg
 l = [1, 'Hallo', 3.14, True]
 l[1] = 'Welt'; l.append(42); del l[0]  # ändern,+42,1. weg
 print(l)  # ['Welt', 3.14, True, 42]
+# 3) Dict: Name lesen, Alter → 26, +Beruf, −Stadt
 d = {'Name': 'Max', 'Alter': 25, 'Stadt': 'Berlin'}
 print(d['Name'])  # Max
 d['Alter'] = 26  # Key existiert → ändern
 d['Beruf'] = 'Ingenieur'  # Key neu → hinzufügen
 del d['Stadt']; print(d)
 # {'Name': 'Max', 'Alter': 26, 'Beruf': 'Ingenieur'}
+# 4) Menge: +6, −3, 2 enthalten?, Schnitt/Vereinig./Diff.
 m = {1, 2, 3, 4, 4, 5}  # doppelte 4 fällt weg
 m.add(6); m.remove(3); print(2 in m, m) # True {1, 2, 4, 5, 6}
 z = {4, 5, 6, 7}
@@ -217,7 +269,7 @@ print(m.difference(z))    # {1, 2}
 print(z.difference(m))    # {7}</pre>
 
 <h1>2.6 Zeitstempel</h1>
-<pre>from datetime import datetime  # Modul + Klasse datetime
+<pre>from datetime import datetime, timedelta  # nicht import datetime
 jetzt = datetime.now()  # „aktueller Zeitstempel“
 d = datetime(2022, 1, 1, 12, 0, 0)  # „fester“ (J,M,T,h,m,s)
 # „parsen“ = str → datetime:
@@ -228,19 +280,31 @@ jetzt.year .month .day .hour .minute .second  # OHNE ()
 diff = jetzt - d  # „Differenz“ → 1787 days, 22:00:00
 diff.days → 1787 · diff.seconds // 3600 → 22 (Rest-Stunden)
 diff.total_seconds() / 3600 → 42910.0 (Stunden gesamt)</pre>
+<table><tr><th>Aufgabe sagt / du hast</th><th>nimm</th></tr>
+<tr><td>Datum als <b>Zahlen</b> („24.11.2026, 9 Uhr“)</td><td><code>datetime(2026, 11, 24, 9, 0)</code> – kein strp/strf!</td></tr>
+<tr><td>Datum als <b>Text</b> <code>'15.03.2027 14:45'</code> → „parsen“</td><td><code>datetime.strptime(text, '%d.%m.%Y %H:%M')</code></td></tr>
+<tr><td>„als String / im Format TT.MM.JJJJ ausgeben“</td><td><code>d.strftime('%d.%m.%Y')</code></td></tr>
+<tr><td>„dauert 90 Minuten“, „+3 Tage“</td><td><code>d + timedelta(minutes=90)</code> / <code>days=3</code> (Plural!)</td></tr>
+<tr><td>„+1 Monat“</td><td><code>d + relativedelta(months=1)</code></td></tr>
+<tr><td>„Tage zwischen“</td><td><code>(d2 - d1).days</code> → int</td></tr></table>
 <p><b>Merken:</b> strP = <b>P</b>arse (Text rein, auf der Klasse) · strF = <b>F</b>ormat (Text raus, auf dem Objekt). <b>Codes:</b> <code>%d</code> Tag <code>%m</code> Monat <code>%y</code> Jahr 24 <code>%Y</code> 2024 <code>%H</code> Std <code>%M</code> Min <code>%S</code> Sek; Trennzeichen EXAKT wie im Text</p>
 <pre>from dateutil.relativedelta import relativedelta
 d + relativedelta(months=1)  # Plural = relativ: +1 Monat
 d + relativedelta(day=30)  # Singular = absolut: Tag 30
+# minute=90 → ValueError (Singular setzt Feld, max 59)
 d + relativedelta(months=1, day=30)  # 2024-10-01 → 2024-11-30</pre>
 <h2>Übung 2.6 gelöst</h2>
 <pre>from datetime import datetime
+# 1) aktuellen Zeitstempel holen + ausgeben
 aktueller_zeitstempel = datetime.now()
 print(aktueller_zeitstempel)
+# 2) formatieren als TT.MM.JJJJ HH:MM:SS → strftime
 print(aktueller_zeitstempel.strftime('%d.%m.%Y %H:%M:%S'))
+# 3) Differenz zu 2022-01-01 12:00 in Tagen + Stunden
 frueher_zeitstempel = datetime(2022, 1, 1, 12, 0, 0)
 diff = aktueller_zeitstempel - frueher_zeitstempel
 print(diff.days, 'Tage', diff.seconds // 3600, 'Stunden')
+# 4) String '2023-06-15 08:30:00' parsen → strptime
 s = '2023-06-15 08:30:00'
 fmt = '%Y-%m-%d %H:%M:%S'
 geparster_zeitstempel = datetime.strptime(s, fmt)
@@ -265,44 +329,23 @@ x[x &gt; 10]  # „alle größer 10“ (Boolean-Maske)
 x[(x &gt; 7) &amp; (x &lt; 21)]  # „zwischen“: &amp; UND · | ODER
 # [ ] außen, ( ) um JEDE Bedingung, &amp; statt and</pre>
 <h2>Übung 3.1 gelöst + Vorklausur</h2>
-<pre>x = np.arange(1, 21); print(x)  # [ 1  2 … 20]
+<pre># 1) Array 1 bis 20 erzeugen + ausgeben
+x = np.arange(1, 21); print(x)  # [ 1  2 … 20]
+# 2) Summe, Durchschnitt, Max, Min
 print(np.sum(x), np.mean(x), np.max(x), np.min(x))
 # 210 10.5 20 1
+# 3) jedes Element ×2 → neues Array
 y = x * 2  # [ 2  4  6 … 40]
+# 4) Index 5 bis 10 extrahieren; Index 3–7 → 100
 print(x[5:11])  # [ 6  7  8  9 10 11]
 x[3:8] = 100; print(x)  # [1 2 3 100 100 100 100 100 9 …]
+# 5) alle Elemente &gt; 10 als neues Array
 print(x[x &gt; 10])  # [100 100 100 100 100 11 12 … 20]
 # Vorklausur: Mittelwert + Std der Zahlen 1…100
 z = np.arange(1, 101)
 print(np.mean(z), np.std(z))  # 50.5 28.866…
 # pandas: pd.DataFrame(liste).std() → 29.011 (÷ n-1)
 # pd.mean() GIBT ES NICHT → df.mean()</pre>
-<h2>Zufall mit numpy (für 3.2)</h2>
-<pre>np.random.rand(50)  # „50 Zufallszahlen zwischen 0 und 1“
-np.random.randn(1000)   # „1000 normalverteilte Zahlen“</pre>
-
-<h1>3.2 matplotlib</h1>
-<pre>import matplotlib.pyplot as plt
-plt.plot(x, y, label='f(x)')   # Liniendiagramm
-plt.scatter(a, b)  # Streudiagramm – braucht x UND y!
-plt.hist(daten, bins=30)       # Histogramm – nur EIN Array
-plt.bar(['A','B'], [3, 5])     # Balkendiagramm
-plt.title('Funktion'); plt.xlabel('x'); plt.ylabel('y')
-plt.legend()     # zeigt label= an  ·  plt.grid(True)
-plt.show()       # KLAMMERN nicht vergessen</pre>
-<h2>Übung 3.2 gelöst</h2>
-<pre>x = np.arange(0, 11); y = x ** 2  # 0…10 und Quadrate
-plt.plot(x, y); plt.show()                    # Linie
-a = np.random.rand(50); b = np.random.rand(50)
-plt.scatter(a, b); plt.show()                 # Streu
-n = np.random.randn(1000)
-plt.hist(n); plt.show()                       # Histogramm
-fig, ax = plt.subplots(2, 2)                  # 2×2 Subplots
-ax[0, 0].plot(x, y)       ax[0, 1].scatter(a, b)
-ax[1, 0].hist(n)          ax[1, 1].bar(['A','B'], [3, 5])
-ax[0, 0].set_title('Linie')  # bei ax: set_title / set_xlabel
-plt.tight_layout(); plt.show()</pre>
-
 <h1>3.3 pandas</h1>
 <pre>import pandas as pd
 data = {'Name': ['Anna','Bob','Cem'], 'Alter': [28, 24, 22],
@@ -322,15 +365,20 @@ print(df)  # Methoden hängen am OBJEKT df, nicht an pd</pre>
 <tr><td>CSV speichern</td><td><code>df.to_csv('daten.csv', index=False)</code></td></tr>
 <tr><td>CSV laden + anzeigen</td><td><code>df2 = pd.read_csv('daten.csv'); print(df2)</code></td></tr></table>
 <h2>Übung 3.3 gelöst</h2>
-<pre>df = pd.DataFrame(data); print(df)
+<pre># 1) DataFrame Name/Alter/Stadt/Gehalt erstellen + ausgeben
+df = pd.DataFrame(data); print(df)
+# 2) Spalte Steuer = 30 % Gehalt · Gehalt einer Person ändern
 df['Steuer'] = df['Gehalt'] * 0.3  # 1200.0 1050.0 900.0
 df.loc[df['Name'] == 'Bob', 'Gehalt'] = 3800
 # Steuer bleibt 1050 (vorher berechnet!)
+# 3) Ø Gehalt · älteste Person · Ø Gehalt pro Stadt
 print(df['Gehalt'].mean())                     # 3600.0
 print(df.loc[df['Alter'].idxmax()])  # Anna, 28, Berlin …
 print(df.groupby('Stadt')['Gehalt'].mean())
 # Berlin 3500.0 · Hamburg 3800.0
+# 4) eine Zeile entfernen
 df = df.drop(2); print(df)  # Cem (Index 2) weg
+# 5) als CSV speichern, neu laden, anzeigen
 df.to_csv('mitarbeiter.csv', index=False)
 df_neu = pd.read_csv('mitarbeiter.csv'); print(df_neu)</pre>
 
@@ -347,14 +395,17 @@ random.seed(42)  # „reproduzierbar“ – erzeugt NICHTS, legt
 <p class="c">print direkt geht bei uniform/randint/choice/sample · bei shuffle/seed kommt None → erst ausführen, dann <code>print(liste)</code></p>
 <h2>Übung 3.4 gelöst + Vorklausur</h2>
 <pre>import random
+# 1) Zahl 0–1 · ganze Zahl 1–100 · Element aus Liste
 print(random.uniform(0, 1), random.randint(1, 100))
 print(random.choice(['apfel', 'birne']))
+# 2) Liste: 10 Zufallszahlen 1–100, mischen, 3 ziehen
 zahlen = []
 for i in range(10):  # 10-mal (i ungenutzt)
     zahlen.append(random.randint(1, 100))
 print(zahlen)
 random.shuffle(zahlen); print(zahlen)  # NICHT zahlen = …
 print(random.sample(zahlen, 3))  # Rückgabe nutzen, sonst weg
+# 3) Seed 42, Zahl 0–1 + int 1–100; Seed erneut → gleich?
 random.seed(42); z1 = random.uniform(0,1)
 z2 = random.randint(1,100)
 random.seed(42); z3 = random.uniform(0,1)  # Seed ERNEUT
@@ -371,7 +422,7 @@ print(fl, zahl_int)  # [51.51…, 2.97…, …] 3</pre>
 <code>=</code> zuweisen vs. <code>==</code> vergleichen · <code>:</code> nach if/for/while/def · Einrückung · <code>import</code> vergessen → NameError<br>
 Funktion definiert, aber nicht aufgerufen · <code>print</code> statt <code>return</code> · return nur im if · Ergebnis berechnet, nicht ausgegeben<br>
 range/Slicing: Ende exklusiv · <code>randint</code> inklusiv · „mindestens“ = <code>&gt;=</code> · <code>and if</code> → <code>and</code><br>
-<code>and</code> bei Einzelwerten, <code>&amp;</code> + Klammern bei Arrays/DataFrames · <code>plt.show</code> ohne <code>()</code><br>
+<code>and</code> bei Einzelwerten, <code>&amp;</code> + Klammern bei Arrays/DataFrames<br>
 <code>strptime</code> str→Datum · <code>strftime</code> Datum→str · Variable nie <code>list</code>/<code>str</code>/<code>sum</code> nennen<br>
 <code>shuffle</code> gibt None · <code>drop</code> ohne Zuweisung ändert df nicht · <code>df.mean(liste)</code> → TypeError · <code>'a'+3</code> → <code>'a'+str(3)</code></div>
 
