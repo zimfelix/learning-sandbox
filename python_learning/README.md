@@ -32,8 +32,8 @@ Reihenfolge nach Uni-Kapiteln: 2.1 Variable/Datentyp → 2.2 Operator → 2.3 Ko
 
 **Schwerpunkt (2026-11-17):** Die Klausur orientiert sich eher an den Folien und der Vorlesung als an den Übungsaufgaben. Papier-Training deshalb an den Inhalten von Folien und Vorlesungs-Notebook ausrichten, nicht nur an den Übungsaufgaben.
 
-**Niveau-Referenz:** drei Original-Aufgaben aus Vorklausuren (Summe mit Teilbarkeit, Funktion mit `if`/`return`, String `replace`/`count`) liegen mit Musterlösung und typischen Fehlern in `uni_material/uebungen/klausur_beispiele.py`. 14 weitere Aufgaben im gleichen Stil (mit Musterlösung) in `uni_material/uebungen/klausur_training.py`.
-Gemischte Aufgabenzettel über alle Kapitel (mit Selbsttest, ohne Musterlösung) in `uni_material/uebungen/klausur_uebungen/`.
+**Niveau-Referenz:** drei Original-Aufgaben aus Vorklausuren (Summe mit Teilbarkeit, Funktion mit `if`/`return`, String `replace`/`count`) liegen mit Musterlösung und typischen Fehlern in `uni_material/uebungen/bisher/klausur_beispiele.py`. 14 weitere Aufgaben im gleichen Stil (mit Musterlösung) in `uni_material/uebungen/klausur_uebungen/klausur_training.py`.
+Aktuelle Klausurübungen in `uni_material/uebungen/klausur_uebungen/`: Aufgabenzettel 2, Klausur-Training und Drills je Thema (`drill_2_5_…` Schwerpunkt, `drill_2_6_…`, `drill_3_1_…`, `drill_3_3_…`, `drill_3_4_…`), jeweils mit Selbsttest, ohne Musterlösung. Bisherige Übungen (u2_*, u3_1, Aufgabenzettel 1, Vorklausur-Beispiele) liegen in `uni_material/uebungen/bisher/`.
 
 Klausur **mit Stift und Papier**, ca. **24./25.11.2026** (genaues Datum offen, ob Unterlagen erlaubt sind, ebenfalls offen). Auf Papier gibt es keine Autovervollständigung: Die Kern-Syntax muss selbst geschrieben werden können.
 

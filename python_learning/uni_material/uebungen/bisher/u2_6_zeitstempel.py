@@ -1,3 +1,4 @@
+import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 import check  # nicht löschen: zeichnet die Ausgabe für den Test auf
 
 # ── 2.6 Zeitstempel ─────────────────────────────────────────────
