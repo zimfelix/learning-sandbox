@@ -5,16 +5,16 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root { --fs: 6.6pt; }
 body { font: var(--fs)/1.15 "Helvetica Neue", Arial, sans-serif; color: #000; background: #fff; }
-/* Layout: Script verteilt die Blöcke aus #src auf 4 Spalten (je max. 287 mm hoch) und
+/* Layout: Script verteilt die Blöcke aus #src auf 3 Spalten (je max. 287 mm hoch) und
    verkleinert --fs schrittweise, bis alles auf 1 A4-Seite passt. */
-#src { width: 49mm; }
+#src { width: 65.5mm; }
 .cols { display: flex; gap: 2.2mm; height: 286mm; overflow: hidden; }
-.col { width: 49mm; height: 286mm; overflow: hidden; border-right: 0.3pt solid #999; padding-right: 1mm; }
+.col { width: 65.5mm; height: 286mm; overflow: hidden; border-right: 0.3pt solid #999; padding-right: 1mm; }
 .col:last-child { border-right: 0; }
 h1 { font-size: calc(var(--fs) + 1.2pt); background: #000; color: #fff; padding: 0.3mm 1mm; margin: 0.8mm 0 0.4mm; break-after: avoid; }
 h2 { font-size: calc(var(--fs) + 0.3pt); border-bottom: 0.4pt solid #000; margin: 0.6mm 0 0.2mm; break-after: avoid; }
 pre, code { font: calc(var(--fs) - 0.3pt)/1.1 Menlo, Consolas, monospace; }
-pre { white-space: pre-wrap; background: #f1f1f1; padding: 0.2mm 0.6mm; margin: 0.2mm 0; break-inside: avoid; }
+pre { letter-spacing: -0.04em; white-space: pre-wrap; background: #f1f1f1; padding: 0.2mm 0.6mm; margin: 0.2mm 0; break-inside: avoid; }
 p, li { margin: 0.1mm 0; }
 ul { padding-left: 2.4mm; }
 table { border-collapse: collapse; width: 100%; margin: 0.2mm 0; break-inside: avoid; }
@@ -24,354 +24,356 @@ th { background: #ddd; }
 .warn { border: 0.5pt solid #000; padding: 0.3mm 0.6mm; margin: 0.3mm 0; break-inside: avoid; }
 .c { color: #555; }
 </style></head><body><div class="cols" id="cols"></div><div id="src">
-
-<h1>1 · 2.1 Grundlagen &amp; Datentypen</h1>
-<pre>print('hallo', a)   # Komma = Leerzeichen dazwischen
-# Kommentar   ·   Block: Zeile endet mit ':' → nächste Zeilen EINRÜCKEN
-( ) = Aufruf/Vorrang · [ ] = Index/Liste · { } = dict/set · . = Attribut/Methode</pre>
-<table><tr><th>Typ</th><th>Beispiel</th><th>Info</th></tr>
-<tr><td>NoneType</td><td><code>None</code></td><td>„noch kein Wert“, Funktion ohne return</td></tr>
-<tr><td>bool</td><td><code>True False</code></td><td>True=1, False=0 → <code>True+True</code>=2</td></tr>
-<tr><td>int</td><td><code>3</code></td><td>ganze Zahl</td></tr>
-<tr><td>float</td><td><code>3.0 1.2e3</code></td><td>1.2e3 = 1200.0; Punkt statt Komma</td></tr>
+<h1>2.1 Variablen &amp; Datentypen</h1>
+<table><tr><th>Typ</th><th>Beispiel</th><th>wofür / Info</th></tr>
+<tr><td>NoneType</td><td><code>None</code></td><td>„kein Wert“; Funktion ohne return liefert None</td></tr>
+<tr><td>bool</td><td><code>True False</code></td><td>Ja/Nein; True=1 False=0 → <code>True+True</code>=2</td></tr>
+<tr><td>int</td><td><code>42</code></td><td>ganze Zahl (Anzahl, Index, Würfel)</td></tr>
+<tr><td>float</td><td><code>3.14 1.2e3</code></td><td>Kommazahl mit PUNKT; 1.2e3=1200.0</td></tr>
 <tr><td>complex</td><td><code>4+4j</code></td><td>j statt i</td></tr>
-<tr><td>str</td><td><code>'Hi' "Hi"</code></td><td>Zeichenkette, unveränderbar</td></tr></table>
-<pre>type(3)      → &lt;class 'int'&gt;
-int('3') → 3   float(3) → 3.0   str(3) → '3'
-int(3.9) → 3 (schneidet ab)   int('3.5') → ValueError
-round(3.456, 2) → 3.46   abs(-4) → 4   len('abc') → 3
-input('Zahl: ') liefert IMMER str → int(input(...))</pre>
-<p><b>Escape:</b> <code>\'</code> <code>\"</code> <code>\\</code>=\ <code>\n</code>=neue Zeile <code>\t</code>=Tab <code>\b</code>=Backspace</p>
-<h2>String-Methoden (s = 'hello World')</h2>
-<pre>s.capitalize() → 'Hello world' (Rest klein!)
-s.lower() → 'hello world'   s.upper() → 'HELLO WORLD'
-s.count('l') → 3            s.count('Wo') → 1
-s.replace('Wo','AA') → 'hello AArld'  (alt, neu)
-s.split(' ') → ['hello','World']  (liefert LISTE)
-s.strip() Ränder-Leerzeichen weg · s.find('o') → 4
-s[0] → 'h'  s[-1] → 'd'  s[0:5] → 'hello'  s[::-1] rückwärts
-'a' + str(3) → 'a3'   'ab' * 3 → 'ababab'
-f'{name} ist {alter}'  → Variablen in String</pre>
-<p class="c">Methoden ändern s NICHT → neu zuweisen: <code>s = s.upper()</code></p>
+<tr><td>str</td><td><code>'Hi' "Hi"</code></td><td>Text, unveränderbar</td></tr></table>
+<pre>type(42) → &lt;class 'int'&gt;          # „Datentyp prüfen“
+int(True) → 1   float(42) → 42.0   # „umwandeln“
+str(3.14) → '3.14'   int(3.9) → 3 (abschneiden)
+int('3.5') → ValueError · input() liefert IMMER str
+'Hallo' + str(3) → 'Hallo3'        # Zahl an Text: str()!</pre>
+<p><b>Escape:</b> <code>\'</code> <code>\"</code> <code>\\</code>=\ <code>\n</code> neue Zeile <code>\t</code> Tab <code>\b</code> Backspace</p>
+<h2>String-Methoden (s = 'hello World') – ändern s NICHT</h2>
+<pre>s.upper() → 'HELLO WORLD'  s.lower() → 'hello world'
+s.capitalize() → 'Hello world'        # 1. groß, REST klein
+s.count('l') → 3   s.count('Wo') → 1  # „wie oft kommt … vor“
+s.replace('Wo','AA') → 'hello AArld'  # „ersetze“ (alt, neu)
+s.split(' ') → ['hello','World']  # „zerlegen“ → LISTE
+s[0] 'h'  s[-1] 'd'  s[0:5] 'hello'   # Zeichen/Teilstring
+s = s.upper()  # Ergebnis behalten = neu zuweisen</pre>
+<h2>Übung 2.1 gelöst</h2>
+<pre>a = None; b = True; c = 42; d = 3.14; e = 'Hello, World!'
+print(a, b, c, d, e)  # None True 42 3.14 Hello, World!
+print(type(a), type(b))  # &lt;class 'NoneType'&gt; &lt;class 'bool'&gt; …
+b_int = int(b)                # 1
+c_float = float(c)            # 42.0
+d_str = str(d)                # '3.14'
+e_upper = e.upper()           # 'HELLO, WORLD!'
+print(b_int, c_float, d_str, e_upper)</pre>
 
 <h1>2.2 Operatoren</h1>
-<table><tr><th>Op</th><th>Bsp.</th><th>Erg.</th></tr>
-<tr><td><code>+ - *</code></td><td><code>5*3</code></td><td>15</td></tr>
-<tr><td><code>/</code></td><td><code>7/2</code></td><td>3.5 (immer float)</td></tr>
-<tr><td><code>//</code></td><td><code>7//2</code></td><td>3 (ganzzahlig, abrunden)</td></tr>
-<tr><td><code>%</code></td><td><code>7%3</code></td><td>1 (Rest/Modulo)</td></tr>
-<tr><td><code>**</code></td><td><code>5**3</code></td><td>125 (Potenz)</td></tr></table>
-<pre>a = 2; a += 4 → 6   a **= 3 → 216   a %= 2 → 0
-RECHENZEICHEN + = → Zuweisung, VERÄNDERT a:  += -= *= /= **= %=
-VERGLEICH → True/False, a bleibt:  == != &lt; &lt;= &gt; &gt;=
-a + 1      rechnet, Ergebnis weg (kein Fehler, a gleich)
-c = a + 1  c neu, a bleibt  ·  a += 1 = a = a + 1
-c = a += 1 → SyntaxError (+= liefert keinen Wert)
-^ ist NICHT Potenz (XOR) → Potenz = **
-Vergleich: == != &lt; &lt;= &gt; &gt;=  → True/False   (= ist ZUWEISUNG!)
-a &lt; b &lt; c erlaubt   ·   logisch: and  or  not
-in / not in: 'Beta' in ['Alpha','Beta'] → True
-             'beta' in [...] → False (Groß/klein!)
-x % 2 == 0 → gerade   ·   x % 3 == 0 → durch 3 teilbar</pre>
-<p><b>Priorität:</b> 1 <code>()</code> · 2 <code>**</code> · 3 <code>* / // %</code> · 4 <code>+ -</code> · 5 Vergleiche, <code>in</code> · 6 <code>not</code> · 7 <code>and</code> · 8 <code>or</code>; gleichrangig links→rechts</p>
+<table><tr><th>Op</th><th>x=10, y=3</th><th>Aufgabe</th></tr>
+<tr><td><code>+ - *</code></td><td>13 7 30</td><td>Addition, Subtraktion, Multipl.</td></tr>
+<tr><td><code>/</code></td><td>3.333… (immer float)</td><td>Division</td></tr>
+<tr><td><code>//</code></td><td>3</td><td>ganzzahlige Division</td></tr>
+<tr><td><code>%</code></td><td>1</td><td>Modulo = Rest → <code>x%2==0</code> gerade, <code>x%7==0</code> durch 7 teilbar</td></tr>
+<tr><td><code>**</code></td><td>1000</td><td>Potenz (<code>^</code> ist XOR, NICHT Potenz!)</td></tr></table>
+<table><tr><th>Art</th><th>Zeichen</th><th>Ergebnis</th></tr>
+<tr><td>Zuweisung</td><td><code>= += -= *= /= **= %=</code></td><td>VERÄNDERT Variable: <code>z += 2</code> = <code>z = z + 2</code></td></tr>
+<tr><td>Vergleich</td><td><code>== != &gt; &lt; &gt;= &lt;=</code></td><td>True/False, Variable bleibt</td></tr>
+<tr><td>Logisch</td><td><code>and or not</code></td><td>Bedingungen verknüpfen</td></tr>
+<tr><td>Membership</td><td><code>in  not in</code></td><td>„ist enthalten?“ → True/False</td></tr></table>
+<pre>c = a + 1  # c neu, a bleibt · a + 1 allein: verpufft
+c = a += 1    # SyntaxError (+= liefert keinen Wert)
+'mindestens' → &gt;=   'höchstens' → &lt;=   'größer als' → &gt;
+'Beta' in ['Alpha','Beta'] → True · 'beta' … → False
+a &lt; b &lt; c erlaubt</pre>
+<p><b>Priorität:</b> <code>()</code> › <code>**</code> › <code>* / // %</code> › <code>+ -</code> › Vergleiche/<code>in</code> › <code>not</code> › <code>and</code> › <code>or</code></p>
 <pre>not 7-(1+2**3) &lt; -3 or 'hallo' != 'hallo '
 → 7-9=-2 · -2&lt;-3 False · not → True · or → True</pre>
+<h2>Übung 2.2 gelöst (x = 10, y = 3)</h2>
+<pre>print(x+y, x-y, x*y, x/y, x%y, x**y)  # 13 7 30 3.333… 1 1000
+greeting = 'Hello' + ' ' + 'World'  # Hello World
+z = 5
+z += 2; print(z)   # 7      z -= 3; print(z)   # 4
+z *= 4; print(z)  # 16     z /= 2; print(z)  # 8.0 (float!)
+print(x==y, x!=y, x&gt;y, x&lt;y, x&gt;=y, x&lt;=y)  # F T T F T F
+a = True; b = False
+print(a and b, a or b, not a)          # False True False
+my_list = [1, 2, 3, 4, 5]
+print(3 in my_list, 6 in my_list)      # True False</pre>
 
 <h1>2.3 Kontrollstrukturen</h1>
-<pre>if x &gt; 5:
-    print('groß')
-elif x == 5:          # beliebig viele elif
-    print('gleich')
-else:                 # kein Bedingung hinter else!
-    print('klein')
-# nur der ERSTE wahre Zweig läuft
-
-for zahl in [1, 2, 3]:      # jedes Element
-    print(zahl)
-for i in range(3):          # 0 1 2
-    print(i)
-
+<pre>if n &gt; 0:   print('positiv')  # nur ERSTER wahrer Zweig
+elif n == 0: print('null')        # beliebig viele elif
+else:       print('negativ')      # else ohne Bedingung
+for x in [1, 2, 3]: print(x)     # „für jedes Element“
+for i in range(1, 11): print(i)  # „Zahlen 1 bis 10“
+for i in range(10): …  # „10-mal“ (i = 0…9, egal)
 counter = 0
-while counter &lt; 3:          # solange True
-    print(counter)          # 0 1 2
-    counter += 1            # sonst Endlosschleife!
-# „bis counter 5 erreicht“ → &lt; 5 (gibt 1…5); &lt;= 5 gibt bis 6!
-# Einrückung = Zugehörigkeit: while UNTER for eingerückt → läuft IN der for-Schleife</pre>
-<pre>i = 0                      i = 1
-while i &lt; 5:               while i &lt; 4:
-    i = i + 1                  i = i + 1
-    print(i)                   print(i)
-    if i == 2:                 if i == 3:
-        break  → 1 2               continue → 2 3 4</pre>
-<p><b>break</b> = Schleife sofort verlassen · <b>continue</b> = Rest überspringen, nächster Durchlauf</p>
+while counter &lt; 5:  # „solange“ / „bis 5 erreicht“
+    counter += 1; print(counter) # 1…5 · sonst Endlosschleife!
+# Einrückung = Zugehörigkeit: eingerückt unter for → IN for</pre>
+<p><b>break</b> Schleife sofort ENDE · <b>continue</b> Rest überspringen → nächster Durchlauf</p>
 <h2>range(start, stop, step) – stop EXKLUSIV</h2>
-<table><tr><td><code>range(5)</code></td><td>0 1 2 3 4</td><td><code>range(2,6)</code></td><td>2 3 4 5</td></tr>
-<tr><td><code>range(1,10,3)</code></td><td>1 4 7</td><td><code>range(1,3,2)</code></td><td>1</td></tr>
-<tr><td><code>range(0,10,2)</code></td><td>0 2 4 6 8</td><td><code>range(10,0,-2)</code></td><td>10 8 6 4 2</td></tr>
-<tr><td><code>range(1,n+1)</code></td><td>1 … n</td><td><code>range(5,0,-1)</code></td><td>5 4 3 2 1</td></tr></table>
-<p class="c">⚠ Folie 48 sagt „range(0,10,2) enthält …10“ → falsch, 10 ist NICHT dabei.</p>
+<table><tr><td><code>range(5)</code></td><td>0…4</td><td><code>range(2,6)</code></td><td>2 3 4 5</td></tr>
+<tr><td><code>range(1,11)</code></td><td>1…10</td><td><code>range(10,1001)</code></td><td>10…1000</td></tr>
+<tr><td><code>range(0,10,2)</code></td><td>0 2 4 6 8</td><td><code>range(5,0,-1)</code></td><td>5 4 3 2 1</td></tr></table>
+<p class="c">⚠ Folie 48: „range(0,10,2) … 10“ ist falsch, 10 ist NICHT dabei.</p>
+<h2>Übung 2.3 gelöst</h2>
+<pre>number = -3
+if number &gt; 0:    print('Die Zahl ist positiv')
+elif number == 0: print('Die Zahl ist null')
+else:             print('Die Zahl ist negativ')   # ← läuft
+for i in range(1, 11): print(i)           # 1 … 10
+counter = 0
+while counter &lt; 5:                        # &lt;= 5 gäbe bis 6!
+    counter += 1; print(counter)          # 1 2 3 4 5
+for i in range(1, 11):
+    if i % 2 == 0: continue  # gerade überspringen
+    if i == 7: break  # bei 7 Ende (7 NICHT gedruckt)
+    print(i)                              # 1 3 5</pre>
 
 <h1>2.4 Funktionen</h1>
-<pre>def summe(a, b):        # a, b = Parameter
-    c = a + b           # lokale Variable
-    return c            # Ergebnis zurück + Funktion endet
-e = summe(2, 3)         # 2, 3 = Argumente → e = 5
-print(summe(2, 3))      # ohne Aufruf passiert NICHTS
-
-def gruss(name, text='Hallo'):   # Default-Wert
-    return text + ' ' + name
-gruss('Bo') → 'Hallo Bo'
-
-global_var = 10            # global
-def mult(x):
-    local_var = x * global_var   # lokal, nur hier drin
+<pre>def summe(a, b):     # a, b = Parameter
+    return a + b     # Ergebnis zurück + Funktion endet
+e = summe(2, 3)  # Argumente 2, 3 → 5 · ohne Aufruf: nichts</pre>
+<p><b>return</b> gibt Wert zurück (weiterrechnen) · <b>print</b> zeigt nur, Funktion liefert dann <code>None</code> · return nur im if → sonst None!</p>
+<h2>Übung 2.4 gelöst</h2>
+<pre>def addiere(a, b):
+    return a + b
+print(addiere(2, 3))                  # 5
+def ist_gerade(n):
+    return n % 2 == 0  # Vergleich liefert schon True/False
+print(ist_gerade(4), ist_gerade(7))   # True False
+global_var = 10                       # global
+def multipliziere_mit_global_var(x):
+    local_var = x * global_var        # lokal, nur hier drin
     print(local_var)
-mult(5)            # → 50   ← AUFRUF! sonst passiert nichts
-print(global_var)  # → 10   unverändert, local_var hier unbekannt
-
-def aussen():              # Funktion IN Funktion
-    def innen(y):
-        return y ** 2
-    print(innen(2))        # innen nur in aussen nutzbar
-aussen()           # → 4    ← auch die äußere AUFRUFEN!</pre>
-<p><b>return</b> gibt Wert zurück (weiterrechnen möglich) · <b>print</b> zeigt nur an, Funktion liefert dann <code>None</code></p>
-<p><b>3 Arten:</b> Built-in (<code>print len str abs type range</code>) · selbst geschrieben (<code>def</code>) · aus Bibliotheken (<code>import numpy as np</code> → <code>np.sum([2,3])</code>); fremde Pakete vorher <code>pip install name</code></p>
-<h2>Klausur-Muster</h2>
-<pre># Accumulator: a += i sammelt (1 3 6) · c = a + i NICHT (1 2 3, a bleibt 0)
-# Summe (Accumulator): vorher starten, drin sammeln, danach nutzen
-summe = 0
-for i in range(1, 101):
-    if i % 3 == 0 or i % 5 == 0:
-        summe += i
+multipliziere_mit_global_var(5)       # 50   ← AUFRUF!
+print(global_var)                     # 10   unverändert
+def aufrufe_funktion():               # Funktion IN Funktion
+    def innere_funktion(y): return y ** 2
+    print(innere_funktion(4))  # innere nur hier nutzbar
+aufrufe_funktion()  # 16   ← äußere AUFRUFEN!</pre>
+<h2>Vorklausur-Muster (Lösungen geprüft)</h2>
+<pre># Summe der Zahlen 10…1000, durch 7 UND 2 teilbar → 35784
+summe = 0  # Accumulator VOR der Schleife
+for i in range(10, 1001):
+    if i % 7 == 0 and i % 2 == 0:  # and, NICHT 'and if'
+        summe += i  # a += i sammelt; c = a + i nicht!
 print(summe)
-
-# Zählen
-anzahl = 0
-for x in liste:
-    if x &gt; 10:
-        anzahl += 1
-
-# Funktion mit if/return
-def bewertung(punkte):
-    if punkte &gt;= 50:
-        return 'bestanden'
-    else:
-        return 'nicht bestanden'
-
-# Liste aufbauen
-ergebnis = []
-for x in liste:
-    if x % 2 == 0:
-        ergebnis.append(x)
-
-# Maximum selbst suchen
-groesste = liste[0]
-for x in liste:
-    if x &gt; groesste:
-        groesste = x
-
-# Zeichen in String zählen / ersetzen
-satz = 'Ich mag Python'
-print(satz.count('a'), satz.replace('mag', 'liebe'))</pre>
-<p>Built-ins: <code>sum(l) min(l) max(l) len(l) sorted(l)</code></p>
+# rechnen(a,b,c): ist a*b mindestens 100 → zu c addieren
+def rechnen(a, b, c):
+    if a * b &gt;= 100:                    # mindestens → &gt;=
+        return c + a * b
+    return c  # sonst-Fall, sonst None
+print(rechnen(4, 26, 7))                # 111
+# 'wirtschaftsinformatik': i → o ersetzen, o zählen → 4
+y = 'wirtschaftsinformatik'.replace('i', 'o')
+print(y.count('o'))  # 4
+# Zählen: anzahl = 0 … if Bedingung: anzahl += 1
+# Liste bauen: erg = [] … erg.append(x)
+# Max ohne max(): m = l[0] … if x &gt; m: m = x
+# Mittelwert/Std 1…100 → 50.5 / 28.87 (siehe 3.1)</pre>
 
 <h1>2.5 Datenstrukturen</h1>
-<table><tr><th></th><th>Syntax</th><th>änderbar</th><th>Ordnung</th></tr>
-<tr><td>Tupel</td><td><code>(2, 3, 'Hans')</code></td><td>nein</td><td>ja, Index</td></tr>
-<tr><td>Liste</td><td><code>[2, 3, 'Hans']</code></td><td>ja</td><td>ja, Index</td></tr>
-<tr><td>Dict</td><td><code>{'Alter': 18}</code></td><td>ja</td><td>Zugriff per Key</td></tr>
-<tr><td>Set</td><td><code>{'a','b'}</code> / <code>set([...])</code></td><td>ja</td><td>keine, keine Duplikate</td></tr></table>
-<p class="c">leeres Set = <code>set()</code> · <code>{}</code> ist ein leeres DICT</p>
+<table><tr><th></th><th>Syntax</th><th>änderbar</th><th>Zugriff</th></tr>
+<tr><td>Tupel</td><td><code>(2, 3, 'Hans')</code></td><td>nein</td><td>Index <code>t[0]</code></td></tr>
+<tr><td>Liste</td><td><code>[2, 3, 'Hans']</code></td><td>ja</td><td>Index <code>l[0]</code></td></tr>
+<tr><td>Dict</td><td><code>{'Alter': 18}</code></td><td>ja</td><td>Key <code>d['Alter']</code></td></tr>
+<tr><td>Set</td><td><code>{1, 2}</code> / <code>set([…])</code></td><td>ja</td><td>keiner; keine Duplikate</td></tr></table>
+<p class="c">leeres Set = <code>set()</code> · <code>{}</code> = leeres DICT · Methoden mit <code>()</code>, Zugriff mit <code>[ ]</code> · Dict hat KEINE Index-Zahlen</p>
 <pre>l = [2, 3, 'Hans', 10]
-l[0] → 2   l[-1] → 10   l[1:3] → [3, 'Hans'] (Ende exkl.)
-l[:2] → [2, 3]   l[2:] → ['Hans', 10]   l[::-1] umgedreht
-l2 = [(1,2),(4,8)]  → l2[1][0] → 4   (verschachtelt)
-l[0] = 99  (Liste ja, Tupel → TypeError)</pre>
-<h2>Listen-Methoden (verändern a direkt)</h2>
-<pre>a = [1, 2, 4]
-a.append(3)      → [1, 2, 4, 3]        ein Element ans Ende
-a.extend([7,8])  → [1, 2, 4, 3, 7, 8]  Liste anhängen
-a.insert(1, 3)   → [1, 3, 2, 4, 3, 7, 8]  (Index, Wert)
-a.pop(5)         → [1, 3, 2, 4, 3, 8]  Index 5 weg (pop() = letztes)
-a.remove(3)      erstes Element mit WERT 3 weg
-del a[0]         Index 0 löschen
-a.count(3) → 2   a.index(4) → Position von 4
-a.sort()         aufsteigend · a.sort(reverse=True) absteigend
-a.reverse()      umdrehen   ·   len(a) → Anzahl</pre>
-<h2>Dictionary</h2>
-<pre>d = {'Vorname': 'Hans', 'Alter': 18}
-d['Alter'] → 18           d['Stadt'] = 'Kronach' (neu/ändern)
-del d['Alter']            d.get('x', 0) → 0 statt KeyError
-d.keys()  d.values()  d.items()
-for key, wert in d.items():
-    print(key, wert)
-'Hans' in d.values() → True   'Hans' in d → prüft KEYS → False</pre>
-<h2>Set (Menge)</h2>
-<pre>m = set(['Apfel','Birne']); m.add('Kiwi'); m.add('Birne')  # kein Duplikat
-m.discard('x')  kein Fehler · m.remove('x') → KeyError · m.clear()
-m1 = {'apple','banana','cherry'}; m2 = {'cherry','strawberry'}
-m1.intersection(m2) → {'cherry'}                    Schnitt
-m1.union(m2) → {'apple','banana','cherry','strawberry'}
-m1.difference(m2) → {'apple','banana'}   (in m1, nicht in m2)
-m2.difference(m1) → {'strawberry'}</pre>
-<table><tr><th></th><th>+</th><th>*</th><th>in</th></tr>
-<tr><td>Tupel/Liste</td><td><code>l+l</code> aneinander</td><td><code>l*2</code> wiederholt</td><td>ja</td></tr>
-<tr><td>Set</td><td><code>.add()</code></td><td>–</td><td>ja</td></tr>
-<tr><td>Dict</td><td>–</td><td>–</td><td><code>.keys()</code>/<code>.values()</code></td></tr></table>
-<h2>Aufgabe → Code (Übersetzung)</h2>
+l[0] 2  l[-1] 10  l[1:3] [3,'Hans']  l[:2] [2,3]
+l2 = [(1,2),(4,8)]; l2[1][0] → 4  # erst Liste, dann Tupel
+l + l   aneinander · l * 2 wiederholt · 2 in l → True</pre>
+<h2>Aufgabe → Code</h2>
 <table><tr><th>Aufgabe sagt</th><th>Liste</th><th>Dict</th><th>Set</th></tr>
-<tr><td>„das n-te Element“</td><td><code>l[n-1]</code> (Index ab 0!)</td><td><code>d['Key']</code></td><td>– (keine Ordnung)</td></tr>
+<tr><td>„n-tes Element“</td><td><code>l[n-1]</code> (ab 0!)</td><td><code>d['Key']</code></td><td>–</td></tr>
 <tr><td>„ändere“</td><td><code>l[1] = 'Welt'</code></td><td><code>d['Alter'] = 26</code></td><td>remove + add</td></tr>
-<tr><td>„füge hinzu“</td><td><code>l.append(42)</code></td><td><code>d['Beruf'] = 'Ing.'</code></td><td><code>m.add(6)</code></td></tr>
-<tr><td>„entferne Wert x“</td><td><code>l.remove(x)</code></td><td>–</td><td><code>m.remove(x)</code>/<code>discard</code></td></tr>
-<tr><td>„entferne Position/Key“</td><td><code>del l[0]</code> / <code>l.pop(0)</code></td><td><code>del d['Stadt']</code></td><td>–</td></tr>
-<tr><td>„ist x enthalten?“</td><td><code>x in l</code></td><td><code>'K' in d</code> (Keys!)</td><td><code>x in m</code></td></tr></table>
-<p class="c">Dict hat KEINE Index-Zahlen: <code>d[0]</code> → KeyError (außer 0 ist ein Key). Methoden mit () · Zugriff mit [ ]</p>
+<tr><td>„füge hinzu“</td><td><code>l.append(42)</code> Ende · <code>l.insert(1, x)</code> Pos.</td><td><code>d['Beruf'] = 'Ing.'</code></td><td><code>m.add(6)</code></td></tr>
+<tr><td>„Liste anhängen“</td><td><code>l.extend([7, 8])</code></td><td>–</td><td><code>m1.union(m2)</code></td></tr>
+<tr><td>„entferne Wert x“</td><td><code>l.remove(x)</code> (erstes)</td><td>–</td><td><code>m.remove(x)</code> / <code>discard</code></td></tr>
+<tr><td>„entferne Pos./Key“</td><td><code>del l[0]</code> / <code>l.pop(0)</code></td><td><code>del d['Stadt']</code></td><td>–</td></tr>
+<tr><td>„enthalten?“</td><td><code>x in l</code></td><td><code>'K' in d</code> (Keys!) · <code>x in d.values()</code></td><td><code>x in m</code></td></tr>
+<tr><td>„zählen / sortieren“</td><td><code>l.count(3)</code> · <code>l.sort()</code> · <code>l.reverse()</code> · <code>len(l)</code></td><td><code>d.keys() d.values() d.items()</code></td><td><code>len(m)</code></td></tr></table>
+<pre>a = [1, 2, 4]  # Folienbeispiel, Methoden ändern a DIREKT
+a.append(3)      # [1, 2, 4, 3]         1 Element ans Ende
+a.extend([7,8])  # [1, 2, 4, 3, 7, 8]   Liste anhängen
+a.insert(1, 3)   # [1, 3, 2, 4, 3, 7, 8] (Index, Wert)
+a.pop(5)         # [1, 3, 2, 4, 3, 8]   Index 5 weg
+a.count(3) → 2   a.sort() → [1,2,3,3,4,8]   a.reverse()</pre>
+<h2>Mengenoperationen</h2>
+<pre>m1 = {'apple','banana','cherry'}; m2 = {'cherry','strawberry'}
+m1.intersection(m2) → {'cherry'}  # in BEIDEN
+m1.union(m2) → {'apple','banana','cherry','strawberry'}
+m1.difference(m2) → {'apple','banana'}  # in m1, NICHT in m2
+m2.difference(m1) → {'strawberry'}      # Reihenfolge zählt!</pre>
 <h2>Übung 2.5 komplett gelöst</h2>
-<pre>t = (1, 'Hallo', 3.14, True)
-print(t[2])                   # 3.14  (drittes = Index 2)
-t[0] = 5                      # TypeError: Tupel unveränderbar
-
+<pre>mein_tupel = (1, 'Hallo', 3.14, True)
+print(mein_tupel[2])  # 3.14 (drittes = Index 2)
+mein_tupel[0] = 5  # TypeError: Tupel unveränderbar
 l = [1, 'Hallo', 3.14, True]
-l[1] = 'Welt'                 # zweites = Index 1
-l.append(42)                  # ans Ende
-del l[0]                      # erstes weg (oder l.pop(0) / l.remove(1))
-print(l)                      # ['Welt', 3.14, True, 42]
-
+l[1] = 'Welt'; l.append(42); del l[0]  # ändern,+42,1. weg
+print(l)  # ['Welt', 3.14, True, 42]
 d = {'Name': 'Max', 'Alter': 25, 'Stadt': 'Berlin'}
-print(d['Name'])              # Max
-d['Alter'] = 26               # Key existiert → ändern
-d['Beruf'] = 'Ingenieur'      # Key neu → hinzufügen
-del d['Stadt']                # oder d.pop('Stadt')
-print(d)          # {'Name': 'Max', 'Alter': 26, 'Beruf': 'Ingenieur'}
-
-m = {1, 2, 3, 4, 4, 5}        # doppelte 4 fällt weg → {1,2,3,4,5}
-m.add(6)
-m.remove(3)
-print(2 in m)                 # True
-print(m)                      # {1, 2, 4, 5, 6}
+print(d['Name'])  # Max
+d['Alter'] = 26  # Key existiert → ändern
+d['Beruf'] = 'Ingenieur'  # Key neu → hinzufügen
+del d['Stadt']; print(d)
+# {'Name': 'Max', 'Alter': 26, 'Beruf': 'Ingenieur'}
+m = {1, 2, 3, 4, 4, 5}  # doppelte 4 fällt weg
+m.add(6); m.remove(3); print(2 in m, m) # True {1, 2, 4, 5, 6}
 z = {4, 5, 6, 7}
-print(m.intersection(z))      # {4, 5, 6}        in BEIDEN
-print(m.union(z))             # {1, 2, 4, 5, 6, 7}  alle, ohne Doppelte
-print(m.difference(z))        # {1, 2}           in m, NICHT in z
-print(z.difference(m))        # {7}              Reihenfolge zählt!</pre>
+print(m.intersection(z))  # {4, 5, 6}  in BEIDEN
+print(m.union(z))         # {1, 2, 4, 5, 6, 7}
+print(m.difference(z))    # {1, 2}
+print(z.difference(m))    # {7}</pre>
 
 <h1>2.6 Zeitstempel</h1>
-<pre>from datetime import datetime
-datetime.now()                    jetzt
-d = datetime.strptime('10/1/24', '%m/%d/%y')   str → datetime
-    → 2024-10-01 00:00:00         (p = parse, Klasse.strptime)
-d.strftime('%d.%m.%Y') → '01.10.2024'   datetime → str
-    (f = format, OBJEKT.strftime)
-d.year d.month d.day d.hour d.minute d.second d.microsecond (ohne ())
-d2 - d1 → timedelta, z.B. 1204 days → (d2-d1).days → 1204</pre>
-<p><b>Codes:</b> <code>%d</code> Tag · <code>%m</code> Monat · <code>%y</code> Jahr 2-stellig · <code>%Y</code> 4-stellig · <code>%H</code> Std (24h) · <code>%M</code> Minute · <code>%S</code> Sekunde. Format muss EXAKT zum Text passen (<code>.</code> <code>/</code> <code>-</code>)</p>
+<pre>from datetime import datetime  # Modul + Klasse datetime
+jetzt = datetime.now()  # „aktueller Zeitstempel“
+d = datetime(2022, 1, 1, 12, 0, 0)  # „fester“ (J,M,T,h,m,s)
+# „parsen“ = str → datetime:
+d = datetime.strptime('10/1/24', '%m/%d/%y')  # 2024-10-01
+# „formatieren“ = datetime → str:
+jetzt.strftime('%d.%m.%Y %H:%M:%S')  # '24.11.2026 10:00:00'
+jetzt.year .month .day .hour .minute .second  # OHNE ()
+diff = jetzt - d  # „Differenz“ → 1787 days, 22:00:00
+diff.days → 1787 · diff.seconds // 3600 → 22 (Rest-Stunden)
+diff.total_seconds() / 3600 → 42910.0 (Stunden gesamt)</pre>
+<p><b>Merken:</b> strP = <b>P</b>arse (Text rein, auf der Klasse) · strF = <b>F</b>ormat (Text raus, auf dem Objekt). <b>Codes:</b> <code>%d</code> Tag <code>%m</code> Monat <code>%y</code> Jahr 24 <code>%Y</code> 2024 <code>%H</code> Std <code>%M</code> Min <code>%S</code> Sek; Trennzeichen EXAKT wie im Text</p>
 <pre>from dateutil.relativedelta import relativedelta
-d + relativedelta(months=1)   relativ (Plural: years months days …)
-d + relativedelta(day=30)     absolut (Singular: year month day …)
-d + relativedelta(months=1, day=30) → 2024-11-30</pre>
+d + relativedelta(months=1)  # Plural = relativ: +1 Monat
+d + relativedelta(day=30)  # Singular = absolut: Tag 30
+d + relativedelta(months=1, day=30)  # 2024-10-01 → 2024-11-30</pre>
+<h2>Übung 2.6 gelöst</h2>
+<pre>from datetime import datetime
+aktueller_zeitstempel = datetime.now()
+print(aktueller_zeitstempel)
+print(aktueller_zeitstempel.strftime('%d.%m.%Y %H:%M:%S'))
+frueher_zeitstempel = datetime(2022, 1, 1, 12, 0, 0)
+diff = aktueller_zeitstempel - frueher_zeitstempel
+print(diff.days, 'Tage', diff.seconds // 3600, 'Stunden')
+s = '2023-06-15 08:30:00'
+fmt = '%Y-%m-%d %H:%M:%S'
+geparster_zeitstempel = datetime.strptime(s, fmt)
+print(geparster_zeitstempel)  # 2023-06-15 08:30:00</pre>
 
 <h1>3.1 numpy</h1>
 <pre>import numpy as np
-x = np.array([1, 2, 3, 4, 5])     alle Elemente gleicher Typ
-x = np.array(range(1, 21))        1 … 20
-x = np.arange(1, 21)              1 … 20 (stop exkl.)
-x + y → [7 9 11 13 15]  ELEMENTWEISE (Liste + Liste hängt an!)
-x * 2   x ** 2   x + 10   → wirkt auf jedes Element
-np.sum(x) 15   np.mean(x) 3.0   np.std(x) 1.414…
-np.min(x) 1    np.max(x) 5      np.sqrt(x) Wurzel je Element
-auch: x.sum()  x.mean()  len(x)</pre>
-<h2>Index, Slicing, Maske</h2>
-<pre>x = np.arange(1, 21)
-x[0] → 1   x[-1] → 20   x[5:11] → [6 7 8 9 10 11]
-x[3:8] = 100        Positionen 3–7 überschreiben
-x[x &gt; 17] → [18 19 20]          Boolean-Maske
-x[(x &gt; 7) &amp; (x &lt; 21)]   UND    ·  |  ODER  ·  ~ NICHT
-→ eckig [ ] außen, rund ( ) um JEDE Bedingung, &amp; statt and</pre>
-<h2>Zufall mit numpy</h2>
-<pre>np.random.rand(50)          50 floats in [0, 1)
-np.random.randn(1000)       1000 normalverteilt (μ=0, σ=1)
-np.random.normal(0, 1, 1000)  dasselbe mit Parametern
-np.random.randint(1, 101, 10) 10 ints 1…100 (high EXKL.!)</pre>
+x = np.array([1, 2, 3, 4, 5])  # „Array aus Werten“
+x = np.arange(1, 21)  # „Werte 1 bis 20“ (stop exkl.)
+x + y  x * 2  x ** 2  # ELEMENTWEISE (Liste + Liste hängt an!)</pre>
+<table><tr><th>Aufgabe</th><th>Code</th><th>x = 1…20</th></tr>
+<tr><td>Summe</td><td><code>np.sum(x)</code> / <code>x.sum()</code></td><td>210</td></tr>
+<tr><td>Durchschnitt (Mittelwert)</td><td><code>np.mean(x)</code> / <code>x.mean()</code></td><td>10.5</td></tr>
+<tr><td>Standardabweichung</td><td><code>np.std(x)</code></td><td>5.766…</td></tr>
+<tr><td>Max / Min</td><td><code>np.max(x)</code> / <code>np.min(x)</code></td><td>20 / 1</td></tr>
+<tr><td>Wurzel je Element</td><td><code>np.sqrt(x)</code></td><td>[1. 1.41 …]</td></tr>
+<tr><td>Anzahl</td><td><code>len(x)</code></td><td>20</td></tr></table>
+<p class="c"><code>np.mean(x)</code> = Funktion, Daten IN der Klammer · <code>x.mean()</code> = Methode, Daten VOR dem Punkt, Klammer LEER</p>
+<pre>x[0] 1  x[-1] 20  x[5:11] → [6 … 11]  # „Index 5 bis 10“
+x[3:8] = 100  # „Index 3 bis 7 durch 100 ersetzen“
+x[x &gt; 10]  # „alle größer 10“ (Boolean-Maske)
+x[(x &gt; 7) &amp; (x &lt; 21)]  # „zwischen“: &amp; UND · | ODER
+# [ ] außen, ( ) um JEDE Bedingung, &amp; statt and</pre>
+<h2>Übung 3.1 gelöst + Vorklausur</h2>
+<pre>x = np.arange(1, 21); print(x)  # [ 1  2 … 20]
+print(np.sum(x), np.mean(x), np.max(x), np.min(x))
+# 210 10.5 20 1
+y = x * 2  # [ 2  4  6 … 40]
+print(x[5:11])  # [ 6  7  8  9 10 11]
+x[3:8] = 100; print(x)  # [1 2 3 100 100 100 100 100 9 …]
+print(x[x &gt; 10])  # [100 100 100 100 100 11 12 … 20]
+# Vorklausur: Mittelwert + Std der Zahlen 1…100
+z = np.arange(1, 101)
+print(np.mean(z), np.std(z))  # 50.5 28.866…
+# pandas: pd.DataFrame(liste).std() → 29.011 (÷ n-1)
+# pd.mean() GIBT ES NICHT → df.mean()</pre>
+<h2>Zufall mit numpy (für 3.2)</h2>
+<pre>np.random.rand(50)  # „50 Zufallszahlen zwischen 0 und 1“
+np.random.randn(1000)   # „1000 normalverteilte Zahlen“</pre>
 
 <h1>3.2 matplotlib</h1>
 <pre>import matplotlib.pyplot as plt
-plt.plot(x, y, label='f(x)')   Linie
-plt.scatter(x, y)              Punkte – braucht x UND y!
-plt.hist(daten, bins=30)       Histogramm – nur EIN Array
-plt.bar(['A','B'], [3, 5])     Balken
+plt.plot(x, y, label='f(x)')   # Liniendiagramm
+plt.scatter(a, b)  # Streudiagramm – braucht x UND y!
+plt.hist(daten, bins=30)       # Histogramm – nur EIN Array
+plt.bar(['A','B'], [3, 5])     # Balkendiagramm
 plt.title('Funktion'); plt.xlabel('x'); plt.ylabel('y')
-plt.legend()     zeigt label= an  ·  plt.grid(True)
-plt.show()       KLAMMERN nicht vergessen</pre>
-<pre># Aufgabe: x = 0…10, Quadrate plotten
-x = np.arange(0, 11); y = x ** 2
-plt.plot(x, y); plt.show()</pre>
-<h2>Subplots (2×2)</h2>
-<pre>fig, ax = plt.subplots(2, 2)
-ax[0, 0].plot(x, y)        ax[0, 1].scatter(a, b)
-ax[1, 0].hist(n)           ax[1, 1].bar(['A','B'], [3,5])
-ax[0, 0].set_title('Linie')   # bei ax: set_title/set_xlabel
+plt.legend()     # zeigt label= an  ·  plt.grid(True)
+plt.show()       # KLAMMERN nicht vergessen</pre>
+<h2>Übung 3.2 gelöst</h2>
+<pre>x = np.arange(0, 11); y = x ** 2  # 0…10 und Quadrate
+plt.plot(x, y); plt.show()                    # Linie
+a = np.random.rand(50); b = np.random.rand(50)
+plt.scatter(a, b); plt.show()                 # Streu
+n = np.random.randn(1000)
+plt.hist(n); plt.show()                       # Histogramm
+fig, ax = plt.subplots(2, 2)                  # 2×2 Subplots
+ax[0, 0].plot(x, y)       ax[0, 1].scatter(a, b)
+ax[1, 0].hist(n)          ax[1, 1].bar(['A','B'], [3, 5])
+ax[0, 0].set_title('Linie')  # bei ax: set_title / set_xlabel
 plt.tight_layout(); plt.show()</pre>
 
 <h1>3.3 pandas</h1>
 <pre>import pandas as pd
-data = {'Name': ['Anna','Bob','Cem'], 'Alter': [28,24,22],
+data = {'Name': ['Anna','Bob','Cem'], 'Alter': [28, 24, 22],
         'Stadt': ['Berlin','Hamburg','Berlin'],
-        'Gehalt': [4000,3500,3000]}
-df = pd.DataFrame(data)    # dict: Key = Spalte, Liste = Werte
-print(df)                  # Zeilenindex automatisch 0,1,2</pre>
+        'Gehalt': [4000, 3500, 3000]}
+df = pd.DataFrame(data)  # Key = Spalte, Liste = Werte
+print(df)  # Methoden hängen am OBJEKT df, nicht an pd</pre>
 <table><tr><th>Aufgabe</th><th>Code</th></tr>
-<tr><td>Spalte lesen</td><td><code>df['Gehalt']</code> · mehrere: <code>df[['Name','Alter']]</code></td></tr>
-<tr><td>neue Spalte</td><td><code>df['Steuer'] = df['Gehalt'] * 0.3</code></td></tr>
-<tr><td>Wert ändern (Bedingung)</td><td><code>df.loc[df['Name']=='Bob', 'Gehalt'] = 3800</code></td></tr>
-<tr><td>Wert ändern (Index)</td><td><code>df.loc[0, 'Gehalt'] = 4100</code> (Zeile, Spalte)</td></tr>
-<tr><td>Zeile löschen</td><td><code>df = df.drop(1)</code> (Index-Label, neu zuweisen!)</td></tr>
-<tr><td>Spalte löschen</td><td><code>df = df.drop(columns='Steuer')</code></td></tr>
-<tr><td>Durchschnitt</td><td><code>df['Gehalt'].mean()</code> · <code>.sum() .max() .min()</code></td></tr>
-<tr><td>älteste Person</td><td><code>df.loc[df['Alter'].idxmax()]</code> → ganze Zeile<br><code>df.loc[df['Alter'].idxmax(), 'Name']</code> → 'Anna'</td></tr>
-<tr><td>gruppieren</td><td><code>df.groupby('Stadt')['Gehalt'].mean()</code><br>→ Berlin 3500, Hamburg 3500</td></tr>
-<tr><td>filtern</td><td><code>df[df['Alter'] &gt; 23]</code><br><code>df[(df['Alter']&gt;23) &amp; (df['Stadt']=='Berlin')]</code></td></tr>
-<tr><td>sortieren</td><td><code>df.sort_values('Alter', ascending=False)</code></td></tr>
+<tr><td>Spalte lesen</td><td><code>df['Gehalt']</code> · mehrere <code>df[['Name','Alter']]</code></td></tr>
+<tr><td>neue Spalte „30 % des Gehalts“</td><td><code>df['Steuer'] = df['Gehalt'] * 0.3</code> (elementweise)</td></tr>
+<tr><td>Wert ändern „für eine Person“</td><td><code>df.loc[df['Name'] == 'Bob', 'Gehalt'] = 3800</code></td></tr>
+<tr><td>Wert ändern per Index</td><td><code>df.loc[0, 'Gehalt'] = 4100</code> (Zeile, Spalte)</td></tr>
+<tr><td>Zeile entfernen</td><td><code>df = df.drop(2)</code> (Index; NEU ZUWEISEN!)</td></tr>
+<tr><td>Durchschnitt</td><td><code>df['Gehalt'].mean()</code> · <code>.sum() .max() .min() .std()</code> – Klammer LEER</td></tr>
+<tr><td>älteste Person</td><td><code>df.loc[df['Alter'].idxmax()]</code> → ganze Zeile · <code>…idxmax(), 'Name']</code> → 'Anna'</td></tr>
+<tr><td>gruppieren + Ø pro Stadt</td><td><code>df.groupby('Stadt')['Gehalt'].mean()</code></td></tr>
 <tr><td>CSV speichern</td><td><code>df.to_csv('daten.csv', index=False)</code></td></tr>
-<tr><td>CSV laden</td><td><code>df2 = pd.read_csv('daten.csv')</code></td></tr>
-<tr><td>Überblick</td><td><code>df.head()</code> 5 Zeilen · <code>df.shape</code> (Zeilen, Spalten) · <code>df.columns</code> · <code>df.describe()</code></td></tr></table>
-<p class="c">Spalte = Series (wie numpy-Array): <code>df['Gehalt'] * 0.3</code> rechnet elementweise. Numpy + pandas = Grundlage für KI.</p>
+<tr><td>CSV laden + anzeigen</td><td><code>df2 = pd.read_csv('daten.csv'); print(df2)</code></td></tr></table>
+<h2>Übung 3.3 gelöst</h2>
+<pre>df = pd.DataFrame(data); print(df)
+df['Steuer'] = df['Gehalt'] * 0.3  # 1200.0 1050.0 900.0
+df.loc[df['Name'] == 'Bob', 'Gehalt'] = 3800
+# Steuer bleibt 1050 (vorher berechnet!)
+print(df['Gehalt'].mean())                     # 3600.0
+print(df.loc[df['Alter'].idxmax()])  # Anna, 28, Berlin …
+print(df.groupby('Stadt')['Gehalt'].mean())
+# Berlin 3500.0 · Hamburg 3800.0
+df = df.drop(2); print(df)  # Cem (Index 2) weg
+df.to_csv('mitarbeiter.csv', index=False)
+df_neu = pd.read_csv('mitarbeiter.csv'); print(df_neu)</pre>
 
-<h1>3.4 random</h1>
+<h1>3.4 random (Folie: seed, uniform, randint, choice)</h1>
+<pre>import random                       # ohne → NameError
+random.uniform(0, 1)    # „Zufallszahl zw. 0 und 1“ → float
+random.randint(1, 100)  # „ganzzahlig“ 1…100, BEIDE inklusiv
+random.choice(liste)      # „zufälliges Element aus Liste“
+random.shuffle(liste)  # „mischen“ → ändert liste, gibt None!
+random.sample(liste, 3) # „Stichprobe“ → neue Liste
+random.seed(42)  # „reproduzierbar“ – erzeugt NICHTS, legt
+                        # nur fest, welche Folge die NÄCHSTEN
+                        # Aufrufe liefern; 42 beliebig</pre>
+<p class="c">print direkt geht bei uniform/randint/choice/sample · bei shuffle/seed kommt None → erst ausführen, dann <code>print(liste)</code></p>
+<h2>Übung 3.4 gelöst + Vorklausur</h2>
 <pre>import random
-random.random()          float in [0, 1)
-random.uniform(0, 100)   float zwischen 0 und 100
-random.randint(1, 100)   int 1 … 100 – BEIDE Grenzen INKLUSIV
-random.choice(liste)     1 zufälliges Element
-random.shuffle(liste)    mischt liste DIREKT, gibt None zurück!
-random.sample(liste, 3)  3 Stück OHNE Zurücklegen → neue Liste
-random.seed(42)          gleicher Seed → gleiche Zahlen (reproduzierbar)</pre>
-<pre># 10 Zufallszahlen 1…100
+print(random.uniform(0, 1), random.randint(1, 100))
+print(random.choice(['apfel', 'birne']))
 zahlen = []
-for i in range(10):
+for i in range(10):  # 10-mal (i ungenutzt)
     zahlen.append(random.randint(1, 100))
-random.shuffle(zahlen)          # NICHT zahlen = random.shuffle(...)
-auswahl = random.sample(zahlen, 3)
-
-# Reproduzierbarkeit
-random.seed(42); print(random.random(), random.randint(1, 100))
-random.seed(42); print(random.random(), random.randint(1, 100))  # gleich</pre>
-
-<h1>4.1 Fehler (kurz)</h1>
-<pre>try:
-    n = int(input('Zahl: ')); print(10 / n)
-except ValueError:        print('keine Zahl')
-except ZeroDivisionError: print('nicht durch 0')</pre>
-<p><code>SyntaxError</code> Tippfehler/Doppelpunkt · <code>IndentationError</code> Einrückung · <code>NameError</code> Name unbekannt · <code>TypeError</code> falscher Typ (<code>'a'+3</code>) · <code>IndexError</code> Index zu groß · <code>KeyError</code> Key fehlt</p>
+print(zahlen)
+random.shuffle(zahlen); print(zahlen)  # NICHT zahlen = …
+print(random.sample(zahlen, 3))  # Rückgabe nutzen, sonst weg
+random.seed(42); z1 = random.uniform(0,1)
+z2 = random.randint(1,100)
+random.seed(42); z3 = random.uniform(0,1)  # Seed ERNEUT
+z4 = random.randint(1,100)
+print(z1, z2, z1 == z3 and z2 == z4)  # 0.639… 4 True
+# Vorklausur: 6 floats 1…80 + 1 int −5…5, reproduzierbar?
+random.seed(42)  # → Antwort: seed VOR den Aufrufen
+fl = []
+for i in range(6): fl.append(random.uniform(1, 80))
+zahl_int = random.randint(-5, 5)
+print(fl, zahl_int)  # [51.51…, 2.97…, …] 3</pre>
 
 <div class="warn"><b>⚠ Typische Fehler</b><br>
-<code>=</code> zuweisen vs. <code>==</code> vergleichen · <code>:</code> nach if/for/while/def · Einrückung<br>
-Funktion definiert, aber nicht aufgerufen · <code>print</code> statt <code>return</code> · <code>plt.show</code> ohne <code>()</code><br>
-range/Slicing: Ende exklusiv · <code>random.randint</code> inkl. vs. <code>np.random.randint</code> exkl.<br>
-<code>and</code> bei einzelnen Werten, <code>&amp;</code> bei Arrays/DataFrames + Klammern<br>
-<code>strptime</code> str→Datum (Klasse) · <code>strftime</code> Datum→str (Objekt)<br>
-Variable nie <code>list</code>/<code>str</code>/<code>sum</code> nennen (überschreibt Built-in) · <code>print()</code> leer = Leerzeile<br>
-<code>shuffle</code> gibt None · <code>drop</code> ohne Zuweisung ändert df nicht · <code>'a'+3</code> → <code>'a'+str(3)</code></div>
+<code>=</code> zuweisen vs. <code>==</code> vergleichen · <code>:</code> nach if/for/while/def · Einrückung · <code>import</code> vergessen → NameError<br>
+Funktion definiert, aber nicht aufgerufen · <code>print</code> statt <code>return</code> · return nur im if · Ergebnis berechnet, nicht ausgegeben<br>
+range/Slicing: Ende exklusiv · <code>randint</code> inklusiv · „mindestens“ = <code>&gt;=</code> · <code>and if</code> → <code>and</code><br>
+<code>and</code> bei Einzelwerten, <code>&amp;</code> + Klammern bei Arrays/DataFrames · <code>plt.show</code> ohne <code>()</code><br>
+<code>strptime</code> str→Datum · <code>strftime</code> Datum→str · Variable nie <code>list</code>/<code>str</code>/<code>sum</code> nennen<br>
+<code>shuffle</code> gibt None · <code>drop</code> ohne Zuweisung ändert df nicht · <code>df.mean(liste)</code> → TypeError · <code>'a'+3</code> → <code>'a'+str(3)</code></div>
 
 </div>
 <script>
@@ -390,12 +392,12 @@ for (let el = src.firstElementChild; el; ) {
 function layout(fs) {
   document.documentElement.style.setProperty('--fs', fs + 'pt');
   cols.innerHTML = '';
-  const c = [0, 1, 2, 3].map(() => cols.appendChild(Object.assign(document.createElement('div'), { className: 'col' })));
+  const c = [0, 1, 2].map(() => cols.appendChild(Object.assign(document.createElement('div'), { className: 'col' })));
   let i = 0;
   for (const b of blocks) {
     c[i].appendChild(b);
     while (c[i].scrollHeight > c[i].clientHeight) {
-      if (i === 3) return false;
+      if (i === 2) return false;
       c[++i].appendChild(b);
     }
   }
