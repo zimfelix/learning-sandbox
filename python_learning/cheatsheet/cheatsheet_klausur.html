@@ -322,7 +322,8 @@ tage_bis = (datetime(2026,12,24) - datetime(2026,11,24)).days  # 30</pre>
 
 <h1>3.1 numpy</h1>
 <pre>import numpy as np
-x = np.array([1, 2, 3, 4, 5])  # „Array aus Werten“
+x = np.array([1, 2, 3, 4, 5])  # ([ ]) PFLICHT: Liste rein
+# np.array(1, 2, 3) → TypeError
 x = np.arange(1, 21)  # „Werte 1 bis 20“ (stop exkl.)
 x + y  x * 2  x ** 2  # ELEMENTWEISE (Liste + Liste hängt an!)</pre>
 <table><tr><th>Aufgabe</th><th>Code</th><th>x = 1…20</th></tr>
@@ -336,6 +337,7 @@ x + y  x * 2  x ** 2  # ELEMENTWEISE (Liste + Liste hängt an!)</pre>
 <pre>x[0] 1  x[-1] 20  x[5:11] → [6 … 11]  # „Index 5 bis 10“
 x[3:8] = 100  # „Index 3 bis 7 durch 100 ersetzen“
 x[x &gt; 10]  # „alle größer 10“ (Boolean-Maske)
+x[x % 2 == 0]  # „alle geraden“ → [4 8 16 42], KEINE Schleife
 x[(x &gt; 7) &amp; (x &lt; 21)]  # „zwischen“: &amp; UND · | ODER
 # [ ] außen, ( ) um JEDE Bedingung, &amp; statt and</pre>
 <h2>Übung 3.1 gelöst + Vorklausur</h2>
