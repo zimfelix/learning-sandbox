@@ -23,7 +23,12 @@ th { background: #ddd; }
 .w { font-weight: bold; }
 .warn { border: 0.5pt solid #000; padding: 0.3mm 0.6mm; margin: 0.3mm 0; break-inside: avoid; }
 .c { color: #555; }
-</style></head><body><div class="cols" id="cols"></div><div id="src">
+</style></head><body><div class="cols" id="cols"></div><div id="pin"><h2>3.2 matplotlib (mini)</h2><pre>import matplotlib.pyplot as plt
+plt.plot(x, y)      # Linie · x = np.arange(0, 11); y = x**2
+plt.scatter(a, b)   # Streu – x UND y! a = np.random.rand(50)
+plt.hist(n)         # Histogramm · n = np.random.randn(1000)
+fig, ax = plt.subplots(2, 2); ax[0, 0].plot(x, y) · plt.show()</pre></div>
+<div id="src">
 <h1>2.1 Variablen &amp; Datentypen</h1>
 <table><tr><th>Typ</th><th>Beispiel</th><th>wofür / Info</th></tr>
 <tr><td>NoneType</td><td><code>None</code></td><td>„kein Wert“; Funktion ohne return liefert None</td></tr>
@@ -200,7 +205,7 @@ print(y.count('o'))  # 4
 # Zählen: anzahl = 0 … if Bedingung: anzahl += 1
 # Liste bauen: erg = [] … erg.append(x)
 # Max ohne max(): m = l[0] … if x &gt; m: m = x
-# Dict filtern → Liste (Bestand &lt; 6):
+# Zettel 1 A5 – Dict filtern → Liste (Bestand &lt; 6):
 def nachbestellen(lager):
     erg = []
     for name, menge in lager.items():  # Key, Value
@@ -308,7 +313,12 @@ print(diff.days, 'Tage', diff.seconds // 3600, 'Stunden')
 s = '2023-06-15 08:30:00'
 fmt = '%Y-%m-%d %H:%M:%S'
 geparster_zeitstempel = datetime.strptime(s, fmt)
-print(geparster_zeitstempel)  # 2023-06-15 08:30:00</pre>
+print(geparster_zeitstempel)  # 2023-06-15 08:30:00
+# Zettel 1 A7: Start 24.11.26 9 Uhr, dauert 90 Min → ende;
+# Tage 24.11. bis 24.12. → tage_bis (int)
+start = datetime(2026, 11, 24, 9, 0)  # Zahlen → kein strp
+ende = start + timedelta(minutes=90)  # 2026-11-24 10:30:00
+tage_bis = (datetime(2026,12,24) - datetime(2026,11,24)).days  # 30</pre>
 
 <h1>3.1 numpy</h1>
 <pre>import numpy as np
@@ -456,5 +466,10 @@ function layout(fs) {
 }
 let fs = 7.2;
 while (fs > 4 && !layout(fs)) fs = Math.round((fs - 0.1) * 10) / 10;
+// Pin-Kasten erst NACH dem Layout unten in Spalte 1 – verschiebt nichts.
+const pinBox = document.getElementById('pin'), c0 = cols.firstElementChild;
+c0.appendChild(pinBox);
+if (c0.scrollHeight > c0.clientHeight) { pinBox.remove(); document.title += ' PIN-PASST-NICHT'; }
+else document.title += ' PIN-OK';
 document.title += ' (' + fs + 'pt)';
 </script></body></html>
