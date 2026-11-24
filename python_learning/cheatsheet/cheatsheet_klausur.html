@@ -14,7 +14,7 @@ body { font: var(--fs)/1.15 "Helvetica Neue", Arial, sans-serif; color: #000; ba
 h1 { font-size: calc(var(--fs) + 1.2pt); background: #000; color: #fff; padding: 0.3mm 1mm; margin: 0.8mm 0 0.4mm; break-after: avoid; }
 h2 { font-size: calc(var(--fs) + 0.3pt); border-bottom: 0.4pt solid #000; margin: 0.6mm 0 0.2mm; break-after: avoid; }
 pre, code { font: calc(var(--fs) - 0.3pt)/1.1 Menlo, Consolas, monospace; }
-pre { letter-spacing: -0.04em; white-space: pre-wrap; background: #f1f1f1; padding: 0.2mm 0.6mm; margin: 0.2mm 0; break-inside: avoid; }
+pre { white-space: pre-wrap; background: #f6f6f6; padding: 0.2mm 0.6mm; margin: 0.2mm 0; break-inside: avoid; }
 p, li { margin: 0.1mm 0; }
 ul { padding-left: 2.4mm; }
 table { border-collapse: collapse; width: 100%; margin: 0.2mm 0; break-inside: avoid; }
@@ -22,7 +22,7 @@ td, th { border: 0.3pt solid #aaa; padding: 0 0.5mm; vertical-align: top; text-a
 th { background: #ddd; }
 .w { font-weight: bold; }
 .warn { border: 0.5pt solid #000; padding: 0.3mm 0.6mm; margin: 0.3mm 0; break-inside: avoid; }
-.c { color: #555; }
+.c { color: #000; font-style: italic; }
 </style></head><body><div class="cols" id="cols"></div><div id="pin"><h2>3.2 matplotlib (mini)</h2><pre>import matplotlib.pyplot as plt
 plt.plot(x, y)      # Linie · x = np.arange(0, 11); y = x**2
 plt.scatter(a, b)   # Streu – x UND y! a = np.random.rand(50)
@@ -96,7 +96,7 @@ print(b_int, c_float, d_str, e_upper)</pre>
 <tr><td>Zuweisung</td><td><code>= += -= *= /= **= %=</code></td><td>VERÄNDERT Variable: <code>z += 2</code> = <code>z = z + 2</code></td></tr>
 <tr><td>Vergleich</td><td><code>== != &gt; &lt; &gt;= &lt;=</code></td><td>True/False, Variable bleibt</td></tr>
 <tr><td>Logisch</td><td><code>and or not</code></td><td>Bedingungen verknüpfen</td></tr>
-<tr><td>Membership</td><td><code>in  not in</code></td><td>„ist enthalten?“ → True/False</td></tr></table>
+<tr><td style="white-space:nowrap">Membership</td><td><code>in  not in</code></td><td>„ist enthalten?“ → True/False</td></tr></table>
 <pre>c = a + 1  # c neu, a bleibt · a + 1 allein: verpufft
 c = a += 1    # SyntaxError (+= liefert keinen Wert)
 'mindestens' → &gt;=   'höchstens' → &lt;=   'größer als' → &gt;
@@ -471,5 +471,15 @@ const pinBox = document.getElementById('pin'), c0 = cols.firstElementChild;
 c0.appendChild(pinBox);
 if (c0.scrollHeight > c0.clientHeight) { pinBox.remove(); document.title += ' PIN-PASST-NICHT'; }
 else document.title += ' PIN-OK';
+// Prüfung: umgebrochene Codezeilen zählen (Zeilen laut Text vs. gerenderte Höhe)
+let wrapped = 0;
+for (const pre of cols.querySelectorAll('pre')) {
+  const cs = getComputedStyle(pre), lh = parseFloat(cs.lineHeight);
+  const inner = pre.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+  const n = pre.textContent.split('\n').length;
+  const real = Math.round(inner / lh);
+  if (real > n) { wrapped += real - n; pre.style.outline = '1pt solid red'; }
+}
+document.title += ' WRAP=' + wrapped;
 document.title += ' (' + fs + 'pt)';
 </script></body></html>
