@@ -163,24 +163,8 @@ for i in range(1, 11):
     return a + b     # Ergebnis zurück + Funktion endet
 e = summe(2, 3)  # Argumente 2, 3 → 5 · ohne Aufruf: nichts</pre>
 <p><b>return</b> gibt Wert zurück (weiterrechnen) · <b>print</b> zeigt nur, Funktion liefert dann <code>None</code> · return nur im if → sonst None!</p>
-<h2>Übung 2.4 gelöst</h2>
-<pre># 1a) addiere(a, b) gibt Summe zurück
-def addiere(a, b):
-    return a + b
-print(addiere(2, 3))                  # 5
-# 1b) ist_gerade(n) → True/False
-def ist_gerade(n):
-    return n % 2 == 0  # Vergleich liefert schon True/False
-print(ist_gerade(4), ist_gerade(7))   # True False
-# 2) global_var = 10; Funktion: local_var = x*global_var
-#    drin ausgeben; danach global_var außen ausgeben
-global_var = 10                       # global
-def multipliziere_mit_global_var(x):
-    local_var = x * global_var        # lokal, nur hier drin
-    print(local_var)
-multipliziere_mit_global_var(5)       # 50   ← AUFRUF!
-print(global_var)                     # 10   unverändert
-# 3) aufrufe_funktion() definiert innere_funktion(y) = y²
+<h2>Übung 2.4 gelöst (Nr. 3)</h2>
+<pre># 3) aufrufe_funktion() definiert innere_funktion(y) = y²
 #    und ruft sie mit festem Wert auf + gibt aus
 def aufrufe_funktion():               # Funktion IN Funktion
     def innere_funktion(y): return y ** 2
@@ -272,6 +256,14 @@ print(m.intersection(z))  # {4, 5, 6}  in BEIDEN
 print(m.union(z))         # {1, 2, 4, 5, 6, 7}
 print(m.difference(z))    # {1, 2}
 print(z.difference(m))    # {7}</pre>
+<h2>Liste von Tupeln: Wert über Namen holen</h2>
+<pre># punkte = [('Anna', 72), ('Ben', 48), ('Cem', 91)]
+# „wert = Punktzahl von Cem“ · punkte['Cem'] → TypeError!
+wert = punkte[2][1]   # Weg 1 Index: 3. Tupel, 2. Stelle → 91
+d = dict(punkte)  # Weg 2: {'Anna': 72, 'Ben': 48, 'Cem': 91}
+for name, p in d.items():  # Paare entpacken: Anna 72, Ben 48…
+    if name == 'Cem':      # „von Cem“
+        wert = p           # 91 · kürzer: d['Cem'] → 91</pre>
 
 <h1>2.6 Zeitstempel</h1>
 <pre>from datetime import datetime, timedelta  # nicht import datetime
@@ -452,13 +444,15 @@ for (let el = src.firstElementChild; el; ) {
   el = after;
   blocks.push(box);
 }
+const pinBox = document.getElementById('pin');
 function layout(fs) {
   document.documentElement.style.setProperty('--fs', fs + 'pt');
   cols.innerHTML = '';
   const c = [0, 1, 2].map(() => cols.appendChild(Object.assign(document.createElement('div'), { className: 'col' })));
+  c[0].appendChild(pinBox);  // Pin-Kasten vorab unten in Spalte 1 reservieren
   let i = 0;
   for (const b of blocks) {
-    c[i].appendChild(b);
+    if (i === 0) c[0].insertBefore(b, pinBox); else c[i].appendChild(b);
     while (c[i].scrollHeight > c[i].clientHeight) {
       if (i === 2) return false;
       c[++i].appendChild(b);
@@ -468,10 +462,9 @@ function layout(fs) {
 }
 let fs = 7.2;
 while (fs > 4 && !layout(fs)) fs = Math.round((fs - 0.1) * 10) / 10;
-// Pin-Kasten erst NACH dem Layout unten in Spalte 1 – verschiebt nichts.
-const pinBox = document.getElementById('pin'), c0 = cols.firstElementChild;
-c0.appendChild(pinBox);
-if (c0.scrollHeight > c0.clientHeight) { pinBox.remove(); document.title += ' PIN-PASST-NICHT'; }
+// Prüfung: Pin-Kasten unten in Spalte 1 vorhanden und ohne Überlauf?
+const c0 = cols.firstElementChild;
+if (pinBox.parentNode !== c0 || c0.scrollHeight > c0.clientHeight) document.title += ' PIN-PASST-NICHT';
 else document.title += ' PIN-OK';
 // Prüfung: umgebrochene Codezeilen zählen (Zeilen laut Text vs. gerenderte Höhe)
 let wrapped = 0;
