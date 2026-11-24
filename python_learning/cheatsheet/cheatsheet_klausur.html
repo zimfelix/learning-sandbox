@@ -3,21 +3,27 @@
 <style>
 @page { size: A4; margin: 5mm; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font: 6.7pt/1.17 "Helvetica Neue", Arial, sans-serif; color: #000; background: #fff; }
-.page { columns: 4; column-gap: 2.2mm; column-rule: 0.3pt solid #999; height: 287mm; column-fill: auto; }
-h1 { font-size: 7.4pt; background: #000; color: #fff; padding: 0.3mm 1mm; margin: 0.8mm 0 0.4mm; break-after: avoid; }
-h2 { font-size: 6.5pt; border-bottom: 0.4pt solid #000; margin: 0.6mm 0 0.2mm; break-after: avoid; }
-pre, code { font: 6.4pt/1.12 Menlo, Consolas, monospace; }
+:root { --fs: 6.6pt; }
+body { font: var(--fs)/1.15 "Helvetica Neue", Arial, sans-serif; color: #000; background: #fff; }
+/* Layout: Script verteilt die Blöcke aus #src auf 4 Spalten (je max. 287 mm hoch) und
+   verkleinert --fs schrittweise, bis alles auf 1 A4-Seite passt. */
+#src { width: 49mm; }
+.cols { display: flex; gap: 2.2mm; height: 286mm; overflow: hidden; }
+.col { width: 49mm; height: 286mm; overflow: hidden; border-right: 0.3pt solid #999; padding-right: 1mm; }
+.col:last-child { border-right: 0; }
+h1 { font-size: calc(var(--fs) + 1.2pt); background: #000; color: #fff; padding: 0.3mm 1mm; margin: 0.8mm 0 0.4mm; break-after: avoid; }
+h2 { font-size: calc(var(--fs) + 0.3pt); border-bottom: 0.4pt solid #000; margin: 0.6mm 0 0.2mm; break-after: avoid; }
+pre, code { font: calc(var(--fs) - 0.3pt)/1.1 Menlo, Consolas, monospace; }
 pre { white-space: pre-wrap; background: #f1f1f1; padding: 0.2mm 0.6mm; margin: 0.2mm 0; break-inside: avoid; }
 p, li { margin: 0.1mm 0; }
 ul { padding-left: 2.4mm; }
 table { border-collapse: collapse; width: 100%; margin: 0.2mm 0; break-inside: avoid; }
-td, th { border: 0.3pt solid #aaa; padding: 0 0.5mm; vertical-align: top; text-align: left; }
+td, th { border: 0.3pt solid #aaa; padding: 0 0.5mm; vertical-align: top; text-align: left; overflow-wrap: anywhere; }
 th { background: #ddd; }
 .w { font-weight: bold; }
 .warn { border: 0.5pt solid #000; padding: 0.3mm 0.6mm; margin: 0.3mm 0; break-inside: avoid; }
 .c { color: #555; }
-</style></head><body><div class="page">
+</style></head><body><div class="cols" id="cols"></div><div id="src">
 
 <h1>1 · 2.1 Grundlagen &amp; Datentypen</h1>
 <pre>print('hallo', a)   # Komma = Leerzeichen dazwischen
@@ -56,7 +62,12 @@ f'{name} ist {alter}'  → Variablen in String</pre>
 <tr><td><code>%</code></td><td><code>7%3</code></td><td>1 (Rest/Modulo)</td></tr>
 <tr><td><code>**</code></td><td><code>5**3</code></td><td>125 (Potenz)</td></tr></table>
 <pre>a = 2; a += 4 → 6   a **= 3 → 216   a %= 2 → 0
-a += 1 ist a = a + 1 (verändert a!) · a + 1 nur rechnen
+RECHENZEICHEN + = → Zuweisung, VERÄNDERT a:  += -= *= /= **= %=
+VERGLEICH → True/False, a bleibt:  == != &lt; &lt;= &gt; &gt;=
+a + 1      rechnet, Ergebnis weg (kein Fehler, a gleich)
+c = a + 1  c neu, a bleibt  ·  a += 1 = a = a + 1
+c = a += 1 → SyntaxError (+= liefert keinen Wert)
+^ ist NICHT Potenz (XOR) → Potenz = **
 Vergleich: == != &lt; &lt;= &gt; &gt;=  → True/False   (= ist ZUWEISUNG!)
 a &lt; b &lt; c erlaubt   ·   logisch: and  or  not
 in / not in: 'Beta' in ['Alpha','Beta'] → True
@@ -83,7 +94,9 @@ for i in range(3):          # 0 1 2
 counter = 0
 while counter &lt; 3:          # solange True
     print(counter)          # 0 1 2
-    counter += 1            # sonst Endlosschleife!</pre>
+    counter += 1            # sonst Endlosschleife!
+# „bis counter 5 erreicht“ → &lt; 5 (gibt 1…5); &lt;= 5 gibt bis 6!
+# Einrückung = Zugehörigkeit: while UNTER for eingerückt → läuft IN der for-Schleife</pre>
 <pre>i = 0                      i = 1
 while i &lt; 5:               while i &lt; 4:
     i = i + 1                  i = i + 1
@@ -107,11 +120,25 @@ print(summe(2, 3))      # ohne Aufruf passiert NICHTS
 
 def gruss(name, text='Hallo'):   # Default-Wert
     return text + ' ' + name
-gruss('Bo') → 'Hallo Bo'</pre>
+gruss('Bo') → 'Hallo Bo'
+
+global_var = 10            # global
+def mult(x):
+    local_var = x * global_var   # lokal, nur hier drin
+    print(local_var)
+mult(5)            # → 50   ← AUFRUF! sonst passiert nichts
+print(global_var)  # → 10   unverändert, local_var hier unbekannt
+
+def aussen():              # Funktion IN Funktion
+    def innen(y):
+        return y ** 2
+    print(innen(2))        # innen nur in aussen nutzbar
+aussen()           # → 4    ← auch die äußere AUFRUFEN!</pre>
 <p><b>return</b> gibt Wert zurück (weiterrechnen möglich) · <b>print</b> zeigt nur an, Funktion liefert dann <code>None</code></p>
 <p><b>3 Arten:</b> Built-in (<code>print len str abs type range</code>) · selbst geschrieben (<code>def</code>) · aus Bibliotheken (<code>import numpy as np</code> → <code>np.sum([2,3])</code>); fremde Pakete vorher <code>pip install name</code></p>
 <h2>Klausur-Muster</h2>
-<pre># Summe (Accumulator): vorher starten, drin sammeln, danach nutzen
+<pre># Accumulator: a += i sammelt (1 3 6) · c = a + i NICHT (1 2 3, a bleibt 0)
+# Summe (Accumulator): vorher starten, drin sammeln, danach nutzen
 summe = 0
 for i in range(1, 101):
     if i % 3 == 0 or i % 5 == 0:
@@ -191,6 +218,43 @@ m2.difference(m1) → {'strawberry'}</pre>
 <tr><td>Tupel/Liste</td><td><code>l+l</code> aneinander</td><td><code>l*2</code> wiederholt</td><td>ja</td></tr>
 <tr><td>Set</td><td><code>.add()</code></td><td>–</td><td>ja</td></tr>
 <tr><td>Dict</td><td>–</td><td>–</td><td><code>.keys()</code>/<code>.values()</code></td></tr></table>
+<h2>Aufgabe → Code (Übersetzung)</h2>
+<table><tr><th>Aufgabe sagt</th><th>Liste</th><th>Dict</th><th>Set</th></tr>
+<tr><td>„das n-te Element“</td><td><code>l[n-1]</code> (Index ab 0!)</td><td><code>d['Key']</code></td><td>– (keine Ordnung)</td></tr>
+<tr><td>„ändere“</td><td><code>l[1] = 'Welt'</code></td><td><code>d['Alter'] = 26</code></td><td>remove + add</td></tr>
+<tr><td>„füge hinzu“</td><td><code>l.append(42)</code></td><td><code>d['Beruf'] = 'Ing.'</code></td><td><code>m.add(6)</code></td></tr>
+<tr><td>„entferne Wert x“</td><td><code>l.remove(x)</code></td><td>–</td><td><code>m.remove(x)</code>/<code>discard</code></td></tr>
+<tr><td>„entferne Position/Key“</td><td><code>del l[0]</code> / <code>l.pop(0)</code></td><td><code>del d['Stadt']</code></td><td>–</td></tr>
+<tr><td>„ist x enthalten?“</td><td><code>x in l</code></td><td><code>'K' in d</code> (Keys!)</td><td><code>x in m</code></td></tr></table>
+<p class="c">Dict hat KEINE Index-Zahlen: <code>d[0]</code> → KeyError (außer 0 ist ein Key). Methoden mit () · Zugriff mit [ ]</p>
+<h2>Übung 2.5 komplett gelöst</h2>
+<pre>t = (1, 'Hallo', 3.14, True)
+print(t[2])                   # 3.14  (drittes = Index 2)
+t[0] = 5                      # TypeError: Tupel unveränderbar
+
+l = [1, 'Hallo', 3.14, True]
+l[1] = 'Welt'                 # zweites = Index 1
+l.append(42)                  # ans Ende
+del l[0]                      # erstes weg (oder l.pop(0) / l.remove(1))
+print(l)                      # ['Welt', 3.14, True, 42]
+
+d = {'Name': 'Max', 'Alter': 25, 'Stadt': 'Berlin'}
+print(d['Name'])              # Max
+d['Alter'] = 26               # Key existiert → ändern
+d['Beruf'] = 'Ingenieur'      # Key neu → hinzufügen
+del d['Stadt']                # oder d.pop('Stadt')
+print(d)          # {'Name': 'Max', 'Alter': 26, 'Beruf': 'Ingenieur'}
+
+m = {1, 2, 3, 4, 4, 5}        # doppelte 4 fällt weg → {1,2,3,4,5}
+m.add(6)
+m.remove(3)
+print(2 in m)                 # True
+print(m)                      # {1, 2, 4, 5, 6}
+z = {4, 5, 6, 7}
+print(m.intersection(z))      # {4, 5, 6}        in BEIDEN
+print(m.union(z))             # {1, 2, 4, 5, 6, 7}  alle, ohne Doppelte
+print(m.difference(z))        # {1, 2}           in m, NICHT in z
+print(z.difference(m))        # {7}              Reihenfolge zählt!</pre>
 
 <h1>2.6 Zeitstempel</h1>
 <pre>from datetime import datetime
@@ -306,6 +370,38 @@ Funktion definiert, aber nicht aufgerufen · <code>print</code> statt <code>retu
 range/Slicing: Ende exklusiv · <code>random.randint</code> inkl. vs. <code>np.random.randint</code> exkl.<br>
 <code>and</code> bei einzelnen Werten, <code>&amp;</code> bei Arrays/DataFrames + Klammern<br>
 <code>strptime</code> str→Datum (Klasse) · <code>strftime</code> Datum→str (Objekt)<br>
+Variable nie <code>list</code>/<code>str</code>/<code>sum</code> nennen (überschreibt Built-in) · <code>print()</code> leer = Leerzeile<br>
 <code>shuffle</code> gibt None · <code>drop</code> ohne Zuweisung ändert df nicht · <code>'a'+3</code> → <code>'a'+str(3)</code></div>
 
-</div></body></html>
+</div>
+<script>
+// Überschrift + folgenden Block zusammenhalten, dann Blöcke der Reihe nach in 4 Spalten füllen.
+const src = document.getElementById('src'), cols = document.getElementById('cols');
+const blocks = [];
+for (let el = src.firstElementChild; el; ) {
+  const next = el.nextElementSibling, box = document.createElement('div');
+  const isHead = /^H[12]$/.test(el.tagName) && next;
+  const after = isHead ? next.nextElementSibling : next;   // vor dem Verschieben merken
+  box.appendChild(el);
+  if (isHead) box.appendChild(next);
+  el = after;
+  blocks.push(box);
+}
+function layout(fs) {
+  document.documentElement.style.setProperty('--fs', fs + 'pt');
+  cols.innerHTML = '';
+  const c = [0, 1, 2, 3].map(() => cols.appendChild(Object.assign(document.createElement('div'), { className: 'col' })));
+  let i = 0;
+  for (const b of blocks) {
+    c[i].appendChild(b);
+    while (c[i].scrollHeight > c[i].clientHeight) {
+      if (i === 3) return false;
+      c[++i].appendChild(b);
+    }
+  }
+  return true;
+}
+let fs = 7.2;
+while (fs > 4 && !layout(fs)) fs = Math.round((fs - 0.1) * 10) / 10;
+document.title += ' (' + fs + 'pt)';
+</script></body></html>
