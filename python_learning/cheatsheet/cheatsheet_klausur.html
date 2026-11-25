@@ -219,7 +219,7 @@ l + l   aneinander · l * 2 wiederholt · 2 in l → True</pre>
 <tr><td>„entferne Wert x“</td><td><code>l.remove(x)</code> (erstes)</td><td>–</td><td><code>m.remove(x)</code> / <code>discard</code></td></tr>
 <tr><td>„entferne Pos./Key“</td><td><code>del l[0]</code> / <code>l.pop(0)</code></td><td><code>del d['Stadt']</code></td><td>–</td></tr>
 <tr><td>„enthalten?“</td><td><code>x in l</code></td><td><code>'K' in d</code> (Keys!) · <code>x in d.values()</code></td><td><code>x in m</code></td></tr>
-<tr><td>„zählen / sortieren“</td><td><code>l.count(3)</code> · <code>l.sort()</code> · <code>l.reverse()</code> · <code>len(l)</code></td><td><code>d.keys() d.values() d.items()</code></td><td><code>len(m)</code></td></tr></table>
+<tr><td>„zählen / sortieren“</td><td><code>l.count(3)</code> · <code>l.sort()</code> · <code>l.reverse()</code> · <code>len(l)</code></td><td><code>d.keys() d.values() d.items()</code> · „als Liste“: <code>list(d.keys())</code></td><td><code>len(m)</code></td></tr></table>
 <pre>a = [1, 2, 4]  # Folienbeispiel, Methoden ändern a DIREKT
 a.append(3)      # [1, 2, 4, 3]         1 Element ans Ende
 a.extend([7,8])  # [1, 2, 4, 3, 7, 8]   Liste anhängen
