@@ -23,11 +23,18 @@ th { background: #ddd; }
 .w { font-weight: bold; }
 .warn { border: 0.5pt solid #000; padding: 0.3mm 0.6mm; margin: 0.3mm 0; break-inside: avoid; }
 .c { color: #000; font-style: italic; }
+/* Farben (nur Einfärbung, Text und Breite bleiben gleich): */
+.k-task { color: #a3120c; }   /* rot: Aufgabe/Thema – ganze Zeile */
+.k-note { color: #17592a; }   /* grün: Notizzeile (# …) – ganze Zeile */
+.k-alt  { display: block; background: #dce7f7; }  /* jede 2. Aufgabe im Kasten hellblau */
+#legend { border: 0.5pt solid #000; padding: 0.3mm 0.6mm; margin-top: 0.6mm; }
+#legend .k-alt { display: inline; padding: 0 0.6mm; }
 </style></head><body><div class="cols" id="cols"></div><div id="pin"><h2>3.2 matplotlib (mini)</h2><pre>import matplotlib.pyplot as plt
 plt.plot(x, y)      # Linie · x = np.arange(0, 11); y = x**2
 plt.scatter(a, b)   # Streu – x UND y! a = np.random.rand(50)
 plt.hist(n)         # Histogramm · n = np.random.randn(1000)
 fig, ax = plt.subplots(2, 2); ax[0, 0].plot(x, y) · plt.show()</pre></div>
+<div id="legend"><b>Legende Code:</b> <span class="k-task">rot = Aufgabe/Thema</span> · <span class="k-note">grün = Notiz/Ausgabe</span> · schwarz = Code (inkl. # dahinter) · <span class="k-alt">hellblau</span> = jede 2. Aufgabe</div>
 <div id="src">
 <h1>2.1 Variablen &amp; Datentypen</h1>
 <table><tr><th>Typ</th><th>Beispiel</th><th>wofür / Info</th></tr>
@@ -76,7 +83,7 @@ y.count('o') → 4                 # 3 i → o + 1 o schon da</pre>
 <pre># 1) Variablen a–e anlegen · 2) ausgeben
 a = None; b = True; c = 42; d = 3.14; e = 'Hello, World!'
 print(a, b, c, d, e)  # None True 42 3.14 Hello, World!
-# 3) Typ prüfen
+# 3) Datentyp prüfen: type()
 print(type(a), type(b))  # &lt;class 'NoneType'&gt; &lt;class 'bool'&gt; …
 # 4) umwandeln: b→int, c→float, d→str, e→GROSS · 5) ausgeben
 b_int = int(b)                # 1
@@ -106,20 +113,20 @@ a &lt; b &lt; c erlaubt</pre>
 <pre>not 7-(1+2**3) &lt; -3 or 'hallo' != 'hallo '
 → 7-9=-2 · -2&lt;-3 False · not → True · or → True</pre>
 <h2>Übung 2.2 gelöst (x = 10, y = 3)</h2>
-<pre># 1) + - * / % ** von x, y ausgeben
+<pre># 1) Arithmetik: + - * / % ** von x, y ausgeben
 print(x+y, x-y, x*y, x/y, x%y, x**y)  # 13 7 30 3.333… 1 1000
-# 2) str1 + str2 verketten → greeting
+# 2) Strings: str1 + str2 verketten → greeting
 greeting = 'Hello' + ' ' + 'World'  # Hello World
 # 3) z = 5: +2, −3, ×4, ÷2 mit Zuweisungsop., je ausgeben
 z = 5
 z += 2; print(z)   # 7      z -= 3; print(z)   # 4
 z *= 4; print(z)  # 16     z /= 2; print(z)  # 8.0 (float!)
-# 4) x, y mit allen Vergleichen
+# 4) Vergleichsoperatoren: x, y mit allen Vergleichen
 print(x==y, x!=y, x&gt;y, x&lt;y, x&gt;=y, x&lt;=y)  # F T T F T F
-# 5) and/or/not mit True, False
+# 5) Logische Operatoren: and/or/not mit True, False
 a = True; b = False
 print(a and b, a or b, not a)          # False True False
-# 6) sind 3 und 6 in my_list?
+# 6) Membership: sind 3 und 6 in my_list?
 my_list = [1, 2, 3, 4, 5]
 print(3 in my_list, 6 in my_list)      # True False</pre>
 
@@ -146,9 +153,9 @@ number = -3
 if number &gt; 0:    print('Die Zahl ist positiv')
 elif number == 0: print('Die Zahl ist null')
 else:             print('Die Zahl ist negativ')   # ← läuft
-# 2a) for: 1 bis 10 ausgeben
+# 2a) for-Schleife: 1 bis 10 ausgeben
 for i in range(1, 11): print(i)           # 1 … 10
-# 2b) while bis counter 5 erreicht, +1, ausgeben
+# 2b) while-Schleife: bis counter 5 erreicht, +1, ausgeben
 counter = 0
 while counter &lt; 5:                        # &lt;= 5 gäbe bis 6!
     counter += 1; print(counter)          # 1 2 3 4 5
@@ -335,15 +342,15 @@ x[(x &gt; 7) &amp; (x &lt; 21)]  # „zwischen“: &amp; UND · | ODER
 <h2>Übung 3.1 gelöst + Vorklausur</h2>
 <pre># 1) Array 1 bis 20 erzeugen + ausgeben
 x = np.arange(1, 21); print(x)  # [ 1  2 … 20]
-# 2) Summe, Durchschnitt, Max, Min
+# 2) Statistik: Summe, Durchschnitt, Max, Min
 print(np.sum(x), np.mean(x), np.max(x), np.min(x))
 # 210 10.5 20 1
-# 3) jedes Element ×2 → neues Array
+# 3) elementweise: jedes Element ×2 → neues Array
 y = x * 2  # [ 2  4  6 … 40]
-# 4) Index 5 bis 10 extrahieren; Index 3–7 → 100
+# 4) Slicing: Index 5 bis 10 extrahieren; Index 3–7 → 100
 print(x[5:11])  # [ 6  7  8  9 10 11]
 x[3:8] = 100; print(x)  # [1 2 3 100 100 100 100 100 9 …]
-# 5) alle Elemente &gt; 10 als neues Array
+# 5) Maske: alle Elemente &gt; 10 als neues Array
 print(x[x &gt; 10])  # [100 100 100 100 100 11 12 … 20]
 # Vorklausur: Mittelwert + Std der Zahlen 1…100
 z = np.arange(1, 101)
@@ -382,9 +389,9 @@ print(df['Gehalt'].mean())                     # 3600.0
 print(df.loc[df['Alter'].idxmax()])  # Anna, 28, Berlin …
 print(df.groupby('Stadt')['Gehalt'].mean())
 # Berlin 3500.0 · Hamburg 3800.0
-# 4) eine Zeile entfernen
+# 4) drop: eine Zeile entfernen
 df = df.drop(2); print(df)  # Cem (Index 2) weg
-# 5) als CSV speichern, neu laden, anzeigen
+# 5) CSV: speichern, neu laden, anzeigen
 df.to_csv('mitarbeiter.csv', index=False)
 df_neu = pd.read_csv('mitarbeiter.csv'); print(df_neu)</pre>
 
@@ -432,6 +439,30 @@ print(fl, zahl_int)  # [51.51…, 2.97…, …] 3</pre>
 
 </div>
 <script>
+// Code einfärben – EINE Farbe pro Zeile: Aufgabe/Thema rot, Notiz grün, Code schwarz.
+// Jede Aufgabe bildet eine Gruppe; jede 2. Gruppe im Kasten hellblau hinterlegt.
+function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+const TASK = /^#\s*(\d+[a-z]?\)|Zettel|Vorklausur)/;
+for (const pre of document.querySelectorAll('pre')) {
+  const h = pre.previousElementSibling;
+  const muster = h && /^Vorklausur-Muster/.test(h.textContent);  // dort ist jede #-Zeile ein Aufgabentyp
+  const lines = pre.textContent.split('\n'), groups = [[]];
+  pre.dataset.n = lines.length;  // echte Zeilenzahl für die Umbruchprüfung
+  let prev = '';
+  for (const l of lines) {
+    const t = l.trim(), isCom = t.startsWith('#') && l.startsWith('#');
+    let kind = 'code';
+    if (isCom) kind = (TASK.test(t) || muster) ? 'task' : (prev === 'task' && /^#\s{2,}/.test(l)) ? 'task' : 'note';
+    const starts = kind === 'task' && prev !== 'task';
+    if (starts && groups[groups.length - 1].length) groups.push([]);
+    groups[groups.length - 1].push(kind === 'code' ? esc(l) : '<span class="k-' + kind + '">' + esc(l) + '</span>');
+    prev = kind;
+  }
+  pre.innerHTML = groups.map((g, i) => {
+    const x = g.join('\n');
+    return i % 2 ? '<span class="k-alt">' + x + '</span>' : x + (i < groups.length - 1 ? '\n' : '');
+  }).join('');
+}
 // Überschrift + folgenden Block zusammenhalten, dann Blöcke der Reihe nach in 4 Spalten füllen.
 const src = document.getElementById('src'), cols = document.getElementById('cols');
 const blocks = [];
@@ -444,18 +475,19 @@ for (let el = src.firstElementChild; el; ) {
   el = after;
   blocks.push(box);
 }
-const pinBox = document.getElementById('pin');
+const pinBox = document.getElementById('pin'), legend = document.getElementById('legend');
 function layout(fs) {
   document.documentElement.style.setProperty('--fs', fs + 'pt');
   cols.innerHTML = '';
   const c = [0, 1, 2].map(() => cols.appendChild(Object.assign(document.createElement('div'), { className: 'col' })));
   c[0].appendChild(pinBox);  // Pin-Kasten vorab unten in Spalte 1 reservieren
+  c[1].appendChild(legend);  // Legende vorab unten in Spalte 2 reservieren
   let i = 0;
   for (const b of blocks) {
-    if (i === 0) c[0].insertBefore(b, pinBox); else c[i].appendChild(b);
+    if (i === 0) c[0].insertBefore(b, pinBox); else if (i === 1) c[1].insertBefore(b, legend); else c[i].appendChild(b);
     while (c[i].scrollHeight > c[i].clientHeight) {
       if (i === 2) return false;
-      c[++i].appendChild(b);
+      if (++i === 1) c[1].insertBefore(b, legend); else c[i].appendChild(b);  // Legende bleibt unten
     }
   }
   return true;
@@ -466,12 +498,14 @@ while (fs > 4 && !layout(fs)) fs = Math.round((fs - 0.1) * 10) / 10;
 const c0 = cols.firstElementChild;
 if (pinBox.parentNode !== c0 || c0.scrollHeight > c0.clientHeight) document.title += ' PIN-PASST-NICHT';
 else document.title += ' PIN-OK';
+const c1 = c0.nextElementSibling;
+document.title += (legend.parentNode !== c1 || c1.scrollHeight > c1.clientHeight) ? ' LEG-PASST-NICHT' : ' LEG-OK';
 // Prüfung: umgebrochene Codezeilen zählen (Zeilen laut Text vs. gerenderte Höhe)
 let wrapped = 0;
 for (const pre of cols.querySelectorAll('pre')) {
   const cs = getComputedStyle(pre), lh = parseFloat(cs.lineHeight);
   const inner = pre.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
-  const n = pre.textContent.split('\n').length;
+  const n = +pre.dataset.n;
   const real = Math.round(inner / lh);
   if (real > n) { wrapped += real - n; pre.style.outline = '1pt solid red'; }
 }
