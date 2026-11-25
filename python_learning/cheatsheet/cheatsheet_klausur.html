@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><title>Cheat Sheet Grundlagen der Programmierung</title>
 <style>
-@page { size: A4; margin: 2.5mm 5mm; }  /* oben/unten knapp, seitlich 5 mm */
+@page { size: A4; margin: 1.5mm 4mm; }  /* oben/unten ~1 Zeile, seitlich 4 mm */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root { --fs: 6.6pt; }
 body { font: var(--fs)/1.15 "Helvetica Neue", Arial, sans-serif; color: #000; background: #fff; }
 /* Layout: Script verteilt die Blöcke aus #src auf 3 Spalten (je max. 287 mm hoch) und
    verkleinert --fs schrittweise, bis alles auf 1 A4-Seite passt. */
-#src { width: 65.5mm; }
-.cols { display: flex; gap: 2.2mm; height: 291mm; overflow: hidden; }
-.col { width: 65.5mm; height: 291mm; overflow: hidden; border-right: 0.3pt solid #999; padding-right: 1mm; }
+#src { width: 65.8mm; }
+.cols { display: flex; gap: 2.2mm; height: 293.5mm; overflow: hidden; }
+.col { font: var(--fs)/1.15 "Helvetica Neue", Arial, sans-serif; width: 65.8mm; height: 293.5mm; overflow: hidden; border-right: 0.3pt solid #999; padding-right: 1mm; }
 .col:last-child { border-right: 0; }
-h1 { font-size: calc(var(--fs) + 1.2pt); background: #000; color: #fff; padding: 0.3mm 1mm; margin: 0.8mm 0 0.4mm; break-after: avoid; }
-h2 { font-size: calc(var(--fs) + 0.3pt); border-bottom: 0.4pt solid #000; margin: 0.6mm 0 0.2mm; break-after: avoid; }
+h1 { font-size: var(--fs); background: #000; color: #fff; padding: 0.1mm 1mm; margin: 0.5mm 0 0.3mm; break-after: avoid; }
+h2 { font-size: var(--fs); border-bottom: 0.4pt solid #000; margin: 0.6mm 0 0.2mm; break-after: avoid; }
 pre, code { font: calc(var(--fs) - 0.3pt)/1.1 Menlo, Consolas, monospace; }
 pre { white-space: pre-wrap; background: #f6f6f6; padding: 0.2mm 0.6mm; margin: 0.2mm 0; break-inside: avoid; }
 p, li { margin: 0.1mm 0; }
@@ -26,6 +26,7 @@ th { background: #ddd; }
 /* Farben (nur Einfärbung, Text und Breite bleiben gleich): */
 .k-task { color: #a3120c; }   /* rot: Aufgabe/Thema – ganze Zeile */
 .k-note { color: #17592a; }   /* grün: Notizzeile (# …) – ganze Zeile */
+.k-rd td { color: #0a3a85; }  /* blau: relativedelta-Zeilen in 2.6 */
 .k-alt  { display: block; background: #dce7f7; }  /* jede 2. Aufgabe im Kasten hellblau */
 </style></head><body><div class="cols" id="cols"></div><div id="pin"><h2>3.2 matplotlib (mini)</h2><pre>import matplotlib.pyplot as plt
 plt.plot(x, y)      # Linie · x = np.arange(0, 11); y = x**2
@@ -81,11 +82,6 @@ print(type(a), type(b))  # &lt;class 'NoneType'&gt; &lt;class 'bool'&gt; …</pr
 <tr><td>„mindestens / höchstens / größer als“</td><td><code>&gt;=</code> · <code>&lt;=</code> · <code>&gt;</code></td><td>„zwischen“: <code>a &lt; b &lt; c</code> erlaubt</td></tr>
 <tr><td>„und / oder / nicht“</td><td><code>and</code> · <code>or</code> · <code>not</code></td><td>Bedingungen verknüpfen</td></tr>
 <tr><td>„ist enthalten?“</td><td><code>'Beta' in ['Alpha','Beta']</code></td><td>True · 'beta' → False (Groß/klein!)</td></tr></table>
-<pre>c = a + 1  # c neu, a bleibt · a + 1 allein: verpufft
-c = a += 1    # SyntaxError (+= liefert keinen Wert)</pre>
-<p><b>Priorität:</b> <code>()</code> › <code>**</code> › <code>* / // %</code> › <code>+ -</code> › Vergleiche/<code>in</code> › <code>not</code> › <code>and</code> › <code>or</code></p>
-<pre>not 7-(1+2**3) &lt; -3 or 'hallo' != 'hallo '
-→ 7-9=-2 · -2&lt;-3 False · not → True · or → True</pre>
 <h2>Übung 2.2 gelöst (Nr. 4–6, x = 10, y = 3)</h2>
 <pre># 4) Vergleichsoperatoren: x, y mit allen Vergleichen
 print(x==y, x!=y, x&gt;y, x&lt;y, x&gt;=y, x&lt;=y)  # F T T F T F
@@ -173,14 +169,16 @@ l2 = [(1,2),(4,8)]; l2[1][0] → 4  # erst Liste, dann Tupel
 l + l   aneinander · l * 2 wiederholt · 2 in l → True</pre>
 <h2>Aufgabe → Code</h2>
 <table><tr><th>Aufgabe sagt</th><th>Liste</th><th>Dict</th><th>Set</th></tr>
-<tr><td>„n-tes Element“</td><td><code>l[n-1]</code> (ab 0!)</td><td><code>d['Key']</code></td><td>–</td></tr>
+<tr><td>„n-tes Element“, „letztes“</td><td><code>l[n-1]</code> (ab 0!) · <code>l[-1]</code></td><td><code>d['Key']</code></td><td>–</td></tr>
 <tr><td>„ändere“</td><td><code>l[1] = 'Welt'</code></td><td><code>d['Alter'] = 26</code></td><td>remove + add</td></tr>
 <tr><td>„füge hinzu“</td><td><code>l.append(42)</code> Ende · <code>l.insert(1, x)</code> Pos.</td><td><code>d['Beruf'] = 'Ing.'</code></td><td><code>m.add(6)</code></td></tr>
 <tr><td>„Liste anhängen“</td><td><code>l.extend([7, 8])</code></td><td>–</td><td><code>m1 = m1.union(m2)</code> (neu zuweisen!)</td></tr>
-<tr><td>„entferne Wert x“</td><td><code>l.remove(x)</code> (erstes)</td><td>–</td><td><code>m.remove(x)</code> / <code>discard</code></td></tr>
-<tr><td>„entferne Pos./Key“</td><td><code>del l[0]</code> / <code>l.pop(0)</code></td><td><code>del d['Stadt']</code></td><td>–</td></tr>
+<tr><td>„Index 1 <b>bis</b> 3“, „letzte drei“</td><td><code>l[1:4]</code> (bis n → <code>:n+1</code>) · <code>l[-3:]</code></td><td>–</td><td>–</td></tr>
+<tr><td>„entferne Wert x“</td><td><code>l.remove(x)</code> (erstes)</td><td>–</td><td><code>m.discard(x)</code></td></tr>
+<tr><td>„entferne Pos./Key“</td><td><code>del l[0]</code> / <code>l.pop(0)</code> · letztes: <code>l.pop()</code></td><td><code>del d['Stadt']</code></td><td>–</td></tr>
 <tr><td>„enthalten?“</td><td><code>x in l</code></td><td><code>'K' in d</code> (Keys!) · <code>x in d.values()</code></td><td><code>x in m</code></td></tr>
-<tr><td>„zählen / sortieren“</td><td><code>l.count(3)</code> · <code>l.sort()</code> · <code>l.reverse()</code> · <code>len(l)</code></td><td><code>d.keys() d.values() d.items()</code><span class="k-task">(2 Items)</span> · Liste: <code>list(d.keys())</code></td><td><code>len(m)</code></td></tr></table>
+<tr><td>„zählen / sortieren“</td><td><code>l.count(3)</code> · <code>l.sort()</code> absteigend <code>(reverse=True)</code> · <code>l.reverse()</code> → <span class="k-task">None, ändert l!</span> · <code>len(l)</code></td><td><code>d.keys() d.values() d.items()</code><span class="k-task">(2 Items)</span> · Liste: <code>list(d.keys())</code></td><td><code>len(m)</code></td></tr>
+<tr><td>„Summe“, „Menge daraus“</td><td><code>sum(l)</code></td><td><code>sum(d.values())</code></td><td><code>set(l)</code> (Duplikate weg)</td></tr></table>
 <pre>a = [1, 2, 4]  # Folienbeispiel, Methoden ändern a DIREKT
 a.append(3)      # [1, 2, 4, 3]         1 Element ans Ende
 a.extend([7,8])  # [1, 2, 4, 3, 7, 8]   Liste anhängen
@@ -227,23 +225,20 @@ for name, p in d.items():  # Paare entpacken: Anna 72, Ben 48…
         wert = p           # 91 · kürzer: d['Cem'] → 91</pre>
 
 <h1>2.6 Zeitstempel</h1>
-<pre>from datetime import datetime, timedelta  # nicht import datetime</pre>
+<pre>from datetime import datetime, timedelta  # ≠ import datetime</pre>
 <table><tr><th>Aufgabe sagt</th><th>Code zum Abtippen (d = 26.11.2026 10:00)</th></tr>
-<tr><td>„aktueller Zeitstempel“, „jetzt“</td><td><code>jetzt = datetime.now()</code></td></tr>
-<tr><td>„fester“ Zeitstempel, Datum als <b>Zahlen</b> („24.11.2026, 9 Uhr“)</td><td><code>datetime(2026, 11, 24, 9, 0)</code> – kein strp/strf!</td></tr>
-<tr><td>Datum als <b>Text</b> → „parse“, „in datetime umwandeln“</td><td><code>d = datetime.strptime('26.11.2026 10:00', '%d.%m.%Y %H:%M')</code> strP = Parse: Text rein</td></tr>
-<tr><td>„als String / im Format … ausgeben“</td><td><code>d.strftime('%d.%m.%Y um %H:%M')</code> → <code>'26.11.2026 um 10:00'</code> strF = Format: Text raus</td></tr>
+<tr><td>„aktueller Zeitstempel“, „jetzt“</td><td><code>jetzt = datetime.now()</code> <span class="k-task">(datetime-Objekt)</span></td></tr>
+<tr><td>„fester“ Zeitstempel, Datum als <b>Zahlen</b> („24.11.2026, 9 Uhr“)</td><td><code>datetime(2026, 11, 24, 9, 0)</code> <span class="k-task">(datetime-Objekt)</span> – kein strp/strf!</td></tr>
+<tr><td>Datum als <b>Text</b> → „parse“, „in datetime umwandeln“</td><td><code>d = datetime.strptime('26.11.2026 10:00', '%d.%m.%Y %H:%M')</code> <span class="k-task">(datetime-Objekt)</span> strP = Parse: Text rein</td></tr>
+<tr><td>„als String / im Format … ausgeben“</td><td><code>d.strftime('%d.%m.%Y um %H:%M')</code> → <code>'26.11.2026 um 10:00'</code> <span class="k-task">(str, nur Anzeige)</span> strF = Format: Text raus</td></tr>
 <tr><td>Format-Codes</td><td><code>%d</code> Tag <code>%m</code> Monat <code>%Y</code> 2026 <code>%y</code> 26 <code>%H</code> Std <code>%M</code> Min <code>%S</code> Sek · Text exakt abschreiben, nur Zahlen → Code, Wörter („um“) mitschreiben · US <code>'9/24/26'</code> → <code>'%m/%d/%y'</code></td></tr>
 <tr><td>„Jahr / Monat / Stunde von d“</td><td><code>d.year d.month d.day d.hour d.minute</code> → 2026 11 … (OHNE <code>()</code>)</td></tr>
 <tr><td>„dauert 90 Min“, „+3 Tage“, „2 Wochen vorher“</td><td><code>d + timedelta(minutes=90)</code> · <code>d - timedelta(weeks=2)</code> · <code>days=3</code> (Plural!)</td></tr>
-<tr><td>„+1 Monat“, „+1 Jahr“</td><td><code>d + relativedelta(months=1)</code> → 26.12.2026 · <code>years=1</code> (siehe unten)</td></tr>
-<tr><td>„Differenz“, „Tage zwischen“</td><td><code>diff = d - d1</code> (d1 = 1.1.2022 12:00) → <code>1789 days, 22:00:00</code> · <code>diff.days</code> → 1789 (int)</td></tr>
+<tr class="k-rd"><td>„+1 Monat“, „+1 Jahr“ (relativedelta, Import s. u.)</td><td><code>d + relativedelta(months=1)</code> → 26.12.2026 · <code>years=1</code> · Plural = ADDIEREN · timedelta kennt keine months!</td></tr>
+<tr class="k-rd"><td>„setze auf Tag 30“ (relativedelta)</td><td><code>d + relativedelta(day=30)</code> → 30.11.2026 · Singular = Feld SETZEN · <code>minute=90</code> → ValueError (max 59)</td></tr>
+<tr><td>„Differenz“, „Tage <b>von</b> A <b>bis</b> B“</td><td><span class="k-task">Ende − Start</span> (sonst negativ): <code>diff = d - d1</code> (d1 = 1.1.2022 12:00) → <code>1789 days, 22:00:00</code> · <code>diff.days</code> → 1789 (int)</td></tr>
 <tr><td>„… und Stunden“</td><td><code>diff.seconds // 3600</code> → 22 (Rest) · <code>diff.total_seconds() / 3600</code> → gesamt</td></tr></table>
-<pre>from dateutil.relativedelta import relativedelta
-d + relativedelta(months=1)  # Plural = relativ: +1 Monat
-d + relativedelta(day=30)  # Singular = absolut: Tag 30
-# minute=90 → ValueError (Singular setzt Feld, max 59)
-d + relativedelta(months=1, day=30)  # 2024-10-01 → 2024-11-30</pre>
+<pre>from dateutil.relativedelta import relativedelta  # → blau</pre>
 <h2>Übung 2.6 gelöst</h2>
 <pre>from datetime import datetime
 # 1) aktuellen Zeitstempel holen + ausgeben
@@ -278,7 +273,9 @@ x + y  x * 2  x ** 2  # ELEMENTWEISE (Liste + Liste hängt an!)</pre>
 <tr><td>Standardabweichung</td><td><code>np.std(x)</code></td><td>5.766…</td></tr>
 <tr><td>Max / Min</td><td><code>np.max(x)</code> / <code>np.min(x)</code></td><td>20 / 1</td></tr>
 <tr><td>Wurzel je Element</td><td><code>np.sqrt(x)</code></td><td>[1. 1.41 …]</td></tr>
-<tr><td>Anzahl</td><td><code>len(x)</code></td><td>20</td></tr></table>
+<tr><td>Anzahl · „<b>Anzahl</b> größer 10“</td><td><code>len(x)</code> · <code>len(x[x &gt; 10])</code></td><td>20 · 10</td></tr>
+<tr><td>„5, 10 … 50“ (Schrittweite)</td><td><code>np.arange(5, 51, 5)</code></td><td>stop +1, dann Schritt</td></tr>
+<tr><td>„alle ungeraden“, „letzte drei“</td><td><code>x[x % 2 != 0]</code> · <code>x[-3:]</code></td><td>[1 3 … 19] · [18 19 20]</td></tr></table>
 <p class="c"><code>np.mean(x)</code> = Funktion, Daten IN der Klammer · <code>x.mean()</code> = Methode, Daten VOR dem Punkt, Klammer LEER</p>
 <pre>x[0] 1  x[-1] 20  x[5:11] → [6 … 11]  # „Index 5 bis 10“
 x[3:8] = 100  # „Index 3 bis 7 durch 100 ersetzen“
@@ -318,6 +315,7 @@ print(df)  # Methoden hängen am OBJEKT df, nicht an pd</pre>
 <tr><td>„wie viele …“ (True zählen)</td><td><code>df['Gut'].sum()</code> → 2 (True = 1) · <code>len(df[df['Gehalt'] &gt;= 3500])</code></td></tr>
 <tr><td>Wert ändern „für eine Person“</td><td><code>df.loc[df['Name'] == 'Bob', 'Gehalt'] = 3800</code></td></tr>
 <tr><td>Wert ändern per Index</td><td><code>df.loc[0, 'Gehalt'] = 4100</code> (Zeile, Spalte)</td></tr>
+<tr><td>„alle Zeilen mit Stadt Berlin“</td><td><code>df[df['Stadt'] == 'Berlin']</code> · Anzahl Zeilen: <code>len(df)</code></td></tr>
 <tr><td>Zeile entfernen</td><td><code>df = df.drop(2)</code> (Index; NEU ZUWEISEN!)</td></tr>
 <tr><td>Durchschnitt</td><td><code>df['Gehalt'].mean()</code> · <code>.sum() .max() .min() .std()</code> – Klammer LEER</td></tr>
 <tr><td>älteste Person</td><td><code>df.loc[df['Alter'].idxmax()]</code> → ganze Zeile · <code>…idxmax(), 'Name']</code> → 'Anna'</td></tr>
@@ -348,7 +346,7 @@ random.uniform(0, 1)    # „Zufallszahl zw. 0 und 1“ → float
 random.randint(1, 100)  # „ganzzahlig“ 1…100, BEIDE inklusiv
 random.choice(liste)      # „zufälliges Element aus Liste“
 random.shuffle(liste)  # „mischen“ → ändert liste, gibt None!
-random.sample(liste, 3) # „Stichprobe“ → neue Liste
+random.sample(range(1, 50), 6)  # „6 verschiedene“ 1–49
 random.seed(42)  # „reproduzierbar“ – erzeugt NICHTS, legt
                         # nur fest, welche Folge die NÄCHSTEN
                         # Aufrufe liefern; 42 beliebig</pre>
@@ -419,23 +417,49 @@ for (let el = src.firstElementChild; el; ) {
   blocks.push(box);
 }
 const pinBox = document.getElementById('pin');
-function layout(fs) {
+// Tabelle am Spaltenende aufteilen: untere Zeilen wandern (mit wiederholtem Kopf) in die nächste Spalte.
+function splitTable(b, col) {
+  const t = b.querySelector('table');
+  if (!t || t !== b.lastElementChild) return null;
+  const head = t.rows[0].querySelector('th') ? 1 : 0, moved = [];
+  while (col.scrollHeight > col.clientHeight && t.rows.length > head + 1) {
+    const r = t.rows[t.rows.length - 1]; moved.unshift(r); r.remove();
+  }
+  if (col.scrollHeight > col.clientHeight || !moved.length) {   // passt nicht einmal 1 Zeile → rückgängig
+    for (const r of moved) t.rows[0].parentNode.appendChild(r);
+    return null;
+  }
+  const t2 = t.cloneNode(false);
+  if (head) t2.appendChild(t.rows[0].cloneNode(true));
+  for (const r of moved) t2.appendChild(r);
+  const rest = document.createElement('div'); rest.appendChild(t2);
+  return rest;
+}
+// Schrift pro Spalte: Spalte 1+2 = fs, Spalte 3 = fs3 (nur so klein wie nötig).
+function layout(fs, fs3 = fs) {
   document.documentElement.style.setProperty('--fs', fs + 'pt');
   cols.innerHTML = '';
   const c = [0, 1, 2].map(() => cols.appendChild(Object.assign(document.createElement('div'), { className: 'col' })));
+  c[2].style.setProperty('--fs', fs3 + 'pt');
   c[0].appendChild(pinBox);  // Pin-Kasten vorab unten in Spalte 1 reservieren
   let i = 0;
-  for (const b of blocks) {
+  for (const orig of blocks) {
+    let b = orig.cloneNode(true);  // Kopie, damit Aufteilen das Original nicht verändert
     if (i === 0) c[0].insertBefore(b, pinBox); else c[i].appendChild(b);
     while (c[i].scrollHeight > c[i].clientHeight) {
       if (i === 2) return false;
+      const rest = splitTable(b, c[i]);
+      if (rest) b = rest;
       c[++i].appendChild(b);
     }
   }
   return true;
 }
-let fs = 7.2;
-while (fs > 4 && !layout(fs)) fs = Math.round((fs - 0.1) * 10) / 10;
+// Größtes fs für Spalte 1+2 suchen; Spalte 3 darf höchstens 0.2pt kleiner werden.
+const r = x => Math.round(x * 10) / 10;
+let fs = 7.2, fs3 = fs;
+search: for (; fs > 4; fs = r(fs - 0.1))
+  for (fs3 = fs; fs3 >= r(fs - 0.2); fs3 = r(fs3 - 0.1)) if (layout(fs, fs3)) break search;
 // Prüfung: Pin-Kasten unten in Spalte 1 vorhanden und ohne Überlauf?
 const c0 = cols.firstElementChild;
 if (pinBox.parentNode !== c0 || c0.scrollHeight > c0.clientHeight) document.title += ' PIN-PASST-NICHT';
@@ -450,5 +474,5 @@ for (const pre of cols.querySelectorAll('pre')) {
   if (real > n) { wrapped += real - n; pre.style.outline = '1pt solid red'; }
 }
 document.title += ' WRAP=' + wrapped;
-document.title += ' (' + fs + 'pt)';
+document.title += ' (' + fs + 'pt' + (fs3 < fs ? ' / Spalte 3: ' + fs3 + 'pt' : '') + ')';
 </script></body></html>
