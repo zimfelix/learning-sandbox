@@ -5,21 +5,11 @@ import check  # nicht löschen: zeichnet die Ausgabe für den Test auf
 #
 # Merke: Zahlen → datetime(...) · Text → strptime · „als Text“ → strftime
 #        „dauert / +X Minuten“ → timedelta · „+X Monate“ → relativedelta
-#
-# Aufgabe 1:
-#   Parse '26.11.2026 10:00' in ein datetime → klausur.
-#   text = klausur als String im Format '26.11.2026 um 10:00'.
-#
-# Aufgabe 2:
-#   Die Klausur dauert 120 Minuten → ende (datetime).
-#
-# Aufgabe 3:
-#   tage = ganze Tage vom 26.11.2026 bis 24.12.2026 (int).
-#
+
 # Aufgabe 4:
 #   Lernstart war am 25.11.2026 um 18:30. stunden = Stunden bis
 #   Klausurbeginn (float, gesamt).
-#
+
 # Aufgabe 5:
 #   Parse '2027-03-01' → d. monat und jahr aus d auslesen (int).
 #
