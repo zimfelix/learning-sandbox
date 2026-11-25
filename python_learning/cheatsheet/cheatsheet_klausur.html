@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><title>Cheat Sheet Grundlagen der Programmierung</title>
 <style>
-@page { size: A4; margin: 5mm; }
+@page { size: A4; margin: 2.5mm 5mm; }  /* oben/unten knapp, seitlich 5 mm */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root { --fs: 6.6pt; }
 body { font: var(--fs)/1.15 "Helvetica Neue", Arial, sans-serif; color: #000; background: #fff; }
 /* Layout: Script verteilt die Blöcke aus #src auf 3 Spalten (je max. 287 mm hoch) und
    verkleinert --fs schrittweise, bis alles auf 1 A4-Seite passt. */
 #src { width: 65.5mm; }
-.cols { display: flex; gap: 2.2mm; height: 286mm; overflow: hidden; }
-.col { width: 65.5mm; height: 286mm; overflow: hidden; border-right: 0.3pt solid #999; padding-right: 1mm; }
+.cols { display: flex; gap: 2.2mm; height: 291mm; overflow: hidden; }
+.col { width: 65.5mm; height: 291mm; overflow: hidden; border-right: 0.3pt solid #999; padding-right: 1mm; }
 .col:last-child { border-right: 0; }
 h1 { font-size: calc(var(--fs) + 1.2pt); background: #000; color: #fff; padding: 0.3mm 1mm; margin: 0.8mm 0 0.4mm; break-after: avoid; }
 h2 { font-size: calc(var(--fs) + 0.3pt); border-bottom: 0.4pt solid #000; margin: 0.6mm 0 0.2mm; break-after: avoid; }
@@ -27,14 +27,11 @@ th { background: #ddd; }
 .k-task { color: #a3120c; }   /* rot: Aufgabe/Thema – ganze Zeile */
 .k-note { color: #17592a; }   /* grün: Notizzeile (# …) – ganze Zeile */
 .k-alt  { display: block; background: #dce7f7; }  /* jede 2. Aufgabe im Kasten hellblau */
-#legend { border: 0.5pt solid #000; padding: 0.3mm 0.6mm; margin-top: 0.6mm; }
-#legend .k-alt { display: inline; padding: 0 0.6mm; }
 </style></head><body><div class="cols" id="cols"></div><div id="pin"><h2>3.2 matplotlib (mini)</h2><pre>import matplotlib.pyplot as plt
 plt.plot(x, y)      # Linie · x = np.arange(0, 11); y = x**2
 plt.scatter(a, b)   # Streu – x UND y! a = np.random.rand(50)
 plt.hist(n)         # Histogramm · n = np.random.randn(1000)
 fig, ax = plt.subplots(2, 2); ax[0, 0].plot(x, y) · plt.show()</pre></div>
-<div id="legend"><b>Legende Code:</b> <span class="k-task">rot = Aufgabe/Thema</span> · <span class="k-note">grün = Notiz/Ausgabe</span> · schwarz = Code (inkl. # dahinter) · <span class="k-alt">hellblau</span> = jede 2. Aufgabe</div>
 <div id="src">
 <h1>2.1 Variablen &amp; Datentypen</h1>
 <table><tr><th>Typ</th><th>Beispiel</th><th>wofür / Info</th></tr>
@@ -44,84 +41,53 @@ fig, ax = plt.subplots(2, 2); ax[0, 0].plot(x, y) · plt.show()</pre></div>
 <tr><td>float</td><td><code>3.14 1.2e3</code></td><td>Kommazahl mit PUNKT; 1.2e3=1200.0</td></tr>
 <tr><td>complex</td><td><code>4+4j</code></td><td>j statt i</td></tr>
 <tr><td>str</td><td><code>'Hi' "Hi"</code></td><td>Text, unveränderbar</td></tr></table>
-<pre>type(42) → &lt;class 'int'&gt;          # „Datentyp prüfen“
-int(True) → 1   float(42) → 42.0   # „umwandeln“
-str(3.14) → '3.14'   int(3.9) → 3 (abschneiden)
-int('3.5') → ValueError · input() liefert IMMER str
-round(2.0567, 2) → 2.06  # „auf 2 Nachkommastellen runden“
-'Hallo' + str(3) → 'Hallo3'        # Zahl an Text: str()!</pre>
-<p><b>Escape:</b> <code>\'</code> <code>\"</code> <code>\\</code>=\ <code>\n</code> neue Zeile <code>\t</code> Tab <code>\b</code> Backspace</p>
-<h2>String-Methoden (s = 'hello World') – ändern s NICHT</h2>
-<pre>s.upper() → 'HELLO WORLD'  s.lower() → 'hello world'
-s.capitalize() → 'Hello world'        # 1. groß, REST klein
-s.count('l') → 3   s.count('Wo') → 1  # „wie oft kommt … vor“
-s.replace('Wo','AA') → 'hello AArld'  # „ersetze“ (alt, neu)
-s.split(' ') → ['hello','World']  # „zerlegen“ → LISTE
-s[0] 'h'  s[-1] 'd'  s[0:5] 'hello'   # Zeichen/Teilstring
-s = s.upper()  # Ergebnis behalten = neu zuweisen</pre>
-<h2>String-Beispiele wie in der Klausur (geprüft)</h2>
-<pre>t = 'Ich mag Python und ich mag Kaffee'
-t.count('mag') → 2               # „wie oft kommt 'mag' vor“
-t.lower().count('ich') → 2       # Groß/klein egal → erst lower
-t.count('ich') → 1               # 'Ich' zählt NICHT mit!
-t.replace('mag', 'liebe')        # ersetzt ALLE Vorkommen
-# → 'Ich liebe Python und ich liebe Kaffee'
-t.split(' ') → ['Ich','mag',…]   # „Wörter“ → Liste
-len(t.split(' ')) → 7            # „wie viele Wörter“
-t.split(' ')[2] → 'Python'       # „drittes Wort“
-w = 'Klausurvorbereitung'
-w = w.lower()                    # ZUWEISEN, sonst bleibt w
-w.count('u') → 3   len(w) → 19   # Anzahl u / Zeichen
-w[0:7] → 'klausur'  w[-4:] → 'tung'  # Anfang / Ende
-'na' in 'Banane' → True          # „enthält der Text …?“
-'hallo welt'.capitalize() → 'Hallo welt'
-'Hallo' + ' ' + 'Welt' → 'Hallo Welt'  'ab' * 3 → 'ababab'
-# Kette: erst ersetzen, DANN zählen (Vorklausur):
-y = 'wirtschaftsinformatik'.replace('i', 'o')
-y.count('o') → 4                 # 3 i → o + 1 o schon da</pre>
-<h2>Übung 2.1 gelöst</h2>
-<pre># 1) Variablen a–e anlegen · 2) ausgeben
+<pre>s = 'hello World'; w = 'klausurvorbereitung'
+t = 'Ich mag Python und ich mag Kaffee'</pre>
+<table><tr><th>Aufgabe sagt</th><th>Code</th><th>Ergebnis</th></tr>
+<tr><td>„Datentyp prüfen“</td><td><code>type(42)</code></td><td><code>&lt;class 'int'&gt;</code></td></tr>
+<tr><td>„umwandeln“</td><td><code>int(True)</code> · <code>float(42)</code> · <code>str(3.14)</code> · <code>int(3.9)</code></td><td>1 · 42.0 · '3.14' · 3 (abgeschnitten)</td></tr>
+<tr><td>Zahl an Text hängen</td><td><code>'Hallo' + str(3)</code></td><td>'Hallo3' (ohne str: TypeError)</td></tr>
+<tr><td>Eingabe</td><td><code>int(input('Zahl: '))</code></td><td>input() liefert IMMER str; <code>int('3.5')</code> → ValueError</td></tr>
+<tr><td>„auf 2 Nachkommastellen runden“</td><td><code>round(2.0567, 2)</code></td><td>2.06</td></tr>
+<tr><td>„groß / klein schreiben“</td><td><code>s.upper()</code> · <code>s.lower()</code></td><td>'HELLO WORLD' · 'hello world'</td></tr>
+<tr><td>„erster Buchstabe groß“</td><td><code>s.capitalize()</code></td><td>'Hello world' (Rest klein!)</td></tr>
+<tr><td>„wie oft kommt … vor“</td><td><code>t.count('mag')</code></td><td>2 · <code>t.count('ich')</code> → 1 ('Ich' zählt nicht)</td></tr>
+<tr><td>… Groß/klein egal</td><td><code>t.lower().count('ich')</code></td><td>2 (erst lower, dann count)</td></tr>
+<tr><td>„ersetze … durch …“</td><td><code>t.replace('mag', 'liebe')</code></td><td>ALLE Vorkommen (alt, neu)</td></tr>
+<tr><td>„ersetzen, DANN zählen“</td><td><code>y.replace('i', 'o').count('o')</code></td><td>y = 'wirtschaftsinformatik' → 4</td></tr>
+<tr><td>„in Wörter zerlegen“</td><td><code>t.split(' ')</code></td><td>['Ich', 'mag', …] LISTE</td></tr>
+<tr><td>„wie viele Wörter“ / „drittes Wort“</td><td><code>len(t.split(' '))</code> · <code>t.split(' ')[2]</code></td><td>7 · 'Python'</td></tr>
+<tr><td>„wie viele Zeichen“</td><td><code>len(w)</code> · <code>w.count('u')</code></td><td>19 · 3</td></tr>
+<tr><td>„erstes / letztes Zeichen“</td><td><code>s[0]</code> · <code>s[-1]</code></td><td>'h' · 'd'</td></tr>
+<tr><td>„Anfang / Ende“ (Teilstring)</td><td><code>w[0:7]</code> · <code>w[-4:]</code></td><td>'klausur' · 'tung'</td></tr>
+<tr><td>„enthält der Text …?“</td><td><code>'na' in 'Banane'</code></td><td>True</td></tr>
+<tr><td>„verketten / wiederholen“</td><td><code>'Hallo' + ' ' + 'Welt'</code> · <code>'ab' * 3</code></td><td>'Hallo Welt' · 'ababab'</td></tr>
+<tr><td>Ergebnis behalten</td><td><code>s = s.upper()</code></td><td>Methoden ändern s NICHT → neu zuweisen</td></tr>
+<tr><td>Sonderzeichen</td><td><code>\n</code> Zeile <code>\t</code> Tab <code>\'</code> <code>\\</code></td><td>Escape mit Backslash</td></tr></table>
+<h2>Übung 2.1 gelöst (Nr. 3)</h2>
+<pre># 3) Datentyp prüfen: type()
 a = None; b = True; c = 42; d = 3.14; e = 'Hello, World!'
-print(a, b, c, d, e)  # None True 42 3.14 Hello, World!
-# 3) Datentyp prüfen: type()
-print(type(a), type(b))  # &lt;class 'NoneType'&gt; &lt;class 'bool'&gt; …
-# 4) umwandeln: b→int, c→float, d→str, e→GROSS · 5) ausgeben
-b_int = int(b)                # 1
-c_float = float(c)            # 42.0
-d_str = str(d)                # '3.14'
-e_upper = e.upper()           # 'HELLO, WORLD!'
-print(b_int, c_float, d_str, e_upper)</pre>
+print(type(a), type(b))  # &lt;class 'NoneType'&gt; &lt;class 'bool'&gt; …</pre>
 
-<h1>2.2 Operatoren</h1>
-<table><tr><th>Op</th><th>x=10, y=3</th><th>Aufgabe</th></tr>
-<tr><td><code>+ - *</code></td><td>13 7 30</td><td>Addition, Subtraktion, Multipl.</td></tr>
-<tr><td><code>/</code></td><td>3.333… (immer float)</td><td>Division</td></tr>
-<tr><td><code>//</code></td><td>3</td><td>ganzzahlige Division</td></tr>
-<tr><td><code>%</code></td><td>1</td><td>Modulo = Rest → <code>x%2==0</code> gerade, <code>x%7==0</code> durch 7 teilbar</td></tr>
-<tr><td><code>**</code></td><td>1000</td><td>Potenz (<code>^</code> ist XOR, NICHT Potenz!)</td></tr></table>
-<table><tr><th>Art</th><th>Zeichen</th><th>Ergebnis</th></tr>
-<tr><td>Zuweisung</td><td><code>= += -= *= /= **= %=</code></td><td>VERÄNDERT Variable: <code>z += 2</code> = <code>z = z + 2</code></td></tr>
-<tr><td>Vergleich</td><td><code>== != &gt; &lt; &gt;= &lt;=</code></td><td>True/False, Variable bleibt</td></tr>
-<tr><td>Logisch</td><td><code>and or not</code></td><td>Bedingungen verknüpfen</td></tr>
-<tr><td style="white-space:nowrap">Membership</td><td><code>in  not in</code></td><td>„ist enthalten?“ → True/False</td></tr></table>
+<h1>2.2 Operatoren (x = 10, y = 3)</h1>
+<table><tr><th>Aufgabe sagt</th><th>Code</th><th>Ergebnis</th></tr>
+<tr><td>„addiere / subtrahiere / multipliziere“</td><td><code>x + y</code> · <code>x - y</code> · <code>x * y</code></td><td>13 · 7 · 30</td></tr>
+<tr><td>„teile“</td><td><code>x / y</code></td><td>3.333… (IMMER float)</td></tr>
+<tr><td>„ganzzahlig teilen“</td><td><code>x // y</code></td><td>3</td></tr>
+<tr><td>„Rest“, „gerade?“, „durch 7 teilbar?“</td><td><code>x % y</code> · <code>x % 2 == 0</code> · <code>x % 7 == 0</code></td><td>1 · True · False</td></tr>
+<tr><td>„hoch“, „Potenz“</td><td><code>x ** y</code></td><td>1000 (<code>^</code> ist NICHT Potenz)</td></tr>
+<tr><td>„erhöhe z um 2“ (Zuweisungsop.)</td><td><code>z += 2</code> (wie <code>z = z + 2</code>) · auch <code>-= *= /= %= **=</code></td><td>ändert z · <code>/=</code> → float</td></tr>
+<tr><td>„vergleiche“</td><td><code>== != &gt; &lt; &gt;= &lt;=</code></td><td>True/False, Variable bleibt</td></tr>
+<tr><td>„mindestens / höchstens / größer als“</td><td><code>&gt;=</code> · <code>&lt;=</code> · <code>&gt;</code></td><td>„zwischen“: <code>a &lt; b &lt; c</code> erlaubt</td></tr>
+<tr><td>„und / oder / nicht“</td><td><code>and</code> · <code>or</code> · <code>not</code></td><td>Bedingungen verknüpfen</td></tr>
+<tr><td>„ist enthalten?“</td><td><code>'Beta' in ['Alpha','Beta']</code></td><td>True · 'beta' → False (Groß/klein!)</td></tr></table>
 <pre>c = a + 1  # c neu, a bleibt · a + 1 allein: verpufft
-c = a += 1    # SyntaxError (+= liefert keinen Wert)
-'mindestens' → &gt;=   'höchstens' → &lt;=   'größer als' → &gt;
-'Beta' in ['Alpha','Beta'] → True · 'beta' … → False
-a &lt; b &lt; c erlaubt</pre>
+c = a += 1    # SyntaxError (+= liefert keinen Wert)</pre>
 <p><b>Priorität:</b> <code>()</code> › <code>**</code> › <code>* / // %</code> › <code>+ -</code> › Vergleiche/<code>in</code> › <code>not</code> › <code>and</code> › <code>or</code></p>
 <pre>not 7-(1+2**3) &lt; -3 or 'hallo' != 'hallo '
 → 7-9=-2 · -2&lt;-3 False · not → True · or → True</pre>
-<h2>Übung 2.2 gelöst (x = 10, y = 3)</h2>
-<pre># 1) Arithmetik: + - * / % ** von x, y ausgeben
-print(x+y, x-y, x*y, x/y, x%y, x**y)  # 13 7 30 3.333… 1 1000
-# 2) Strings: str1 + str2 verketten → greeting
-greeting = 'Hello' + ' ' + 'World'  # Hello World
-# 3) z = 5: +2, −3, ×4, ÷2 mit Zuweisungsop., je ausgeben
-z = 5
-z += 2; print(z)   # 7      z -= 3; print(z)   # 4
-z *= 4; print(z)  # 16     z /= 2; print(z)  # 8.0 (float!)
-# 4) Vergleichsoperatoren: x, y mit allen Vergleichen
+<h2>Übung 2.2 gelöst (Nr. 4–6, x = 10, y = 3)</h2>
+<pre># 4) Vergleichsoperatoren: x, y mit allen Vergleichen
 print(x==y, x!=y, x&gt;y, x&lt;y, x&gt;=y, x&lt;=y)  # F T T F T F
 # 5) Logische Operatoren: and/or/not mit True, False
 a = True; b = False
@@ -131,35 +97,23 @@ my_list = [1, 2, 3, 4, 5]
 print(3 in my_list, 6 in my_list)      # True False</pre>
 
 <h1>2.3 Kontrollstrukturen</h1>
-<pre>if n &gt; 0:   print('positiv')  # nur ERSTER wahrer Zweig
-elif n == 0: print('null')        # beliebig viele elif
-else:       print('negativ')      # else ohne Bedingung
-for x in [1, 2, 3]: print(x)     # „für jedes Element“
-for i in range(1, 11): print(i)  # „Zahlen 1 bis 10“
-for i in range(10): …  # „10-mal“ (i = 0…9, egal)
-counter = 0
-while counter &lt; 5:  # „solange“ / „bis 5 erreicht“
-    counter += 1; print(counter) # 1…5 · sonst Endlosschleife!
-# Einrückung = Zugehörigkeit: eingerückt unter for → IN for</pre>
-<p><b>break</b> Schleife sofort ENDE · <b>continue</b> Rest überspringen → nächster Durchlauf</p>
+<table><tr><th>Aufgabe sagt</th><th>Code</th><th>Ergebnis</th></tr>
+<tr><td>„wenn … sonst wenn … sonst“</td><td><code>if n &gt; 0:</code> · <code>elif n == 0:</code> · <code>else:</code></td><td>nur ERSTER wahrer Zweig läuft</td></tr>
+<tr><td>„für jedes Element“</td><td><code>for x in liste:</code></td><td>x = jedes Element</td></tr>
+<tr><td>„Zahlen 1 bis 10“</td><td><code>for i in range(1, 11):</code></td><td>stop EXKLUSIV</td></tr>
+<tr><td>„10-mal“</td><td><code>for i in range(10):</code></td><td>i = 0…9 (egal)</td></tr>
+<tr><td>„solange“, „bis 5 erreicht“</td><td><code>while counter &lt; 5:</code> + <code>counter += 1</code></td><td>1…5 · ohne +1 Endlosschleife · <code>&lt;= 5</code> gäbe bis 6</td></tr>
+<tr><td>„überspringe …“</td><td><code>continue</code></td><td>Rest weg → nächster Durchlauf</td></tr>
+<tr><td>„brich ab bei …“, „stoppe“</td><td><code>break</code></td><td>Schleife sofort ENDE</td></tr>
+<tr><td>„gerade“ / „ungerade“</td><td><code>if i % 2 == 0:</code> / <code>!= 0</code></td><td>Modulo, siehe 2.2</td></tr>
+<tr><td>was gehört in die Schleife?</td><td>Einrückung</td><td>eingerückt unter for → IN for</td></tr></table>
 <h2>range(start, stop, step) – stop EXKLUSIV</h2>
 <table><tr><td><code>range(5)</code></td><td>0…4</td><td><code>range(2,6)</code></td><td>2 3 4 5</td></tr>
 <tr><td><code>range(1,11)</code></td><td>1…10</td><td><code>range(10,1001)</code></td><td>10…1000</td></tr>
 <tr><td><code>range(0,10,2)</code></td><td>0 2 4 6 8</td><td><code>range(5,0,-1)</code></td><td>5 4 3 2 1</td></tr></table>
 <p class="c">⚠ Folie 48: „range(0,10,2) … 10“ ist falsch, 10 ist NICHT dabei.</p>
-<h2>Übung 2.3 gelöst</h2>
-<pre># 1) if/elif/else: positiv / null / negativ
-number = -3
-if number &gt; 0:    print('Die Zahl ist positiv')
-elif number == 0: print('Die Zahl ist null')
-else:             print('Die Zahl ist negativ')   # ← läuft
-# 2a) for-Schleife: 1 bis 10 ausgeben
-for i in range(1, 11): print(i)           # 1 … 10
-# 2b) while-Schleife: bis counter 5 erreicht, +1, ausgeben
-counter = 0
-while counter &lt; 5:                        # &lt;= 5 gäbe bis 6!
-    counter += 1; print(counter)          # 1 2 3 4 5
-# 3) 1–10: gerade → continue, bei 7 → break, sonst ausgeben
+<h2>Übung 2.3 gelöst (Nr. 3)</h2>
+<pre># 3) 1–10: gerade → continue, bei 7 → break, sonst ausgeben
 for i in range(1, 11):
     if i % 2 == 0: continue  # gerade überspringen
     if i == 7: break  # bei 7 Ende (7 NICHT gedruckt)
@@ -222,7 +176,7 @@ l + l   aneinander · l * 2 wiederholt · 2 in l → True</pre>
 <tr><td>„n-tes Element“</td><td><code>l[n-1]</code> (ab 0!)</td><td><code>d['Key']</code></td><td>–</td></tr>
 <tr><td>„ändere“</td><td><code>l[1] = 'Welt'</code></td><td><code>d['Alter'] = 26</code></td><td>remove + add</td></tr>
 <tr><td>„füge hinzu“</td><td><code>l.append(42)</code> Ende · <code>l.insert(1, x)</code> Pos.</td><td><code>d['Beruf'] = 'Ing.'</code></td><td><code>m.add(6)</code></td></tr>
-<tr><td>„Liste anhängen“</td><td><code>l.extend([7, 8])</code></td><td>–</td><td><code>m1.union(m2)</code></td></tr>
+<tr><td>„Liste anhängen“</td><td><code>l.extend([7, 8])</code></td><td>–</td><td><code>m1 = m1.union(m2)</code> (neu zuweisen!)</td></tr>
 <tr><td>„entferne Wert x“</td><td><code>l.remove(x)</code> (erstes)</td><td>–</td><td><code>m.remove(x)</code> / <code>discard</code></td></tr>
 <tr><td>„entferne Pos./Key“</td><td><code>del l[0]</code> / <code>l.pop(0)</code></td><td><code>del d['Stadt']</code></td><td>–</td></tr>
 <tr><td>„enthalten?“</td><td><code>x in l</code></td><td><code>'K' in d</code> (Keys!) · <code>x in d.values()</code></td><td><code>x in m</code></td></tr>
@@ -273,25 +227,18 @@ for name, p in d.items():  # Paare entpacken: Anna 72, Ben 48…
         wert = p           # 91 · kürzer: d['Cem'] → 91</pre>
 
 <h1>2.6 Zeitstempel</h1>
-<pre>from datetime import datetime, timedelta  # nicht import datetime
-jetzt = datetime.now()  # „aktueller Zeitstempel“
-d = datetime(2022, 1, 1, 12, 0, 0)  # „fester“ (J,M,T,h,m,s)
-# „parsen“ = str → datetime:
-d = datetime.strptime('10/1/24', '%m/%d/%y')  # 2024-10-01
-# „formatieren“ = datetime → str:
-jetzt.strftime('%d.%m.%Y %H:%M:%S')  # '24.11.2026 10:00:00'
-jetzt.year .month .day .hour .minute .second  # OHNE ()
-diff = jetzt - d  # „Differenz“ → 1787 days, 22:00:00
-diff.days → 1787 · diff.seconds // 3600 → 22 (Rest-Stunden)
-diff.total_seconds() / 3600 → 42910.0 (Stunden gesamt)</pre>
-<table><tr><th>Aufgabe sagt / du hast</th><th>nimm</th></tr>
-<tr><td>Datum als <b>Zahlen</b> („24.11.2026, 9 Uhr“)</td><td><code>datetime(2026, 11, 24, 9, 0)</code> – kein strp/strf!</td></tr>
-<tr><td>Datum als <b>Text</b> <code>'15.03.2027 14:45'</code> → „parsen“</td><td><code>datetime.strptime(text, '%d.%m.%Y %H:%M')</code></td></tr>
-<tr><td>„als String / im Format TT.MM.JJJJ ausgeben“</td><td><code>d.strftime('%d.%m.%Y')</code></td></tr>
-<tr><td>„dauert 90 Minuten“, „+3 Tage“</td><td><code>d + timedelta(minutes=90)</code> / <code>days=3</code> (Plural!)</td></tr>
-<tr><td>„+1 Monat“</td><td><code>d + relativedelta(months=1)</code></td></tr>
-<tr><td>„Tage zwischen“</td><td><code>(d2 - d1).days</code> → int</td></tr></table>
-<p><b>Merken:</b> strP = <b>P</b>arse (Text rein, auf der Klasse) · strF = <b>F</b>ormat (Text raus, auf dem Objekt). <b>Codes:</b> <code>%d</code> Tag <code>%m</code> Monat <code>%y</code> Jahr 24 <code>%Y</code> 2024 <code>%H</code> Std <code>%M</code> Min <code>%S</code> Sek; Trennzeichen EXAKT wie im Text</p>
+<pre>from datetime import datetime, timedelta  # nicht import datetime</pre>
+<table><tr><th>Aufgabe sagt</th><th>Code zum Abtippen (d = 26.11.2026 10:00)</th></tr>
+<tr><td>„aktueller Zeitstempel“, „jetzt“</td><td><code>jetzt = datetime.now()</code></td></tr>
+<tr><td>„fester“ Zeitstempel, Datum als <b>Zahlen</b> („24.11.2026, 9 Uhr“)</td><td><code>datetime(2026, 11, 24, 9, 0)</code> – kein strp/strf!</td></tr>
+<tr><td>Datum als <b>Text</b> → „parse“, „in datetime umwandeln“</td><td><code>d = datetime.strptime('26.11.2026 10:00', '%d.%m.%Y %H:%M')</code> strP = Parse: Text rein</td></tr>
+<tr><td>„als String / im Format … ausgeben“</td><td><code>d.strftime('%d.%m.%Y um %H:%M')</code> → <code>'26.11.2026 um 10:00'</code> strF = Format: Text raus</td></tr>
+<tr><td>Format-Codes</td><td><code>%d</code> Tag <code>%m</code> Monat <code>%Y</code> 2026 <code>%y</code> 26 <code>%H</code> Std <code>%M</code> Min <code>%S</code> Sek · Text exakt abschreiben, nur Zahlen → Code, Wörter („um“) mitschreiben · US <code>'9/24/26'</code> → <code>'%m/%d/%y'</code></td></tr>
+<tr><td>„Jahr / Monat / Stunde von d“</td><td><code>d.year d.month d.day d.hour d.minute</code> → 2026 11 … (OHNE <code>()</code>)</td></tr>
+<tr><td>„dauert 90 Min“, „+3 Tage“, „2 Wochen vorher“</td><td><code>d + timedelta(minutes=90)</code> · <code>d - timedelta(weeks=2)</code> · <code>days=3</code> (Plural!)</td></tr>
+<tr><td>„+1 Monat“, „+1 Jahr“</td><td><code>d + relativedelta(months=1)</code> → 26.12.2026 · <code>years=1</code> (siehe unten)</td></tr>
+<tr><td>„Differenz“, „Tage zwischen“</td><td><code>diff = d - d1</code> (d1 = 1.1.2022 12:00) → <code>1789 days, 22:00:00</code> · <code>diff.days</code> → 1789 (int)</td></tr>
+<tr><td>„… und Stunden“</td><td><code>diff.seconds // 3600</code> → 22 (Rest) · <code>diff.total_seconds() / 3600</code> → gesamt</td></tr></table>
 <pre>from dateutil.relativedelta import relativedelta
 d + relativedelta(months=1)  # Plural = relativ: +1 Monat
 d + relativedelta(day=30)  # Singular = absolut: Tag 30
@@ -317,7 +264,7 @@ print(geparster_zeitstempel)  # 2023-06-15 08:30:00
 # Tage 24.11. bis 24.12. → tage_bis (int)
 start = datetime(2026, 11, 24, 9, 0)  # Zahlen → kein strp
 ende = start + timedelta(minutes=90)  # 2026-11-24 10:30:00
-tage_bis = (datetime(2026,12,24) - datetime(2026,11,24)).days  # 30</pre>
+tage_bis = (datetime(2026,12,24)-datetime(2026,11,24)).days #30</pre>
 
 <h1>3.1 numpy</h1>
 <pre>import numpy as np
@@ -367,8 +314,8 @@ print(df)  # Methoden hängen am OBJEKT df, nicht an pd</pre>
 <table><tr><th>Aufgabe</th><th>Code</th></tr>
 <tr><td>Spalte lesen</td><td><code>df['Gehalt']</code> · mehrere <code>df[['Name','Alter']]</code></td></tr>
 <tr><td>neue Spalte „30 % des Gehalts“</td><td><code>df['Steuer'] = df['Gehalt'] * 0.3</code> (elementweise)</td></tr>
-<tr><td>neue Spalte aus Bedingung „mind. 50“</td><td><code>df['Bestanden'] = df['Punkte'] &gt;= 50</code> → True/False je Zeile, KEIN if (if + Spalte → ValueError)</td></tr>
-<tr><td>„wie viele …“ (True zählen)</td><td><code>df['Bestanden'].sum()</code> → 3 (True = 1) · <code>len(df[df['Punkte'] &gt;= 50])</code></td></tr>
+<tr><td>neue Spalte aus Bedingung „mind. 3500“</td><td><code>df['Gut'] = df['Gehalt'] &gt;= 3500</code> → True/False je Zeile, KEIN if (if + Spalte → ValueError)</td></tr>
+<tr><td>„wie viele …“ (True zählen)</td><td><code>df['Gut'].sum()</code> → 2 (True = 1) · <code>len(df[df['Gehalt'] &gt;= 3500])</code></td></tr>
 <tr><td>Wert ändern „für eine Person“</td><td><code>df.loc[df['Name'] == 'Bob', 'Gehalt'] = 3800</code></td></tr>
 <tr><td>Wert ändern per Index</td><td><code>df.loc[0, 'Gehalt'] = 4100</code> (Zeile, Spalte)</td></tr>
 <tr><td>Zeile entfernen</td><td><code>df = df.drop(2)</code> (Index; NEU ZUWEISEN!)</td></tr>
@@ -431,11 +378,7 @@ for i in range(6): fl.append(random.uniform(1, 80))
 zahl_int = random.randint(-5, 5)
 print(fl, zahl_int)  # [51.51…, 2.97…, …] 3</pre>
 
-<div class="warn"><b>⚠ Typische Fehler datetime</b><br>
-<code>import datetime</code> → <code>datetime(…)</code> TypeError · richtig: <code>from datetime import datetime, timedelta</code><br>
-<code>strptime</code> Text→Datum · <code>strftime</code> Datum→Text · Format EXAKT wie Text<br>
-<code>relativedelta(minute=90)</code> → ValueError · Plural <code>minutes=</code> addiert<br>
-<code>diff.days</code> ohne () · Teile <code>.year .hour</code> ohne ()</div>
+
 
 </div>
 <script>
@@ -475,19 +418,18 @@ for (let el = src.firstElementChild; el; ) {
   el = after;
   blocks.push(box);
 }
-const pinBox = document.getElementById('pin'), legend = document.getElementById('legend');
+const pinBox = document.getElementById('pin');
 function layout(fs) {
   document.documentElement.style.setProperty('--fs', fs + 'pt');
   cols.innerHTML = '';
   const c = [0, 1, 2].map(() => cols.appendChild(Object.assign(document.createElement('div'), { className: 'col' })));
   c[0].appendChild(pinBox);  // Pin-Kasten vorab unten in Spalte 1 reservieren
-  c[1].appendChild(legend);  // Legende vorab unten in Spalte 2 reservieren
   let i = 0;
   for (const b of blocks) {
-    if (i === 0) c[0].insertBefore(b, pinBox); else if (i === 1) c[1].insertBefore(b, legend); else c[i].appendChild(b);
+    if (i === 0) c[0].insertBefore(b, pinBox); else c[i].appendChild(b);
     while (c[i].scrollHeight > c[i].clientHeight) {
       if (i === 2) return false;
-      if (++i === 1) c[1].insertBefore(b, legend); else c[i].appendChild(b);  // Legende bleibt unten
+      c[++i].appendChild(b);
     }
   }
   return true;
@@ -498,8 +440,6 @@ while (fs > 4 && !layout(fs)) fs = Math.round((fs - 0.1) * 10) / 10;
 const c0 = cols.firstElementChild;
 if (pinBox.parentNode !== c0 || c0.scrollHeight > c0.clientHeight) document.title += ' PIN-PASST-NICHT';
 else document.title += ' PIN-OK';
-const c1 = c0.nextElementSibling;
-document.title += (legend.parentNode !== c1 || c1.scrollHeight > c1.clientHeight) ? ' LEG-PASST-NICHT' : ' LEG-OK';
 // Prüfung: umgebrochene Codezeilen zählen (Zeilen laut Text vs. gerenderte Höhe)
 let wrapped = 0;
 for (const pre of cols.querySelectorAll('pre')) {
