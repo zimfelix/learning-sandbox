@@ -6,14 +6,24 @@ import check  # nicht löschen: zeichnet die Ausgabe für den Test auf
 # Aufgabe 1:
 #   a = NumPy-Array mit 5, 10, 15, … 50 (arange mit Schrittweite).
 #   summe, mittel, groesster berechnen.
-#
+import numpy as np
+
+a = np.arange(1, 51, 5)
+sum = np.sum(a)
+mittel = np.mean(a)
+groesster = np.max(a)
+
+print(sum, mittel, groesster)
+
 # Aufgabe 2:
 #   b = jedes Element von a mal 3, c = jedes Element plus 100.
 #   b2 = das dritte Element von b.
-#
+
 # Aufgabe 3:
 #   mitte = Elemente von a mit Index 2 bis 5, ende3 = die letzten drei.
-#
+
+
+
 # Aufgabe 4 (bedingte Auswahl):
 #   zwischen = alle Elemente von a größer 12 UND kleiner 38,
 #   ungerade = alle ungeraden Elemente von a,
@@ -44,3 +54,8 @@ check.ende(
              "ungerade.tolist()": [5, 15, 25, 35, 45], "d.tolist()[:4]": [0, 0, 0, 20],
              "int(summe_neu)": 245, "float(m50)": 25.5, "float(s50)": 14.43},
 )
+
+
+
+
+

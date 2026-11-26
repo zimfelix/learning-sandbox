@@ -8,47 +8,100 @@
 # Aufgabe 1:
 #   Zahlen zwischen 1 und 500, die durch 3 und durch 5 teilbar sind.
 #   Berechne die Summe dieser Zahlen.
-#
+
+zahlen = []
+for i in range(1, 501):
+    if i % 3 == 0 and i % 5 == 0:
+        zahlen.append(i)
+np.array(zahlen)
+x = np.sum(zahlen)
+print(x)
+
 # Aufgabe 2:
 #   Zahlen zwischen 100 und 300, die durch 4, aber NICHT durch 6
 #   teilbar sind. Wie viele Zahlen sind das?
-#
+
+list = []
+for i in range(100, 301):
+    if i % 4 == 0 and not i % 6 == 0:
+        list.append(i)
+count = list.count()
+print(count)
+
 # Aufgabe 3:
 #   Berechne das Produkt aller geraden Zahlen von 1 bis 10.
-#
+prod = 0
+
+for i in range(1, 11):
+    if i % 2 == 0:
+        prod *= i
+
 # Aufgabe 4:
 #   Addiere 1 + 2 + 3 + ... so lange, bis die Summe größer als 1000 ist.
 #   Bei welcher Zahl n ist das zum ersten Mal der Fall? (while-Schleife)
-#
+
+
 # ── Typ 2: Funktion + if + return ────────────────────────────────
 #
 # Aufgabe 5:
 #   Funktion 'rabatt' mit zwei Inputs (preis, menge). Ist der Gesamtpreis
 #   (preis mal menge) größer als 200, werden 10 % abgezogen. Gesamtpreis
 #   zurückgeben. Was gibt rabatt(15, 20) zurück?
-#
+def rabatt(preis, menge):
+
+    if preis * menge > 200:
+        preis * 0.9
+        return preis
+
+rabatt(15, 20)
 # Aufgabe 6:
 #   Funktion 'pruefen' mit drei Inputs (a, b, c). Falls die Summe von a
 #   und b größer als c ist, soll c davon abgezogen werden und das
 #   Ergebnis zurückgegeben werden; sonst wird c zurückgegeben.
 #   Welchen Wert gibt pruefen(12, 9, 25) zurück?
-#
+def pruefen(a, b, c):
+
+    summe = 0
+    if a + b > c:
+        return summe - c
+    else:
+        return summe == c
+pruefen(12, 9, 25)
+
+
+
 # Aufgabe 7:
 #   Funktion 'note' mit einem Input (punkte):
 #   mindestens 90 → 'sehr gut', mindestens 75 → 'gut',
 #   mindestens 50 → 'bestanden', sonst → 'nicht bestanden'.
 #   Was gibt note(75) zurück?
-#
+def note(punkte):
+
+    if punkte > 90:
+        print('sehr gut')
+    elif punkte > 75:
+        print('gut')
+note(75)
 # Aufgabe 8:
 #   Funktion 'maximum' mit drei Inputs (a, b, c), die die größte Zahl
 #   zurückgibt, OHNE max() zu verwenden. Was gibt maximum(7, 19, 3) zurück?
-#
+
+def maximum(a, b, c):
+    if a < b:
+        return b
+    if b < c:
+        return c
+print(maximum(7, 19, 3))
+
 # ── Typ 3: String-Methoden ───────────────────────────────────────
 #
 # Aufgabe 9:
 #   Erstelle das String-Literal 'programmierung' und weise es der
 #   Variablen x zu. Wandle es in Großbuchstaben um und zähle alle 'R'.
-#
+x = 'programmieren'
+x.upper()
+x.count('R')
+
 # Aufgabe 10:
 #   Erstelle das String-Literal 'banane' und weise es der Variablen y zu.
 #   Ersetze alle 'a' durch 'e' und zähle danach alle 'e'.
@@ -67,10 +120,15 @@
 # Aufgabe 13:
 #   zahlen = [12, 7, 33, 18, 5, 40]
 #   Berechne die Summe aller Zahlen, die größer als 10 sind.
-#
+zahlen = [12, 7, 33, 18, 5, 40]
+groesser = []
+for i in zahlen:
+    if i > 10:
+        groesser.append(i)
+print(groesser.sum())
+
 # Aufgabe 14:
 #   Funktion 'zaehle' mit zwei Inputs (text, zeichen), die zurückgibt,
-#   wie oft zeichen in text vorkommt, OHNE .count() zu verwenden.
 #   Was gibt zaehle('mississippi', 's') zurück?
 #
 # Achte auf die typischen Fehler aus klausur_beispiele.py:
