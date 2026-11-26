@@ -57,8 +57,9 @@ Klausur **mit Stift und Papier**, ca. **24./25.11.2026** (genaues Datum offen, o
 
 **Nur erkennen:** `subplots`, `relativedelta`, Formatcode-Details, `np.arange`.
 
-## Stand (2026-11-14)
+## Stand
 
+- **✅ Klausurvorbereitung abgeschlossen (2026-11-26):** Klausur am 26.11.2026, 8:00, mit einem A4-Cheat-Sheet (`cheatsheet/cheatsheet_klausur.pdf`). Letzte Übungen: Klausur-Training, Drills 2.5/2.6/3.1, Lösungen zum Lesen in `uni_material/uebungen/klausur_uebungen/loesungen_zum_lesen.py`. Häufigster Restfehler: Ergebnis nicht speichern (`x.upper()` statt `x = x.upper()`), `len` vs. `.count`, `>=` bei „mindestens“, Startwert 1 beim Produkt.
 - **Selbsteinschätzung 2026-11-14:** 2.1–2.5 relativ sicher; 2.6, 3.1, 3.2 noch wackelig, sollen morgen besser sitzen.
 - **2026-11-14:** 2.6 (+ Wiederholung `u2_6b`), 3.1 und 3.2 durchgearbeitet; 3.2 Teil 3–4 und 2.6b Teil 4 per Lösung. Wackelig: `strptime`/`strftime` (Richtung, Klasse vs. Objekt), `timedelta` über `.days`/`.seconds`, `()` beim Aufruf vergessen (`plt.show`), `range`-Start/-Stop.
 - **Erledigt (2026-11-13):** 2.1, 2.3, 2.4 und Zusatzaufgaben 1–3 zu 2.4.
