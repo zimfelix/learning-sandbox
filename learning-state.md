@@ -1,5 +1,11 @@
 # Learning State – Learning Sandbox
 
+## To-do (dringend)
+
+- [ ] ELSTER richtig einrichten
+- [ ] BAföG beantragen
+- [ ] Wohngeld beantragen – vor 2027
+
 Übersicht über alle bisher besprochenen Themen, projektübergreifend. Stand: 2026-11-03.
 
 **Status:**
